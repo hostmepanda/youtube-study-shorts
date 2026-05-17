@@ -1,0 +1,25 @@
+pipeline:
+  wooden_roll_path: ../wooden-roll
+  output_dir: output
+
+pexels:
+  per_page: 15
+  orientation: portrait
+  min_width: 1080
+  min_height: 1920
+
+video:
+  resolution: "1080x1920"
+  duration: 15
+  font_size: 70
+  text_fade_duration: 0.3
+  music_volume: 0.08
+  voice_volume: 1.5
+  intro_delay: 0.5
+  outro_text: "Follow for more 🌍"
+  outro_duration: 2.5
+
+youtube:
+  category_id: "27"
+  privacy_status: public
+  max_per_day: 1

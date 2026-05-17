@@ -1,0 +1,23 @@
+# Environment
+.env
+
+# Output (generated files)
+output/texts/
+output/images/
+output/configs/
+output/videos/
+
+# Photos dedup tracker
+data/used_photos.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# macOS
+.DS_Store
+
+# YouTube OAuth token (sensitive)
+token.json
