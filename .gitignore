@@ -6,6 +6,8 @@ output/texts/
 output/images/
 output/configs/
 output/videos/
+output/approved/
+output/uploaded/
 
 # Dedup trackers
 data/used_photos.json
