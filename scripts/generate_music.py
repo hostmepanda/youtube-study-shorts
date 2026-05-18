@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 MUSIC_DIR = ROOT / "music"
-MLX_MUSICGEN = ROOT.parent / "mlx-examples" / "musicgen" / "musicgen.py"
+MLX_MUSICGEN = ROOT.parent / "mlx-examples" / "musicgen" / "generate.py"
 
 MOOD_PROMPTS = {
     "motivational": [
@@ -62,12 +62,13 @@ def generate_track(prompt: str, output_path: Path) -> bool:
             sys.executable,
             str(MLX_MUSICGEN),
             "--model", "facebook/musicgen-small",
-            "--prompt", prompt,
-            "--duration", str(DURATION),
-            "--output", str(output_path),
+            "--text", prompt,
+            "--max-steps", str(DURATION * 50),  # ~50 steps per second
+            "--output-path", str(output_path),
         ],
         capture_output=True,
         text=True,
+        cwd=str(MLX_MUSICGEN.parent),
     )
 
     if result.returncode != 0:
