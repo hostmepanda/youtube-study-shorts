@@ -92,10 +92,13 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
                 "text": build_text_block(text_data["lines"] + [random.choice(SUPPORT_LINES)]),
                 "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
                 **random.choice(list(VOICE_PROFILES.values())),
+                "phraseGap": 0.5,
             },
             {
                 "type": "video",
                 "backgroundImages": images_abs,
+                "imageTransition": "fade",
+                "imageTransitionDuration": 0.5,
                 "output": output_rel,
                 "fontSize": 170,
                 "textOutlineSize": 8,

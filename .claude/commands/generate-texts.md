@@ -10,6 +10,7 @@ Generate a batch of 10 motivational texts for YouTube Shorts on language learnin
 - NOT: fluffy, corporate, preachy, philosophical, childish
 - Each line must be short — max 8 words
 - Lines can be fragments — punchy is better than complete
+- Never end a line with a full stop (.)
 
 ## Structures
 
