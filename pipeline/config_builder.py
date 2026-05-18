@@ -33,12 +33,14 @@ SUPPORT_LINES = [
     "You belong in this language.",
 ]
 
-SUBSCRIBE_CTАС = [
-    "Subscribe to keep going.",
-    "Follow to stay on track.",
-    "Subscribe. Show up tomorrow.",
-    "Follow for your daily push.",
-    "Subscribe. One day at a time.",
+CHANNEL = "@StudyGoTogether"
+
+SUBSCRIBE_CTAS = [
+    "Subscribe to keep going",
+    "Subscribe to stay on track",
+    "Subscribe — show up tomorrow",
+    "Subscribe for your daily push",
+    "Subscribe — one day at a time",
 ]
 
 CONFIGS_DIR = Path(__file__).parent.parent / "output" / "configs"
@@ -70,8 +72,8 @@ VOICE_PROFILES = {
 
 
 def build_text_block(lines: list[str]) -> str:
-    """Format lines for wooden-roll: single newline = same screen, blank line = next screen."""
-    return "\n\n".join(lines)
+    cleaned = [line.rstrip(".") for line in lines]
+    return "\n\n".join(cleaned)
 
 
 def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path, dict]:
@@ -105,9 +107,9 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
                 "textOutlineColor": "#000000",
                 "textFadeDuration": 0.3,
                 "introDelay": 0.5,
-                "outroText": random.choice(SUBSCRIBE_CTАС),
+                "outroText": f"{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}",
                 "outroDuration": 5.0,
-                "outroFontSize": 170,
+                "outroFontSize": 100,
                 "music": music_rel,
                 "musicVolume": 0.08,
                 "musicOffset": "random",
