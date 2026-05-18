@@ -10,6 +10,37 @@ from pathlib import Path
 
 import yaml
 
+SUPPORT_LINES = [
+    "You've got this.",
+    "One step at a time.",
+    "Keep going.",
+    "Progress over perfection.",
+    "Every word counts.",
+    "You're closer than you think.",
+    "Small steps. Big results.",
+    "Believe in the process.",
+    "It gets easier. Keep talking.",
+    "Your effort is already paying off.",
+    "Proud of you for trying.",
+    "The best is ahead of you.",
+    "One conversation can change everything.",
+    "You're doing better than you know.",
+    "Courage sounds like your voice.",
+    "Stay curious. Stay speaking.",
+    "Growth is happening. Trust it.",
+    "Every mistake is a step forward.",
+    "The world wants to hear you.",
+    "You belong in this language.",
+]
+
+SUBSCRIBE_CTАС = [
+    "Subscribe to keep going.",
+    "Follow to stay on track.",
+    "Subscribe. Show up tomorrow.",
+    "Follow for your daily push.",
+    "Subscribe. One day at a time.",
+]
+
 CONFIGS_DIR = Path(__file__).parent.parent / "output" / "configs"
 VIDEOS_DIR = Path(__file__).parent.parent / "output" / "videos"
 WOODEN_ROLL_DIR = Path(__file__).parent.parent.parent / "wooden-roll"
@@ -59,7 +90,7 @@ def build_config(text_file: Path, image: Path, music: Path) -> tuple[Path, dict]
         "steps": [
             {
                 "type": "audio",
-                "text": build_text_block(text_data["lines"]),
+                "text": build_text_block(text_data["lines"] + [random.choice(SUPPORT_LINES)]),
                 "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
                 **random.choice(list(VOICE_PROFILES.values())),
             },
@@ -67,12 +98,12 @@ def build_config(text_file: Path, image: Path, music: Path) -> tuple[Path, dict]
                 "type": "video",
                 "background": image_rel,
                 "output": output_rel,
-                "fontSize": 75,
+                "fontSize": 170,
                 "textFadeDuration": 0.3,
                 "introDelay": 0.5,
-                "outroText": "Follow for more 🌍",
-                "outroDuration": 2.5,
-                "outroFontSize": 60,
+                "outroText": random.choice(SUBSCRIBE_CTАС),
+                "outroDuration": 5.0,
+                "outroFontSize": 170,
                 "music": music_rel,
                 "musicVolume": 0.08,
                 "voiceVolume": 1.5,
