@@ -120,6 +120,10 @@ def main():
     used_file.write_text(json.dumps(sorted(used_ids), indent=2))
     text_file.unlink(missing_ok=True)
 
+    # Remove images — no longer needed once video is rendered
+    for img_path in image_paths.split(","):
+        Path(img_path.strip()).unlink(missing_ok=True)
+
     print("\n" + "=" * 50)
     print(f"  Done! {video_path}")
     print("=" * 50)
