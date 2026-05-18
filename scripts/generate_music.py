@@ -40,7 +40,7 @@ MOOD_PROMPTS = {
     ],
 }
 
-DURATION = 28  # seconds — stays within MusicGen's native 30s limit
+DEFAULT_DURATION = 35  # seconds — safe limit for musicgen-small on M1 8GB
 
 
 def check_setup():
@@ -51,7 +51,7 @@ def check_setup():
         sys.exit(1)
 
 
-def generate_track(prompt: str, output_path: Path) -> bool:
+def generate_track(prompt: str, output_path: Path, duration: int = DEFAULT_DURATION) -> bool:
     if output_path.exists():
         print(f"  [skip] {output_path.name} already exists")
         return True
@@ -63,7 +63,7 @@ def generate_track(prompt: str, output_path: Path) -> bool:
             str(MLX_MUSICGEN),
             "--model", "facebook/musicgen-small",
             "--text", prompt,
-            "--max-steps", str(DURATION * 50),  # ~50 steps per second
+            "--max-steps", str(duration * 50),  # ~50 steps per second
             "--output-path", str(output_path),
         ],
         capture_output=True,
@@ -83,6 +83,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mood", required=True, choices=list(MOOD_PROMPTS.keys()))
     parser.add_argument("--count", type=int, default=3, help="Number of tracks to generate")
+    parser.add_argument("--duration", type=int, default=DEFAULT_DURATION, help="Track length in seconds")
     parser.add_argument("--force", action="store_true", help="Regenerate existing tracks")
     args = parser.parse_args()
 
@@ -104,7 +105,7 @@ def main():
 
         print(f"\n[{i+1}/{args.count}] mood={args.mood}")
         print(f"  prompt: {prompt}")
-        if generate_track(prompt, output_path):
+        if generate_track(prompt, output_path, args.duration):
             generated += 1
 
     print(f"\nDone — {generated}/{args.count} tracks generated in music/{args.mood}/")
