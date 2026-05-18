@@ -7,8 +7,10 @@ output/images/
 output/configs/
 output/videos/
 
-# Photos dedup tracker
+# Dedup trackers
 data/used_photos.json
+output/texts/used_texts.json
+output/texts/*_tmp.json
 
 # Python
 __pycache__/

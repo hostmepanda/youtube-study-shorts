@@ -40,17 +40,33 @@ def main():
     print("  YouTube Shorts Pipeline")
     print("=" * 50)
 
-    # 1. Text — passed in as a JSON file or use a sample
-    text_files = sorted((ROOT / "output" / "texts").glob("*.json"))
-    if not text_files:
-        sys.exit("No text files found in output/texts/. Run /generate-short to create one.")
+    # 1. Pick next unused text from batch files
+    batch_files = sorted((ROOT / "output" / "texts").glob("batch_*.json"))
+    used_file = ROOT / "output" / "texts" / "used_texts.json"
+    used_ids = set(json.loads(used_file.read_text()) if used_file.exists() else [])
 
-    # Pick the most recent unused text
-    text_file = text_files[-1]
-    text_data = json.loads(text_file.read_text())
-    print(f"\n▶ Text: {text_file.name}")
+    text_data = None
+    source_batch = None
+    for batch_file in reversed(batch_files):
+        batch = json.loads(batch_file.read_text())
+        for item in batch:
+            if item["id"] not in used_ids:
+                text_data = item
+                source_batch = batch_file
+                break
+        if text_data:
+            break
+
+    if not text_data:
+        sys.exit("No unused texts left. Run /generate-texts to create a new batch.")
+
+    print(f"\n▶ Text [{text_data['id']}] from {source_batch.name}")
     for line in text_data["lines"]:
         print(f"  {line}")
+
+    # Write to a temp single-text file for the pipeline scripts
+    text_file = ROOT / "output" / "texts" / f"{text_data['id']}_tmp.json"
+    text_file.write_text(json.dumps(text_data, indent=2))
 
     # 2. Fetch image
     keywords = ",".join(text_data.get("keywords", ["language", "learning"]))
@@ -97,6 +113,11 @@ def main():
     )
     if result.returncode != 0:
         sys.exit("✗ Render failed")
+
+    # Mark text as used
+    used_ids.add(text_data["id"])
+    used_file.write_text(json.dumps(sorted(used_ids), indent=2))
+    text_file.unlink(missing_ok=True)
 
     print("\n" + "=" * 50)
     print(f"  Done! {video_path}")
