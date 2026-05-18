@@ -21,5 +21,6 @@ __pycache__/
 # macOS
 .DS_Store
 
-# YouTube OAuth token (sensitive)
+# YouTube OAuth credentials (sensitive)
+credentials.json
 token.json
