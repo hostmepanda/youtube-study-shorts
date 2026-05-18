@@ -14,7 +14,7 @@ def select_track(mood: str) -> str:
     folder = MUSIC_DIR / mood
     tracks = list(folder.glob("*.mp3"))
     if not tracks:
-        sys.exit(f"No .mp3 files found in {folder} — add tracks manually from pixabay.com/music or similar")
+        sys.exit(f"No .mp3 files found in {folder} — generate tracks with: python ../wooden-roll/scripts/generate_music.py --mood {mood} --output-dir {folder}")
     return str(random.choice(tracks))
 
 
