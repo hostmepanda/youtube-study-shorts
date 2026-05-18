@@ -78,17 +78,35 @@ def fetch_image(keywords: list[str]) -> str:
             save_used(used)
             return str(dest)
 
-    sys.exit("No unused photos found for keywords: " + ", ".join(keywords))
+    return None
+
+
+def fetch_images(keywords: list[str], count: int = 3) -> list[str]:
+    paths = []
+    expanded = expand_keywords(keywords)
+    # Cycle through keyword pool until we have enough images
+    kw_cycle = (expanded * ((count // len(expanded)) + 2))[:count * 3]
+    for kw in kw_cycle:
+        if len(paths) >= count:
+            break
+        p = fetch_image([kw])
+        if p:
+            paths.append(p)
+    if not paths:
+        sys.exit("No unused photos found for keywords: " + ", ".join(keywords))
+    return paths
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--keywords", required=True, help="Comma-separated keywords")
+    parser.add_argument("--count", type=int, default=3, help="Number of images to fetch")
     args = parser.parse_args()
 
     keywords = [k.strip() for k in args.keywords.split(",")]
-    path = fetch_image(keywords)
-    print(path)
+    paths = fetch_images(keywords, args.count)
+    for p in paths:
+        print(p)
 
 
 if __name__ == "__main__":

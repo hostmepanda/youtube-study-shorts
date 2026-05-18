@@ -68,12 +68,13 @@ def main():
     text_file = ROOT / "output" / "texts" / f"{text_data['id']}_tmp.json"
     text_file.write_text(json.dumps(text_data, indent=2))
 
-    # 2. Fetch image
+    # 2. Fetch 3 images
     keywords = ",".join(text_data.get("keywords", ["language", "learning"]))
-    image_path = run_step(
-        "Fetching image",
-        ["python3", str(ROOT / "pipeline" / "image_fetcher.py"), "--keywords", keywords],
+    images_output = run_step(
+        "Fetching images",
+        ["python3", str(ROOT / "pipeline" / "image_fetcher.py"), "--keywords", keywords, "--count", "3"],
     )
+    image_paths = ",".join(images_output.splitlines())
 
     # 3. Select music
     mood = text_data.get("mood", "motivational")
@@ -88,7 +89,7 @@ def main():
         [
             "python3", str(ROOT / "pipeline" / "config_builder.py"),
             "--text-file", str(text_file),
-            "--image", image_path,
+            "--images", image_paths,
             "--music", music_path,
         ],
     )

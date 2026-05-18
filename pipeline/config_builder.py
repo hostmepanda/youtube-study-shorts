@@ -74,15 +74,14 @@ def build_text_block(lines: list[str]) -> str:
     return "\n\n".join(lines)
 
 
-def build_config(text_file: Path, image: Path, music: Path) -> tuple[Path, dict]:
+def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path, dict]:
     text_data = json.loads(text_file.read_text())
 
     short_id = f"short_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     output_video = VIDEOS_DIR / f"{short_id}.mp4"
     config_path = CONFIGS_DIR / f"{short_id}.yaml"
 
-    # Paths relative to wooden-roll dir (where node runs from)
-    image_rel = str(image.resolve())
+    images_abs = [str(Path(img).resolve()) for img in images]
     music_rel = str(music.resolve())
     output_rel = str(output_video.resolve())
 
@@ -96,9 +95,11 @@ def build_config(text_file: Path, image: Path, music: Path) -> tuple[Path, dict]
             },
             {
                 "type": "video",
-                "background": image_rel,
+                "backgroundImages": images_abs,
                 "output": output_rel,
                 "fontSize": 170,
+                "textOutlineSize": 8,
+                "textOutlineColor": "#000000",
                 "textFadeDuration": 0.3,
                 "introDelay": 0.5,
                 "outroText": random.choice(SUBSCRIBE_CTАС),
@@ -106,6 +107,7 @@ def build_config(text_file: Path, image: Path, music: Path) -> tuple[Path, dict]
                 "outroFontSize": 170,
                 "music": music_rel,
                 "musicVolume": 0.08,
+                "musicOffset": "random",
                 "voiceVolume": 1.5,
             },
         ]
@@ -138,19 +140,19 @@ def build_config(text_file: Path, image: Path, music: Path) -> tuple[Path, dict]
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--text-file", required=True)
-    parser.add_argument("--image", required=True)
+    parser.add_argument("--images", required=True, help="Comma-separated image paths")
     parser.add_argument("--music", required=True)
     args = parser.parse_args()
 
     text_file = Path(args.text_file)
-    image = Path(args.image)
+    images = [Path(p.strip()) for p in args.images.split(",")]
     music = Path(args.music)
 
-    for p in (text_file, image, music):
+    for p in ([text_file] + images + [music]):
         if not p.exists():
             sys.exit(f"File not found: {p}")
 
-    config_path, metadata = build_config(text_file, image, music)
+    config_path, metadata = build_config(text_file, images, music)
 
     print(f"config:{config_path}")
     print(f"video:{metadata['video_path']}")
