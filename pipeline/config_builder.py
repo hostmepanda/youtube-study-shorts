@@ -78,6 +78,8 @@ def build_text_block(lines: list[str]) -> str:
 
 def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path, dict]:
     text_data = json.loads(text_file.read_text())
+    if isinstance(text_data, list):
+        text_data = text_data[0]
 
     short_id = f"short_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     output_video = VIDEOS_DIR / f"{short_id}.mp4"

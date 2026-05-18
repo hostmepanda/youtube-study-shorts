@@ -4,28 +4,15 @@ Run the full pipeline to produce one YouTube Short from the next available text.
 
 ## Steps
 
-1. **Pick text** — find the oldest unused JSON file in `output/texts/`. If none exist, tell the user to run `/generate-texts` first and stop.
+1. **Check texts** — if no `output/texts/batch_*.json` files exist, tell the user to run `/generate-texts` first and stop.
 
-2. **Fetch image** — run:
+2. **Run pipeline** — execute:
    ```
-   python3 pipeline/image_fetcher.py --keywords "<comma-separated keywords from text file>"
+   python3 main.py
    ```
+   `main.py` handles everything: picks the next unused text, fetches images, selects music, builds config, renders video, marks text as used, and cleans up images.
 
-3. **Select music** — run:
-   ```
-   python3 pipeline/music_selector.py --mood <mood from text file>
-   ```
-
-4. **Build config** — run:
-   ```
-   python3 pipeline/config_builder.py --text-file <path> --image <path> --music <path>
-   ```
-
-5. **Render video** — run:
-   ```
-   python3 main.py <config path from step 4>
-   ```
-
-6. **Report** — print:
+3. **Report** — print:
    - Path to the final `.mp4`
-   - YouTube title, description, and tags from the `_meta.json` sidecar
+   - YouTube title from the `_meta.json` sidecar
+   - Remind the user to move the video to `output/approved/` to queue it for upload
