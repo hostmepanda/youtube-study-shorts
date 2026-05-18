@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+"""Upload approved shorts to YouTube with scheduled publish times."""
+
+import argparse
+import json
+import os
+import shutil
+import sys
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+from dotenv import load_dotenv
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
+
+load_dotenv()
+
+ROOT = Path(__file__).parent.parent
+APPROVED_DIR = ROOT / "output" / "approved"
+UPLOADED_DIR = ROOT / "output" / "uploaded"
+CREDENTIALS_FILE = ROOT / "credentials.json"
+TOKEN_FILE = ROOT / "token.json"
+
+SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+
+PUBLISH_HOUR = 9   # 9am
+PUBLISH_TZ = timezone.utc  # change to your local tz if needed
+
+
+def authenticate() -> Credentials:
+    creds = None
+    if TOKEN_FILE.exists():
+        creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
+
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            if not CREDENTIALS_FILE.exists():
+                sys.exit("credentials.json not found. See README for setup instructions.")
+            flow = InstalledAppFlow.from_client_secrets_file(str(CREDENTIALS_FILE), SCOPES)
+            creds = flow.run_local_server(port=0)
+        TOKEN_FILE.write_text(creds.to_json())
+
+    return creds
+
+
+def next_publish_time(offset_days: int) -> str:
+    """Return RFC 3339 datetime for 9am UTC, offset_days from today."""
+    now = datetime.now(PUBLISH_TZ)
+    target = now.replace(hour=PUBLISH_HOUR, minute=0, second=0, microsecond=0)
+    if target <= now:
+        target += timedelta(days=1)
+    target += timedelta(days=offset_days)
+    return target.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+
+def load_metadata(video_path: Path) -> dict:
+    meta_path = ROOT / "output" / "configs" / (video_path.stem + "_meta.json")
+    if meta_path.exists():
+        return json.loads(meta_path.read_text())
+    # Fallback metadata
+    return {
+        "title": f"{video_path.stem} #languagelearning #motivation",
+        "description": "Start speaking. Stop waiting.",
+        "tags": ["languagelearning", "motivation", "shorts"],
+        "category_id": "27",
+    }
+
+
+def upload_video(youtube, video_path: Path, publish_at: str) -> str:
+    meta = load_metadata(video_path)
+    print(f"  Title:      {meta['title']}")
+    print(f"  Publish at: {publish_at}")
+
+    body = {
+        "snippet": {
+            "title": meta["title"],
+            "description": meta.get("description", ""),
+            "tags": meta.get("tags", []),
+            "categoryId": meta.get("category_id", "27"),
+        },
+        "status": {
+            "privacyStatus": "private",
+            "publishAt": publish_at,
+            "selfDeclaredMadeForKids": False,
+        },
+    }
+
+    media = MediaFileUpload(str(video_path), mimetype="video/mp4", resumable=True)
+    request = youtube.videos().insert(part="snippet,status", body=body, media_body=media)
+
+    response = None
+    while response is None:
+        _, response = request.next_chunk()
+
+    return response["id"]
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--auth", action="store_true", help="Run OAuth flow and exit")
+    args = parser.parse_args()
+
+    creds = authenticate()
+    if args.auth:
+        print("✓ Authentication successful. token.json saved.")
+        return
+
+    UPLOADED_DIR.mkdir(parents=True, exist_ok=True)
+
+    videos = sorted(APPROVED_DIR.glob("*.mp4"))
+    if not videos:
+        print("No videos in output/approved/ — nothing to upload.")
+        return
+
+    youtube = build("youtube", "v3", credentials=creds)
+    print(f"Found {len(videos)} video(s) to upload.\n")
+
+    for i, video_path in enumerate(videos):
+        print(f"▶ Uploading {video_path.name}")
+        publish_at = next_publish_time(offset_days=i)
+        try:
+            video_id = upload_video(youtube, video_path, publish_at)
+            print(f"  ✓ Uploaded: https://youtube.com/shorts/{video_id}\n")
+            dest = UPLOADED_DIR / video_path.name
+            shutil.move(str(video_path), str(dest))
+        except Exception as e:
+            print(f"  ✗ Failed: {e}\n")
+
+    print("Done.")
+
+
+if __name__ == "__main__":
+    main()
