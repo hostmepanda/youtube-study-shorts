@@ -57,11 +57,13 @@ Write 10 unique texts. For each, assign:
 Save the batch as a single JSON file at:
 `output/texts/batch_YYYYMMDD_HHMMSS.json`
 
+**ID assignment — IMPORTANT:** Before writing, read `output/texts/used_texts.json` (if it exists) and all existing `output/texts/batch_*.json` files. Find the highest numeric ID already used (e.g. if `text_023` exists, the highest is 23). Start the new batch from `highest + 1`. If no prior IDs exist, start from `text_001`. This ensures IDs are globally unique across batches and never collide with `used_texts.json`.
+
 Format:
 ```json
 [
   {
-    "id": "text_001",
+    "id": "text_031",
     "lines": ["Line 1", "Line 2", "Line 3"],
     "mood": "motivational",
     "keywords": ["keyword1", "keyword2"]
@@ -69,4 +71,4 @@ Format:
 ]
 ```
 
-After saving, print how many texts were written and the file path.
+After saving, print how many texts were written, the starting ID, and the file path.

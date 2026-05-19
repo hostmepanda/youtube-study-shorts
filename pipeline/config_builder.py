@@ -104,7 +104,7 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
                 "imageTransition": "fade",
                 "imageTransitionDuration": 0.5,
                 "output": output_rel,
-                "fontSize": 170,
+                "fontSize": 205,
                 "textOutlineSize": 8,
                 "textOutlineColor": "#000000",
                 "textFadeDuration": 0.3,
