@@ -3,6 +3,7 @@
 
 import argparse
 import json
+import os
 import random
 import sys
 from datetime import datetime
@@ -97,6 +98,7 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
                 "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
                 **random.choice(list(VOICE_PROFILES.values())),
                 "phraseGap": 0.5,
+                **({"cloneVoice": os.environ["CLONE_VOICE_PATH"]} if os.environ.get("CLONE_VOICE_PATH") else {}),
             },
             {
                 "type": "video",
