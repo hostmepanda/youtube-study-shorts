@@ -16,16 +16,30 @@ A mini-story in exactly 8 screens. Classic archetypes (traveler, wise man, stude
 
 ## What to generate
 
-Use `pipeline/parable_generator.py` to generate the batch:
-
-```python
-import sys
-sys.path.insert(0, '.')
-from pipeline.parable_generator import generate_parable_batch
-generate_parable_batch(count=5)
-```
+Write 5 parables yourself — do not call any API or external script.
 
 **ID assignment:** Read all existing `output/texts/parables_*.json` files. Find the highest `parable_XXX` number already used. Start the new batch from `highest + 1`. If none exist, start from `parable_001`.
+
+Save the batch as a single JSON file at:
+`output/texts/parables_YYYYMMDD_HHMMSS.json`
+
+Format:
+```json
+[
+  {
+    "id": "parable_006",
+    "topic": "...",
+    "type": "parable",
+    "mood": "calm",
+    "keywords": ["keyword1", "keyword2"],
+    "screens": [
+      {"screen": 1, "text": "Line 1\nLine 2"},
+      ...
+      {"screen": 8, "text": "The lesson.\n2-3 lines."}
+    ]
+  }
+]
+```
 
 ## Output
 
