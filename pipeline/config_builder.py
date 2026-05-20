@@ -77,6 +77,11 @@ def build_text_block(lines: list[str]) -> str:
     return "\n\n".join(cleaned)
 
 
+def build_parable_text(screens: list[dict]) -> str:
+    # Each screen is one subtitle phrase; lines within a screen stay together
+    return "\n\n".join(s["text"] for s in screens)
+
+
 def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path, dict]:
     text_data = json.loads(text_file.read_text())
     if isinstance(text_data, list):
@@ -146,11 +151,79 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
     return config_path, metadata
 
 
+def build_parable_config(parable_file: Path, images: list[Path], music: Path) -> tuple[Path, dict]:
+    parable = json.loads(parable_file.read_text())
+    if isinstance(parable, list):
+        parable = parable[0]
+
+    short_id = f"parable_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    output_video = VIDEOS_DIR / f"{short_id}.mp4"
+    config_path = CONFIGS_DIR / f"{short_id}.yaml"
+
+    images_abs = [str(Path(img).resolve()) for img in images]
+
+    # Slower speed and longer phrase gap — parables need space to breathe
+    voice_profile = random.choice(list(VOICE_PROFILES.values())).copy()
+    voice_profile["speed"] = round(voice_profile["speed"] * 0.92, 2)
+
+    config = {
+        "steps": [
+            {
+                "type": "audio",
+                "text": build_parable_text(parable["screens"]),
+                "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
+                **voice_profile,
+                "phraseGap": 0.8,
+                **({"cloneVoice": os.environ["CLONE_VOICE_PATH"]} if os.environ.get("CLONE_VOICE_PATH") else {}),
+            },
+            {
+                "type": "video",
+                "backgroundImages": images_abs,
+                "imageTransition": "fade",
+                "imageTransitionDuration": 1.0,
+                "output": str(output_video.resolve()),
+                "fontSize": 185,
+                "textOutlineSize": 7,
+                "textOutlineColor": "#000000",
+                "textFadeDuration": 0.5,
+                "introDelay": 0.8,
+                "outroText": f"{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}",
+                "outroDuration": 5.0,
+                "outroFontSize": 100,
+                "music": str(music.resolve()),
+                "musicVolume": 0.10,
+                "musicOffset": "random",
+                "voiceVolume": 1.5,
+            },
+        ]
+    }
+
+    first_screen_first_line = parable["screens"][0]["text"].split("\n")[0]
+    metadata = {
+        "title": f"{first_screen_first_line} #languagelearning #parable",
+        "description": " ".join(s["text"].replace("\n", " ") for s in parable["screens"]),
+        "tags": ["languagelearning", "parable", "motivation", "shorts", "studytips"],
+        "category_id": "27",
+        "short_id": short_id,
+        "video_path": str(output_video.resolve()),
+    }
+
+    CONFIGS_DIR.mkdir(parents=True, exist_ok=True)
+    VIDEOS_DIR.mkdir(parents=True, exist_ok=True)
+
+    config_path.write_text(yaml.dump(config, allow_unicode=True, sort_keys=False))
+    meta_path = CONFIGS_DIR / f"{short_id}_meta.json"
+    meta_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False))
+
+    return config_path, metadata
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--text-file", required=True)
     parser.add_argument("--images", required=True, help="Comma-separated image paths")
     parser.add_argument("--music", required=True)
+    parser.add_argument("--type", default="text", choices=["text", "parable"])
     args = parser.parse_args()
 
     text_file = Path(args.text_file)
@@ -161,7 +234,10 @@ def main():
         if not p.exists():
             sys.exit(f"File not found: {p}")
 
-    config_path, metadata = build_config(text_file, images, music)
+    if args.type == "parable":
+        config_path, metadata = build_parable_config(text_file, images, music)
+    else:
+        config_path, metadata = build_config(text_file, images, music)
 
     print(f"config:{config_path}")
     print(f"video:{metadata['video_path']}")

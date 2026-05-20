@@ -40,14 +40,15 @@ def main():
     print("  YouTube Shorts Pipeline")
     print("=" * 50)
 
-    # 1. Pick next unused text from batch files
-    batch_files = sorted((ROOT / "output" / "texts").glob("batch_*.json"))
-    used_file = ROOT / "output" / "texts" / "used_texts.json"
+    # 1. Pick next unused item from batch and parable files
+    texts_dir = ROOT / "output" / "texts"
+    all_files = sorted(texts_dir.glob("batch_*.json")) + sorted(texts_dir.glob("parables_*.json"))
+    used_file = texts_dir / "used_texts.json"
     used_ids = set(json.loads(used_file.read_text()) if used_file.exists() else [])
 
     text_data = None
     source_batch = None
-    for batch_file in reversed(batch_files):
+    for batch_file in reversed(all_files):
         batch = json.loads(batch_file.read_text())
         for item in batch:
             if item["id"] not in used_ids:
@@ -58,11 +59,19 @@ def main():
             break
 
     if not text_data:
-        sys.exit("No unused texts left. Run /generate-texts to create a new batch.")
+        sys.exit("No unused texts left. Run /generate-texts or /generate-parables to create a new batch.")
 
-    print(f"\n▶ Text [{text_data['id']}] from {source_batch.name}")
-    for line in text_data["lines"]:
-        print(f"  {line}")
+    is_parable = text_data.get("type") == "parable"
+
+    if is_parable:
+        print(f"\n▶ Parable [{text_data['id']}] from {source_batch.name}")
+        print(f"  Topic: {text_data['topic']}")
+        for s in text_data["screens"]:
+            print(f"  [{s['screen']}] {s['text'].splitlines()[0]}")
+    else:
+        print(f"\n▶ Text [{text_data['id']}] from {source_batch.name}")
+        for line in text_data["lines"]:
+            print(f"  {line}")
 
     # Write to a temp single-text file for the pipeline scripts
     text_file = ROOT / "output" / "texts" / f"{text_data['id']}_tmp.json"
@@ -91,6 +100,7 @@ def main():
             "--text-file", str(text_file),
             "--images", image_paths,
             "--music", music_path,
+            "--type", "parable" if is_parable else "text",
         ],
     )
 
