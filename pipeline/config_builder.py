@@ -44,20 +44,24 @@ SUBSCRIBE_CTAS = [
     "Subscribe — one day at a time",
 ]
 
-CONFIGS_DIR = Path(__file__).parent.parent / "output" / "configs"
-VIDEOS_DIR = Path(__file__).parent.parent / "output" / "videos"
-WOODEN_ROLL_DIR = Path(__file__).parent.parent.parent / "wooden-roll"
-
-DEFAULT_VOICE_REF = Path(__file__).parent.parent / "voice" / "elevenlabs_reference.wav"
+PROJECT_ROOT = Path(__file__).parent.parent
+CONFIGS_DIR = PROJECT_ROOT / "output" / "configs"
+VIDEOS_DIR = PROJECT_ROOT / "output" / "videos"
+WOODEN_ROLL_DIR = PROJECT_ROOT.parent / "wooden-roll"
+SETTINGS_FILE = PROJECT_ROOT / "config" / "settings.yaml"
 
 
 def _clone_voice_path() -> str | None:
-    """Return the voice reference path when cloning is active, else None."""
+    """Return voice reference path: CLONE_VOICE_PATH env > settings.yaml > None."""
     explicit = os.environ.get("CLONE_VOICE_PATH")
     if explicit:
         return explicit
-    if os.environ.get("USE_VOICE_CLONE"):
-        return str(DEFAULT_VOICE_REF)
+    settings = yaml.safe_load(SETTINGS_FILE.read_text()) if SETTINGS_FILE.exists() else {}
+    rel = settings.get("voice", {}).get("custom_voice")
+    if rel:
+        path = PROJECT_ROOT / rel
+        if path.exists():
+            return str(path)
     return None
 
 

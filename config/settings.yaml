@@ -19,6 +19,9 @@ video:
   outro_text: "Follow for more 🌍"
   outro_duration: 2.5
 
+voice:
+  custom_voice: voice/elevenlabs_reference.wav  # relative to project root; remove to disable cloning
+
 youtube:
   category_id: "27"
   privacy_status: public

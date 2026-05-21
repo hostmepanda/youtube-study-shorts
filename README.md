@@ -112,19 +112,22 @@ python3 main.py
 
 ### Generate with your cloned voice
 
-Use the built-in ElevenLabs reference voice (`wooden-roll/voice/elevenlabs_reference.wav`):
+Voice cloning is configured in `config/settings.yaml`:
 
-```bash
-USE_VOICE_CLONE=1 python3 main.py
+```yaml
+voice:
+  custom_voice: voice/elevenlabs_reference.wav  # relative to project root
 ```
 
-To use a custom voice reference instead, point to your own WAV file (24000 Hz mono, 30–60 s):
+When `custom_voice` is set and the file exists, every generated short uses Kanade voice conversion. To disable cloning, comment out or remove the `custom_voice` line.
+
+To override for a single run without changing the config:
 
 ```bash
 CLONE_VOICE_PATH=/path/to/your_voice.wav python3 main.py
 ```
 
-`CLONE_VOICE_PATH` always takes priority over `USE_VOICE_CLONE`. The pipeline generates TTS with Kokoro first (for subtitle timing), then applies Kanade voice conversion.
+`CLONE_VOICE_PATH` always takes priority over `settings.yaml`. The pipeline generates TTS with Kokoro first (for subtitle timing), then applies Kanade voice conversion.
 
 ### Render a specific config
 
