@@ -2,6 +2,7 @@
 """Entry point — runs the full pipeline for one short."""
 
 import json
+import math
 import subprocess
 import sys
 from datetime import datetime
@@ -77,11 +78,16 @@ def main():
     text_file = ROOT / "output" / "texts" / f"{text_data['id']}_tmp.json"
     text_file.write_text(json.dumps(text_data, indent=2))
 
-    # 2. Fetch 3 images
+    # 2. Fetch images — parables need one per 2 screens
     keywords = ",".join(text_data.get("keywords", ["language", "learning"]))
+    if is_parable:
+        screen_count = len(text_data.get("screens", []))
+        image_count = str(max(3, math.ceil(screen_count / 2)))
+    else:
+        image_count = "3"
     images_output = run_step(
         "Fetching images",
-        ["python3", str(ROOT / "pipeline" / "image_fetcher.py"), "--keywords", keywords, "--count", "3"],
+        ["python3", str(ROOT / "pipeline" / "image_fetcher.py"), "--keywords", keywords, "--count", image_count],
     )
     image_paths = ",".join(images_output.splitlines())
 
