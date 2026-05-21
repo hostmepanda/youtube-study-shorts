@@ -112,13 +112,19 @@ python3 main.py
 
 ### Generate with your cloned voice
 
-Record ~30s of clean speech (no music, no echo), save as WAV, then:
+Use the built-in ElevenLabs reference voice (`wooden-roll/voice/elevenlabs_reference.wav`):
 
 ```bash
-CLONE_VOICE_PATH=/path/to/voice_reference.wav python3 main.py
+USE_VOICE_CLONE=1 python3 main.py
 ```
 
-The pipeline generates TTS with Kokoro first (for subtitle timing), then applies Kanade voice conversion to make it sound like your reference recording.
+To use a custom voice reference instead, point to your own WAV file (24000 Hz mono, 30–60 s):
+
+```bash
+CLONE_VOICE_PATH=/path/to/your_voice.wav python3 main.py
+```
+
+`CLONE_VOICE_PATH` always takes priority over `USE_VOICE_CLONE`. The pipeline generates TTS with Kokoro first (for subtitle timing), then applies Kanade voice conversion.
 
 ### Render a specific config
 

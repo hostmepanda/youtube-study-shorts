@@ -48,6 +48,18 @@ CONFIGS_DIR = Path(__file__).parent.parent / "output" / "configs"
 VIDEOS_DIR = Path(__file__).parent.parent / "output" / "videos"
 WOODEN_ROLL_DIR = Path(__file__).parent.parent.parent / "wooden-roll"
 
+DEFAULT_VOICE_REF = WOODEN_ROLL_DIR / "voice" / "elevenlabs_reference.wav"
+
+
+def _clone_voice_path() -> str | None:
+    """Return the voice reference path when cloning is active, else None."""
+    explicit = os.environ.get("CLONE_VOICE_PATH")
+    if explicit:
+        return explicit
+    if os.environ.get("USE_VOICE_CLONE"):
+        return str(DEFAULT_VOICE_REF)
+    return None
+
 
 VOICE_PROFILES = {
     "female": {
@@ -103,7 +115,7 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
                 "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
                 **random.choice(list(VOICE_PROFILES.values())),
                 "phraseGap": 0.5,
-                **({"cloneVoice": os.environ["CLONE_VOICE_PATH"]} if os.environ.get("CLONE_VOICE_PATH") else {}),
+                **( {"cloneVoice": _clone_voice_path()} if _clone_voice_path() else {}),
             },
             {
                 "type": "video",
@@ -174,7 +186,7 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path) ->
                 "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
                 **voice_profile,
                 "phraseGap": 0.8,
-                **({"cloneVoice": os.environ["CLONE_VOICE_PATH"]} if os.environ.get("CLONE_VOICE_PATH") else {}),
+                **( {"cloneVoice": _clone_voice_path()} if _clone_voice_path() else {}),
             },
             {
                 "type": "video",
