@@ -48,7 +48,7 @@ CONFIGS_DIR = Path(__file__).parent.parent / "output" / "configs"
 VIDEOS_DIR = Path(__file__).parent.parent / "output" / "videos"
 WOODEN_ROLL_DIR = Path(__file__).parent.parent.parent / "wooden-roll"
 
-DEFAULT_VOICE_REF = WOODEN_ROLL_DIR / "voice" / "elevenlabs_reference.wav"
+DEFAULT_VOICE_REF = Path(__file__).parent.parent / "voice" / "elevenlabs_reference.wav"
 
 
 def _clone_voice_path() -> str | None:
