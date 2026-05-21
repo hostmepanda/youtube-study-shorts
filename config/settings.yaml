@@ -21,6 +21,7 @@ video:
 
 voice:
   custom_voice: voice/elevenlabs_reference.wav  # relative to project root; remove to disable cloning
+  # available: voice/elevenlabs_reference.wav | voice/jessica.wav | voice/eric.wav
 
 youtube:
   category_id: "27"
