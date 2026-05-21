@@ -26,3 +26,4 @@ __pycache__/
 # YouTube OAuth credentials (sensitive)
 credentials.json
 token.json
+logs/
