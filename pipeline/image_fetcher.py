@@ -16,12 +16,29 @@ USED_PHOTOS = Path(__file__).parent.parent / "data" / "used_photos.json"
 IMAGES_DIR = Path(__file__).parent.parent / "output" / "images"
 
 KEYWORD_POOLS = {
+    # motivational shorts
     "mistakes": ["learning", "growth", "challenge"],
     "speaking": ["conversation", "communication", "people talking"],
     "progress": ["path", "journey", "sunrise"],
     "language": ["books", "travel", "world map"],
     "study": ["studying", "focus", "desk"],
     "success": ["achievement", "celebration", "winner"],
+    # parable atmospheres — Pexels-friendly nature and scene queries
+    "monastery": ["stone wall", "ancient temple", "forest path"],
+    "monk": ["robes meditation", "misty mountain", "zen garden"],
+    "river": ["river mist", "stream forest", "water reflection"],
+    "bridge": ["stone bridge", "foggy bridge", "old wooden bridge"],
+    "market": ["outdoor market", "street vendor", "crowd market"],
+    "candle": ["candle light room", "dim candlelight", "night lantern"],
+    "fog": ["morning fog forest", "misty path", "foggy road"],
+    "temple": ["ancient stone", "old temple ruins", "stone arch"],
+    "mountain": ["mountain path", "mountain mist", "hiking trail"],
+    "road": ["dirt road", "empty road forest", "country path"],
+    "rain": ["rainy street", "rain window", "wet cobblestone"],
+    "jar": ["clay pot", "ceramic vessel", "pottery"],
+    "silence": ["empty bench", "solitary figure", "lone person"],
+    "book": ["old book", "open book", "reading by window"],
+    "well": ["stone well", "ancient well", "countryside well"],
 }
 
 

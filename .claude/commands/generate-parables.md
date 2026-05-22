@@ -37,6 +37,10 @@ The first monk looked at him and said:
 - Setting: river, monastery, road, market, temple — simple and visual
 - The story must connect to language learning — fear of speaking, silence vs mistakes, rules vs real use, the gap between knowing and doing
 - Never name the lesson. Trust the last line.
+- **Keywords: 3–4 per parable, Pexels-friendly.** Use concrete visual scenes that Pexels actually has photos of. Avoid abstract or niche terms. Good: `river mist`, `stone bridge`, `foggy road`, `candle light room`, `old book`, `outdoor market`, `empty bench`, `misty mountain`. Bad: `monastery courtyard`, `monk sitting`, `zen paradox`.
+
+  These pool keywords expand automatically in the fetcher — use them as starting points:
+  `monastery`, `monk`, `river`, `bridge`, `market`, `candle`, `fog`, `temple`, `mountain`, `road`, `rain`, `jar`, `silence`, `book`, `well`
 
 ## Screen structure
 
