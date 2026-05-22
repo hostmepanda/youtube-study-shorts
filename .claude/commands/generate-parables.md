@@ -76,6 +76,29 @@ Format:
 
 Note: `"mood": "parable"` — this routes to calm background music.
 
+## Logic review — run twice before saving
+
+After writing all 5 parables, run two review passes. Fix any issues found before saving the file.
+
+### Pass 1 — Internal consistency
+For each parable, check screen by screen:
+- Does each screen follow logically from the previous one?
+- Are there any contradictions between what the narrator shows and what a character later claims?
+- Does the final line follow from what actually happened in the story — or does it assume something the reader never saw?
+- Are any two screens saying the exact same thing (redundancy)?
+
+Example of a logic gap to catch:
+> Screen 3 says students "speak slowly, rarely" — but Screen 8 says they "say nothing."
+> These contradict. Fix one or the other before saving.
+
+### Pass 2 — Punch check
+For each parable, ask:
+- Does the last line land as a surprise or reversal — or does the reader already know it from earlier screens?
+- Is the lesson implicit in the action, or is it stated explicitly? (Explicit = rewrite.)
+- Could you cut the last screen and still understand the point? (If yes, the second-to-last screen is the real ending — delete the last one.)
+
+Only save the file after both passes are complete and all issues are fixed.
+
 ## Output
 
 After saving, print:
@@ -83,3 +106,4 @@ After saving, print:
 - The starting ID
 - File path
 - First line of each parable's screen 1
+- One line per parable: what was fixed during review (or "no changes" if clean)
