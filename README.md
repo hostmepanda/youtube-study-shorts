@@ -176,6 +176,32 @@ main.py                  # pipeline entry point
 
 ---
 
+## Disk cleanup
+
+### Safe to delete
+
+| Path | Why it's safe |
+|------|---------------|
+| `output/videos/` | Raw renders — once moved to `approved/` or reviewed, no longer needed |
+| `output/configs/` | YAML + metadata sidecars — regenerated on every run |
+| `output/images/` | Pexels images — deleted automatically after each render; any leftovers are safe to remove |
+
+```bash
+rm -rf output/videos/ output/configs/ output/images/
+```
+
+### Never delete
+
+| Path | Why you must keep it |
+|------|----------------------|
+| `output/texts/used_texts.json` | Tracks which texts have already been used. Delete this and the pipeline will re-use already-published content. |
+| `output/texts/batch_*.json` | Source text batches — the content library |
+| `output/texts/parables_*.json` | Source parable batches — the content library |
+| `output/approved/` | Videos queued for upload — delete only after uploading |
+| `output/uploaded/` | Archive of uploaded videos — safe to delete if you don't need local copies |
+
+---
+
 ## Voice cloning details
 
 Voice cloning uses [KokoClone](https://github.com/Ashish-Patnaik/kokoclone) with the Kanade voice conversion model. It runs as an optional post-processing step after Kokoro TTS — subtitle timing is preserved.
