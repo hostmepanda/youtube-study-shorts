@@ -4,30 +4,52 @@ Generate a batch of 5 parables for YouTube Shorts on language learning. Save the
 
 ## What a parable is
 
-A mini-story in 10–15 screens. Classic archetypes (traveler, wise man, student, craftsman, child, exile, stranger). Hooks immediately — screen 1 grabs attention like a short. Builds emotional tension slowly. The lesson lands on the last screen. More cinematic than motivational quotes.
+A short classic parable — like a Buddhist or Zen story. Concrete situation. Real dialogue. A paradox or reversal at the end. The lesson is never stated — it lives in the last line or last action.
+
+## Reference examples (the gold standard)
+
+**Example 1 — The fisherman:**
+A monk sat fishing by the river. A starving beggar asked for food.
+The monk said: "If I give you my fish, I go hungry and you eat once.
+If I give you my rod, I lose my livelihood.
+So I will teach you how to make a rod — and how to fish."
+
+**Example 2 — The woman at the river:**
+Two monks crossed a river. A young woman stood afraid to cross.
+One monk carried her on his shoulders. The other said nothing — but burned inside.
+Hours later, at the monastery, he exploded: "It is forbidden to touch a woman!"
+The first monk looked at him and said:
+"I left her at the river. You are still carrying her."
+
+## What makes these work
+
+- Concrete situation — visual, specific, immediately clear
+- Dialogue carries the meaning, not the narrator
+- A twist or paradox at the end
+- The last line IS the lesson — no explanation after it
+- Short and complete — no emotional journey, just the moment and the punch
 
 ## Style rules
 
-- Simple, timeless English. No slang, no corporate words.
-- Each screen: 2–4 lines
-- Never explain the metaphor — let it speak
-- Start with a hook — screen 1 should make the viewer want to know what happens next
-- Lean into emotion: longing, fear of being left behind, quiet pride, small victories
-- Always end on something positive or hopeful — the lesson is empowering, not bleak
-- The last screen is the lesson: 2–3 lines, no fluff
-- Screen structure:
-  - 1–2: hook — character + a sharp problem or surprising situation
-  - 3–5: unexpected response or first attempt (failure, confusion, or small courage)
-  - 6–8: tension builds — something at stake, the character is tested
-  - 9–11: things shift — a small turning point, a moment of connection or insight
-  - 12–14: the change lands — show don't tell
-  - Last screen: the lesson
+- Each screen: 1–2 lines maximum
+- Plain language — no literary words, no abstractions
+- Characters: monk, student, master, traveler, beggar, wise woman — timeless archetypes
+- Setting: river, monastery, road, market, temple — simple and visual
+- The story must connect to language learning — fear of speaking, silence vs mistakes, rules vs real use, the gap between knowing and doing
+- Never name the lesson. Trust the last line.
+
+## Screen structure
+
+- 1–3: set the scene — who, where, what's happening
+- 4–7: the situation unfolds — action and dialogue
+- 8–11: tension or contradiction builds
+- Last 1–2 screens: the reversal — one line that reframes everything
 
 ## What to generate
 
 Write 5 parables yourself — do not call any API or external script.
 
-Each parable must have between 10 and 15 screens. Vary the length across the batch.
+Each parable: 10–13 screens. Each screen: 1–2 lines.
 
 **ID assignment:** Read all existing `output/texts/parables_*.json` files. Find the highest `parable_XXX` number already used. Start the new batch from `highest + 1`. If none exist, start from `parable_001`.
 
@@ -38,7 +60,7 @@ Format:
 ```json
 [
   {
-    "id": "parable_006",
+    "id": "parable_016",
     "topic": "...",
     "type": "parable",
     "mood": "parable",
@@ -46,7 +68,7 @@ Format:
     "screens": [
       {"screen": 1, "text": "Line 1\nLine 2"},
       ...
-      {"screen": 12, "text": "The lesson.\n2-3 lines."}
+      {"screen": 12, "text": "The last line."}
     ]
   }
 ]
