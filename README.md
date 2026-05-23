@@ -151,6 +151,24 @@ python3 pipeline/youtube_uploader.py
 
 Uploads each video in `output/approved/`, schedules at 9am on consecutive days, moves to `output/uploaded/`.
 
+### Automatic upload via launchd (macOS)
+
+A launchd agent runs the uploader automatically at **06:00, 12:00, and 18:00** every day.
+
+Plist: `~/Library/LaunchAgents/com.studygotogether.uploader.plist`
+Logs: `logs/uploader.log` / `logs/uploader.error.log`
+
+```bash
+# Load (enable)
+launchctl load ~/Library/LaunchAgents/com.studygotogether.uploader.plist
+
+# Unload (disable)
+launchctl unload ~/Library/LaunchAgents/com.studygotogether.uploader.plist
+
+# Check status
+launchctl list | grep studygotogether
+```
+
 ---
 
 ## Project structure
