@@ -36,7 +36,8 @@ The first monk looked at him and said:
 - Characters: monk, student, master, traveler, beggar, wise woman — timeless archetypes
 - Setting: river, monastery, road, market, temple — simple and visual
 - The story must connect to language learning — fear of speaking, silence vs mistakes, rules vs real use, the gap between knowing and doing
-- Never name the lesson. Trust the last line.
+- The last line must be simple, clear, and uplifting — like a small breath of air. Not a riddle, not a stated moral, but an image or a short line that lands warm and obvious. The viewer should feel it instantly, not puzzle over it.
+- Think of "I left her at the river. You are still carrying her." — concrete, simple, immediately understood, and slightly poetic. That is the target tone for every ending.
 - **Keywords: 3–4 per parable, Pexels-friendly.** Use concrete visual scenes that Pexels actually has photos of. Avoid abstract or niche terms. Good: `river mist`, `stone bridge`, `foggy road`, `candle light room`, `old book`, `outdoor market`, `empty bench`, `misty mountain`. Bad: `monastery courtyard`, `monk sitting`, `zen paradox`.
 
   These pool keywords expand automatically in the fetcher — use them as starting points:
@@ -97,9 +98,10 @@ Example of a logic gap to catch:
 
 ### Pass 2 — Punch check
 For each parable, ask:
-- Does the last line land as a surprise or reversal — or does the reader already know it from earlier screens?
-- Is the lesson implicit in the action, or is it stated explicitly? (Explicit = rewrite.)
-- Could you cut the last screen and still understand the point? (If yes, the second-to-last screen is the real ending — delete the last one.)
+- Does the last line feel warm and clear — or does it leave the viewer confused?
+- Is it inspiring? Would someone want to share it?
+- It can be poetic, but it must be immediately understood — no puzzles, no ambiguity.
+- It should feel like a small revelation, not a clever trick.
 
 Only save the file after both passes are complete and all issues are fixed.
 
