@@ -20,7 +20,7 @@ video:
   outro_duration: 2.5
 
 voice:
-  custom_voice: voice/elevenlabs_reference.wav  # relative to project root; remove to disable cloning
+  custom_voice: voice/jessica.wav  # relative to project root; remove to disable cloning
   # available: voice/elevenlabs_reference.wav | voice/jessica.wav | voice/eric.wav
 
 youtube:

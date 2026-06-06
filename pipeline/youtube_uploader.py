@@ -10,6 +10,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
+from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -26,8 +27,12 @@ TOKEN_FILE = ROOT / "token.json"
 
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 
-PUBLISH_HOUR = 9   # 9am
-PUBLISH_TZ = timezone.utc  # change to your local tz if needed
+PUBLISH_TZ = timezone.utc
+
+SHORTS_HOUR = 9       # 09:00 UTC
+SHORTS_MINUTE = 0
+PARABLES_HOUR = 16    # 16:30 UTC
+PARABLES_MINUTE = 30
 
 
 def authenticate() -> Credentials:
@@ -37,8 +42,11 @@ def authenticate() -> Credentials:
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
+            try:
+                creds.refresh(Request())
+            except RefreshError:
+                creds = None
+        if not creds or not creds.valid:
             if not CREDENTIALS_FILE.exists():
                 sys.exit("credentials.json not found. See README for setup instructions.")
             flow = InstalledAppFlow.from_client_secrets_file(str(CREDENTIALS_FILE), SCOPES)
@@ -48,12 +56,9 @@ def authenticate() -> Credentials:
     return creds
 
 
-def next_publish_time(offset_days: int) -> str:
-    """Return RFC 3339 datetime for 9am UTC, offset_days from today."""
-    now = datetime.now(PUBLISH_TZ)
-    target = now.replace(hour=PUBLISH_HOUR, minute=0, second=0, microsecond=0)
-    if target <= now:
-        target += timedelta(days=1)
+def publish_time(start_date: datetime, offset_days: int, hour: int, minute: int) -> str:
+    """Return RFC 3339 datetime for given hour/minute UTC, offset_days from start_date."""
+    target = start_date.replace(hour=hour, minute=minute, second=0, microsecond=0)
     target += timedelta(days=offset_days)
     return target.strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
@@ -117,12 +122,23 @@ def main():
         print("No videos in output/approved/ — nothing to upload.")
         return
 
-    youtube = build("youtube", "v3", credentials=creds)
-    print(f"Found {len(videos)} video(s) to upload.\n")
+    shorts = [v for v in videos if v.name.startswith("short_")]
+    parables = [v for v in videos if v.name.startswith("parable_")]
+    other = [v for v in videos if not v.name.startswith("short_") and not v.name.startswith("parable_")]
 
-    for i, video_path in enumerate(videos):
+    youtube = build("youtube", "v3", credentials=creds)
+    print(f"Found {len(videos)} video(s) to upload ({len(shorts)} shorts, {len(parables)} parables).\n")
+
+    start_date = datetime(2026, 6, 2, tzinfo=PUBLISH_TZ)
+
+    queue = (
+        [(v, publish_time(start_date, i, SHORTS_HOUR, SHORTS_MINUTE)) for i, v in enumerate(shorts)] +
+        [(v, publish_time(start_date, i, PARABLES_HOUR, PARABLES_MINUTE)) for i, v in enumerate(parables)] +
+        [(v, publish_time(datetime.now(PUBLISH_TZ), i, SHORTS_HOUR, SHORTS_MINUTE)) for i, v in enumerate(other)]
+    )
+
+    for video_path, publish_at in queue:
         print(f"▶ Uploading {video_path.name}")
-        publish_at = next_publish_time(offset_days=i)
         try:
             video_id = upload_video(youtube, video_path, publish_at)
             print(f"  ✓ Uploaded: https://youtube.com/shorts/{video_id}\n")

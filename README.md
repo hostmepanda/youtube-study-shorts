@@ -129,11 +129,15 @@ CLONE_VOICE_PATH=/path/to/your_voice.wav python3 main.py
 
 `CLONE_VOICE_PATH` always takes priority over `settings.yaml`. The pipeline generates TTS with Kokoro first (for subtitle timing), then applies Kanade voice conversion.
 
-### Render a specific config
+### Render a specific config (regenerate video)
+
+Pass the config path to skip image fetching, music selection, and text picking — goes straight to audio + video rendering:
 
 ```bash
-python3 main.py output/configs/my_config.yaml
+python3 main.py output/configs/parable_YYYYMMDD_HHMMSS.yaml
 ```
+
+Useful when you want to re-render a video without generating a new one from scratch.
 
 ### Approve a video for upload
 

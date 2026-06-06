@@ -136,9 +136,9 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
                 "outroDuration": 5.0,
                 "outroFontSize": 100,
                 "music": music_rel,
-                "musicVolume": 0.08,
+                "musicVolume": 0.3,
                 "musicOffset": "random",
-                "voiceVolume": 1.5,
+                "voiceVolume": 1.2,
             },
         ]
     }
@@ -198,7 +198,7 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path) ->
                 "imageTransition": "fade",
                 "imageTransitionDuration": 1.0,
                 "output": str(output_video.resolve()),
-                "fontSize": 185,
+                "fontSize": 150,
                 "textOutlineSize": 7,
                 "textOutlineColor": "#000000",
                 "textFadeDuration": 0.5,
@@ -207,9 +207,9 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path) ->
                 "outroDuration": 5.0,
                 "outroFontSize": 100,
                 "music": str(music.resolve()),
-                "musicVolume": 0.10,
+                "musicVolume": 0.3,
                 "musicOffset": "random",
-                "voiceVolume": 1.5,
+                "voiceVolume": 1.3,
             },
         ]
     }
