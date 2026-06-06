@@ -67,11 +67,30 @@ def load_metadata(video_path: Path) -> dict:
     meta_path = ROOT / "output" / "configs" / (video_path.stem + "_meta.json")
     if meta_path.exists():
         return json.loads(meta_path.read_text())
-    # Fallback metadata
+
+    # Try to extract title from the YAML config
+    yaml_path = ROOT / "output" / "configs" / (video_path.stem + ".yaml")
+    first_line = None
+    if yaml_path.exists():
+        try:
+            import yaml
+            config = yaml.safe_load(yaml_path.read_text())
+            for step in config.get("steps", []):
+                if step.get("type") == "audio" and step.get("text"):
+                    lines = [l.strip() for l in step["text"].splitlines() if l.strip()]
+                    if lines:
+                        first_line = lines[0]
+                        break
+        except Exception:
+            pass
+
+    is_parable = video_path.stem.startswith("parable_")
+    tag = "parable" if is_parable else "motivation"
+    title = f"{first_line} #{tag}" if first_line else f"{video_path.stem} #languagelearning #{tag}"
     return {
-        "title": f"{video_path.stem} #languagelearning #motivation",
-        "description": "Start speaking. Stop waiting.",
-        "tags": ["languagelearning", "motivation", "shorts"],
+        "title": f"{title} #languagelearning",
+        "description": first_line or "Start speaking. Stop waiting.",
+        "tags": ["languagelearning", tag, "motivation", "shorts"],
         "category_id": "27",
     }
 
