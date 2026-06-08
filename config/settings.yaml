@@ -23,6 +23,12 @@ voice:
   custom_voice: voice/jessica.wav  # relative to project root; remove to disable cloning
   # available: voice/elevenlabs_reference.wav | voice/jessica.wav | voice/eric.wav
 
+premiss:
+  # Set api_key here or via PREMISS_API_KEY env var. When set, premiss-audio step is used instead of Kokoro.
+  api_url: https://core.premiss.ru
+  voice: p228
+  # api_key: <your-key>  # prefer PREMISS_API_KEY env var
+
 youtube:
   category_id: "27"
   privacy_status: public

@@ -51,18 +51,35 @@ WOODEN_ROLL_DIR = PROJECT_ROOT.parent / "wooden-roll"
 SETTINGS_FILE = PROJECT_ROOT / "config" / "settings.yaml"
 
 
+def _settings() -> dict:
+    return yaml.safe_load(SETTINGS_FILE.read_text()) if SETTINGS_FILE.exists() else {}
+
+
 def _clone_voice_path() -> str | None:
     """Return voice reference path: CLONE_VOICE_PATH env > settings.yaml > None."""
     explicit = os.environ.get("CLONE_VOICE_PATH")
     if explicit:
         return explicit
-    settings = yaml.safe_load(SETTINGS_FILE.read_text()) if SETTINGS_FILE.exists() else {}
-    rel = settings.get("voice", {}).get("custom_voice")
+    rel = _settings().get("voice", {}).get("custom_voice")
     if rel:
         path = PROJECT_ROOT / rel
         if path.exists():
             return str(path)
     return None
+
+
+def _premiss_config() -> dict | None:
+    """Return Premiss config if api_key is available (env or settings.yaml), else None."""
+    settings = _settings()
+    premiss = settings.get("premiss", {}) or {}
+    api_key = os.environ.get("PREMISS_API_KEY") or premiss.get("api_key")
+    if not api_key:
+        return None
+    return {
+        "api_url": premiss.get("api_url", "https://core.premiss.ru"),
+        "api_key": api_key,
+        "voice": premiss.get("voice", "p228"),
+    }
 
 
 VOICE_PROFILES = {
@@ -111,23 +128,36 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
     music_rel = str(music.resolve())
     output_rel = str(output_video.resolve())
 
+    premiss = _premiss_config()
+    if premiss:
+        audio_step = {
+            "type": "premiss-audio",
+            "text": build_text_block(text_data["lines"] + [random.choice(SUPPORT_LINES)]),
+            "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
+            "apiUrl": premiss["api_url"],
+            "apiKey": premiss["api_key"],
+            "voice": premiss["voice"],
+        }
+    else:
+        audio_step = {
+            "type": "audio",
+            "text": build_text_block(text_data["lines"] + [random.choice(SUPPORT_LINES)]),
+            "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
+            **random.choice(list(VOICE_PROFILES.values())),
+            "phraseGap": 0.5,
+            **( {"cloneVoice": _clone_voice_path()} if _clone_voice_path() else {}),
+        }
+
     config = {
         "steps": [
-            {
-                "type": "audio",
-                "text": build_text_block(text_data["lines"] + [random.choice(SUPPORT_LINES)]),
-                "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
-                **random.choice(list(VOICE_PROFILES.values())),
-                "phraseGap": 0.5,
-                **( {"cloneVoice": _clone_voice_path()} if _clone_voice_path() else {}),
-            },
+            audio_step,
             {
                 "type": "video",
                 "backgroundImages": images_abs,
                 "imageTransition": "fade",
                 "imageTransitionDuration": 0.5,
                 "output": output_rel,
-                "fontSize": 205,
+                "fontSize": 160,
                 "textOutlineSize": 8,
                 "textOutlineColor": "#000000",
                 "textFadeDuration": 0.3,
@@ -182,16 +212,29 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path) ->
     voice_profile = random.choice(list(VOICE_PROFILES.values())).copy()
     voice_profile["speed"] = round(voice_profile["speed"] * 0.92, 2)
 
+    premiss = _premiss_config()
+    if premiss:
+        audio_step = {
+            "type": "premiss-audio",
+            "text": build_parable_text(parable["screens"]),
+            "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
+            "apiUrl": premiss["api_url"],
+            "apiKey": premiss["api_key"],
+            "voice": premiss["voice"],
+        }
+    else:
+        audio_step = {
+            "type": "audio",
+            "text": build_parable_text(parable["screens"]),
+            "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
+            **voice_profile,
+            "phraseGap": 0.8,
+            **( {"cloneVoice": _clone_voice_path()} if _clone_voice_path() else {}),
+        }
+
     config = {
         "steps": [
-            {
-                "type": "audio",
-                "text": build_parable_text(parable["screens"]),
-                "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
-                **voice_profile,
-                "phraseGap": 0.8,
-                **( {"cloneVoice": _clone_voice_path()} if _clone_voice_path() else {}),
-            },
+            audio_step,
             {
                 "type": "video",
                 "backgroundImages": images_abs,
