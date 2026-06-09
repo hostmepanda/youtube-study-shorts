@@ -26,7 +26,7 @@ voice:
 premiss:
   # Set api_key here or via PREMISS_API_KEY env var. When set, premiss-audio step is used instead of Kokoro.
   api_url: https://core.premiss.ru
-  voice: p228
+  voice: violet
   # api_key: <your-key>  # prefer PREMISS_API_KEY env var
 
 youtube:

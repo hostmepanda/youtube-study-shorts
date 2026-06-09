@@ -68,7 +68,7 @@ def _clone_voice_path() -> str | None:
     return None
 
 
-def _premiss_config() -> dict | None:
+def _premiss_config(voice: str | None = None) -> dict | None:
     """Return Premiss config if api_key is available (env or settings.yaml), else None."""
     settings = _settings()
     premiss = settings.get("premiss", {}) or {}
@@ -78,7 +78,7 @@ def _premiss_config() -> dict | None:
     return {
         "api_url": premiss.get("api_url", "https://core.premiss.ru"),
         "api_key": api_key,
-        "voice": premiss.get("voice", "p228"),
+        "voice": voice or os.environ.get("PREMISS_VOICE") or premiss.get("voice", "violet"),
     }
 
 
@@ -115,7 +115,7 @@ def build_parable_text(screens: list[dict]) -> str:
     return "\n\n".join(s["text"] for s in screens)
 
 
-def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path, dict]:
+def build_config(text_file: Path, images: list[Path], music: Path, voice: str | None = None) -> tuple[Path, dict]:
     text_data = json.loads(text_file.read_text())
     if isinstance(text_data, list):
         text_data = text_data[0]
@@ -128,7 +128,7 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
     music_rel = str(music.resolve())
     output_rel = str(output_video.resolve())
 
-    premiss = _premiss_config()
+    premiss = _premiss_config(voice)
     if premiss:
         audio_step = {
             "type": "premiss-audio",
@@ -197,7 +197,7 @@ def build_config(text_file: Path, images: list[Path], music: Path) -> tuple[Path
     return config_path, metadata
 
 
-def build_parable_config(parable_file: Path, images: list[Path], music: Path) -> tuple[Path, dict]:
+def build_parable_config(parable_file: Path, images: list[Path], music: Path, voice: str | None = None) -> tuple[Path, dict]:
     parable = json.loads(parable_file.read_text())
     if isinstance(parable, list):
         parable = parable[0]
@@ -212,7 +212,7 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path) ->
     voice_profile = random.choice(list(VOICE_PROFILES.values())).copy()
     voice_profile["speed"] = round(voice_profile["speed"] * 0.92, 2)
 
-    premiss = _premiss_config()
+    premiss = _premiss_config(voice)
     if premiss:
         audio_step = {
             "type": "premiss-audio",
@@ -283,6 +283,7 @@ def main():
     parser.add_argument("--images", required=True, help="Comma-separated image paths")
     parser.add_argument("--music", required=True)
     parser.add_argument("--type", default="text", choices=["text", "parable"])
+    parser.add_argument("--voice", default=None, help="Premiss voice name (overrides settings.yaml and PREMISS_VOICE env)")
     args = parser.parse_args()
 
     text_file = Path(args.text_file)
@@ -294,9 +295,9 @@ def main():
             sys.exit(f"File not found: {p}")
 
     if args.type == "parable":
-        config_path, metadata = build_parable_config(text_file, images, music)
+        config_path, metadata = build_parable_config(text_file, images, music, voice=args.voice)
     else:
-        config_path, metadata = build_config(text_file, images, music)
+        config_path, metadata = build_config(text_file, images, music, voice=args.voice)
 
     print(f"config:{config_path}")
     print(f"video:{metadata['video_path']}")
