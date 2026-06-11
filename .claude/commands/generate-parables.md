@@ -145,6 +145,59 @@ Format:
 
 Note: `"mood": "parable"` — this routes to calm background music.
 
+## Hook generation — do this after writing all 5 parables, before the logic review
+
+Generate a `screen_0` hook for each parable. Insert it as the first screen in the `screens` array.
+
+**Rules:**
+- One line only. Max 8 words.
+- Must be a question OR a provocative incomplete statement.
+- Must connect to the parable's core tension — not a generic "language learning" line.
+- Must work as a standalone sentence on a black screen with no context.
+- No character names. No "A man..." or "A student..." — that's the story starting, not a hook.
+- Use "you" or make it feel personal where possible.
+
+**Hook types that work:**
+- Direct question: `"Why do most learners go silent right before they improve?"`
+- Provocative claim: `"Knowing a language and speaking it are not the same thing."`
+- Incomplete tension: `"He spoke five languages. He belonged to none."`
+- Reframe: `"Your accent is not a mistake. It's a signature."`
+
+**Hook types to avoid:**
+- Generic: `"Language learning is hard."` — no tension
+- Story openers: `"A monk once met a student..."` — that's screen 1
+- Commands: `"Stop waiting and speak."` — that's the old lesson pattern
+
+**Example mappings:**
+| Topic | Hook |
+|-------|------|
+| T20 — speaks five languages, belongs to none | `"He spoke five languages. He belonged to none."` |
+| T05 — the plateau | `"What do you do when progress just... stops?"` |
+| T16 — shame of an accent | `"Your accent is not a mistake."` |
+| T14 — learning at 70 | `"Is there an age when it's too late?"` |
+| T03 — first dream in foreign language | `"The night it stopped feeling foreign."` |
+
+**Updated format with screen_0:**
+```json
+{
+  "screens": [
+    {"screen": 0, "text": "Why do most learners go silent right before they improve?"},
+    {"screen": 1, "text": "A boy came to an old well.\nHe had heard that if you spoke into it, the well would answer."},
+    ...
+  ]
+}
+```
+
+### Pass 0 — Hook quality check (run before Pass 1 and Pass 2)
+
+For each hook:
+- Is it under 8 words? If not, cut it.
+- Does it create a question in the viewer's mind? If not, rewrite.
+- Does it match the parable's actual tension — not generic? If generic, rewrite.
+- Would you stop scrolling for this? If not, rewrite.
+
+Only proceed to Pass 1 after all hooks pass this check.
+
 ## Logic review — run twice before saving
 
 After writing all 5 parables, run two review passes. Fix any issues found before saving the file.
@@ -177,3 +230,4 @@ After saving, print:
 - File path
 - First line of each parable's screen 1
 - One line per parable: what was fixed during review (or "no changes" if clean)
+- Hook for each parable: `- parable_016: "Why do most learners go silent right before they improve?"`
