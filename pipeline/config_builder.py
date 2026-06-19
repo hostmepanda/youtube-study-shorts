@@ -178,7 +178,7 @@ def build_config(text_file: Path, images: list[Path], music: Path, voice: str | 
                 "textOutlineColor": "#000000",
                 "textFadeDuration": 0.3,
                 "introDelay": 0.5,
-                "outroText": f"{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}",
+                "outroText": f"Didn't motivate?\nDrop a message in comments\n\n{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}",
                 "outroDuration": 5.0,
                 "outroFontSize": 100,
                 "music": music_rel,
