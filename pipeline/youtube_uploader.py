@@ -8,6 +8,7 @@ import shutil
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 from google.auth.exceptions import RefreshError
@@ -27,11 +28,13 @@ TOKEN_FILE = ROOT / "token.json"
 
 SCOPES = ["https://www.googleapis.com/auth/youtube"]
 
-PUBLISH_TZ = timezone.utc
+# All publish times are scheduled relative to US Eastern Time (audience timezone),
+# not UTC. ZoneInfo handles EST/EDT (daylight saving) transitions automatically.
+PUBLISH_TZ = ZoneInfo("America/New_York")
 
-SHORTS_HOUR = 9       # 09:00 UTC
+SHORTS_HOUR = 9       # 09:00 America/New_York
 SHORTS_MINUTE = 0
-PARABLES_HOUR = 16    # 16:30 UTC
+PARABLES_HOUR = 16    # 16:30 America/New_York
 PARABLES_MINUTE = 30
 
 
@@ -57,10 +60,10 @@ def authenticate() -> Credentials:
 
 
 def publish_time(start_date: datetime, offset_days: int, hour: int, minute: int) -> str:
-    """Return RFC 3339 datetime for given hour/minute UTC, offset_days from start_date."""
+    """Return RFC 3339 UTC datetime for given hour/minute US Eastern Time, offset_days from start_date."""
     target = start_date.replace(hour=hour, minute=minute, second=0, microsecond=0)
     target += timedelta(days=offset_days)
-    return target.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    return target.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
 
 def load_metadata(video_path: Path) -> dict:
