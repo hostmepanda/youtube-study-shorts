@@ -149,21 +149,28 @@ After every render, `main.py` automatically copies the video to:
 
 A warning is printed reminding you that the file exists in **two places** — local `output/videos/` and iCloud. Delete both when no longer needed.
 
-### Approve a video for upload
+### Publish lifecycle
 
-Move it to `output/approved/`:
+Every render produces one yaml file at `formats/<format>/configs/new/<id>.yaml`, carrying its own `youtube:` metadata block (title/description/tags) — no separate meta.json. The rendered `.mp4` lives permanently in `output/videos/` and is never moved; only the yaml travels:
 
-```bash
-mv output/videos/short_YYYYMMDD_HHMMSS.mp4 output/approved/
+```
+formats/<format>/configs/new/  →  waiting_upload/  →  archive/
 ```
 
-### Upload approved videos
+Queue a video for upload by moving its yaml:
+
+```bash
+mv formats/parable-classic/configs/new/classic_YYYYMMDD_HHMMSS.yaml \
+   formats/parable-classic/configs/waiting_upload/
+```
+
+### Upload queued videos
 
 ```bash
 python3 pipeline/youtube_uploader.py
 ```
 
-Uploads each video in `output/approved/`, schedules at 9am on consecutive days, moves to `output/uploaded/`.
+Uploads everything sitting in any `formats/*/configs/waiting_upload/`. Schedules `short-motivation` items at 09:00 ET and everything else (parables) at 16:30 ET, US Eastern Time, one per day starting today. On success, each yaml moves to `archive/` — the mp4 is untouched.
 
 ### Automatic upload via launchd (macOS)
 
@@ -188,49 +195,49 @@ launchctl list | grep studygotogether
 ## Project structure
 
 ```
-.claude/commands/        # Claude Code skills (/generate-texts, /generate-short)
+.claude/commands/        # Claude Code skills (/generate-texts, /generate-short, /publish, /clean-artifacts...)
 config/settings.yaml     # pipeline settings
 data/used_photos.json    # Pexels dedup tracker
 music/                   # local music tracks (by mood)
+formats/
+  short-motivation/      # plain motivational texts (text_NNN)
+  parable-classic/       # Zen-style human parables (classic_NNN)
+  parable-animal/        # absurdist animal parables (animal_NNN)
+  legacy/                # pre-restructure parable_NNN content lifecycle only
+  <format>/
+    topics.md            # style rules, topic pool, "already used" tracking (curated, human/LLM-read)
+    used.json            # dedup tracker (machine-read by main.py's picker)
+    drafts/              # generated batches not yet rendered
+    configs/
+      new/               # just rendered, not yet queued
+      waiting_upload/    # queued — python3 pipeline/youtube_uploader.py picks these up
+      archive/           # already uploaded
 output/
-  texts/                 # generated text batches + used_texts.json
-  configs/               # wooden-roll YAMLs + metadata sidecars
-  videos/                # rendered shorts
-  approved/              # videos ready to upload
-  uploaded/              # uploaded videos
+  texts/                 # legacy text/parable batches + used_texts.json (pre-restructure content)
+  videos/                # rendered videos — PERMANENT home, never moved or deleted
+  images/                # transient Pexels image cache, auto-cleaned after each render
 pipeline/                # Python modules
-  config_builder.py      # builds wooden-roll YAML from text/images/music
+  config_builder.py      # builds wooden-roll YAML (+ embedded youtube: metadata) from text/images/music
   image_fetcher.py       # fetches Pexels images
   music_selector.py      # picks a track by mood
-  youtube_uploader.py    # schedules and uploads to YouTube
-main.py                  # pipeline entry point
+  youtube_uploader.py    # uploads everything in formats/*/configs/waiting_upload/
+main.py                  # pipeline entry point — also cleans render scratch after each success
 ```
 
 ---
 
 ## Disk cleanup
 
-### Safe to delete
+`main.py` auto-cleans render scratch (wooden-roll's per-render audio/video cache, downloaded images) right after every successful render — see `/clean-artifacts` for cleaning up leftovers from interrupted runs and orphaned pre-restructure debris.
 
-| Path | Why it's safe |
-|------|---------------|
-| `output/videos/` | Raw renders — once moved to `approved/` or reviewed, no longer needed |
-| `output/configs/` | YAML + metadata sidecars — regenerated on every run |
-| `output/images/` | Pexels images — deleted automatically after each render; any leftovers are safe to remove |
-
-```bash
-rm -rf output/videos/ output/configs/ output/images/
-```
-
-### Never delete
+**`output/videos/*.mp4` is permanent and is never deleted by any tooling here** — only the yaml lifecycle file moves between `new/` → `waiting_upload/` → `archive/`, the video itself stays put.
 
 | Path | Why you must keep it |
 |------|----------------------|
-| `output/texts/used_texts.json` | Tracks which texts have already been used. Delete this and the pipeline will re-use already-published content. |
-| `output/texts/batch_*.json` | Source text batches — the content library |
-| `output/texts/parables_*.json` | Source parable batches — the content library |
-| `output/approved/` | Videos queued for upload — delete only after uploading |
-| `output/uploaded/` | Archive of uploaded videos — safe to delete if you don't need local copies |
+| `output/texts/used_texts.json`, `formats/*/used.json` | Dedup trackers. Delete and the pipeline will re-use already-published content. |
+| `output/texts/batch_*.json`, `output/texts/parables_*.json`, `formats/*/drafts/*.json` | Source content library |
+| `formats/*/topics.md` | Curated topic pools + "avoid repeating" tracking |
+| `output/videos/` | Permanent video archive |
 
 ---
 

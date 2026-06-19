@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
-"""Upload approved shorts to YouTube with scheduled publish times."""
+"""Upload videos queued in formats/*/configs/waiting_upload/ to YouTube with scheduled publish times.
+
+Each yaml lifecycle file carries its own YouTube metadata under a `youtube:` key
+(title/description/tags/category_id/video_path) — no separate meta.json sidecar.
+The rendered .mp4 itself lives permanently in output/videos/ and is never moved;
+only the yaml travels between configs/{new,waiting_upload,archive}/.
+"""
 
 import argparse
-import json
-import os
-import shutil
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import yaml as yaml_lib
 from dotenv import load_dotenv
 from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
@@ -21,8 +25,7 @@ from googleapiclient.http import MediaFileUpload
 load_dotenv()
 
 ROOT = Path(__file__).parent.parent
-APPROVED_DIR = ROOT / "output" / "approved"
-UPLOADED_DIR = ROOT / "output" / "uploaded"
+FORMATS_DIR = ROOT / "formats"
 CREDENTIALS_FILE = ROOT / "credentials.json"
 TOKEN_FILE = ROOT / "token.json"
 
@@ -66,43 +69,32 @@ def publish_time(start_date: datetime, offset_days: int, hour: int, minute: int)
     return target.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
 
-def load_metadata(video_path: Path) -> dict:
-    # Check approved/ first (may have updated meta), then configs/
-    meta_path = APPROVED_DIR / (video_path.stem + "_meta.json")
-    if not meta_path.exists():
-        meta_path = ROOT / "output" / "configs" / (video_path.stem + "_meta.json")
-    if meta_path.exists():
-        return json.loads(meta_path.read_text())
-
-    # Try to extract title from the YAML config
-    yaml_path = ROOT / "output" / "configs" / (video_path.stem + ".yaml")
-    first_line = None
-    if yaml_path.exists():
-        try:
-            import yaml
-            config = yaml.safe_load(yaml_path.read_text())
-            for step in config.get("steps", []):
-                if step.get("type") == "audio" and step.get("text"):
-                    lines = [l.strip() for l in step["text"].splitlines() if l.strip()]
-                    if lines:
-                        first_line = lines[0]
-                        break
-        except Exception:
-            pass
-
-    is_parable = video_path.stem.startswith("parable_")
-    tag = "parable" if is_parable else "motivation"
-    title = f"{first_line} #{tag}" if first_line else f"{video_path.stem} #languagelearning #{tag}"
-    return {
-        "title": f"{title} #languagelearning",
-        "description": first_line or "Start speaking. Stop waiting.",
-        "tags": ["languagelearning", tag, "motivation", "shorts"],
-        "category_id": "27",
-    }
+def find_queued() -> list[Path]:
+    """All yaml lifecycle files sitting in formats/*/configs/waiting_upload/, oldest first."""
+    if not FORMATS_DIR.exists():
+        return []
+    queued = []
+    for fmt_dir in sorted(FORMATS_DIR.iterdir()):
+        waiting_dir = fmt_dir / "configs" / "waiting_upload"
+        if waiting_dir.exists():
+            queued += sorted(waiting_dir.glob("*.yaml"))
+    return queued
 
 
-def upload_video(youtube, video_path: Path, publish_at: str) -> str:
-    meta = load_metadata(video_path)
+def load_meta(config_path: Path) -> dict:
+    config = yaml_lib.safe_load(config_path.read_text())
+    meta = config.get("youtube")
+    if not meta:
+        sys.exit(f"{config_path} has no youtube: metadata — was it built before the meta-merge restructure?")
+    return meta
+
+
+def upload_video(youtube, config_path: Path, publish_at: str) -> str:
+    meta = load_meta(config_path)
+    video_path = Path(meta["video_path"])
+    if not video_path.exists():
+        sys.exit(f"Video not found at {video_path} (referenced by {config_path})")
+
     print(f"  Title:      {meta['title']}")
     print(f"  Publish at: {publish_at}")
 
@@ -140,35 +132,33 @@ def main():
         print("✓ Authentication successful. token.json saved.")
         return
 
-    UPLOADED_DIR.mkdir(parents=True, exist_ok=True)
-
-    videos = sorted(APPROVED_DIR.glob("*.mp4"))
-    if not videos:
-        print("No videos in output/approved/ — nothing to upload.")
+    queued = find_queued()
+    if not queued:
+        print("Nothing in formats/*/configs/waiting_upload/ — nothing to upload.")
         return
 
-    shorts = [v for v in videos if v.name.startswith("short_")]
-    parables = [v for v in videos if v.name.startswith("parable_")]
-    other = [v for v in videos if not v.name.startswith("short_") and not v.name.startswith("parable_")]
+    # short-motivation format gets the shorts schedule; every parable format gets the parables schedule
+    shorts = [p for p in queued if p.parent.parent.parent.name == "short-motivation"]
+    parables = [p for p in queued if p.parent.parent.parent.name != "short-motivation"]
 
     youtube = build("youtube", "v3", credentials=creds)
-    print(f"Found {len(videos)} video(s) to upload ({len(shorts)} shorts, {len(parables)} parables).\n")
+    print(f"Found {len(queued)} video(s) queued ({len(shorts)} shorts, {len(parables)} parables).\n")
 
     start_date = datetime.now(PUBLISH_TZ)
 
-    queue = (
-        [(v, publish_time(start_date, i, SHORTS_HOUR, SHORTS_MINUTE)) for i, v in enumerate(shorts)] +
-        [(v, publish_time(start_date, i, PARABLES_HOUR, PARABLES_MINUTE)) for i, v in enumerate(parables)] +
-        [(v, publish_time(datetime.now(PUBLISH_TZ), i, SHORTS_HOUR, SHORTS_MINUTE)) for i, v in enumerate(other)]
+    schedule = (
+        [(p, publish_time(start_date, i, SHORTS_HOUR, SHORTS_MINUTE)) for i, p in enumerate(shorts)] +
+        [(p, publish_time(start_date, i, PARABLES_HOUR, PARABLES_MINUTE)) for i, p in enumerate(parables)]
     )
 
-    for video_path, publish_at in queue:
-        print(f"▶ Uploading {video_path.name}")
+    for config_path, publish_at in schedule:
+        print(f"▶ Uploading {config_path.name} ({config_path.parent.parent.parent.name})")
         try:
-            video_id = upload_video(youtube, video_path, publish_at)
+            video_id = upload_video(youtube, config_path, publish_at)
             print(f"  ✓ Uploaded: https://youtube.com/shorts/{video_id}\n")
-            dest = UPLOADED_DIR / video_path.name
-            shutil.move(str(video_path), str(dest))
+            archive_dir = config_path.parent.parent / "archive"
+            archive_dir.mkdir(parents=True, exist_ok=True)
+            config_path.rename(archive_dir / config_path.name)
         except Exception as e:
             print(f"  ✗ Failed: {e}\n")
 

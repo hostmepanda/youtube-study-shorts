@@ -16,14 +16,31 @@ echo "" >> "$LOG"
 echo "▶ Uploading approved videos..." >> "$LOG"
 $PYTHON pipeline/youtube_uploader.py >> "$LOG" 2>&1 || echo "  Upload step failed or nothing to upload" >> "$LOG"
 
-# 2. Check there are unused texts available
+# 2. Check there are unused texts available — across legacy output/texts/ AND all formats/*/drafts/
 UNUSED=$($PYTHON - << 'EOF'
 import json
 from pathlib import Path
 root = Path(".")
-used = set(json.loads((root / "output/texts/used_texts.json").read_text())) if (root / "output/texts/used_texts.json").exists() else set()
-total = sum(len(json.loads(f.read_text())) for f in (root / "output/texts").glob("batch_*.json"))
-print(total - len(used))
+
+def count_unused(batch_files, used_file):
+    used = set(json.loads(used_file.read_text())) if used_file.exists() else set()
+    total = sum(len(json.loads(f.read_text())) for f in batch_files)
+    return total - len(used)
+
+legacy_dir = root / "output" / "texts"
+unused = 0
+if legacy_dir.exists():
+    legacy_files = list(legacy_dir.glob("batch_*.json")) + list(legacy_dir.glob("parables_*.json"))
+    unused = count_unused(legacy_files, legacy_dir / "used_texts.json")
+
+formats_dir = root / "formats"
+if formats_dir.exists():
+    for fmt_dir in formats_dir.iterdir():
+        drafts_dir = fmt_dir / "drafts"
+        if drafts_dir.exists():
+            unused += count_unused(list(drafts_dir.glob("*.json")), fmt_dir / "used.json")
+
+print(unused)
 EOF
 )
 

@@ -17,6 +17,11 @@ output/texts/*_tmp.json
 # Format drafts (generated content batches) — used.json and topics.md ARE tracked
 formats/*/drafts/
 
+# Per-format yaml config lifecycle (generated render configs, not source content)
+formats/*/configs/new/
+formats/*/configs/waiting_upload/
+formats/*/configs/archive/
+
 # Python
 __pycache__/
 *.py[cod]

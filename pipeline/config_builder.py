@@ -45,10 +45,23 @@ SUBSCRIBE_CTAS = [
 ]
 
 PROJECT_ROOT = Path(__file__).parent.parent
-CONFIGS_DIR = PROJECT_ROOT / "output" / "configs"
-VIDEOS_DIR = PROJECT_ROOT / "output" / "videos"
+VIDEOS_DIR = PROJECT_ROOT / "output" / "videos"  # permanent home for rendered mp4s — never moved after this
+FORMATS_DIR = PROJECT_ROOT / "formats"
 WOODEN_ROLL_DIR = PROJECT_ROOT.parent / "wooden-roll"
 SETTINGS_FILE = PROJECT_ROOT / "config" / "settings.yaml"
+
+_FORMAT_DIR_NAMES = {
+    "short": "short-motivation",
+    "classic": "parable-classic",
+    "animal": "parable-animal",
+    "parable": "legacy",  # pre-restructure ids, mixed classic+animal
+}
+
+
+def _config_new_dir(item_id: str) -> Path:
+    """formats/<format>/configs/new/ — where a freshly rendered yaml lifecycle file is born."""
+    fmt_dir = _FORMAT_DIR_NAMES[_render_prefix(item_id)]
+    return FORMATS_DIR / fmt_dir / "configs" / "new"
 
 
 def _settings() -> dict:
@@ -149,7 +162,7 @@ def build_config(text_file: Path, images: list[Path], music: Path, voice: str | 
 
     short_id = f"{_render_prefix(text_data['id'])}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     output_video = VIDEOS_DIR / f"{short_id}.mp4"
-    config_path = CONFIGS_DIR / f"{short_id}.yaml"
+    config_path = _config_new_dir(text_data["id"]) / f"{short_id}.yaml"
 
     images_abs = [str(Path(img).resolve()) for img in images]
     music_rel = str(music.resolve())
@@ -202,7 +215,7 @@ def build_config(text_file: Path, images: list[Path], music: Path, voice: str | 
         ]
     }
 
-    # Metadata for YouTube (stored separately in the yaml under a comment block)
+    # YouTube metadata — embedded directly in the yaml (config["youtube"]), not a separate sidecar
     lines = text_data["lines"]
     metadata = {
         "title": f"{lines[0]} #languagelearning #motivation",
@@ -212,16 +225,12 @@ def build_config(text_file: Path, images: list[Path], music: Path, voice: str | 
         "short_id": short_id,
         "video_path": str(output_video.resolve()),
     }
+    config["youtube"] = metadata
 
-    CONFIGS_DIR.mkdir(parents=True, exist_ok=True)
+    config_path.parent.mkdir(parents=True, exist_ok=True)
     VIDEOS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Write wooden-roll config
     config_path.write_text(yaml.dump(config, allow_unicode=True, sort_keys=False))
-
-    # Write metadata sidecar
-    meta_path = CONFIGS_DIR / f"{short_id}_meta.json"
-    meta_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False))
 
     return config_path, metadata
 
@@ -233,7 +242,7 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path, vo
 
     short_id = short_id or f"{_render_prefix(parable['id'])}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     output_video = VIDEOS_DIR / f"{short_id}.mp4"
-    config_path = CONFIGS_DIR / f"{short_id}.yaml"
+    config_path = _config_new_dir(parable["id"]) / f"{short_id}.yaml"
 
     images_abs = [str(Path(img).resolve()) for img in images]
 
@@ -320,13 +329,12 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path, vo
         "short_id": short_id,
         "video_path": str(output_video.resolve()),
     }
+    config["youtube"] = metadata
 
-    CONFIGS_DIR.mkdir(parents=True, exist_ok=True)
+    config_path.parent.mkdir(parents=True, exist_ok=True)
     VIDEOS_DIR.mkdir(parents=True, exist_ok=True)
 
     config_path.write_text(yaml.dump(config, allow_unicode=True, sort_keys=False))
-    meta_path = CONFIGS_DIR / f"{short_id}_meta.json"
-    meta_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False))
 
     return config_path, metadata
 

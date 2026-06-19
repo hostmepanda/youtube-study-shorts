@@ -23,6 +23,13 @@ def copy_to_icloud(video_path: str):
     print(f"   LOCAL : {src}")
     print(f"   iCLOUD: {dst}")
 
+
+def cleanup_render_scratch(short_id: str):
+    """Delete the wooden-roll scratch dir (TTS audio, bg_clips, subtitles) for a finished render."""
+    scratch_dir = WOODEN_ROLL / "output" / "audio" / short_id
+    if scratch_dir.exists():
+        shutil.rmtree(scratch_dir, ignore_errors=True)
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -62,6 +69,7 @@ def main():
             )
             if video_path:
                 copy_to_icloud(video_path)
+            cleanup_render_scratch(Path(config_path).stem)
         sys.exit(result.returncode)
 
     print("=" * 50)
@@ -180,6 +188,7 @@ def main():
         Path(img_path.strip()).unlink(missing_ok=True)
 
     copy_to_icloud(video_path)
+    cleanup_render_scratch(Path(config_path).stem)
 
     print("\n" + "=" * 50)
     print(f"  Done! {video_path}")
