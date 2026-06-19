@@ -27,3 +27,4 @@ __pycache__/
 credentials.json
 token.json
 logs/
+.DS_Store
