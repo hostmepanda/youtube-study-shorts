@@ -153,6 +153,8 @@ def build_config(text_file: Path, images: list[Path], music: Path, voice: str | 
             "apiUrl": premiss["api_url"],
             "apiKey": premiss["api_key"],
             "voice": premiss["voice"],
+            "speed": 1.0,
+            "phraseGap": 0.5,
         }
     else:
         audio_step = {
