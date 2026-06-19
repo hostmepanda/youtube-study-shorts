@@ -68,26 +68,38 @@ def main():
     print("  YouTube Shorts Pipeline")
     print("=" * 50)
 
-    # 1. Pick next unused item from batch and parable files
-    texts_dir = ROOT / "output" / "texts"
-    all_files = sorted(texts_dir.glob("batch_*.json")) + sorted(texts_dir.glob("parables_*.json"))
-    used_file = texts_dir / "used_texts.json"
-    used_ids = set(json.loads(used_file.read_text()) if used_file.exists() else [])
+    # 1. Pick next unused item — scans legacy output/texts/ plus all formats/*/drafts/
+    legacy_dir = ROOT / "output" / "texts"
+    legacy_used = legacy_dir / "used_texts.json"
+    sources = [(f, legacy_used) for f in sorted(legacy_dir.glob("batch_*.json")) + sorted(legacy_dir.glob("parables_*.json"))]
+
+    formats_dir = ROOT / "formats"
+    if formats_dir.exists():
+        for fmt_dir in sorted(formats_dir.iterdir()):
+            drafts_dir = fmt_dir / "drafts"
+            if drafts_dir.exists():
+                fmt_used = fmt_dir / "used.json"
+                sources += [(f, fmt_used) for f in sorted(drafts_dir.glob("*.json"))]
 
     text_data = None
     source_batch = None
-    for batch_file in reversed(all_files):
+    used_file = None
+    used_ids = None
+    for batch_file, candidate_used_file in reversed(sources):
+        candidate_used_ids = set(json.loads(candidate_used_file.read_text()) if candidate_used_file.exists() else [])
         batch = json.loads(batch_file.read_text())
         for item in batch:
-            if item["id"] not in used_ids:
+            if item["id"] not in candidate_used_ids:
                 text_data = item
                 source_batch = batch_file
+                used_file = candidate_used_file
+                used_ids = candidate_used_ids
                 break
         if text_data:
             break
 
     if not text_data:
-        sys.exit("No unused texts left. Run /generate-texts or /generate-parables to create a new batch.")
+        sys.exit("No unused texts left. Run /generate-texts, /generate-parables, or /generate-animal-parable to create a new batch.")
 
     is_parable = text_data.get("type") == "parable"
 

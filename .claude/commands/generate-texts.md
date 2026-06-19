@@ -1,6 +1,6 @@
 # Generate Texts
 
-Generate a batch of 10 motivational texts for YouTube Shorts on language learning. Save them to `output/texts/`.
+Generate a batch of 10 motivational texts for YouTube Shorts on language learning. Save them to `formats/short-motivation/drafts/`.
 
 ## Style rules
 
@@ -12,39 +12,11 @@ Generate a batch of 10 motivational texts for YouTube Shorts on language learnin
 - Lines can be fragments — punchy is better than complete
 - Never end a line with a full stop (.)
 
-## Structures
+## Structures & dedup
 
 Pick a structure **randomly** for each text. Use all 10 across a batch of 10.
 
-**1. Problem → Root cause → Fix**
-> You're not bad at languages. / You're bad at discomfort. / Get comfortable being uncomfortable.
-
-**2. Observation → Twist → Call to action**
-> Everyone wants to be fluent. / Nobody wants to sound stupid first. / That's the only way through.
-
-**3. Countdown / escalation**
-> One year ago you started. / Six months ago you promised yourself. / Last week you opened the app. / Today you're still not speaking. / Tomorrow is not the plan.
-
-**4. They vs You contrast**
-> Kids don't study before they speak. / They just speak. / You know more than any child. / So what's stopping you?
-
-**5. Myth → Reality → Action**
-> You think fluency takes years. / It takes conversations. / Go have one.
-
-**6. Small truth → Bigger truth → Biggest truth**
-> Speaking badly is embarrassing. / Staying silent is worse. / Being understood is everything.
-
-**7. Direct address / confession**
-> You know exactly what you need to do. / You've known for months. / You're just waiting for a sign. / This is it.
-
-**8. Story fragment**
-> She moved to a new country. / Didn't speak the language. / Made every mistake possible. / Now she runs meetings in it. / The mistakes were the method.
-
-**9. Repetition / rhythm**
-> Not ready. / Still not ready. / Never ready. / Go anyway.
-
-**10. Question → Silence → Answer**
-> What's holding you back? / Really. / It's not the grammar. / It's not the vocabulary. / It's the first word. / Say it.
+See `formats/short-motivation/topics.md` for the 10 structures (with examples) and the running list of used final lines — check it before writing so new texts don't land on the same closing punch as a recent batch.
 
 ## What to generate
 
@@ -55,9 +27,9 @@ Write 10 unique texts. For each, assign:
 ## Output format
 
 Save the batch as a single JSON file at:
-`output/texts/batch_YYYYMMDD_HHMMSS.json`
+`formats/short-motivation/drafts/batch_YYYYMMDD_HHMMSS.json`
 
-**ID assignment — IMPORTANT:** Before writing, read `output/texts/used_texts.json` (if it exists) and all existing `output/texts/batch_*.json` files. Find the highest numeric ID already used (e.g. if `text_023` exists, the highest is 23). Start the new batch from `highest + 1`. If no prior IDs exist, start from `text_001`. This ensures IDs are globally unique across batches and never collide with `used_texts.json`.
+**ID assignment:** Read `formats/short-motivation/used.json` and all existing `formats/short-motivation/drafts/batch_*.json` files. Find the highest numeric ID already used (e.g. if `text_023` exists, the highest is 23). Start the new batch from `highest + 1`. If no prior IDs exist, start from `text_001`.
 
 Format:
 ```json
@@ -70,5 +42,7 @@ Format:
   }
 ]
 ```
+
+After saving, append each text's closing line to the "Used final lines" section of `formats/short-motivation/topics.md`.
 
 After saving, print how many texts were written, the starting ID, and the file path.

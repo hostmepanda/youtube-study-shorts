@@ -5,7 +5,7 @@ Generate one surreal animal parable and render it as a YouTube Short with the cu
 ## What this skill does
 
 1. Write one animal parable with absurdist elements
-2. Save it to `output/texts/`
+2. Save it to `formats/parable-animal/drafts/`
 3. Run the full pipeline (`python3 main.py`) to render the video
 
 ---
@@ -16,7 +16,7 @@ A short classic parable — like a Buddhist or Zen story — but with **animal c
 
 ### What makes animal/absurd parables work
 
-- Animals as characters (bear, horse, fox, crow, turtle, owl, pigeon, cat, goat…)
+- Animals as characters — see `formats/parable-animal/topics.md` for the pool and which animal/device combos are already used (avoid repeating)
 - The absurdity is **matter-of-fact** — narrated without surprise or comment. The horse opens a bank account. The bear weighs a jar of honey before answering a question. Nobody reacts.
 - The surreal element must feel **earned**, not random — it reflects the character's inner logic
 - The last line is the lesson — warm, simple, immediately understood. Not a riddle.
@@ -30,14 +30,11 @@ A short classic parable — like a Buddhist or Zen story — but with **animal c
 - The absurd scenes are described deadpan: "He reached into his coat and produced a small set of scales."
 - **Never name the lesson.** Trust the last line.
 - **Keywords: 3–4 per parable, Pexels-friendly** — concrete visual scenes. Animals are good: `bear forest`, `horse meadow`, `fox path`. Avoid abstract: `wisdom`, `language learning`.
-- **video_queries**: one query per 2 screens, based on what actually happens on those screens. Use real animals: `bear walking forest`, `horse running field`, `fox sitting path`. Avoid atmospheric filler.
+- **video_queries**: one query per 2 screens, based on what actually happens on those screens. Use real animals: `bear walking forest`, `horse running field`, `fox sitting path`. Avoid atmospheric filler. **No people in the footage** — query for animals/nature only.
 
-### Absurd element ideas (pick 1–2 per parable)
+### Absurd element ideas & animal pool
 
-- An animal pulls an unrelated object from its coat/trousers (scales, compass, small notebook, jar, umbrella, clock)
-- An animal does something completely irrelevant before answering (dances, bows, counts to ten, writes something down)
-- A reaction that makes no logical sense but feels emotionally right (a pigeon quits a job, a bear takes notes at the wrong moment)
-- A reversal of scale (a very small animal teaches a very large one; a famous creature turns out to be bad at something obvious)
+See `formats/parable-animal/topics.md` — pick 1–2 absurd-element ideas, and check the "used animals + devices" table before picking your animal/device combo so it doesn't repeat a recent parable.
 
 ---
 
@@ -46,7 +43,7 @@ A short classic parable — like a Buddhist or Zen story — but with **animal c
 ```json
 [
   {
-    "id": "parable_XXX",
+    "id": "animal_XXX",
     "topic": "...",
     "type": "parable",
     "mood": "parable",
@@ -79,8 +76,9 @@ A short classic parable — like a Buddhist or Zen story — but with **animal c
 - ceil(total_screens / 2) entries
 - Each query matches what happens on those 2 screens — not atmospheric
 - Use real animals where possible: `bear eating honey`, `horse standing meadow`, `fox sitting stone`
+- No people in any query
 - Good: `"bear sitting grass writing"`, `"two horses talking field"`, `"owl perched branch night"`
-- Bad: `"zen atmosphere"`, `"language learning concept"`, `"wisdom"` 
+- Bad: `"zen atmosphere"`, `"language learning concept"`, `"wisdom"`
 
 ---
 
@@ -119,21 +117,15 @@ Only proceed after both passes pass.
 
 ## ID assignment
 
-Read all `output/texts/parables_*.json` files. Find the highest `parable_XXX` number. New ID = highest + 1.
+Read `formats/parable-animal/used.json` and all existing `formats/parable-animal/drafts/parables_*.json` files. Find the highest `animal_XXX` number. New ID = highest + 1. If none exist, start from `animal_001`.
 
-Save to: `output/texts/parables_YYYYMMDD_HHMMSS.json`
+Save to: `formats/parable-animal/drafts/parables_YYYYMMDD_HHMMSS.json`
 
 ---
 
 ## Voice selection — pick before running the pipeline
 
-Three approved voices. Pick the one that fits the parable's tone and main character:
-
-| Voice | Gender | Best for |
-|-------|--------|----------|
-| diana | female | parables with a female lead, gentle or introspective tone, emotional endings |
-| oliver | male | parables with a male lead, classic/timeless tone, wise or calm narrator feel |
-| thomas | male | parables with a male lead, warmer or slightly playful tone, absurdist stories |
+See `formats/parable-animal/topics.md` for the voice table (diana/oliver/thomas).
 
 **How to pick:**
 - Look at the parable's main character and emotional register
@@ -144,7 +136,7 @@ Three approved voices. Pick the one that fits the parable's tone and main charac
 
 Pass the chosen voice to the pipeline:
 ```bash
-python3 main.py  # uses settings.yaml voice (diana by default)
+python3 main.py  # uses settings.yaml voice
 ```
 
 Or override for this run by temporarily editing `config/settings.yaml` → `premiss.voice`.
@@ -166,8 +158,9 @@ python3 main.py
 
 ## Output
 
-After the video is rendered, print:
-- Parable ID and topic
+After the video is rendered:
+- Append the animal/device combo + topic to `formats/parable-animal/topics.md` under "Used animals + absurd devices"
+- Print parable ID and topic
 - Hook text
 - Video path (local + iCloud)
 - First line of screen 1

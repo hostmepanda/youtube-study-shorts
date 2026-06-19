@@ -105,6 +105,17 @@ VOICE_PROFILES = {
 }
 
 
+def _render_prefix(item_id: str) -> str:
+    """Map a content ID prefix to the rendered-output filename prefix."""
+    if item_id.startswith("animal_"):
+        return "animal"
+    if item_id.startswith("classic_"):
+        return "classic"
+    if item_id.startswith("text_"):
+        return "short"
+    return "parable"  # legacy parable_NNN ids (pre-restructure, mixed classic+animal)
+
+
 def build_text_block(lines: list[str]) -> str:
     cleaned = [line.rstrip(".") for line in lines]
     return "\n\n".join(cleaned)
@@ -136,7 +147,7 @@ def build_config(text_file: Path, images: list[Path], music: Path, voice: str | 
     if isinstance(text_data, list):
         text_data = text_data[0]
 
-    short_id = f"short_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    short_id = f"{_render_prefix(text_data['id'])}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     output_video = VIDEOS_DIR / f"{short_id}.mp4"
     config_path = CONFIGS_DIR / f"{short_id}.yaml"
 
@@ -220,7 +231,7 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path, vo
     if isinstance(parable, list):
         parable = parable[0]
 
-    short_id = short_id or f"parable_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    short_id = short_id or f"{_render_prefix(parable['id'])}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     output_video = VIDEOS_DIR / f"{short_id}.mp4"
     config_path = CONFIGS_DIR / f"{short_id}.yaml"
 

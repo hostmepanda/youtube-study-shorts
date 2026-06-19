@@ -14,6 +14,9 @@ data/used_photos.json
 output/texts/used_texts.json
 output/texts/*_tmp.json
 
+# Format drafts (generated content batches) — used.json and topics.md ARE tracked
+formats/*/drafts/
+
 # Python
 __pycache__/
 *.py[cod]
