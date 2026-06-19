@@ -134,7 +134,9 @@ Format:
     "type": "parable",
     "mood": "parable",
     "keywords": ["keyword1", "keyword2"],
+    "video_queries": ["query for screens 0-1", "query for screens 2-3", "..."],
     "screens": [
+      {"screen": 0, "text": "Hook line"},
       {"screen": 1, "text": "Line 1\nLine 2"},
       ...
       {"screen": 12, "text": "The last line."}
@@ -142,6 +144,15 @@ Format:
   }
 ]
 ```
+
+**`video_queries`** — one Pexels video search query per every 2 screens (ceil(total_screens / 2) entries).
+Each query must match what actually happens in those screens — not atmospheric filler.
+- screens 0-1 → hook + opening scene → query matches opening visual
+- screens 2-3 → query matches what character does in those screens
+- etc.
+
+Good queries: `"market vendor throwing vegetable"`, `"person walking into shop"`, `"old woman reading book"`, `"foggy mountain path"`, `"two people arguing street"`
+Bad queries: `"zen atmosphere"`, `"spiritual journey"`, `"language learning"`
 
 Note: `"mood": "parable"` — this routes to calm background music.
 
@@ -221,6 +232,18 @@ For each parable, ask:
 - It should feel like a small revelation, not a clever trick.
 
 Only save the file after both passes are complete and all issues are fixed.
+
+## Voice selection — note in output
+
+Three approved Premiss voices. When reporting parables after saving, suggest a voice for each based on tone and main character:
+
+| Voice | Gender | Best for |
+|-------|--------|----------|
+| diana | female | female protagonist, gentle/introspective/emotional tone |
+| oliver | male | male protagonist, classic/timeless/wise tone |
+| thomas | male | male protagonist, warm/playful/absurdist tone |
+
+Default: diana. Override in `config/settings.yaml` → `premiss.voice` or via `--voice` flag.
 
 ## Output
 

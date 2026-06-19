@@ -3,10 +3,28 @@
 
 import json
 import math
+import shutil
 import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
+
+ICLOUD_OUTPUT = Path("/Users/panda/Library/Mobile Documents/com~apple~CloudDocs/Experiments/Youtube-shorts/output")
+
+
+def copy_to_icloud(video_path: str):
+    src = Path(video_path)
+    if not src.exists():
+        return
+    ICLOUD_OUTPUT.mkdir(parents=True, exist_ok=True)
+    dst = ICLOUD_OUTPUT / src.name
+    shutil.copy2(src, dst)
+    print("\n⚠️  WARNING: video exists in TWO places:")
+    print(f"   LOCAL : {src}")
+    print(f"   iCLOUD: {dst}")
+
+from dotenv import load_dotenv
+load_dotenv()
 
 ROOT = Path(__file__).parent
 WOODEN_ROLL = ROOT.parent / "wooden-roll"
@@ -35,6 +53,15 @@ def main():
             ["node", "src/pipeline.js", str(Path(config_path).resolve())],
             cwd=str(WOODEN_ROLL),
         )
+        if result.returncode == 0:
+            import yaml
+            cfg = yaml.safe_load(Path(config_path).read_text())
+            video_path = next(
+                (s.get("output") for s in cfg.get("steps", []) if s.get("type") == "video"),
+                None,
+            )
+            if video_path:
+                copy_to_icloud(video_path)
         sys.exit(result.returncode)
 
     print("=" * 50)
@@ -139,6 +166,8 @@ def main():
     # Remove images — no longer needed once video is rendered
     for img_path in image_paths.split(","):
         Path(img_path.strip()).unlink(missing_ok=True)
+
+    copy_to_icloud(video_path)
 
     print("\n" + "=" * 50)
     print(f"  Done! {video_path}")

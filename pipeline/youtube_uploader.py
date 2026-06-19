@@ -25,7 +25,7 @@ UPLOADED_DIR = ROOT / "output" / "uploaded"
 CREDENTIALS_FILE = ROOT / "credentials.json"
 TOKEN_FILE = ROOT / "token.json"
 
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+SCOPES = ["https://www.googleapis.com/auth/youtube"]
 
 PUBLISH_TZ = timezone.utc
 
@@ -64,7 +64,10 @@ def publish_time(start_date: datetime, offset_days: int, hour: int, minute: int)
 
 
 def load_metadata(video_path: Path) -> dict:
-    meta_path = ROOT / "output" / "configs" / (video_path.stem + "_meta.json")
+    # Check approved/ first (may have updated meta), then configs/
+    meta_path = APPROVED_DIR / (video_path.stem + "_meta.json")
+    if not meta_path.exists():
+        meta_path = ROOT / "output" / "configs" / (video_path.stem + "_meta.json")
     if meta_path.exists():
         return json.loads(meta_path.read_text())
 
@@ -148,7 +151,7 @@ def main():
     youtube = build("youtube", "v3", credentials=creds)
     print(f"Found {len(videos)} video(s) to upload ({len(shorts)} shorts, {len(parables)} parables).\n")
 
-    start_date = datetime(2026, 6, 2, tzinfo=PUBLISH_TZ)
+    start_date = datetime.now(PUBLISH_TZ)
 
     queue = (
         [(v, publish_time(start_date, i, SHORTS_HOUR, SHORTS_MINUTE)) for i, v in enumerate(shorts)] +

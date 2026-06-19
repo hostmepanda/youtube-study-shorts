@@ -139,6 +139,16 @@ python3 main.py output/configs/parable_YYYYMMDD_HHMMSS.yaml
 
 Useful when you want to re-render a video without generating a new one from scratch.
 
+### iCloud copy
+
+After every render, `main.py` automatically copies the video to:
+
+```
+/Users/panda/Library/Mobile Documents/com~apple~CloudDocs/Experiments/Youtube-shorts/output/
+```
+
+A warning is printed reminding you that the file exists in **two places** — local `output/videos/` and iCloud. Delete both when no longer needed.
+
 ### Approve a video for upload
 
 Move it to `output/approved/`:

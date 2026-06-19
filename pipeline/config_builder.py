@@ -115,6 +115,22 @@ def build_parable_text(screens: list[dict]) -> str:
     return "\n\n".join(s["text"] for s in screens)
 
 
+def build_parable_tts_text(screens: list[dict]) -> str:
+    """Build punctuated text for TTS. Lines within a screen are joined as flowing speech."""
+    import re
+    parts = []
+    for s in screens:
+        lines = [l.strip() for l in s["text"].split("\n") if l.strip()]
+        punctuated = []
+        for line in lines:
+            if re.search(r"[.!?,;]$", line):
+                punctuated.append(line)
+            else:
+                punctuated.append(line + ".")
+        parts.append(" ".join(punctuated))
+    return "\n\n".join(parts)
+
+
 def build_config(text_file: Path, images: list[Path], music: Path, voice: str | None = None) -> tuple[Path, dict]:
     text_data = json.loads(text_file.read_text())
     if isinstance(text_data, list):
@@ -197,16 +213,21 @@ def build_config(text_file: Path, images: list[Path], music: Path, voice: str | 
     return config_path, metadata
 
 
-def build_parable_config(parable_file: Path, images: list[Path], music: Path, voice: str | None = None) -> tuple[Path, dict]:
+def build_parable_config(parable_file: Path, images: list[Path], music: Path, voice: str | None = None, short_id: str | None = None) -> tuple[Path, dict]:
     parable = json.loads(parable_file.read_text())
     if isinstance(parable, list):
         parable = parable[0]
 
-    short_id = f"parable_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    short_id = short_id or f"parable_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     output_video = VIDEOS_DIR / f"{short_id}.mp4"
     config_path = CONFIGS_DIR / f"{short_id}.yaml"
 
     images_abs = [str(Path(img).resolve()) for img in images]
+
+    # Separate hook (screen 0) from story screens
+    all_screens = parable["screens"]
+    hook_screen = next((s for s in all_screens if s["screen"] == 0), None)
+    story_screens = [s for s in all_screens if s["screen"] != 0]
 
     # Slower speed and longer phrase gap — parables need space to breathe
     voice_profile = random.choice(list(VOICE_PROFILES.values())).copy()
@@ -216,20 +237,37 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path, vo
     if premiss:
         audio_step = {
             "type": "premiss-audio",
-            "text": build_parable_text(parable["screens"]),
+            "text": build_parable_tts_text(story_screens),
             "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
             "apiUrl": premiss["api_url"],
             "apiKey": premiss["api_key"],
             "voice": premiss["voice"],
+            "speed": 1.0,
+            "phraseGap": 0.52,
         }
     else:
         audio_step = {
             "type": "audio",
-            "text": build_parable_text(parable["screens"]),
+            "text": build_parable_text(story_screens),
             "outDir": str((WOODEN_ROLL_DIR / "output" / "audio" / short_id).resolve()),
             **voice_profile,
             "phraseGap": 0.8,
             **( {"cloneVoice": _clone_voice_path()} if _clone_voice_path() else {}),
+        }
+
+    # Use per-screen video queries if available, otherwise fall back to images
+    video_queries = parable.get("video_queries")
+    if video_queries:
+        background = {
+            "backgroundVideos": [{"query": q} for q in video_queries],
+            "imageTransition": "fade",
+            "imageTransitionDuration": 1.0,
+        }
+    else:
+        background = {
+            "backgroundImages": images_abs,
+            "imageTransition": "fade",
+            "imageTransitionDuration": 1.0,
         }
 
     config = {
@@ -237,21 +275,24 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path, vo
             audio_step,
             {
                 "type": "video",
-                "backgroundImages": images_abs,
-                "imageTransition": "fade",
-                "imageTransitionDuration": 1.0,
+                **background,
                 "output": str(output_video.resolve()),
-                "fontSize": 150,
+                "fontSize": 113,
+                **( {"hookText": hook_screen["text"], "hookFontSize": 180, "hookDuration": 3.0} if hook_screen else {} ),
+                "lastScreenCentered": True,
+                "lastFontSize": 180,
+                "textAlignment": 2,
+                "textMarginV": 80,
                 "textOutlineSize": 7,
                 "textOutlineColor": "#000000",
                 "textFadeDuration": 0.5,
-                "introDelay": 0.8,
-                "outroText": f"{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}",
+                "introDelay": 3.5,
+                "outroText": f"Didn't motivate?\nDrop a message in comments\n\n{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}",
                 "outroDuration": 5.0,
                 "outroFontSize": 100,
                 "music": str(music.resolve()),
                 "musicVolume": 0.3,
-                "musicOffset": "random",
+                "musicOffset": 0,
                 "voiceVolume": 1.3,
             },
         ]
@@ -284,6 +325,7 @@ def main():
     parser.add_argument("--music", required=True)
     parser.add_argument("--type", default="text", choices=["text", "parable"])
     parser.add_argument("--voice", default=None, help="Premiss voice name (overrides settings.yaml and PREMISS_VOICE env)")
+    parser.add_argument("--short-id", default=None, help="Override output filename (without extension)")
     args = parser.parse_args()
 
     text_file = Path(args.text_file)
@@ -295,7 +337,7 @@ def main():
             sys.exit(f"File not found: {p}")
 
     if args.type == "parable":
-        config_path, metadata = build_parable_config(text_file, images, music, voice=args.voice)
+        config_path, metadata = build_parable_config(text_file, images, music, voice=args.voice, short_id=getattr(args, 'short_id', None))
     else:
         config_path, metadata = build_config(text_file, images, music, voice=args.voice)
 
