@@ -36,3 +36,4 @@ credentials.json
 token.json
 logs/
 .DS_Storemusic/long/*.mp3
+*.mp4
