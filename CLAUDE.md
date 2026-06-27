@@ -1,5 +1,11 @@
 # CLAUDE.md
 
+## Target audience
+
+The channel targets **Americans learning a foreign language** (Spanish, French, Japanese, etc.). They are NOT learning English — English is their native language. Never suggest content or tags aimed at people learning English (e.g. `learn english`, `english fluency`, `speak english` are wrong tags for this channel).
+
+Content speaks to the emotional experience of language learning: fear of speaking, self-doubt, plateau, consistency. Not tips/tricks tutorials.
+
 ## Publishing schedule — always US Eastern Time
 
 All YouTube uploads (shorts and parables) must be scheduled relative to **US Eastern Time (America/New_York)**, not UTC and not the local machine timezone. This is the audience's timezone.
