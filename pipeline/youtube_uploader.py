@@ -101,7 +101,10 @@ def resolve_thumbnail(meta: dict, config_path: Path) -> Path | None:
     # Auto-generate from hook lines if present
     hook_lines = meta.get("hook")
     if hook_lines:
-        from pipeline.thumbnail_generator import generate
+        try:
+            from pipeline.thumbnail_generator import generate
+        except ImportError:
+            from thumbnail_generator import generate
         lines = hook_lines if isinstance(hook_lines, list) else [hook_lines]
         stem  = config_path.stem
         out   = config_path.parent / f"{stem}_thumbnail.jpg"
@@ -156,12 +159,15 @@ def upload_video(youtube, config_path: Path, publish_at: str) -> str:
     video_id = response["id"]
 
     if thumbnail_path:
-        mimetype = "image/png" if thumbnail_path.suffix.lower() == ".png" else "image/jpeg"
-        youtube.thumbnails().set(
-            videoId=video_id,
-            media_body=MediaFileUpload(str(thumbnail_path), mimetype=mimetype),
-        ).execute()
-        print(f"  ✓ Thumbnail uploaded")
+        try:
+            mimetype = "image/png" if thumbnail_path.suffix.lower() == ".png" else "image/jpeg"
+            youtube.thumbnails().set(
+                videoId=video_id,
+                media_body=MediaFileUpload(str(thumbnail_path), mimetype=mimetype),
+            ).execute()
+            print(f"  ✓ Thumbnail uploaded")
+        except Exception as e:
+            print(f"  ⚠ Thumbnail skipped: {e}")
 
     return video_id
 
