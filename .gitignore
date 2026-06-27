@@ -35,4 +35,4 @@ __pycache__/
 credentials.json
 token.json
 logs/
-.DS_Store
+.DS_Storemusic/long/*.mp3

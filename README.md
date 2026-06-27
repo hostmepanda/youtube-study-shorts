@@ -170,7 +170,35 @@ mv formats/parable-classic/configs/new/classic_YYYYMMDD_HHMMSS.yaml \
 python3 pipeline/youtube_uploader.py
 ```
 
-Uploads everything sitting in any `formats/*/configs/waiting_upload/`. Schedules `short-motivation` items at 09:00 ET and everything else (parables) at 16:30 ET, US Eastern Time, one per day starting today. On success, each yaml moves to `archive/` — the mp4 is untouched.
+Uploads everything sitting in any `formats/*/configs/waiting_upload/`. Schedule by format, US Eastern Time, one per day starting today:
+
+| Format | Publish time |
+|--------|-------------|
+| `short-motivation` | 09:00 ET |
+| `long-monologue` | 12:00 ET |
+| parables + legacy | 16:30 ET |
+
+On success, each yaml moves to `archive/` — the mp4 is untouched.
+
+### Thumbnails for long-monologue
+
+The uploader auto-generates a branded thumbnail from the hook lines in `youtube.hook`:
+
+```yaml
+youtube:
+  hook:
+    - "He was in prison."
+    - "He chose to learn"
+    - "their language."
+```
+
+To preview a thumbnail manually:
+
+```bash
+python3 pipeline/thumbnail_generator.py \
+  --lines "Line 1." "Line 2" "gold line." \
+  --output preview.jpg
+```
 
 ### Automatic upload via launchd (macOS)
 

@@ -9,6 +9,7 @@ only the yaml travels between configs/{new,waiting_upload,archive}/.
 
 import argparse
 import sys
+import tempfile
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -39,6 +40,8 @@ SHORTS_HOUR = 9       # 09:00 America/New_York
 SHORTS_MINUTE = 0
 PARABLES_HOUR = 16    # 16:30 America/New_York
 PARABLES_MINUTE = 30
+LONG_HOUR = 12        # 12:00 America/New_York
+LONG_MINUTE = 0
 
 
 def authenticate() -> Credentials:
@@ -89,14 +92,45 @@ def load_meta(config_path: Path) -> dict:
     return meta
 
 
+def resolve_thumbnail(meta: dict, config_path: Path) -> Path | None:
+    """Return thumbnail path: explicit in meta > auto-generated from hook > format-level default."""
+    if meta.get("thumbnail"):
+        p = Path(meta["thumbnail"])
+        return p if p.exists() else None
+
+    # Auto-generate from hook lines if present
+    hook_lines = meta.get("hook")
+    if hook_lines:
+        from pipeline.thumbnail_generator import generate
+        lines = hook_lines if isinstance(hook_lines, list) else [hook_lines]
+        stem  = config_path.stem
+        out   = config_path.parent / f"{stem}_thumbnail.jpg"
+        if not out.exists():
+            print(f"  Generating thumbnail from hook…")
+            generate(lines, out)
+        return out
+
+    # Format-level static fallback: formats/<format>/thumbnail.jpg
+    fmt_dir = config_path.parent.parent.parent
+    for name in ("thumbnail.jpg", "thumbnail.png"):
+        p = fmt_dir / name
+        if p.exists():
+            return p
+
+    return None
+
+
 def upload_video(youtube, config_path: Path, publish_at: str) -> str:
     meta = load_meta(config_path)
     video_path = Path(meta["video_path"])
     if not video_path.exists():
         sys.exit(f"Video not found at {video_path} (referenced by {config_path})")
 
+    thumbnail_path = resolve_thumbnail(meta, config_path)
+
     print(f"  Title:      {meta['title']}")
     print(f"  Publish at: {publish_at}")
+    print(f"  Thumbnail:  {thumbnail_path or '(auto)'}")
 
     body = {
         "snippet": {
@@ -119,7 +153,17 @@ def upload_video(youtube, config_path: Path, publish_at: str) -> str:
     while response is None:
         _, response = request.next_chunk()
 
-    return response["id"]
+    video_id = response["id"]
+
+    if thumbnail_path:
+        mimetype = "image/png" if thumbnail_path.suffix.lower() == ".png" else "image/jpeg"
+        youtube.thumbnails().set(
+            videoId=video_id,
+            media_body=MediaFileUpload(str(thumbnail_path), mimetype=mimetype),
+        ).execute()
+        print(f"  ✓ Thumbnail uploaded")
+
+    return video_id
 
 
 def main():
@@ -137,18 +181,20 @@ def main():
         print("Nothing in formats/*/configs/waiting_upload/ — nothing to upload.")
         return
 
-    # short-motivation format gets the shorts schedule; every parable format gets the parables schedule
-    shorts = [p for p in queued if p.parent.parent.parent.name == "short-motivation"]
-    parables = [p for p in queued if p.parent.parent.parent.name != "short-motivation"]
+    # Route by format name to the correct publish slot
+    shorts   = [p for p in queued if p.parent.parent.parent.name == "short-motivation"]
+    longs    = [p for p in queued if p.parent.parent.parent.name == "long-monologue"]
+    parables = [p for p in queued if p.parent.parent.parent.name not in ("short-motivation", "long-monologue")]
 
     youtube = build("youtube", "v3", credentials=creds)
-    print(f"Found {len(queued)} video(s) queued ({len(shorts)} shorts, {len(parables)} parables).\n")
+    print(f"Found {len(queued)} video(s) queued ({len(shorts)} shorts, {len(parables)} parables, {len(longs)} long).\n")
 
     start_date = datetime.now(PUBLISH_TZ)
 
     schedule = (
-        [(p, publish_time(start_date, i, SHORTS_HOUR, SHORTS_MINUTE)) for i, p in enumerate(shorts)] +
-        [(p, publish_time(start_date, i, PARABLES_HOUR, PARABLES_MINUTE)) for i, p in enumerate(parables)]
+        [(p, publish_time(start_date, i, SHORTS_HOUR,   SHORTS_MINUTE))   for i, p in enumerate(shorts)]   +
+        [(p, publish_time(start_date, i, PARABLES_HOUR, PARABLES_MINUTE)) for i, p in enumerate(parables)] +
+        [(p, publish_time(start_date, i, LONG_HOUR,     LONG_MINUTE))     for i, p in enumerate(longs)]
     )
 
     for config_path, publish_at in schedule:
