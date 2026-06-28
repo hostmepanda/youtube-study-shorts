@@ -158,16 +158,14 @@ def upload_video(youtube, config_path: Path, publish_at: str) -> str:
 
     video_id = response["id"]
 
-    if thumbnail_path:
-        try:
-            mimetype = "image/png" if thumbnail_path.suffix.lower() == ".png" else "image/jpeg"
-            youtube.thumbnails().set(
-                videoId=video_id,
-                media_body=MediaFileUpload(str(thumbnail_path), mimetype=mimetype),
-            ).execute()
-            print(f"  ✓ Thumbnail uploaded")
-        except Exception as e:
-            print(f"  ⚠ Thumbnail skipped: {e}")
+    # Thumbnail upload disabled — requires verified YouTube account (youtube.com/verify)
+    # if thumbnail_path:
+    #     mimetype = "image/png" if thumbnail_path.suffix.lower() == ".png" else "image/jpeg"
+    #     youtube.thumbnails().set(
+    #         videoId=video_id,
+    #         media_body=MediaFileUpload(str(thumbnail_path), mimetype=mimetype),
+    #     ).execute()
+    #     print(f"  ✓ Thumbnail uploaded")
 
     return video_id
 
