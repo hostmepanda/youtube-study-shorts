@@ -36,8 +36,9 @@ SCOPES = ["https://www.googleapis.com/auth/youtube"]
 # not UTC. ZoneInfo handles EST/EDT (daylight saving) transitions automatically.
 PUBLISH_TZ = ZoneInfo("America/New_York")
 
-SHORTS_HOUR = 9       # 09:00 America/New_York
+SHORTS_HOUR = 9       # 09:00 America/New_York — slot 1
 SHORTS_MINUTE = 0
+SHORTS_HOUR2 = 19     # 19:00 America/New_York — slot 2 (when queue has >1/day)
 PARABLES_HOUR = 16    # 16:30 America/New_York
 PARABLES_MINUTE = 30
 LONG_HOUR = 12        # 12:00 America/New_York
@@ -195,8 +196,14 @@ def main():
 
     start_date = datetime.now(PUBLISH_TZ)
 
+    # Shorts: 2 per day — slot 1 = 09:00 ET, slot 2 = 19:00 ET
+    shorts_schedule = [
+        (p, publish_time(start_date, i // 2, SHORTS_HOUR if i % 2 == 0 else SHORTS_HOUR2, SHORTS_MINUTE))
+        for i, p in enumerate(shorts)
+    ]
+
     schedule = (
-        [(p, publish_time(start_date, i, SHORTS_HOUR,   SHORTS_MINUTE))   for i, p in enumerate(shorts)]   +
+        shorts_schedule +
         [(p, publish_time(start_date, i, PARABLES_HOUR, PARABLES_MINUTE)) for i, p in enumerate(parables)] +
         [(p, publish_time(start_date, i, LONG_HOUR,     LONG_MINUTE))     for i, p in enumerate(longs)]
     )
