@@ -8,6 +8,7 @@ only the yaml travels between configs/{new,waiting_upload,archive}/.
 """
 
 import argparse
+import re
 import sys
 import tempfile
 from datetime import datetime, timedelta, timezone
@@ -124,6 +125,48 @@ def resolve_thumbnail(meta: dict, config_path: Path) -> Path | None:
     return None
 
 
+FORMAT_TYPE = {
+    "short-motivation": "motivational short",
+    "long-monologue":   "long monologue",
+    "parable-classic":  "classic parable",
+    "parable-animal":   "animal parable",
+    "legacy":           "classic parable",
+}
+
+HEL_TZ = ZoneInfo("Europe/Helsinki")
+
+
+def append_schedule(config_path: Path, video_id: str, publish_at: str, title: str, is_short: bool) -> None:
+    """Append one row to schedule.md in the project root."""
+    schedule_file = ROOT / "schedule.md"
+    if not schedule_file.exists():
+        return
+
+    fmt_name  = config_path.parent.parent.parent.name
+    video_type = FORMAT_TYPE.get(fmt_name, fmt_name)
+    yaml_rel  = config_path.relative_to(ROOT)
+
+    dt_utc = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%S.000Z").replace(tzinfo=timezone.utc)
+    dt_et  = dt_utc.astimezone(ZoneInfo("America/New_York"))
+    dt_hel = dt_utc.astimezone(HEL_TZ)
+
+    date_str = dt_et.strftime("%Y-%m-%d")
+    et_str   = dt_et.strftime("%H:%M")
+    hel_str  = dt_hel.strftime("%H:%M")
+
+    url = f"https://youtube.com/shorts/{video_id}" if is_short else f"https://youtube.com/watch?v={video_id}"
+    short_title = title[:55] + ("…" if len(title) > 55 else "")
+    row = f"| {date_str} | {et_str} | {hel_str} | {video_type} | {short_title} | [link]({url}) | [{yaml_rel.name}]({yaml_rel}) |"
+
+    text  = schedule_file.read_text()
+    # Insert before the Notes section or at end of table
+    if "## Notes" in text:
+        text = text.replace("## Notes", row + "\n## Notes")
+    else:
+        text = text.rstrip() + "\n" + row + "\n"
+    schedule_file.write_text(text)
+
+
 def upload_video(youtube, config_path: Path, publish_at: str) -> str:
     meta = load_meta(config_path)
     video_path = Path(meta["video_path"])
@@ -209,10 +252,24 @@ def main():
     )
 
     for config_path, publish_at in schedule:
-        print(f"▶ Uploading {config_path.name} ({config_path.parent.parent.parent.name})")
+        fmt_name = config_path.parent.parent.parent.name
+        print(f"▶ Uploading {config_path.name} ({fmt_name})")
         try:
             video_id = upload_video(youtube, config_path, publish_at)
-            print(f"  ✓ Uploaded: https://youtube.com/shorts/{video_id}\n")
+            is_short = fmt_name in ("short-motivation", "parable-classic", "parable-animal", "legacy")
+            url = f"https://youtube.com/shorts/{video_id}" if is_short else f"https://youtube.com/watch?v={video_id}"
+            print(f"  ✓ Uploaded: {url}\n")
+
+            # Write video_id and publish_at back into the yaml before archiving
+            config = yaml_lib.safe_load(config_path.read_text())
+            config["youtube"]["video_id"] = video_id
+            config["youtube"]["publish_at"] = publish_at
+            config_path.write_text(yaml_lib.dump(config, allow_unicode=True, sort_keys=False))
+
+            # Append row to schedule.md
+            meta = config.get("youtube", {})
+            append_schedule(config_path, video_id, publish_at, meta.get("title", ""), fmt_name != "long-monologue")
+
             archive_dir = config_path.parent.parent / "archive"
             archive_dir.mkdir(parents=True, exist_ok=True)
             config_path.rename(archive_dir / config_path.name)

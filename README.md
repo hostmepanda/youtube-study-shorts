@@ -252,6 +252,38 @@ pipeline/                # Python modules
 main.py                  # pipeline entry point — also cleans render scratch after each success
 ```
 
+### Generate animal parables via Premiss LLM
+
+Animal parables use a two-step pipeline powered by the Premiss `llm-v2` API:
+
+**Step 1 — generate plot seeds** (quick, produces a pool of story ideas):
+
+```bash
+python3 formats/parable-animal/pipeline/generate_seeds.py [N]
+# default N = 10
+```
+
+Seeds are saved to `formats/parable-animal/seeds.json`. Each seed contains:
+- `animals` — which animals appear
+- `want` — what the main character wants
+- `obstacle` — what blocks them (fear, pride, silence)
+- `absurd` — the surreal deadpan element
+- `ending_hint` — direction for the final line
+- `theme` — language learning angle
+
+Review and edit seeds before proceeding — this is where you control variety and quality.
+
+**Step 2 — generate a full parable from the next pending seed:**
+
+```bash
+python3 formats/parable-animal/pipeline/generate_parable.py [seed_id]
+# if seed_id is omitted, picks the first pending seed automatically
+```
+
+Saves the result to `formats/parable-animal/drafts/parables_YYYYMMDD_HHMMSS.json` and marks the seed as used. Then run `python3 main.py` to render it.
+
+Model: `synopsis-qwen / qwen3.5-35b-a3b` (Premiss on-prem). Prompt includes two reference parables as few-shot examples.
+
 ---
 
 ## Disk cleanup

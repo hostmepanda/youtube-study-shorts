@@ -12,6 +12,8 @@ new/  →  waiting_upload/  →  archive/
 ```
 **The rendered `.mp4` itself never moves** — it lives permanently in `output/videos/<short_id>.mp4`. Only the yaml (a few KB of text) travels between lifecycle folders, so "what's been published" is always answered by "which folder is the yaml sitting in," not by hunting for files across `approved/`/`uploaded/`.
 
+After a successful upload, the uploader writes `youtube.video_id` and `youtube.publish_at` back into the yaml before moving it to `archive/`. This means every archived yaml is the single source of truth for that video's YouTube ID and scheduled time.
+
 ## Timezone rule — IMPORTANT
 
 **All publish times are scheduled relative to US Eastern Time (America/New_York)**, the audience's timezone — never raw UTC, never the local machine's timezone. `pipeline/youtube_uploader.py` handles this automatically via `ZoneInfo("America/New_York")`, which accounts for EST/EDT daylight-saving transitions.

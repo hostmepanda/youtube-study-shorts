@@ -28,6 +28,9 @@ __pycache__/
 .venv/
 *.egg-info/
 
+# wooden-roll cache (render scratch inside project)
+wooden-roll/
+
 # macOS
 .DS_Store
 

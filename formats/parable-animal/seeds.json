@@ -1,0 +1,133 @@
+[
+  {
+    "animals": [
+      "cat",
+      "fox"
+    ],
+    "want": "To teach a specific word",
+    "obstacle": "Pride prevents asking for feedback",
+    "absurd": "Cat holds an empty bucket upside down over its head",
+    "ending_hint": "Fox speaks, bucket clatters on the floor",
+    "theme": "Fear of sounding foolish stops learning",
+    "id": "seed_001",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "pigeon",
+      "horse"
+    ],
+    "want": "To be understood clearly",
+    "obstacle": "Pigeon speaks faster than the listener can follow",
+    "absurd": "Pigeon wears oversized boxing gloves",
+    "ending_hint": "Horse nods slowly at the first word",
+    "theme": "Speed versus clarity in conversation",
+    "id": "seed_002",
+    "status": "used",
+    "style": "dialogue"
+  },
+  {
+    "animals": [
+      "bear",
+      "sparrow"
+    ],
+    "want": "To understand a grammar rule",
+    "obstacle": "Bear thinks big answers matter more than small details",
+    "absurd": "Sparrow wears a formal tuxedo",
+    "ending_hint": "Bear listens without looking up from the ground",
+    "theme": "Ego blocks attention to detail",
+    "id": "seed_003",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "donkey",
+      "cat"
+    ],
+    "want": "To validate their pronunciation",
+    "obstacle": "Donkey refuses to hear the correction",
+    "absurd": "Cat wears a thick blindfold",
+    "ending_hint": "Donkey mumbles and walks away",
+    "theme": "Denial of feedback hinders progress",
+    "id": "seed_004",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "parrot",
+      "turtle"
+    ],
+    "want": "To speak at a comfortable pace",
+    "obstacle": "Parrot imitates speed instead of slowing down",
+    "absurd": "Parrot juggles ticking time bombs",
+    "ending_hint": "Turtle puts its head inside its shell",
+    "theme": "Overwhelming input causes withdrawal",
+    "id": "seed_005",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "hedgehog",
+      "owl"
+    ],
+    "want": "To correct a difficult sentence",
+    "obstacle": "Hedgehog avoids hard vocabulary words",
+    "absurd": "Hedgehog holds a small feather duster",
+    "ending_hint": "Owl pecks at the dust, not the sentence",
+    "theme": "Avoiding difficult words limits growth",
+    "id": "seed_006",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "rabbit",
+      "duck"
+    ],
+    "want": "To practice repetition",
+    "obstacle": "Duck gets distracted by the water nearby",
+    "absurd": "Rabbit tries to breathe through a straw underwater",
+    "ending_hint": "Rabbit gasps, Duck quacks a new word",
+    "theme": "Lack of focus breaks practice flow",
+    "id": "seed_007",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "crow",
+      "goat"
+    ],
+    "want": "To sing a song in the language",
+    "obstacle": "Crow only knows how to caw perfectly",
+    "absurd": "Crow holds a bouquet of carrots",
+    "ending_hint": "Goat eats a carrot instead of listening",
+    "theme": "Staying in the comfort zone limits range",
+    "id": "seed_008",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "sparrow",
+      "hedgehog"
+    ],
+    "want": "To admit they know the word",
+    "obstacle": "Hedgehog hides knowledge out of shyness",
+    "absurd": "Hedgehog is knitting a tight sweater",
+    "ending_hint": "Sparrow waits for the yarn to be pulled",
+    "theme": "Shyness keeps knowledge locked",
+    "id": "seed_009",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "bear",
+      "pigeon"
+    ],
+    "want": "To hear a new accent",
+    "obstacle": "Bear only listens to deep voices",
+    "absurd": "Bear wears large headphones playing static",
+    "ending_hint": "Pigeon taps the headphones gently",
+    "theme": "Listening barriers block understanding",
+    "id": "seed_010",
+    "status": "pending"
+  }
+]

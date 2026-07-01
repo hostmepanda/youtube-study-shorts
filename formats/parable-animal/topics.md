@@ -23,6 +23,7 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_004 (legacy: parable_057) | turtle, sparrow | endless studying before a conference | waiting to be ready vs. starting |
 | animal_005 (legacy: parable_058) | parrot, goat, pig | memorized dictionary | knowing words vs. using them |
 | animal_006 (legacy: parable_059) | hedgehog, rabbit | chalkboard erased before speaking | fear of making mistakes |
+| animal_007 | owl, crow, bluebird | small notebook — writes one word "Enough" | knowing every rule but never speaking |
 
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
