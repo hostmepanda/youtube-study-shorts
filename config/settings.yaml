@@ -26,7 +26,10 @@ voice:
 premiss:
   # Set api_key here or via PREMISS_API_KEY env var. When set, premiss-audio step is used instead of Kokoro.
   api_url: https://core.premiss.ru
-  voice: thomas
+  voice: elder  # mature male, contemplative, good for parables (speed 0.8, phrase_gap 1.5)
+  # voice: abbot  # mature male, authoritative alternative for parables
+  # voice: thomas  # measured neutral male
+  # voice: violet  # warm female, server default
   # api_key: <your-key>  # prefer PREMISS_API_KEY env var
 
 youtube:

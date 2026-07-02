@@ -21,6 +21,18 @@ All YouTube uploads (shorts and parables) must be scheduled relative to **US Eas
 - `main.py` auto-deletes render scratch (wooden-roll's per-render audio/video cache, downloaded Pexels images) immediately after every successful render. Don't add a separate manual cleanup step for this — it already happens.
 - New content IDs use per-format prefixes: `text_` (short-motivation), `classic_` (parable-classic), `animal_` (parable-animal), `longmono_` (long-monologue). Pre-restructure content kept its original `parable_NNN`/`short_NNN` ids and lives under `formats/legacy/` for lifecycle purposes — don't try to renumber or move it.
 
+## Premiss voices for parables
+
+For `parable-classic` and `parable-animal` formats, use one of the mature male voices:
+
+| Voice | Character | Notes |
+| :--- | :--- | :--- |
+| `elder` | Contemplative, measured | Default for parables. Dialed in for parable-classic. |
+| `abbot` | Authoritative, gravelly | Good alternative. More commanding tone. |
+| `thomas` | Measured, neutral | Fallback if the above sound off for a specific script. |
+
+Both `elder` and `abbot` have server-side defaults: `speed: 0.8`, `phrase_gap: 1.5`. Do not override unless the script specifically calls for it. Set in `config/settings.yaml` → `premiss.voice`.
+
 ## Thumbnails (long-monologue)
 
 Long-form videos need a custom thumbnail. `pipeline/thumbnail_generator.py` generates a branded 1280×720 JPEG — navy gradient background, gold accent bar, hook text (last line in gold), channel avatar in the bottom-right corner.
