@@ -38,4 +38,13 @@ Scope: plain motivational texts (5–7 lines, no characters/story), `text_NNN` I
 
 Append the closing line of each generated text here, so future batches don't repeat the same punch.
 
-<!-- e.g.: - text_041: "Get uncomfortable. Get fluent." -->
+- text_001: "Start small. Say something"
+- text_002: "Open your mouth"
+- text_003: "Start"
+- text_004: "Stop stopping"
+- text_005: "Go have one"
+- text_006: "Being understood is worth every mistake"
+- text_007: "You know what closes it"
+- text_008: "Two years later, he dreamed in it"
+- text_009: "That's how it works"
+- text_010: "Change the story"

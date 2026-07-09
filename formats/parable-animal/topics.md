@@ -25,6 +25,8 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_006 (legacy: parable_059) | hedgehog, rabbit | chalkboard erased before speaking | fear of making mistakes |
 | animal_007 | owl, crow, bluebird | small notebook — writes one word "Enough" | knowing every rule but never speaking |
 
+| animal_012 | donkey, sparrow | umbrella opened before each sentence | waiting for the perfect sentence instead of just speaking |
+| animal_013 | rabbit, goat | counts silently to ten before each reply | overthinking the moment until the moment is gone |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

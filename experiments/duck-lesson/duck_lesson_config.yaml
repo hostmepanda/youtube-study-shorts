@@ -1,0 +1,62 @@
+steps:
+- type: premiss-audio
+  text: |
+    Today, ducklings. We will learn to quack.
+
+    Focus. Take a deep breath. And—
+
+    Again. Fill your lungs. And—
+
+    Excellent.
+
+    Now. Basic phrases.
+    Hello — quack. How are you — quaack?
+    Nice weather — quaaack. Got anything to eat — quack quack quack.
+
+    Let us practice together.
+
+    Hello!
+
+    Got anything to eat?
+
+    Excellent work.
+
+    Homework. Thirty times — hello.
+    Forty times — got anything to eat. Test tomorrow.
+
+    Class dismissed.
+
+    Dear viewer. You now know basic Quackish.
+    Try it next time you meet a duck.
+  outDir: /Users/panda/Development/private/wooden-roll/output/audio/duck_lesson
+  apiUrl: https://core.premiss.ru
+  apiKey: 2t-ca67a5381a141dcc180eb269cae63f6-api-v1
+  voice: elder
+  speed: 1.0
+  phraseGap: 0.6
+  skipIfExists: true
+
+- type: video
+  backgroundVideos:
+  - query: duck close up face
+  - query: mallard duck closeup water
+  - query: duck head feathers detail
+  - query: duck beak eating water
+  - query: duckling closeup cute
+  imageTransition: fade
+  imageTransitionDuration: 1.0
+  output: /Users/panda/Development/private/youtube-study-shorts/output/videos/duck_lesson.mp4
+  fontSize: 60
+  lastScreenCentered: false
+  textAlignment: 2
+  textMarginV: 80
+  textOutlineSize: 5
+  textOutlineColor: '#000000'
+  textFadeDuration: 0.3
+  voiceVolume: 1.3
+  outroText: |
+    Want more Quackish?
+    Drop a comment.
+    Follow @StudyGoTogether
+  outroDuration: 4.0
+  outroFontSize: 80
