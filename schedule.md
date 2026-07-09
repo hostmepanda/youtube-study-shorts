@@ -23,7 +23,10 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-07-08 | 19:00 | 02:00+1 | motivational short | He moved abroad at forty | [link](https://youtube.com/shorts/3gkDl_SbSKA) | [yaml](formats/short-motivation/configs/archive/short_20260706_214013.yaml) |
 | 2026-07-09 | 09:00 | 16:00 | motivational short | Why haven't you spoken yet? | [link](https://youtube.com/shorts/hBLq6QGSqmM) | [yaml](formats/short-motivation/configs/archive/short_20260706_214047.yaml) |
 | 2026-07-09 | 16:30 | 23:30 | animal parable | The parrot spoke perfectly. | [link](https://youtube.com/shorts/z7Ecokni1ac) | [yaml](formats/parable-animal/configs/archive/animal_20260703_004256.yaml) |
-
+| 2026-07-09 | 09:00 | 16:00 | motivational short | Every kid in Spain learns Spanish by speaking | [link](https://youtube.com/shorts/Do1DMjyfnG8) | [yaml](formats/short-motivation/configs/archive/short_20260709_232621.yaml) |
+| 2026-07-09 | 19:00 | 02:00+1 | motivational short | You don't struggle with Spanish | [link](https://youtube.com/shorts/2bKXrvL9FUs) | [yaml](formats/short-motivation/configs/archive/short_20260709_232643.yaml) |
+| 2026-07-10 | 09:00 | 16:00 | motivational short | She was terrified to speak Spanish | [link](https://youtube.com/shorts/Xx1VvvPk2W8) | [yaml](formats/short-motivation/configs/archive/short_20260709_232724.yaml) |
+| 2026-07-10 | 19:00 | 02:00+1 | motivational short | Everyone wants to speak Spanish fluently | [link](https://youtube.com/shorts/3wEIPJoQaeA) | [yaml](formats/short-motivation/configs/archive/short_20260709_232744.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

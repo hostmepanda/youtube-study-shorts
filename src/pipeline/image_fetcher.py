@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 PEXELS_API = "https://api.pexels.com/v1/search"
-USED_PHOTOS = Path(__file__).parent.parent.parent / "data" / "used_photos.json"
+USED_PHOTOS = Path(__file__).parent.parent.parent / "output" / "used_photos.json"
 IMAGES_DIR = Path(__file__).parent.parent.parent / "output" / "images"
 
 KEYWORD_POOLS = {

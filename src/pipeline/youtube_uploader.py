@@ -144,7 +144,9 @@ def append_schedule(config_path: Path, video_id: str, publish_at: str, title: st
 
     fmt_name  = config_path.parent.parent.parent.name
     video_type = FORMAT_TYPE.get(fmt_name, fmt_name)
-    yaml_rel  = config_path.relative_to(ROOT)
+    # config_path is still in waiting_upload/ at call time; compute the archive path for the link
+    archive_path = config_path.parent.parent / "archive" / config_path.name
+    yaml_rel  = archive_path.relative_to(ROOT)
 
     dt_utc = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%S.000Z").replace(tzinfo=timezone.utc)
     dt_et  = dt_utc.astimezone(ZoneInfo("America/New_York"))
@@ -152,11 +154,13 @@ def append_schedule(config_path: Path, video_id: str, publish_at: str, title: st
 
     date_str = dt_et.strftime("%Y-%m-%d")
     et_str   = dt_et.strftime("%H:%M")
-    hel_str  = dt_hel.strftime("%H:%M")
+    hel_offset = int(dt_hel.utcoffset().total_seconds() // 3600)
+    hel_suffix = f"+{hel_offset}" if hel_offset > 0 else str(hel_offset)
+    hel_str  = dt_hel.strftime("%H:%M") + (f"+1" if dt_hel.date() > dt_et.date() else "")
 
     url = f"https://youtube.com/shorts/{video_id}" if is_short else f"https://youtube.com/watch?v={video_id}"
-    short_title = title[:55] + ("…" if len(title) > 55 else "")
-    row = f"| {date_str} | {et_str} | {hel_str} | {video_type} | {short_title} | [link]({url}) | [{yaml_rel.name}]({yaml_rel}) |"
+    short_title = title.split(" #")[0][:55] + ("…" if len(title.split(" #")[0]) > 55 else "")
+    row = f"| {date_str} | {et_str} | {hel_str} | {video_type} | {short_title} | [link]({url}) | [yaml]({yaml_rel}) |"
 
     text  = schedule_file.read_text()
     # Insert before the Notes section or at end of table
