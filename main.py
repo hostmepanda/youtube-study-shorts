@@ -134,7 +134,7 @@ def main():
         image_count = "3"
     images_output = run_step(
         "Fetching images",
-        ["python3", str(ROOT / "pipeline" / "image_fetcher.py"), "--keywords", keywords, "--count", image_count],
+        ["python3", str(ROOT / "src" / "pipeline" / "image_fetcher.py"), "--keywords", keywords, "--count", image_count],
     )
     image_paths = ",".join(images_output.splitlines())
 
@@ -142,14 +142,14 @@ def main():
     mood = text_data.get("mood", "motivational")
     music_path = run_step(
         "Selecting music",
-        ["python3", str(ROOT / "pipeline" / "music_selector.py"), "--mood", mood],
+        ["python3", str(ROOT / "src" / "pipeline" / "music_selector.py"), "--mood", mood],
     )
 
     # 4. Build wooden-roll config
     config_output = run_step(
         "Building config",
         [
-            "python3", str(ROOT / "pipeline" / "config_builder.py"),
+            "python3", str(ROOT / "src" / "pipeline" / "config_builder.py"),
             "--text-file", str(text_file),
             "--images", image_paths,
             "--music", music_path,

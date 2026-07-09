@@ -6,7 +6,7 @@ import random
 import sys
 from pathlib import Path
 
-MUSIC_DIR = Path(__file__).parent.parent / "music"
+MUSIC_DIR = Path(__file__).parent.parent.parent / "music"
 VALID_MOODS = ("motivational", "calm", "uplifting", "parable")
 
 

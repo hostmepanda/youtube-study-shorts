@@ -14,7 +14,7 @@ echo "======================================" >> "$LOG"
 # 1. Upload any approved videos from yesterday's review
 echo "" >> "$LOG"
 echo "▶ Uploading approved videos..." >> "$LOG"
-$PYTHON pipeline/youtube_uploader.py >> "$LOG" 2>&1 || echo "  Upload step failed or nothing to upload" >> "$LOG"
+$PYTHON src/pipeline/youtube_uploader.py >> "$LOG" 2>&1 || echo "  Upload step failed or nothing to upload" >> "$LOG"
 
 # 2. Check there are unused texts available — across legacy output/texts/ AND all formats/*/drafts/
 UNUSED=$($PYTHON - << 'EOF'

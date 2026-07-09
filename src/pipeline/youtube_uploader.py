@@ -26,7 +26,7 @@ from googleapiclient.http import MediaFileUpload
 
 load_dotenv()
 
-ROOT = Path(__file__).parent.parent
+ROOT = Path(__file__).parent.parent.parent
 FORMATS_DIR = ROOT / "formats"
 CREDENTIALS_FILE = ROOT / "credentials.json"
 TOKEN_FILE = ROOT / "token.json"
@@ -104,7 +104,7 @@ def resolve_thumbnail(meta: dict, config_path: Path) -> Path | None:
     hook_lines = meta.get("hook")
     if hook_lines:
         try:
-            from pipeline.thumbnail_generator import generate
+            from src.pipeline.thumbnail_generator import generate
         except ImportError:
             from thumbnail_generator import generate
         lines = hook_lines if isinstance(hook_lines, list) else [hook_lines]

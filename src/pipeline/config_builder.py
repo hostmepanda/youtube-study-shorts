@@ -44,11 +44,11 @@ SUBSCRIBE_CTAS = [
     "Subscribe — one day at a time",
 ]
 
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent.parent
 VIDEOS_DIR = PROJECT_ROOT / "output" / "videos"  # permanent home for rendered mp4s — never moved after this
 FORMATS_DIR = PROJECT_ROOT / "formats"
 WOODEN_ROLL_DIR = PROJECT_ROOT.parent / "wooden-roll"
-SETTINGS_FILE = PROJECT_ROOT / "config" / "settings.yaml"
+SETTINGS_FILE = PROJECT_ROOT / "src" / "config" / "settings.yaml"
 
 _FORMAT_DIR_NAMES = {
     "short": "short-motivation",
