@@ -177,7 +177,7 @@ Only save the file after both passes are complete and all issues are fixed.
 
 ## Voice selection — note in output
 
-See `formats/parable-classic/topics.md` for the voice table (diana/oliver/thomas). Default: diana. Override in `config/settings.yaml` → `premiss.voice` or via `--voice` flag.
+See `formats/parable-classic/topics.md` for the voice table (elder/abbot/thomas/oliver). Default: elder. Override in `config/settings.yaml` → `premiss.voice` or via `--voice` flag.
 
 ## Output
 

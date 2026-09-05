@@ -31,7 +31,10 @@ FORMATS_DIR = ROOT / "formats"
 CREDENTIALS_FILE = ROOT / "credentials.json"
 TOKEN_FILE = ROOT / "token.json"
 
-SCOPES = ["https://www.googleapis.com/auth/youtube"]
+SCOPES = [
+    "https://www.googleapis.com/auth/youtube",
+    "https://www.googleapis.com/auth/yt-analytics.readonly",
+]
 
 # All publish times are scheduled relative to US Eastern Time (audience timezone),
 # not UTC. ZoneInfo handles EST/EDT (daylight saving) transitions automatically.

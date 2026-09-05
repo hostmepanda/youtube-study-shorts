@@ -12,25 +12,29 @@ Generate one surreal animal parable and render it as a YouTube Short with the cu
 
 ## What the parable must be
 
-A short classic parable — like a Buddhist or Zen story — but with **animal characters** and **absurdist / surreal elements**. The lesson about language learning is never stated: it lives in the last line or last action.
+A SHORT, VIVID, PROVOCATIVE animal parable — 8–9 screens maximum. Simple enough to understand in one watch. Memorable enough to repost.
 
-### What makes animal/absurd parables work
+### What makes animal parables work
 
-- Animals as characters — see `formats/parable-animal/topics.md` for the pool and which animal/device combos are already used (avoid repeating)
-- The absurdity is **matter-of-fact** — narrated without surprise or comment. The horse opens a bank account. The bear weighs a jar of honey before answering a question. Nobody reacts.
-- The surreal element must feel **earned**, not random — it reflects the character's inner logic
-- The last line is the lesson — warm, simple, immediately understood. Not a riddle.
-- The language learning connection must be **visible in the action**, not stated
+- **Short**: 8–9 screens, not 12. Every screen must earn its place.
+- **Vivid**: one concrete detail that makes the world feel real ("In the mirror. Alone." / "She had arrived last Tuesday.")
+- **Provocative ending**: the character who does LESS gets the SAME result. The last line is slightly uncomfortable for anyone who over-prepares. Not a riddle — a fact.
+- Animals as characters — see `formats/parable-animal/topics.md` for the pool and used combos
+- The absurd element is **matter-of-fact** — narrated without comment. Nobody reacts.
+- The language learning connection lives in the action, never stated
 
 ### Style rules
 
-- Each screen: 1–2 lines maximum
-- Plain language — no literary words, no abstractions
-- Mix dialogue and narration — animals talk normally
-- The absurd scenes are described deadpan: "He reached into his coat and produced a small set of scales."
-- **Never name the lesson.** Trust the last line.
-- **Keywords: 3–4 per parable, Pexels-friendly** — concrete visual scenes. Animals are good: `bear forest`, `horse meadow`, `fox path`. Avoid abstract: `wisdom`, `language learning`.
-- **video_queries**: one query per 2 screens, based on what actually happens on those screens. Use real animals: `bear walking forest`, `horse running field`, `fox sitting path`. Avoid atmospheric filler. **No people in the footage** — query for animals/nature only.
+- **8–9 screens total. Never more.**
+- Screen 0 (hook): max 8 words, a **paradox** — not a description. Creates immediate tension.
+- Each screen: 1–2 lines. Plain everyday English. No metaphors. No literary words.
+- Last line: a **concrete fact or image** — undeniable, slightly uncomfortable.
+  GOOD: "It tasted the same." / "She got the job." / "He was still at the door."
+  BAD: "He kept the card in his pocket." / "She smiled." / symbolic gestures.
+- The absurd element appears deadpan — described as normal fact.
+- **Never name the lesson.** The discomfort IS the lesson.
+- **Keywords: 3–4, Pexels-friendly** — concrete animals/scenes. No abstractions.
+- **video_queries**: one per 2 screens, matching what literally happens. Real animals only.
 
 ### Absurd element ideas & animal pool
 
@@ -125,14 +129,15 @@ Save to: `formats/parable-animal/drafts/parables_YYYYMMDD_HHMMSS.json`
 
 ## Voice selection — pick before running the pipeline
 
-See `formats/parable-animal/topics.md` for the voice table (diana/oliver/thomas).
+See `formats/parable-animal/topics.md` for the voice table (linda/arina/oliver/thomas).
 
 **How to pick:**
 - Look at the parable's main character and emotional register
-- Female protagonist or gentle/emotional arc → diana
+- Female protagonist or gentle/emotional arc → linda
+- Female protagonist, alternative warm tone → arina
 - Male protagonist, classic serious tone → oliver
 - Male protagonist, absurdist or warm humor → thomas
-- When unsure → diana (default)
+- When unsure → linda (default)
 
 Pass the chosen voice to the pipeline:
 ```bash
@@ -148,7 +153,7 @@ python3 main.py
 ```
 
 `main.py` picks the next unused parable automatically. It will use the current production config:
-- Voice: chosen from diana / oliver / thomas based on parable tone
+- Voice: chosen from linda / arina / oliver / thomas based on parable tone
 - Hook: silent, centered, 3 seconds, font 180
 - Story text: bottom of screen, font 113
 - Last screen: centered, font 180

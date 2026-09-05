@@ -33,6 +33,16 @@ For `parable-classic` and `parable-animal` formats, use one of the mature male v
 
 Both `elder` and `abbot` have server-side defaults: `speed: 0.8`, `phrase_gap: 1.5`. Do not override unless the script specifically calls for it. Set in `config/settings.yaml` → `premiss.voice`.
 
+## Analytics dashboard
+
+`analytics.html` (repo root) is the views/likes/comments dashboard for the channel — open it directly in a browser, no server needed. It's a static file with the data baked into one `const VIDEOS = [...]` array; there's no live API call in the page itself.
+
+- To refresh it with current YouTube stats, run: `python3 update_analytics.py`
+- The script rebuilds `VIDEOS` from two sources: the existing array already in `analytics.html`, plus every `video_id` found in `formats/*/configs/archive/*.yaml` — then calls the YouTube Data API (`videos.list`) to pull fresh `views`/`likes`/`comments`/`privacyStatus` for all of them, and rewrites the array in place.
+- Run it any time after a batch of uploads (or just periodically) to keep the dashboard current — it's idempotent and safe to re-run.
+
+**Gotcha — custom upload scripts must write `video_id` back into the yaml.** The standard `pipeline/youtube_uploader.py` flow writes `youtube.video_id` and `youtube.publish_at` back into the yaml before archiving it (see Render/publish lifecycle above). If you write an ad-hoc upload script for a custom schedule (as `/publish` step 4 describes), it must do the same — otherwise `update_analytics.py` has no `video_id` to look up for those videos and they silently drop out of the dashboard. If this happens, the IDs can be recovered from `schedule.md` (`append_schedule()` always logs there) and back-filled into the archived yamls.
+
 ## Thumbnails (long-monologue)
 
 Long-form videos need a custom thumbnail. `pipeline/thumbnail_generator.py` generates a branded 1280×720 JPEG — navy gradient background, gold accent bar, hook text (last line in gold), channel avatar in the bottom-right corner.

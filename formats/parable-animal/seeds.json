@@ -50,7 +50,7 @@
     "ending_hint": "Donkey mumbles and walks away",
     "theme": "Denial of feedback hinders progress",
     "id": "seed_004",
-    "status": "pending"
+    "status": "skipped"
   },
   {
     "animals": [
@@ -63,7 +63,7 @@
     "ending_hint": "Turtle puts its head inside its shell",
     "theme": "Overwhelming input causes withdrawal",
     "id": "seed_005",
-    "status": "pending"
+    "status": "skipped"
   },
   {
     "animals": [
@@ -76,7 +76,7 @@
     "ending_hint": "Owl pecks at the dust, not the sentence",
     "theme": "Avoiding difficult words limits growth",
     "id": "seed_006",
-    "status": "pending"
+    "status": "used"
   },
   {
     "animals": [
@@ -89,7 +89,7 @@
     "ending_hint": "Rabbit gasps, Duck quacks a new word",
     "theme": "Lack of focus breaks practice flow",
     "id": "seed_007",
-    "status": "pending"
+    "status": "skipped"
   },
   {
     "animals": [
@@ -102,7 +102,7 @@
     "ending_hint": "Goat eats a carrot instead of listening",
     "theme": "Staying in the comfort zone limits range",
     "id": "seed_008",
-    "status": "pending"
+    "status": "used"
   },
   {
     "animals": [
@@ -115,7 +115,7 @@
     "ending_hint": "Sparrow waits for the yarn to be pulled",
     "theme": "Shyness keeps knowledge locked",
     "id": "seed_009",
-    "status": "pending"
+    "status": "used"
   },
   {
     "animals": [
@@ -128,6 +128,481 @@
     "ending_hint": "Pigeon taps the headphones gently",
     "theme": "Listening barriers block understanding",
     "id": "seed_010",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "bear",
+      "fox"
+    ],
+    "want": "To order correctly at a café in a foreign language",
+    "obstacle": "Over-preparation — rehearses for months instead of just ordering",
+    "absurd": "Bear carries a laminated card with phonetic pronunciations of every menu item",
+    "ending_hint": "Fox points and says one wrong word. Gets coffee. Bear orders perfectly. Gets the same coffee.",
+    "theme": "Your preparation is for you, not for the listener",
+    "id": "seed_011",
+    "status": "used",
+    "style": "short",
+    "target_screens": "8-9",
+    "tone": "provocative — the over-preparer and the newcomer get the same result"
+  },
+  {
+    "animals": [
+      "rabbit",
+      "tortoise"
+    ],
+    "want": "Speak at a language exchange event without freezing",
+    "obstacle": "Rabbit writes a perfect opening speech but never delivers it",
+    "absurd": "Rabbit arrives with a rolled-up scroll containing 47 prepared sentences",
+    "ending_hint": "Tortoise says one broken sentence. The room laughs warmly. Rabbit leaves with the scroll unrolled.",
+    "theme": "The person who speaks imperfectly connects. The person who prepared perfectly does not.",
+    "id": "seed_012",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "bear",
+      "fox"
+    ],
+    "want": "Order correctly at a café in a foreign language",
+    "obstacle": "Bear over-prepares — rehearses for months instead of ordering",
+    "absurd": "Bear carries a laminated card with phonetic pronunciations of every menu item",
+    "ending_hint": "Fox points and says one wrong word. Gets coffee. Bear orders perfectly. Same coffee.",
+    "theme": "Your preparation is for you, not for the listener",
+    "id": "seed_013",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "crow",
+      "parrot"
+    ],
+    "want": "Give a speech at a forest gathering in the regional language",
+    "obstacle": "Crow has rehearsed for two months but cannot start — always one more thing to prepare",
+    "absurd": "Crow arrives with a three-meter banner listing every grammar rule he studied",
+    "ending_hint": "Parrot gets up, mispronounces half the words, finishes in two minutes. Everyone claps. Crow rolls up his banner.",
+    "theme": "Starting badly beats not starting at all",
+    "id": "seed_014",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "cat",
+      "dog"
+    ],
+    "want": "Ask for help at a train station in a foreign city",
+    "obstacle": "Cat has memorized 200 phrases but freezes when a stranger approaches",
+    "absurd": "Cat carries a thick binder with laminated phrase cards sorted alphabetically",
+    "ending_hint": "Dog says three wrong words. Stranger points to the platform. They both make the train. Cat's binder stays in the bag.",
+    "theme": "Three wrong words got them there. Two hundred correct ones did not.",
+    "id": "seed_015",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "horse",
+      "mouse"
+    ],
+    "want": "Order food at a market stall in a new language",
+    "obstacle": "Horse has been studying for a year but waits for the perfect moment to speak",
+    "absurd": "Horse carries a small metronome to practice the rhythm of the language",
+    "ending_hint": "Mouse points and says one word. Gets bread. Horse is still adjusting the metronome.",
+    "theme": "The perfect moment never comes. The bread runs out.",
+    "id": "seed_016",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "owl",
+      "duck"
+    ],
+    "want": "Introduce herself at a language exchange",
+    "obstacle": "Owl rewrites her introduction for three weeks — it is never short enough",
+    "absurd": "Owl arrives with seven versions of her introduction printed and numbered",
+    "ending_hint": "Duck says: Hi, I am Duck, I like fish. Everyone laughs. Three people start talking to Duck. Owl is still choosing which version to use.",
+    "theme": "Nobody was waiting for the perfect version.",
+    "id": "seed_017",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "wolf",
+      "sheep"
+    ],
+    "want": "Complain about a wrong order at a restaurant in a foreign language",
+    "obstacle": "Wolf rehearses the complaint for an hour at the table but the waiter keeps passing",
+    "absurd": "Wolf has a printed script with highlighted key phrases and two backup scripts",
+    "ending_hint": "Sheep raises a hoof. Waiter stops. Sheep says two words and points. New plate arrives. Wolf's scripts are on the floor.",
+    "theme": "The waiter does not grade your grammar.",
+    "id": "seed_018",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "fox",
+      "bear"
+    ],
+    "want": "Make a friend at a party where everyone speaks a different language",
+    "obstacle": "Fox studied conversation starters for weeks but every opener feels wrong in the moment",
+    "absurd": "Fox arrives with a notebook of sixty-four conversation starters ranked by risk level",
+    "ending_hint": "Bear spills a drink, laughs, says sorry in broken words. The person laughs back. They talk for an hour. Fox finishes ranking starter number sixty-five.",
+    "theme": "The connection happened before the sentence was ready.",
+    "id": "seed_019",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "wolf",
+      "duck"
+    ],
+    "want": "Order coffee at a foreign café without a menu",
+    "obstacle": "Wolf has memorized 40 coffee names but freezes when the barista asks a follow-up question",
+    "absurd": "Wolf carries a folded laminated chart of coffee varieties sorted by size",
+    "ending_hint": "Duck says two sounds. Gets coffee. Wolf is still unfolding the chart.",
+    "theme": "The follow-up question is the real language test.",
+    "id": "seed_020",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "elephant",
+      "mouse"
+    ],
+    "want": "Ask for directions in a new city",
+    "obstacle": "Elephant rehearsed the question for two hours but stands frozen at the corner",
+    "absurd": "Elephant holds a printed map with 12 highlighted possible routes",
+    "ending_hint": "Mouse taps a stranger on the ankle. One gesture. They point. Mouse reaches the square first.",
+    "theme": "The question gets you further than the map.",
+    "id": "seed_021",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "horse",
+      "sparrow"
+    ],
+    "want": "Leave a voicemail in the new language",
+    "obstacle": "Horse records and deletes the voicemail 11 times — never satisfied with the pronunciation",
+    "absurd": "Horse keeps a metronome running during each recording attempt",
+    "ending_hint": "Sparrow calls the same number. Leaves a six-word message. Wrong tense. Gets a callback.",
+    "theme": "Sent beats perfect.",
+    "id": "seed_022",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "cat",
+      "rabbit"
+    ],
+    "want": "Compliment a stranger in the new language",
+    "obstacle": "Cat has written and rewritten the compliment on 14 sticky notes — each one slightly different",
+    "absurd": "Cat wears reading glasses to study the sticky notes mid-walk",
+    "ending_hint": "Rabbit smiles at the stranger and says one word. The stranger smiles back. Cat is adjusting her glasses.",
+    "theme": "The compliment that lands is the one that gets said.",
+    "id": "seed_023",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "owl",
+      "frog"
+    ],
+    "want": "Join a conversation already in progress",
+    "obstacle": "Owl waits for a grammatically perfect moment to enter — the moment never comes",
+    "absurd": "Owl holds a small timer to measure the exact pause between sentences",
+    "ending_hint": "Frog jumps in mid-sentence. Says the wrong word. Everyone laughs. Frog is part of the conversation. Owl is still timing.",
+    "theme": "The pause you wait for is the one you miss.",
+    "id": "seed_024",
+    "status": "used"
+  },
+  {
+    "id": "seed_025",
+    "status": "used",
+    "animals": [
+      "deer",
+      "squirrel"
+    ],
+    "want": "Ask a shop owner to repeat something slowly",
+    "obstacle": "Deer has memorized a polite phrase for asking to repeat — but forgets it the moment the owner speaks fast",
+    "absurd": "Deer carries a small handwritten sign that says PLEASE REPEAT",
+    "ending_hint": "Squirrel tilts her head. Owner repeats. Deer is unfolding the sign.",
+    "theme": "The pause was free. The sign cost three days."
+  },
+  {
+    "id": "seed_026",
+    "animals": [
+      "elephant",
+      "mouse"
+    ],
+    "want": "Ask for directions in a new city",
+    "obstacle": "Elephant rehearsed the question for two hours but stands frozen at the corner",
+    "absurd": "Elephant holds a printed map with twelve highlighted possible routes",
+    "ending_hint": "Mouse taps a stranger on the ankle. One gesture. They point. Mouse reaches the square first.",
+    "theme": "The question gets you further than the map.",
+    "status": "used"
+  },
+  {
+    "id": "seed_027",
+    "animals": [
+      "horse",
+      "sparrow"
+    ],
+    "want": "Leave a voicemail in the new language",
+    "obstacle": "Horse records and deletes the voicemail eleven times — never satisfied with the pronunciation",
+    "absurd": "Horse keeps a metronome running during each recording attempt",
+    "ending_hint": "Sparrow calls the same number. Leaves a six-word message. Wrong tense. Gets a callback.",
+    "theme": "Sent beats perfect.",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "crow",
+      "turtle"
+    ],
+    "want": "To pronounce a word perfectly before using it",
+    "obstacle": "Crow practices endlessly but never speaks to anyone",
+    "absurd": "Crow carries a brass metronome and taps rhythm before each syllable",
+    "ending_hint": "Turtle says the word wrong, gets understood, crow's metronome falls silent",
+    "theme": "Perfect pronunciation vs. actual communication",
+    "id": "seed_028",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "bear",
+      "pigeon"
+    ],
+    "want": "To make a formal introduction in a new language",
+    "obstacle": "Bear has prepared a three-page speech, terrified to begin",
+    "absurd": "Bear arrives with a rolled-up scroll tied with ribbon",
+    "ending_hint": "Pigeon says two words, shakes a paw, walk away friends. Bear still unrolling the scroll.",
+    "theme": "Preparation vs. just starting",
+    "id": "seed_029",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "fox",
+      "cat"
+    ],
+    "want": "To ask for directions in a foreign city",
+    "obstacle": "Fox keeps translating in its head and the moment passes",
+    "absurd": "Fox has a tiny blackboard strapped to its chest, writes the sentence out before speaking",
+    "ending_hint": "Cat points at the street while licking a paw. Fox is still erasing the blackboard.",
+    "theme": "Thinking in translation vs. just acting",
+    "id": "seed_030",
+    "status": "used",
+    "style": "dialogue"
+  },
+  {
+    "animals": [
+      "goat",
+      "sparrow"
+    ],
+    "want": "To understand a song in the new language",
+    "obstacle": "Goat reads the lyrics analysis but can't feel the song",
+    "absurd": "Goat wears reading glasses and holds a magnifying glass over the lyrics sheet",
+    "ending_hint": "Sparrow hums without knowing the words. Three animals lean in to listen.",
+    "theme": "Analyzing vs. feeling — language as experience not data",
+    "id": "seed_031",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "hedgehog",
+      "duck"
+    ],
+    "want": "To join a conversation already in progress",
+    "obstacle": "Hedgehog waits for the perfect moment that never comes",
+    "absurd": "Hedgehog holds a small red flag to signal when it is ready to speak",
+    "ending_hint": "Duck steps in mid-sentence with the wrong word. Everyone laughs. Conversation continues. Flag still raised.",
+    "theme": "Waiting for the right moment vs. just entering",
+    "id": "seed_032",
+    "status": "used",
+    "style": "dialogue"
+  },
+  {
+    "animals": [
+      "horse",
+      "rabbit"
+    ],
+    "want": "To remember a word it learned six months ago",
+    "obstacle": "Horse has it in a notebook somewhere but can't find the page",
+    "absurd": "Horse carries a cart stacked with notebooks labeled by date",
+    "ending_hint": "Rabbit never wrote it down. Uses it correctly. Horse is still searching.",
+    "theme": "Overorganizing vs. using — notes don't replace speaking",
+    "id": "seed_033",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "owl",
+      "pigeon"
+    ],
+    "want": "To correct someone's grammar without embarrassing them",
+    "obstacle": "Owl delivers a lecture on grammar rules instead of just speaking",
+    "absurd": "Owl unrolls a tiny grammar chart before every correction",
+    "ending_hint": "Pigeon makes the same mistake again. Everyone understands. Owl rolls up the chart.",
+    "theme": "Rules vs. communication — being understood matters more than being correct",
+    "id": "seed_034",
+    "status": "pending",
+    "style": "dialogue"
+  },
+  {
+    "animals": [
+      "parrot",
+      "donkey"
+    ],
+    "want": "To say something original in the new language",
+    "obstacle": "Parrot can only repeat phrases it has memorized perfectly",
+    "absurd": "Parrot wears a graduation cap and holds a certificate of perfect repetition",
+    "ending_hint": "Donkey stumbles through a sentence it half-invented. The listener smiles. Parrot recites the textbook phrase. Nobody reacts.",
+    "theme": "Memorizing vs. creating — real fluency is generative",
+    "id": "seed_035",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "cat",
+      "bear"
+    ],
+    "want": "To explain why it stopped learning",
+    "obstacle": "Cat has a long list of reasons that sound reasonable but aren't",
+    "absurd": "Cat carries a framed certificate that says 'Not Ready Yet'",
+    "ending_hint": "Bear asks one question in broken words. Gets the answer. Cat's certificate is still framed on the wall.",
+    "theme": "The story we tell ourselves vs. just continuing",
+    "id": "seed_036",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "turtle",
+      "crow"
+    ],
+    "want": "To have a conversation without stopping to look up words",
+    "obstacle": "Turtle pauses mid-sentence to consult a small dictionary it keeps in its shell",
+    "absurd": "Turtle pulls a tiny dictionary from inside its shell every time it forgets a word",
+    "ending_hint": "Crow speaks in broken sentences with gaps. The listener fills them in. Turtle is still on page 47.",
+    "theme": "Using what you have vs. needing everything before you start",
+    "id": "seed_037",
+    "status": "used",
+    "style": "dialogue"
+  },
+  {
+    "animals": [
+      "rabbit",
+      "fox"
+    ],
+    "want": "To ask a question without knowing all the words",
+    "obstacle": "Rabbit prepares a perfect question but the moment passes",
+    "absurd": "Rabbit carries a stack of index cards with questions written out in full",
+    "ending_hint": "Fox asks with two wrong words and gets the answer. Cards still in rabbit's pocket.",
+    "theme": "Imperfect questions get real answers",
+    "id": "seed_038",
+    "status": "used"
+  },
+  {
+    "animals": [
+      "bear",
+      "goat"
+    ],
+    "want": "To order something at a café without pointing",
+    "obstacle": "Bear rehearses the order all morning but freezes at the counter",
+    "absurd": "Bear arrives with a laminated menu card of phonetic spellings",
+    "ending_hint": "Goat says one wrong word. Gets the coffee. Bear still holds the laminated card.",
+    "theme": "One wrong word beats a perfect silence",
+    "id": "seed_039",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "crow",
+      "rabbit"
+    ],
+    "want": "To tell a joke in a new language",
+    "obstacle": "Crow translates the joke from its native language — it stops being funny",
+    "absurd": "Crow carries a tiny notebook labeled 'Jokes (translated)'",
+    "ending_hint": "Rabbit says something accidentally wrong. Everyone laughs. Crow closes the notebook.",
+    "theme": "Some things only work when you stop translating",
+    "id": "seed_040",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "donkey",
+      "sparrow"
+    ],
+    "want": "To have a full conversation without pausing to think",
+    "obstacle": "Donkey counts silently to three before every reply — always too late",
+    "absurd": "Donkey wears a small sand timer around its neck",
+    "ending_hint": "Sparrow responds before the sand runs out. Conversation moves on. Timer still turning.",
+    "theme": "The pause that kills the moment",
+    "id": "seed_041",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "hedgehog",
+      "pigeon"
+    ],
+    "want": "To give directions to a stranger in a foreign city",
+    "obstacle": "Hedgehog knows the way but can't find the words in time",
+    "absurd": "Hedgehog pulls a hand-drawn map from under its quills",
+    "ending_hint": "Pigeon says three words and points twice. Stranger nods and goes. Map still unfolded.",
+    "theme": "Communication is more than words",
+    "id": "seed_042",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "fox",
+      "turtle"
+    ],
+    "want": "To understand a fast native speaker",
+    "obstacle": "Fox asks them to repeat it three times and still doesn't catch it",
+    "absurd": "Fox carries a tiny ear trumpet it holds up during conversations",
+    "ending_hint": "Turtle asks them to slow down with one gesture. They do. Fox still holding the trumpet.",
+    "theme": "Asking for what you need is also language",
+    "id": "seed_043",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "owl",
+      "duck"
+    ],
+    "want": "To apologize for a mistake in a new language",
+    "obstacle": "Owl searches for the perfect phrase and says nothing — the moment gets worse",
+    "absurd": "Owl has a small scroll with formal apology phrases ranked by severity",
+    "ending_hint": "Duck says 'sorry' with the wrong pronunciation. It works. Scroll still rolled up.",
+    "theme": "A broken apology is better than a perfect silence",
+    "id": "seed_044",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "horse",
+      "crow"
+    ],
+    "want": "To understand humor in a new language",
+    "obstacle": "Horse explains why jokes are funny — they stop being funny",
+    "absurd": "Horse keeps a notebook of jokes with explanations written underneath",
+    "ending_hint": "Crow laughs at something Horse doesn't understand. Horse opens the notebook to a blank page.",
+    "theme": "Fluency is when things stop needing explanation",
+    "id": "seed_045",
+    "status": "pending"
+  },
+  {
+    "animals": [
+      "cat",
+      "goat"
+    ],
+    "want": "To introduce itself to a new neighbor in a foreign language",
+    "obstacle": "Cat rehearses the introduction so many times it starts to sound unnatural",
+    "absurd": "Cat has recorded its own introduction and plays it back on a tiny device",
+    "ending_hint": "Goat knocks on the door unannounced and says hello. Neighbor invites them in. Cat's device still playing.",
+    "theme": "Spontaneous beats rehearsed every time",
+    "id": "seed_046",
     "status": "pending"
   }
 ]

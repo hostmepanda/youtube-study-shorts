@@ -55,7 +55,8 @@ used_ids = [e["id"] if isinstance(e, dict) else e for e in raw]
 draft_ids = []
 for f in DRAFTS_DIR.glob("parables_*.json"):
     for p in json.loads(f.read_text()):
-        draft_ids.append(p["id"])
+        if isinstance(p, dict) and "id" in p:
+            draft_ids.append(p["id"])
 all_ids = used_ids + draft_ids
 nums = [int(i.split("_")[1]) for i in all_ids if i.startswith("animal_") and i.split("_")[1].isdigit()]
 next_num = max(nums) + 1 if nums else 1
@@ -71,61 +72,15 @@ if seed.get("style") == "dialogue":
         "Dialogue should carry the turning point, not narration."
     )
 
-PROMPT = f"""Write one short animal parable for a YouTube Short about language learning.
+animals_str = " and ".join(seed["animals"])
+PROMPT = f"""Write a short animal parable as JSON. Animals: {animals_str}.
+{seed["want"]}. Obstacle: {seed["obstacle"]}.
+Absurd (deadpan, nobody reacts): {seed["absurd"]}.
+Ending: {seed["ending_hint"]}.
+{dialogue_block}8-10 screens. Screen 0: hook max 10 words, two plain facts. Final screen: 3-6 words, absurd prop reappears.
 
-## This parable's plot seed — follow it exactly:
-- Animals: {", ".join(seed["animals"])}
-- What the main character wants: {seed["want"]}
-- Obstacle: {seed["obstacle"]}
-- Absurd element: {seed["absurd"]}
-- Ending hint: {seed["ending_hint"]}
-- Theme: {seed["theme"]}
-
-## Story structure — required
-Every screen must follow from the previous one:
-1. Character wants something specific (from the seed above)
-2. Obstacle blocks them (from the seed above)
-3. Absurd element appears deadpan — nobody comments on it
-4. Turning point — a small choice or action
-5. Final line — one plain sentence or action. Lesson lives here, never stated.
-
-## Style rules
-- 10-13 screens total
-- Screen 0: hook — max 8 words, silent, creates a specific question in the viewer's mind
-- Each screen: 1-2 lines, plain everyday English, no metaphors, no literary language
-- Last line: simple action or plain statement — NOT a metaphor, NOT a moral
-{dialogue_block}
-
-## Reference example — the tone and causality to match:
-
-Screen 0: "The owl knew every rule. The crow knew none."
-Screen 1: "An owl lived at the edge of a wide forest.\\nShe had read every book on birdsong."
-Screen 2: "She could explain the grammar of the robin's call.\\nAnnotate the crow's accent."
-Screen 3: "She had studied for three winters.\\nShe had never spoken to a bird she didn't know."
-Screen 4: "One autumn, a crow from the south moved in.\\nHe didn't know a single rule of forest speech."
-Screen 5: "He just talked.\\nTo everyone. Incorrectly. Happily."
-Screen 6: "One morning the owl spotted a bluebird at the stream.\\nShe knew exactly what to say."
-Screen 7: "She froze.\\nShe also knew exactly how wrong it might sound."
-Screen 8: "The crow landed next to her.\\nSaid something completely incorrect. The bluebird laughed and corrected him."
-Screen 9: "They talked for an hour.\\nThe owl watched from her branch."
-Screen 10: "That evening she opened her small notebook.\\nShe wrote one word: \\"Enough.\\""
-Screen 11: "She closed the notebook."
-Screen 12: "Flew down. And said something wrong\\nfor the first time in her life."
-
-## id format
-Use exactly: "{next_id}"
-
-## keywords (3-4 items)
-Concrete Pexels-searchable visual scenes — what the camera would show.
-GOOD: "fox sitting path", "rabbit field morning", "deer forest light"
-BAD: "courage", "language learning", "wisdom"
-
-## video_queries
-One per 2 screens. What literally happens in those screens. Real footage only.
-GOOD: "fox standing on stone path", "rabbit running through grass"
-BAD: "Animated fox", "zen atmosphere", "language concept"
-
-Output valid JSON matching the schema exactly."""
+Output valid JSON only (no markdown):
+{{"id": "{next_id}", "topic": "...", "type": "parable", "mood": "parable", "keywords": ["crow branch", "turtle grass"], "video_queries": ["crow sitting branch", "turtle walking meadow"], "screens": [{{"screen": 0, "text": "hook"}}, {{"screen": 1, "text": "..."}}, {{"screen": 9, "text": "last line."}}]}}"""
 
 SCHEMA = {
     "type": "object",
@@ -156,11 +111,10 @@ body = json.dumps({
     "steps": [{
         "name": "llm-v2",
         "options": {
-            "llmProvider": "synopsis-qwen",
-            "llmModel": "qwen3.5-35b-a3b",
+            "llmProvider": "synopsis-gemma",
+            "llmModel": "gemma4-26b-a4b-qat",
             "prompt": PROMPT,
-            "llmOutputField": "summary",
-            "responseSchema": SCHEMA
+            "llmOutputField": "summary"
         }
     }],
     "ttl": 1
@@ -176,23 +130,61 @@ def api(path, data=None, method=None):
     with urllib.request.urlopen(req, context=CTX) as r:
         return json.loads(r.read())
 
-print("\nCreating Premiss task...")
-result = api("/tasks", body, "POST")
-if not result.get("success"):
-    print("Error:", result); sys.exit(1)
+def run_task():
+    result = api("/tasks", body, "POST")
+    if not result.get("success"):
+        print("Error:", result); return None
+    task_id = result["data"]["id"]
+    print(f"Task: {task_id}\nPolling...")
+    while True:
+        t = api(f"/tasks/{task_id}")["data"]
+        print(f"  {t['status']}", flush=True)
+        if t["status"] == "completed":
+            raw = t["output"]["summary"]
+            if isinstance(raw, str):
+                if "```" in raw:
+                    raw = raw.split("```")[1]
+                    if raw.startswith("json"): raw = raw[4:]
+                raw = raw.strip()
+                if not raw:
+                    print("  Empty response — will retry")
+                    return None
+                try:
+                    return json.loads(raw)
+                except json.JSONDecodeError:
+                    last_complete = raw.rfind('{"screen":')
+                    if last_complete != -1:
+                        prev_close = raw.rfind('}', 0, last_complete)
+                        if prev_close != -1:
+                            try:
+                                p = json.loads(raw[:prev_close + 1] + "]}")
+                                print(f"  (recovered truncated JSON, {len(p.get('screens',[]))} screens)")
+                                return p
+                            except json.JSONDecodeError:
+                                pass
+                    print("  Truncated JSON unrecoverable — will retry")
+                    return None
+            return raw
+        elif t["status"] == "failed":
+            print("FAILED:", t.get("error")); return None
+        time.sleep(15)
 
-task_id = result["data"]["id"]
-print(f"Task: {task_id}\nPolling...")
-
-while True:
-    t = api(f"/tasks/{task_id}")["data"]
-    print(f"  {t['status']}", flush=True)
-    if t["status"] == "completed":
-        parable = t["output"]["summary"]
+parable = None
+for attempt in range(1, 4):
+    print(f"\nAttempt {attempt}/3...")
+    parable = run_task()
+    if parable:
         break
-    elif t["status"] == "failed":
-        print("FAILED:", t.get("error")); sys.exit(1)
-    time.sleep(15)
+    if attempt < 3:
+        print("  Waiting 10s before retry...")
+        time.sleep(10)
+
+if not parable:
+    print("All 3 attempts failed"); sys.exit(1)
+
+# Enforce correct fixed fields regardless of what the LLM returned
+parable["type"] = "parable"
+parable["mood"] = "parable"
 
 # Save draft
 ts = datetime.now().strftime("%Y%m%d_%H%M%S")

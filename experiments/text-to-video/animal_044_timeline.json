@@ -1,0 +1,80 @@
+[
+  {
+    "index": 0,
+    "phrase": "An owl and a pigeon lived in the same forest.\nThey practiced the language of the meadow birds together.",
+    "startSeconds": 0,
+    "endSeconds": 9.152
+  },
+  {
+    "index": 1,
+    "phrase": "Every time the pigeon spoke, the owl reached into her coat.\nShe unrolled a small grammar chart.",
+    "startSeconds": 10.652,
+    "endSeconds": 19.0893
+  },
+  {
+    "index": 2,
+    "phrase": "\"Actually,\" the owl said,\n\"the correct form is the third conjugation.\"",
+    "startSeconds": 20.5893,
+    "endSeconds": 26.808
+  },
+  {
+    "index": 3,
+    "phrase": "One morning the pigeon flew to the meadow.\nHe ordered seeds from a sparrow.",
+    "startSeconds": 28.308,
+    "endSeconds": 34.964
+  },
+  {
+    "index": 4,
+    "phrase": "He used the wrong word.\nThe sparrow laughed, understood, and gave him the seeds.",
+    "startSeconds": 36.464,
+    "endSeconds": 43.568
+  },
+  {
+    "index": 5,
+    "phrase": "The owl arrived moments later.\nThe chart already unrolled.",
+    "startSeconds": 45.068,
+    "endSeconds": 50.22
+  },
+  {
+    "index": 6,
+    "phrase": "\"You said it incorrectly.\"\n\"The sparrow still gave me the seeds,\" said the pigeon.",
+    "startSeconds": 51.72,
+    "endSeconds": 59.0053
+  },
+  {
+    "index": 7,
+    "phrase": "The pigeon made the same mistake the next day.\nAnd the day after.",
+    "startSeconds": 60.5053,
+    "endSeconds": 66.276
+  },
+  {
+    "index": 8,
+    "phrase": "Each time, someone understood him.\nEach time, the owl corrected him.",
+    "startSeconds": 67.776,
+    "endSeconds": 73.8133
+  },
+  {
+    "index": 9,
+    "phrase": "One afternoon the pigeon said the wrong word again.\nThree birds laughed. And stayed to talk for an hour.",
+    "startSeconds": 75.3133,
+    "endSeconds": 84.5507
+  },
+  {
+    "index": 10,
+    "phrase": "The owl stood at the edge of the group.\nChart in hand. Waiting.",
+    "startSeconds": 86.0507,
+    "endSeconds": 91.64
+  },
+  {
+    "index": 11,
+    "phrase": "She put the chart back in her coat.",
+    "startSeconds": 93.14,
+    "endSeconds": 96.244
+  },
+  {
+    "index": 12,
+    "phrase": "Said something.\nSlightly wrong.\nAnd stayed.",
+    "startSeconds": 97.744,
+    "endSeconds": 101.552
+  }
+]

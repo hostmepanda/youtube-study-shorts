@@ -1,0 +1,372 @@
+<!-- @StudyGoTogether YouTube Analytics — generated from youtube API + pipeline yamls -->
+<title>@StudyGoTogether — Analytics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --bg:        #F5F3EE;
+  --bg2:       #ECEAE4;
+  --bg3:       #E0DDD6;
+  --text:      #1C1814;
+  --text2:     #5C5650;
+  --text3:     #948E88;
+  --border:    #D8D4CC;
+  --accent:    #D95A20;
+  --accent2:   #F0E8E0;
+
+  --c-short:    #C47208;
+  --c-short-bg: #FFF3DC;
+  --c-parable:  #3870A8;
+  --c-parable-bg:#DCF0FF;
+  --c-animal:   #38905A;
+  --c-animal-bg:#DDF0E8;
+  --c-legacy:   #808080;
+  --c-legacy-bg:#EEEEEE;
+
+  --bar: #D8D4CC;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:#0C1520;--bg2:#101E2C;--bg3:#162438;--text:#E4E0D8;--text2:#A09888;--text3:#687080;
+    --border:#1A3050;--accent:#E86830;--accent2:#1C1008;
+    --c-short:#E8A030;--c-short-bg:#1C1200;--c-parable:#60A0E0;--c-parable-bg:#080C20;
+    --c-animal:#50B878;--c-animal-bg:#041008;--c-legacy:#909090;--c-legacy-bg:#141414;
+    --bar:#1A3050;
+  }
+}
+:root[data-theme="light"]{--bg:#F5F3EE;--bg2:#ECEAE4;--bg3:#E0DDD6;--text:#1C1814;--text2:#5C5650;--text3:#948E88;--border:#D8D4CC;--accent:#D95A20;--accent2:#F0E8E0;--c-short:#C47208;--c-short-bg:#FFF3DC;--c-parable:#3870A8;--c-parable-bg:#DCF0FF;--c-animal:#38905A;--c-animal-bg:#DDF0E8;--c-legacy:#808080;--c-legacy-bg:#EEEEEE;--bar:#D8D4CC}
+:root[data-theme="dark"]{--bg:#0C1520;--bg2:#101E2C;--bg3:#162438;--text:#E4E0D8;--text2:#A09888;--text3:#687080;--border:#1A3050;--accent:#E86830;--accent2:#1C1008;--c-short:#E8A030;--c-short-bg:#1C1200;--c-parable:#60A0E0;--c-parable-bg:#080C20;--c-animal:#50B878;--c-animal-bg:#041008;--c-legacy:#909090;--c-legacy-bg:#141414;--bar:#1A3050}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;font-size:14px;line-height:1.5}
+
+.shell{max-width:1020px;margin:0 auto;padding:32px 20px 72px}
+
+/* Header */
+header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.ch-name{font-family:Georgia,'Times New Roman',serif;font-size:20px;letter-spacing:-0.02em;color:var(--text)}
+.ch-name em{color:var(--accent);font-style:normal}
+.hdr-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hdr-meta{font-size:12px;color:var(--text3)}
+.btn{background:var(--bg2);border:1px solid var(--border);color:var(--text2);font-size:12px;padding:4px 10px;border-radius:4px;cursor:pointer;font-family:inherit}
+.btn:hover{color:var(--text)}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+@media(max-width:600px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:14px 16px}
+.kpi-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);margin-bottom:5px}
+.kpi-val{font-family:'SF Mono','Fira Mono',monospace;font-size:26px;font-variant-numeric:tabular-nums;line-height:1;color:var(--text)}
+.kpi-val.hi{color:var(--accent)}
+.kpi-sub{font-size:11px;color:var(--text3);margin-top:3px}
+.kpi-sub i{font-family:Georgia,serif;font-style:italic}
+
+/* Section label */
+.slabel{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:8px}
+
+/* Chart */
+.chart-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:18px 18px 12px;margin-bottom:28px}
+.chart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+.chart-title{font-size:13px;font-weight:600;color:var(--text2)}
+.legend{display:flex;gap:14px;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2)}
+.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+canvas{display:block;width:100%}
+
+/* Sort controls */
+.sort-row{display:flex;gap:8px;margin-bottom:10px;align-items:center}
+.sort-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3)}
+.sort-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text2);font-size:11px;padding:3px 10px;border-radius:3px;cursor:pointer;font-family:inherit}
+.sort-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* Table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:8px;margin-bottom:28px}
+table{width:100%;border-collapse:collapse;min-width:600px}
+thead th{background:var(--bg2);padding:9px 12px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:700;white-space:nowrap;cursor:pointer;border-bottom:1px solid var(--border)}
+thead th:hover{color:var(--text)}
+thead th.sorted{color:var(--accent)}
+thead th.r{text-align:right}
+tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg2)}
+tbody tr.dim{opacity:.45}
+td{padding:9px 12px;vertical-align:middle}
+td.r{text-align:right;font-family:'SF Mono','Fira Mono',monospace;font-variant-numeric:tabular-nums;font-size:12px;color:var(--text2);white-space:nowrap}
+td.r.bold{color:var(--text);font-weight:700}
+.vid-title{font-family:Georgia,'Times New Roman',serif;font-size:13px;line-height:1.35;color:var(--text)}
+.vid-title a{color:inherit;text-decoration:none}
+.vid-title a:hover{color:var(--accent)}
+.vid-date{font-size:11px;color:var(--text3);white-space:nowrap}
+.badge{display:inline-block;font-size:9px;text-transform:uppercase;letter-spacing:.05em;padding:2px 6px;border-radius:3px;font-weight:700;white-space:nowrap}
+.b-short   {background:var(--c-short-bg);  color:var(--c-short)}
+.b-parable {background:var(--c-parable-bg);color:var(--c-parable)}
+.b-animal  {background:var(--c-animal-bg); color:var(--c-animal)}
+.b-legacy  {background:var(--c-legacy-bg); color:var(--c-legacy)}
+.bar-cell{width:80px;padding-right:12px}
+.bt{height:4px;background:var(--bar);border-radius:2px;overflow:hidden}
+.bf{height:100%;border-radius:2px;transition:width .3s}
+
+/* Format breakdown */
+.fmtgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+@media(max-width:700px){.fmtgrid{grid-template-columns:repeat(2,1fr)}}
+.fmtcard{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--fc,var(--border));border-radius:6px;padding:14px 16px}
+.fmtcard-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--fc,var(--text3));margin-bottom:10px}
+.fmtstats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.fs-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
+.fs-val{font-family:'SF Mono','Fira Mono',monospace;font-size:17px;font-variant-numeric:tabular-nums;color:var(--text);margin-top:1px}
+</style>
+
+<div class="shell">
+  <header>
+    <h1 class="ch-name"><em>@</em>StudyGoTogether</h1>
+    <div class="hdr-right">
+      <span class="hdr-meta" id="hdr-meta"></span>
+      <button class="btn" onclick="toggleTheme()">Toggle theme</button>
+    </div>
+  </header>
+
+  <div class="kpis" id="kpis"></div>
+
+  <p class="slabel">Views over time — each dot is one video</p>
+  <div class="chart-wrap">
+    <div class="chart-header">
+      <span class="chart-title" id="chart-toggle-lbl">Raw views</span>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn" id="ytog" onclick="toggleChartY()">Switch to views/day</button>
+        <div class="legend">
+          <div class="leg-item"><div class="leg-dot" style="background:#C47208"></div>Short</div>
+          <div class="leg-item"><div class="leg-dot" style="background:#3870A8"></div>Parable</div>
+          <div class="leg-item"><div class="leg-dot" style="background:#38905A"></div>Animal</div>
+          <div class="leg-item"><div class="leg-dot" style="background:#808080"></div>Other</div>
+        </div>
+      </div>
+    </div>
+    <canvas id="chart" height="240"></canvas>
+  </div>
+
+  <div class="sort-row">
+    <span class="sort-lbl">Sort by</span>
+    <button class="sort-btn active" id="s-views" onclick="setSort('views')">Views</button>
+    <button class="sort-btn" id="s-vpd" onclick="setSort('vpd')">Views / day</button>
+    <button class="sort-btn" id="s-date" onclick="setSort('date')">Date</button>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="setSort('date')" id="th-date">Published</th>
+          <th>Format</th>
+          <th onclick="setSort('title')" id="th-title">Title</th>
+          <th onclick="setSort('views')" id="th-views" class="r sorted">Views</th>
+          <th onclick="setSort('vpd')" id="th-vpd" class="r">V/day</th>
+          <th onclick="setSort('likes')" id="th-likes" class="r">Likes</th>
+          <th class="bar-cell"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <p class="slabel">By format — public videos only</p>
+  <div class="fmtgrid" id="fmtgrid"></div>
+</div>
+
+<script>
+// ── Data ──
+const CH = {"subs":"0","total_views":"2926"};
+const VIDEOS = [{"id":"D_0rbjMH9uQ","title":"Does writing it perfectly mean saying it? #languagelearning #parable","format":"parable-animal","publish_date":"2026-09-15","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"fDZT73CdasA","title":"Is perfect pronunciation the same as being ready? #languagelearning #parable","format":"parable-animal","publish_date":"2026-09-14","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"omWomREMIho","title":"How much preparation is actually procrastination? #languagelearning #parable","format":"parable-animal","publish_date":"2026-09-13","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"TAIer_pStI8","title":"What's the cost of a perfectly timed explanation? #languagelearning #parable","format":"parable-animal","publish_date":"2026-09-12","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"TInXTAC3NFE","title":"Does a longer sentence mean a clearer one? #languagelearning #parable","format":"parable-animal","publish_date":"2026-09-11","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"fTMI9JPHFIA","title":"What would happen if you just tried #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-11","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"KRTyPn8gCeU","title":"How many words are you saving for later? #languagelearning #parable","format":"parable-animal","publish_date":"2026-09-10","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"XjdFEv60I9A","title":"You know what's stopping you #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-10","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"9HyLEr0YMF8","title":"Why polish sentences no one asked to hear? #languagelearning #parable","format":"parable-animal","publish_date":"2026-09-09","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"cI6QUSHXo2g","title":"Everyone says they want to speak Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-09","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"B3Zxq93MAlY","title":"A student spent four years learning the language. #languagelearning #parable","format":"parable-classic","publish_date":"2026-09-08","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"nA9vA7X3UD0","title":"A wrong sentence is uncomfortable #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-08","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"XFSEJZ2h4nY","title":"Two students traveled to the country #languagelearning #parable","format":"parable-classic","publish_date":"2026-09-07","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"HA_joghyMwk","title":"Children don't study before they speak #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-07","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"5b-BZ-9w-qQ","title":"A student asked: #languagelearning #parable","format":"parable-classic","publish_date":"2026-09-06","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"kXLWVKCdiJ4","title":"Wrong word #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-06","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"ICVUE9RS5D0","title":"A man had lived abroad for ten years. #languagelearning #parable","format":"parable-classic","publish_date":"2026-09-05","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"7Hs6jFodPmw","title":"You think fluency comes before speaking #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-05","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"zH0jvuvC4vg","title":"A teacher refused to translate. #languagelearning #parable","format":"parable-classic","publish_date":"2026-09-04","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"NSuzR25qGgE","title":"You're not bad at French #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-04","days_live":1,"views":0,"likes":0,"comments":0,"privacy":"private","vpd":0.0},{"id":"QdsfrrSUlk0","title":"A student could understand every conversation #languagelearning #parable","format":"parable-classic","publish_date":"2026-09-03","days_live":2,"views":78,"likes":0,"comments":0,"privacy":"public","vpd":39.0},{"id":"_cgYlKWzcKw","title":"Two years of lessons #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-03","days_live":2,"views":73,"likes":0,"comments":0,"privacy":"public","vpd":36.5},{"id":"Dald64MkU84","title":"She had one phrase in Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-02","days_live":3,"views":52,"likes":0,"comments":0,"privacy":"public","vpd":17.3},{"id":"d7tQEvSN_D0","title":"Two monks argued about the correct way #languagelearning #parable","format":"parable-classic","publish_date":"2026-09-02","days_live":3,"views":7,"likes":0,"comments":0,"privacy":"public","vpd":2.3},{"id":"ZczsAgA3q8Q","title":"A student had been studying for three years. #languagelearning #parable","format":"parable-classic","publish_date":"2026-09-01","days_live":4,"views":2,"likes":0,"comments":0,"privacy":"public","vpd":0.5},{"id":"TAf34NpUbPY","title":"Stop translating in your head #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-01","days_live":4,"views":1,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"PLrIlakin7o","title":"She studied French for two years #languagelearning #motivation","format":"short-motivation","publish_date":"2026-09-01","days_live":4,"views":14,"likes":0,"comments":0,"privacy":"public","vpd":3.5},{"id":"VUq4ei9qYx0","title":"A teacher was known for speaking #languagelearning #parable","format":"parable-classic","publish_date":"2026-08-31","days_live":5,"views":0,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"T7oowPccktU","title":"You think accent means something #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-31","days_live":5,"views":55,"likes":0,"comments":0,"privacy":"public","vpd":11.0},{"id":"5JyqDe52Iyo","title":"One phrase is a door #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-31","days_live":5,"views":21,"likes":0,"comments":0,"privacy":"public","vpd":4.2},{"id":"W9HXXz1Qw80","title":"A student spent two years memorizing a dictionary. #languagelearning #parable","format":"parable-classic","publish_date":"2026-08-30","days_live":6,"views":5,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"LOxkrNiTZ7Y","title":"Six months ago you started Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-30","days_live":6,"views":65,"likes":1,"comments":0,"privacy":"public","vpd":10.8},{"id":"jfdTGIdfYio","title":"They say some people are born for languages #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-30","days_live":6,"views":15,"likes":0,"comments":0,"privacy":"public","vpd":2.5},{"id":"E9vC3IqkXhM","title":"Two students studied the same language #languagelearning #parable","format":"parable-classic","publish_date":"2026-08-29","days_live":7,"views":8,"likes":0,"comments":0,"privacy":"public","vpd":1.1},{"id":"xcWIw6LsIhA","title":"Your French sounds wrong to you #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-29","days_live":7,"views":47,"likes":0,"comments":0,"privacy":"public","vpd":6.7},{"id":"l_5JolAkTk4","title":"Native speakers make mistakes #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-29","days_live":7,"views":127,"likes":0,"comments":0,"privacy":"public","vpd":18.1},{"id":"EJUVdWBz25s","title":"Rabbit studies words. Fox waits patiently. #languagelearning #parable","format":"parable-animal","publish_date":"2026-08-28","days_live":8,"views":12,"likes":0,"comments":0,"privacy":"public","vpd":1.5},{"id":"euq4ERfiFv8","title":"A woman of seventy came to a language school. #languagelearning #parable","format":"parable-classic","publish_date":"2026-08-28","days_live":8,"views":2,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"b7fmST6PCo0","title":"Not fluent #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-28","days_live":8,"views":31,"likes":0,"comments":0,"privacy":"public","vpd":3.9},{"id":"1u8lm6X7kXU","title":"When did you last speak Japanese out loud #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-28","days_live":8,"views":54,"likes":0,"comments":0,"privacy":"public","vpd":6.8},{"id":"5gQx8_p4HOY","title":"A crow and a turtle met. #languagelearning #parable","format":"parable-animal","publish_date":"2026-08-27","days_live":9,"views":94,"likes":1,"comments":0,"privacy":"public","vpd":10.4},{"id":"fialai8e0Z8","title":"A student came to a master from another country. #languagelearning #parable","format":"parable-classic","publish_date":"2026-08-27","days_live":9,"views":5,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"L3KyyFwLNYk","title":"You've been correcting yourself in your head #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-27","days_live":9,"views":21,"likes":0,"comments":0,"privacy":"public","vpd":2.3},{"id":"iS5YRbmD8uM","title":"He moved to Mexico with thirty words #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-27","days_live":9,"views":34,"likes":0,"comments":0,"privacy":"public","vpd":3.8},{"id":"dkHxInO0gck","title":"Rabbit needs word. Horse pulls notebooks. #languagelearning #parable","format":"parable-animal","publish_date":"2026-08-26","days_live":10,"views":89,"likes":0,"comments":0,"privacy":"public","vpd":8.9},{"id":"c3mgkDvDHTE","title":"A student asked her teacher: #languagelearning #parable","format":"parable-classic","publish_date":"2026-08-26","days_live":10,"views":18,"likes":1,"comments":0,"privacy":"public","vpd":1.8},{"id":"5HIyqbjK6fo","title":"One wrong word gets a smile #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-26","days_live":10,"views":16,"likes":0,"comments":0,"privacy":"public","vpd":1.6},{"id":"BbWdWitQHyw","title":"You think you need years to speak French #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-26","days_live":10,"views":12,"likes":0,"comments":0,"privacy":"public","vpd":1.2},{"id":"-qEWMjWpWjI","title":"Quiet pond. A hedgehog, a duck. #languagelearning #parable","format":"parable-animal","publish_date":"2026-08-25","days_live":11,"views":827,"likes":4,"comments":0,"privacy":"public","vpd":75.2},{"id":"XtZetQAJKg0","title":"Can you read music? Goat reads. Sparrow sings. #languagelearning #parable","format":"parable-animal","publish_date":"2026-08-24","days_live":12,"views":29,"likes":1,"comments":0,"privacy":"public","vpd":2.4},{"id":"XFZEsmdwQcM","title":"A student made the same mistake every day. #languagelearning #parable","format":"parable-classic","publish_date":"2026-08-24","days_live":12,"views":1,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"hCRA2_df74o","title":"January you bought the app #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-24","days_live":12,"views":8,"likes":0,"comments":0,"privacy":"public","vpd":0.7},{"id":"hJhtOHiW94g","title":"Kids learn languages by accident #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-24","days_live":12,"views":0,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"34J_yWxY73U","title":"The fox is lost. The cat is calm. #languagelearning #parable","format":"parable-animal","publish_date":"2026-08-23","days_live":13,"views":60,"likes":0,"comments":0,"privacy":"public","vpd":4.6},{"id":"zgxHCphdLFg","title":"A young monk traveled to a distant village. #languagelearning #parable","format":"parable-classic","publish_date":"2026-08-23","days_live":13,"views":8,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"4U15txfF-5w","title":"You've been studying for months #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-23","days_live":13,"views":14,"likes":0,"comments":0,"privacy":"public","vpd":1.1},{"id":"eNmZHoih8k8","title":"Everyone says immersion works #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-23","days_live":13,"views":16,"likes":0,"comments":0,"privacy":"public","vpd":1.2},{"id":"oGMqch_7cF4","title":"New language. Bear is big. Pigeon is small. #languagelearning #parable","format":"parable-animal","publish_date":"2026-08-22","days_live":14,"views":8,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"YlG01lDdYx4","title":"A student came to a master and said: #languagelearning #parable","format":"parable-classic","publish_date":"2026-08-22","days_live":14,"views":12,"likes":0,"comments":0,"privacy":"public","vpd":0.9},{"id":"5mSgcPitZQM","title":"You feel no progress #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-22","days_live":14,"views":110,"likes":0,"comments":0,"privacy":"public","vpd":7.9},{"id":"zM1X7X4JtnM","title":"You watch movies with subtitles #languagelearning #motivation","format":"short-motivation","publish_date":"2026-08-22","days_live":14,"views":12,"likes":0,"comments":0,"privacy":"public","vpd":0.9},{"id":"-qzEEhNNx7M","title":"Elephant rehearsed for hours. Mouse tapped an ankle. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-31","days_live":36,"views":22,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"OMsxLQU-j9I","title":"A student told her teacher she was stopping. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-31","days_live":36,"views":0,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"7S7NojaQ8Rk","title":"The mistake you're afraid of #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-31","days_live":36,"views":19,"likes":0,"comments":0,"privacy":"public","vpd":0.5},{"id":"-CuQRhj2c78","title":"You know more French than you did a year ago #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-31","days_live":36,"views":27,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"6OQT59amKTo","title":"He recorded it eleven times. She called once. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-30","days_live":37,"views":66,"likes":0,"comments":0,"privacy":"public","vpd":1.8},{"id":"JzZtJDIcHBY","title":"A traveler arrived in a foreign town. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-30","days_live":37,"views":5,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"lbIoxxruMAs","title":"You've been waiting to feel ready #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-30","days_live":37,"views":55,"likes":0,"comments":0,"privacy":"public","vpd":1.5},{"id":"Q8UZsAkfyFE","title":"Six months of studying Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-30","days_live":37,"views":69,"likes":0,"comments":0,"privacy":"public","vpd":1.9},{"id":"C4AcifSIzPc","title":"Deer memorized the phrase for days. Squirrel tilted her head. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-29","days_live":38,"views":91,"likes":1,"comments":0,"privacy":"public","vpd":2.4},{"id":"gu6eNcwucTA","title":"A student found a word in the new language that had no translation. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-29","days_live":38,"views":117,"likes":0,"comments":0,"privacy":"public","vpd":3.1},{"id":"0YJmWa7BJ38","title":"You're learning a language #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-29","days_live":38,"views":8,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"rJj6b9HoZDc","title":"The first Spanish conversation you have #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-29","days_live":38,"views":10,"likes":0,"comments":0,"privacy":"public","vpd":0.3},{"id":"sPegTp5gEEA","title":"She knew what to say. Too late. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-28","days_live":39,"views":15,"likes":0,"comments":0,"privacy":"public","vpd":0.4},{"id":"8lQgPesA_pU","title":"A student asked his teacher how long it would take. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-28","days_live":39,"views":50,"likes":0,"comments":0,"privacy":"public","vpd":1.3},{"id":"N6P0e9_a1M4","title":"One year from now #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-28","days_live":39,"views":5,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"VyP-5KXEG1k","title":"Nobody remembers the mistakes #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-28","days_live":39,"views":8,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"HLDuNRYxN7A","title":"The cat held a bucket upside down. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-27","days_live":40,"views":151,"likes":0,"comments":0,"privacy":"public","vpd":3.8},{"id":"OOh_EnMToyA","title":"A student had studied for two years when it happened. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-27","days_live":40,"views":112,"likes":0,"comments":0,"privacy":"public","vpd":2.8},{"id":"sckDFLS8pEY","title":"A hedgehog knitted for days. / A sparrow chirped once. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-26","days_live":41,"views":8,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"CCSLuOnB1zM","title":"A man spoke five languages. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-26","days_live":41,"views":6,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"3cJ6HA1F220","title":"Bear wore heavy headphones. Pigeon tapped the plastic. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-25","days_live":42,"views":40,"likes":1,"comments":0,"privacy":"public","vpd":1.0},{"id":"ss86wLaqPbY","title":"A woman started learning a language at seventy-two. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-25","days_live":42,"views":81,"likes":0,"comments":0,"privacy":"public","vpd":1.9},{"id":"ob65UxTY3Os","title":"Fox studied starters for weeks. Bear spilled a drink. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-24","days_live":43,"views":101,"likes":0,"comments":0,"privacy":"public","vpd":2.3},{"id":"xqc69Hpq_HA","title":"A student made a mistake in class. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-24","days_live":43,"views":47,"likes":0,"comments":0,"privacy":"public","vpd":1.1},{"id":"zUtEdGj50V4","title":"He memorized forty names. She spoke two sounds. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-23","days_live":44,"views":74,"likes":0,"comments":0,"privacy":"public","vpd":1.7},{"id":"p7BAxGEC2WI","title":"A quiet man began studying a new language at thirty-five. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-23","days_live":44,"views":65,"likes":0,"comments":0,"privacy":"public","vpd":1.5},{"id":"6Xe40AGXAgg","title":"You think you need more time #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-23","days_live":44,"views":66,"likes":0,"comments":0,"privacy":"public","vpd":1.5},{"id":"kBd84UfJbKM","title":"He spent two years #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-23","days_live":44,"views":281,"likes":1,"comments":0,"privacy":"public","vpd":6.4},{"id":"VSEP6QaEshY","title":"The plateau is not a wall #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-23","days_live":44,"views":123,"likes":0,"comments":0,"privacy":"public","vpd":2.8},{"id":"3DPF6ifOW0E","title":"You've been learning French #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-23","days_live":44,"views":46,"likes":0,"comments":0,"privacy":"public","vpd":1.0},{"id":"v-C3Yna0i7o","title":"He practiced for two hours. A mouse asked once. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-22","days_live":45,"views":58,"likes":0,"comments":0,"privacy":"public","vpd":1.3},{"id":"Q5CCtil5KCA","title":"A student woke one morning and the language was gone. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-22","days_live":45,"views":80,"likes":0,"comments":0,"privacy":"public","vpd":1.8},{"id":"tWAZ63EkiiM","title":"One conversation in Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-22","days_live":45,"views":37,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"9uZAXrANHZE","title":"Every native speaker made mistakes #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-22","days_live":45,"views":84,"likes":1,"comments":0,"privacy":"public","vpd":1.9},{"id":"SQtnJWuauxg","title":"You've been kind to yourself about this long enough #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-22","days_live":45,"views":36,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"Z-1g5WY26Z4","title":"Bad Spanish gets you coffee #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-22","days_live":45,"views":35,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"UQWMqu86NPE","title":"Horse rehearsed eleven takes. Sparrow dialed once. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-21","days_live":46,"views":28,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"4v9WfmrgiZU","title":"A man had studied his grandmother's language for three years. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-21","days_live":46,"views":7,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"OjWTFVh0qTQ","title":"Not fluent yet #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-21","days_live":46,"views":3,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"eYO7bljzOX8","title":"The grammar isn't holding you back #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-21","days_live":46,"views":51,"likes":0,"comments":0,"privacy":"public","vpd":1.1},{"id":"DDY6MWdJUm8","title":"You already know the word #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-21","days_live":46,"views":163,"likes":0,"comments":0,"privacy":"public","vpd":3.5},{"id":"c-QH6Ge7UpQ","title":"Learning Japanese at home #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-21","days_live":46,"views":28,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"t6XTFAdw3jw","title":"Cat memorized fourteen phrases. Rabbit said one word. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-20","days_live":47,"views":42,"likes":0,"comments":0,"privacy":"public","vpd":0.9},{"id":"xIo6w_Hy-hc","title":"A woman learned a language for four years. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-20","days_live":47,"views":91,"likes":0,"comments":0,"privacy":"public","vpd":1.9},{"id":"k860CI5C91Y","title":"You're waiting until you're good enough #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-20","days_live":47,"views":8,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"jyinC0tnTCc","title":"She studied French for three years #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-20","days_live":47,"views":37,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"Rg31AxGP3i4","title":"You're not behind #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-20","days_live":47,"views":148,"likes":0,"comments":0,"privacy":"public","vpd":3.1},{"id":"2Z4EpihvkQE","title":"Fear of the accent #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-20","days_live":47,"views":71,"likes":0,"comments":0,"privacy":"public","vpd":1.5},{"id":"xVJma75GQuk","title":"She timed every pause. He jumped in wrong. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-19","days_live":48,"views":25,"likes":0,"comments":0,"privacy":"public","vpd":0.5},{"id":"36DqxRn5NIY","title":"A student came to her teacher in the third year of study. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-19","days_live":48,"views":42,"likes":0,"comments":0,"privacy":"public","vpd":0.9},{"id":"WkfBz06r05g","title":"You've been studying for months #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-19","days_live":48,"views":28,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"X0vSuZ-jeJQ","title":"There's no version of fluency #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-19","days_live":48,"views":67,"likes":0,"comments":0,"privacy":"public","vpd":1.4},{"id":"gvy6qTCW5wU","title":"You don't need confidence to speak #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-19","days_live":48,"views":27,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"fiKh87VqzdA","title":"Japanese feels impossible #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-19","days_live":48,"views":46,"likes":0,"comments":0,"privacy":"public","vpd":1.0},{"id":"e74oBN0K_ek","title":"It doesn't have to be perfect #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-19","days_live":48,"views":38,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"lTREDVtvy-M","title":"Three words in Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-19","days_live":48,"views":60,"likes":0,"comments":0,"privacy":"public","vpd":1.2},{"id":"Y9xrSRPVly8","title":"He rehearsed for weeks. She sang once. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-18","days_live":49,"views":1,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"kbVYUzAaB18","title":"A student asked an old monk #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-18","days_live":49,"views":6,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"duBDK0SdmpU","title":"You're not bad at French #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-18","days_live":49,"views":6,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"s_piiVTy8jM","title":"She spent two years studying #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-18","days_live":49,"views":29,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"RlyrCv1ICM8","title":"Hedgehog scrubbed the page. / The owl pecked the air. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-17","days_live":50,"views":27,"likes":0,"comments":0,"privacy":"public","vpd":0.5},{"id":"KFcgslJ30Vk","title":"She had rehearsed the sentence for three days. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-17","days_live":50,"views":17,"likes":0,"comments":0,"privacy":"public","vpd":0.3},{"id":"1gdrJgMYYO0","title":"You know more Spanish than you're using #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-17","days_live":50,"views":32,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"jYkZf84Beh0","title":"What would you say if you weren't afraid #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-17","days_live":50,"views":32,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"O6KDqUONW2o","title":"Two teachers taught language in the same town. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-16","days_live":51,"views":4,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"atTfCo5VrvI","title":"Sounding wrong is uncomfortable #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-16","days_live":51,"views":29,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"bGWxAyxW-pk","title":"Everyone says Japanese is hard #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-16","days_live":51,"views":70,"likes":0,"comments":0,"privacy":"public","vpd":1.4},{"id":"NgEUCDMHcPU","title":"Cat memorized 200 phrases. Dog said three wrong words. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-15","days_live":52,"views":107,"likes":1,"comments":0,"privacy":"public","vpd":2.1},{"id":"AGdYU9rPla8","title":"Crow rehearsed for two months. Parrot spoke once. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-15","days_live":52,"views":9,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"9w_5LsetltQ","title":"A young man studied a foreign language for two years. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-15","days_live":52,"views":4,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"8vMZnBXnydA","title":"He tried to apologize in Japanese #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-15","days_live":52,"views":115,"likes":0,"comments":0,"privacy":"public","vpd":2.2},{"id":"__tTej029pg","title":"You think the French will judge your accent #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-15","days_live":52,"views":161,"likes":0,"comments":0,"privacy":"public","vpd":3.1},{"id":"nQku3xYYaaA","title":"He practiced for a year. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-14","days_live":53,"views":126,"likes":0,"comments":0,"privacy":"public","vpd":2.4},{"id":"nzwWfguXPS0","title":"Your classmate moved abroad for three months #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-14","days_live":53,"views":42,"likes":1,"comments":0,"privacy":"public","vpd":0.8},{"id":"EJZHcY-YrpI","title":"Three years ago: next year #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-14","days_live":53,"views":28,"likes":0,"comments":0,"privacy":"public","vpd":0.5},{"id":"ZxzK8PB7ebo","title":"Owl rewrote for three weeks. / Duck spoke once. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-13","days_live":54,"views":90,"likes":0,"comments":0,"privacy":"public","vpd":1.7},{"id":"HF172dmO-_I","title":"He ordered the wrong thing in Japanese #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-13","days_live":54,"views":40,"likes":0,"comments":0,"privacy":"public","vpd":0.7},{"id":"ZfDtoSjNTsI","title":"Everyone wants to speak French fluently #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-13","days_live":54,"views":56,"likes":0,"comments":0,"privacy":"public","vpd":1.0},{"id":"HsRz4QJK5QY","title":"She moved to Paris without speaking French #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-13","days_live":54,"views":95,"likes":1,"comments":0,"privacy":"public","vpd":1.8},{"id":"0jZbfdcCAB8","title":"You know more Spanish than you think #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-13","days_live":54,"views":80,"likes":0,"comments":0,"privacy":"public","vpd":1.5},{"id":"Vgzip4DFsvk","title":"The wolf rehearsed for an hour. / The sheep raised a hoof. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-12","days_live":55,"views":40,"likes":0,"comments":0,"privacy":"public","vpd":0.7},{"id":"MV-qUj87IwM","title":"He ordered the wrong thing in Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-12","days_live":55,"views":104,"likes":0,"comments":0,"privacy":"public","vpd":1.9},{"id":"rPj5Z8t01yo","title":"He ordered the wrong thing in French #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-12","days_live":55,"views":102,"likes":0,"comments":0,"privacy":"public","vpd":1.9},{"id":"goRz8gYuFy8","title":"You keep postponing Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-12","days_live":55,"views":37,"likes":0,"comments":0,"privacy":"public","vpd":0.7},{"id":"x--IY_Hpo9c","title":"Wrong word #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-12","days_live":55,"views":59,"likes":0,"comments":0,"privacy":"public","vpd":1.1},{"id":"zYsbK3HFEk0","title":"She was terrified to speak French #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-11","days_live":56,"views":163,"likes":2,"comments":0,"privacy":"public","vpd":2.9},{"id":"CshsVB2m4rY","title":"She was terrified to speak Japanese #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-11","days_live":56,"views":88,"likes":0,"comments":0,"privacy":"public","vpd":1.6},{"id":"3wEIPJoQaeA","title":"Everyone wants to speak Spanish fluently #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-10","days_live":57,"views":49,"likes":1,"comments":0,"privacy":"public","vpd":0.9},{"id":"ExEoQ6ddSAY","title":"A student went to his teacher. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-10","days_live":57,"views":38,"likes":1,"comments":0,"privacy":"public","vpd":0.7},{"id":"QTvFOVWSJ7M","title":"At seventy, a woman began to learn a new language. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-10","days_live":57,"views":53,"likes":0,"comments":0,"privacy":"public","vpd":0.9},{"id":"-tYbaeYNjvo","title":"She had studied the language for three years. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-10","days_live":57,"views":103,"likes":0,"comments":0,"privacy":"public","vpd":1.8},{"id":"ZuZjkbuqoZ0","title":"A man gave a presentation at work. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-10","days_live":57,"views":113,"likes":0,"comments":0,"privacy":"public","vpd":2.0},{"id":"ivCPGXAmJdI","title":"She had studied the language for two years. #languagelearning #parable","format":"parable-classic","publish_date":"2026-07-10","days_live":57,"views":140,"likes":0,"comments":0,"privacy":"public","vpd":2.5},{"id":"Xx1VvvPk2W8","title":"She was terrified to speak Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-10","days_live":57,"views":225,"likes":0,"comments":0,"privacy":"public","vpd":3.9},{"id":"2bKXrvL9FUs","title":"You don't struggle with Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-09","days_live":58,"views":45,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"Do1DMjyfnG8","title":"Every kid in Spain learns Spanish by speaking #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-09","days_live":58,"views":85,"likes":0,"comments":0,"privacy":"public","vpd":1.5},{"id":"z7Ecokni1ac","title":"The parrot spoke perfectly. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-09","days_live":58,"views":49,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"hBLq6QGSqmM","title":"Why haven't you spoken yet? #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-09","days_live":58,"views":0,"likes":0,"comments":0,"privacy":"unknown","vpd":0.0},{"id":"3gkDl_SbSKA","title":"He moved abroad at forty #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-08","days_live":59,"views":200,"likes":0,"comments":0,"privacy":"public","vpd":3.4},{"id":"T-5lDrZshrY","title":"She knew every word. Couldn't say one. #languagelearning #parable","format":"parable-animal","publish_date":"2026-07-08","days_live":59,"views":33,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"Xd9ShjUqQdc","title":"You've been meaning to practice #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-08","days_live":59,"views":29,"likes":0,"comments":0,"privacy":"public","vpd":0.5},{"id":"US864yyqJGk","title":"One wrong word feels embarrassing #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-08","days_live":59,"views":34,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"jJ6WoW_zDp0","title":"You think you need more grammar #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-08","days_live":59,"views":86,"likes":0,"comments":0,"privacy":"public","vpd":1.5},{"id":"IS6vtJJ8E3k","title":"Your classmate isn't smarter #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-07","days_live":60,"views":74,"likes":0,"comments":0,"privacy":"public","vpd":1.2},{"id":"7kyeL731epY","title":"Two years ago you downloaded the app #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-07","days_live":60,"views":34,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"kjSQ46O4eJ0","title":"You've studied for months #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-06","days_live":61,"views":44,"likes":0,"comments":0,"privacy":"public","vpd":0.7},{"id":"dnKw-lDvqAI","title":"Professor Duck teaches language class #languagelearning #funny","format":"legacy","publish_date":"2026-07-06","days_live":61,"views":49,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"f41Mjse13eQ","title":"You're not bad at Spanish #languagelearning #motivation","format":"short-motivation","publish_date":"2026-07-06","days_live":61,"views":101,"likes":0,"comments":0,"privacy":"public","vpd":1.7},{"id":"q2ODqkgddgQ","title":"He spoke faster than anyone could understand. #languagelearning #parable","format":"parable","publish_date":"2026-07-03","days_live":64,"views":60,"likes":0,"comments":0,"privacy":"public","vpd":0.9},{"id":"SgG94EaKT_A","title":"Your accent is not a mistake #languagelearning #parable","format":"parable","publish_date":"2026-07-02","days_live":65,"views":44,"likes":2,"comments":0,"privacy":"public","vpd":0.7},{"id":"Cnofd75ayQs","title":"What if fluency costs you your first language? #languagelearning #parable","format":"parable","publish_date":"2026-07-01","days_live":66,"views":52,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"syvF2fpm1Vs","title":"What do you do when progress just... stops? #languagelearning #parable","format":"parable","publish_date":"2026-06-30","days_live":67,"views":72,"likes":0,"comments":0,"privacy":"public","vpd":1.1},{"id":"P_yy4qkf_C4","title":"You're not bad at languages. #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-30","days_live":67,"views":83,"likes":1,"comments":0,"privacy":"public","vpd":1.2},{"id":"3ZTerkwJ60M","title":"The owl knew every rule. The crow knew none. #languagelearning #parable","format":"parable","publish_date":"2026-06-29","days_live":68,"views":101,"likes":0,"comments":0,"privacy":"public","vpd":1.5},{"id":"C-s8e6zUpjA","title":"He Was in Prison. He Chose to Learn Their Language.","format":"long-monologue","publish_date":"2026-06-27","days_live":70,"views":7,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"CC32lnaOrLA","title":"He never made a mistake. He never spoke. #languagelearning #parable","format":"parable","publish_date":"2026-06-19","days_live":78,"views":75,"likes":0,"comments":0,"privacy":"public","vpd":1.0},{"id":"3rQmbL32I0E","title":"You don't have a language problem #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-19","days_live":78,"views":135,"likes":0,"comments":0,"privacy":"public","vpd":1.7},{"id":"rqDv9JVnoXw","title":"He knew ten thousand words. Couldn't buy bread. #languagelearning #parable","format":"parable","publish_date":"2026-06-18","days_live":79,"views":16,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"b9l0jvQ-T6I","title":"She wasn't ready. She was never ready. #languagelearning #parable","format":"parable","publish_date":"2026-06-18","days_live":79,"views":3,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"ZAUr48RuCfU","title":"He understood everything. Nobody waited. #languagelearning #parable","format":"parable","publish_date":"2026-06-18","days_live":79,"views":2,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"ST4S8oNHK0I","title":"He weighed every word. Never said one. #languagelearning #parable","format":"parable","publish_date":"2026-06-17","days_live":80,"views":3,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"-qUbbbJQDIg","title":"She practiced for months. The door was open. #languagelearning #parable","format":"parable","publish_date":"2026-06-17","days_live":80,"views":22,"likes":0,"comments":0,"privacy":"public","vpd":0.3},{"id":"Cj5ptjO9Izw","title":"Seven years of words. He just asked. #languagelearning #parable","format":"parable","publish_date":"2026-06-17","days_live":80,"views":6,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"ChigKm8rhAY","title":"She danced. Said three words. He took notes. #languagelearning #parable","format":"parable","publish_date":"2026-06-14","days_live":83,"views":139,"likes":4,"comments":0,"privacy":"public","vpd":1.7},{"id":"eCkKdTwu8q0","title":"Everyone wants to speak fluently #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-12","days_live":85,"views":11,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"xNW2qIcujZk","title":"A boy came to an old well. #languagelearning #parable","format":"parable","publish_date":"2026-06-11","days_live":86,"views":3,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"zOmt7khcST4","title":"He studied the language for two years #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-11","days_live":86,"views":1,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"q-zDhRRzW8U","title":"A musician moved to a country #languagelearning #parable","format":"parable","publish_date":"2026-06-10","days_live":87,"views":1,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"JS1Zk76Ed20","title":"A man studied the language for five years. #languagelearning #parable","format":"parable","publish_date":"2026-06-10","days_live":87,"views":1,"likes":1,"comments":0,"privacy":"public","vpd":0.0},{"id":"haVWm_ojrzs","title":"A young sculptor asked her master: #languagelearning #parable","format":"parable","publish_date":"2026-06-09","days_live":88,"views":2,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"3EZihqEENG8","title":"Sounding foreign is uncomfortable #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-09","days_live":88,"views":0,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"INoF3cULytg","title":"A traveler came to a wise woman. #languagelearning #parable","format":"parable","publish_date":"2026-06-08","days_live":89,"views":0,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"IDVLFQiDGx0","title":"You think confidence comes first #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-08","days_live":89,"views":4,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"YOudjk1tmhw","title":"A student came to her teacher. #languagelearning #parable","format":"parable","publish_date":"2026-06-07","days_live":90,"views":32,"likes":0,"comments":0,"privacy":"public","vpd":0.4},{"id":"2jcjaXUo_GM","title":"Babies don't wait to be ready #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-07","days_live":90,"views":22,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"aUNZU1amF0M","title":"For two years she tracked everything. #languagelearning #parable","format":"parable","publish_date":"2026-06-06","days_live":91,"views":33,"likes":0,"comments":0,"privacy":"public","vpd":0.4},{"id":"y-VNehifTmo","title":"You don't have a language problem #motivation #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-06","days_live":91,"views":120,"likes":1,"comments":0,"privacy":"public","vpd":1.3},{"id":"xCxw5cRpPko","title":"A year ago you said: someday #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-06","days_live":91,"views":8,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"rLk0zIYaK0E","title":"Not perfect #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-05","days_live":92,"views":3,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"qINSl11Ic0A","title":"Two travelers arrived in a foreign city #languagelearning #parable","format":"parable","publish_date":"2026-06-04","days_live":93,"views":7,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"nroqn553_2Q","title":"A woman of seventy began to study Japanese. #languagelearning #parable","format":"parable","publish_date":"2026-06-03","days_live":94,"views":40,"likes":0,"comments":0,"privacy":"public","vpd":0.4},{"id":"ldWeZCX8J9s","title":"You're not slow at languages #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-03","days_live":94,"views":38,"likes":0,"comments":0,"privacy":"public","vpd":0.4},{"id":"AmIs_zLv990","title":"You have the app on your phone #languagelearning #motivation","format":"short-motivation","publish_date":"2026-06-02","days_live":95,"views":13,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"lVjAHTvPWHI","title":"A professor of languages #languagelearning #parable","format":"parable","publish_date":"2026-06-02","days_live":95,"views":101,"likes":0,"comments":0,"privacy":"public","vpd":1.1},{"id":"5NkNV1NmoSs","title":"A student had spoken the foreign language for ten years. #languagelearning #parable","format":"parable","publish_date":"2026-06-01","days_live":96,"views":76,"likes":0,"comments":0,"privacy":"public","vpd":0.8},{"id":"eaGSUG3A_cc","title":"A man learned his grandmother's language for twenty years. #languagelearning #parable","format":"parable","publish_date":"2026-05-31","days_live":97,"views":7,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"Y-spg5ZmFAU","title":"A student joined a language class #languagelearning #parable","format":"parable","publish_date":"2026-05-30","days_live":98,"views":60,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"1GyZOMu3ESk","title":"A traveler came to a river. #languagelearning #parable","format":"parable","publish_date":"2026-05-29","days_live":99,"views":4,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"WjJyjEc1PdQ","title":"Stumble #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-29","days_live":99,"views":49,"likes":0,"comments":0,"privacy":"public","vpd":0.5},{"id":"_4gNjnmQgSs","title":"A student had studied the language for three years. #languagelearning #parable","format":"parable","publish_date":"2026-05-28","days_live":100,"views":10,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"mq8YUfDrnL0","title":"You think accent means less intelligent #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-28","days_live":100,"views":6,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"6NiQyhwx4Uo","title":"A student studied language under a master for three years. #languagelearning #parable","format":"parable","publish_date":"2026-05-27","days_live":101,"views":64,"likes":0,"comments":0,"privacy":"public","vpd":0.6},{"id":"0XuWe66zS64","title":"Toddlers don't apologize for bad grammar #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-27","days_live":101,"views":0,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"LFiQRnWixO4","title":"A student of the language understood everything he read #languagelearning #parable","format":"parable","publish_date":"2026-05-26","days_live":102,"views":12,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"UFm6aTw0Okc","title":"Everyone looks fluent from the outside #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-26","days_live":102,"views":15,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"s5qZjP3Q0ak","title":"You're not bad at listening #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-25","days_live":103,"views":30,"likes":0,"comments":0,"privacy":"public","vpd":0.3},{"id":"3LuV1s6afTA","title":"What would fluency change for you #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-24","days_live":104,"views":20,"likes":1,"comments":0,"privacy":"public","vpd":0.2},{"id":"W66BjpY4bHM","title":"Two students sat at the river. #languagelearning #parable","format":"parable","publish_date":"2026-05-23","days_live":105,"views":57,"likes":0,"comments":0,"privacy":"public","vpd":0.5},{"id":"PqyOrnaAXWQ","title":"He ordered the wrong thing for a year #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-23","days_live":105,"views":18,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"i9PXkQoIg6w","title":"You're not bad at languages #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-23","days_live":105,"views":37,"likes":0,"comments":0,"privacy":"public","vpd":0.4},{"id":"jTs_U5ihisk","title":"Sounding foreign is temporary #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-22","days_live":106,"views":17,"likes":0,"comments":0,"privacy":"public","vpd":0.2},{"id":"03jY8sNMImo","title":"You know what's stopping you. #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-22","days_live":106,"views":5,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"nOlMJIyew88","title":"A child doesn't study before speaking. #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-21","days_live":107,"views":3,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"L6DB9b4hVBs","title":"You think you need more lessons #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-21","days_live":107,"views":6,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"x0LC95Yjmqo","title":"Fear of sounding stupid is real. #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-20","days_live":108,"views":15,"likes":0,"comments":0,"privacy":"public","vpd":0.1},{"id":"BQqwKNspl8g","title":"Babies fall before they walk #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-20","days_live":108,"views":0,"likes":0,"comments":0,"privacy":"public","vpd":0.0},{"id":"ekTGuKLTOGM","title":"Your accent is not a mistake. #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-19","days_live":109,"views":32,"likes":0,"comments":0,"privacy":"public","vpd":0.3},{"id":"39S1Z9R-7Fo","title":"Watching videos feels like learning. #languagelearning #motivation","format":"short-motivation","publish_date":"2026-05-19","days_live":109,"views":24,"likes":0,"comments":0,"privacy":"public","vpd":0.2}];
+
+const YT = "https://youtube.com/shorts/";
+const FMT = {
+  "short-motivation": {label:"Short",    cls:"b-short",   color:"#C47208"},
+  "parable":          {label:"Parable",  cls:"b-parable", color:"#3870A8"},
+  "parable-classic":  {label:"Parable",  cls:"b-parable", color:"#3870A8"},
+  "parable-animal":   {label:"Animal",   cls:"b-animal",  color:"#38905A"},
+  "legacy":           {label:"Other",    cls:"b-legacy",  color:"#808080"},
+  "long-monologue":   {label:"Other",    cls:"b-legacy",  color:"#808080"},
+};
+function fmtOf(v){ return FMT[v.format] || FMT["legacy"]; }
+function isDark(){ return document.documentElement.getAttribute("data-theme")==="dark" || (!document.documentElement.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme:dark)").matches); }
+
+// ── KPIs ──
+function renderKPIs(){
+  const pub = VIDEOS.filter(v=>v.privacy==="public");
+  const totalV = pub.reduce((s,v)=>s+v.views,0);
+  const avgVpd = pub.length ? (pub.reduce((s,v)=>s+v.vpd,0)/pub.length).toFixed(1) : 0;
+  const best = pub.reduce((a,b)=>b.views>a.views?b:a, pub[0]||{});
+  const bestVpd = pub.reduce((a,b)=>b.vpd>a.vpd?b:a, pub[0]||{});
+  document.getElementById("kpis").innerHTML = `
+    <div class="kpi"><div class="kpi-lbl">Total Views</div><div class="kpi-val hi">${totalV.toLocaleString()}</div><div class="kpi-sub">${pub.length} public / ${VIDEOS.length} total</div></div>
+    <div class="kpi"><div class="kpi-lbl">Avg Views/Day</div><div class="kpi-val">${avgVpd}</div><div class="kpi-sub">public videos</div></div>
+    <div class="kpi"><div class="kpi-lbl">Best Raw</div><div class="kpi-val">${best.views||0}</div><div class="kpi-sub"><i>${(best.title||'').slice(0,34)}…</i></div></div>
+    <div class="kpi"><div class="kpi-lbl">Best V/Day</div><div class="kpi-val">${bestVpd.vpd||0}</div><div class="kpi-sub"><i>${(bestVpd.title||'').slice(0,34)}…</i></div></div>`;
+  document.getElementById("hdr-meta").textContent = `${VIDEOS.length} videos · May–Sep 2026 · updated ${new Date().toLocaleDateString("en-US",{month:"short",day:"numeric"})}`;
+}
+
+// ── Chart ──
+let chartY = "views";
+function toggleChartY(){
+  chartY = chartY==="views" ? "vpd" : "views";
+  document.getElementById("chart-toggle-lbl").textContent = chartY==="views" ? "Raw views" : "Views per day";
+  document.getElementById("ytog").textContent = chartY==="views" ? "Switch to views/day" : "Switch to raw views";
+  drawChart();
+}
+
+function drawChart(){
+  const canvas = document.getElementById("chart");
+  const dpr = window.devicePixelRatio||1;
+  const W = canvas.offsetWidth;
+  const H = 240;
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  canvas.style.height = H+"px";
+  const ctx = canvas.getContext("2d");
+  ctx.scale(dpr,dpr);
+
+  const dark = isDark();
+  const gridColor = dark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
+  const textColor = dark ? "#687080" : "#948E88";
+  const bg = dark ? "#101E2C" : "#ECEAE4";
+
+  ctx.fillStyle = bg;
+  ctx.fillRect(0,0,W,H);
+
+  const PAD = {l:44,r:16,t:14,b:32};
+  const cw = W - PAD.l - PAD.r;
+  const ch = H - PAD.t - PAD.b;
+
+  // Date range
+  const dates = VIDEOS.map(v=>new Date(v.publish_date).getTime());
+  const minD = Math.min(...dates), maxD = Math.max(...dates);
+  const rangeD = maxD - minD || 1;
+
+  const pub = VIDEOS.filter(v=>v.privacy==="public");
+  const maxY = Math.max(...pub.map(v=>v[chartY]), 1);
+
+  // Grid lines
+  ctx.strokeStyle = gridColor; ctx.lineWidth = 1;
+  const ticks = 5;
+  for(let i=0;i<=ticks;i++){
+    const y = PAD.t + ch - (i/ticks)*ch;
+    ctx.beginPath(); ctx.moveTo(PAD.l,y); ctx.lineTo(PAD.l+cw,y); ctx.stroke();
+    const val = Math.round((i/ticks)*maxY);
+    ctx.fillStyle = textColor; ctx.font = "10px system-ui";
+    ctx.textAlign = "right"; ctx.fillText(val, PAD.l-5, y+3.5);
+  }
+
+  // X axis labels
+  const months = ["May 19","Jun 1","Jun 15","Jul 1","Jul 11"];
+  const mDates = ["2026-05-19","2026-06-01","2026-06-15","2026-07-01","2026-07-11"];
+  ctx.fillStyle = textColor; ctx.textAlign = "center"; ctx.font = "10px system-ui";
+  mDates.forEach((d,i)=>{
+    const t = new Date(d).getTime();
+    const x = PAD.l + ((t-minD)/rangeD)*cw;
+    ctx.fillText(months[i], x, H-PAD.b+14);
+    ctx.strokeStyle = gridColor; ctx.beginPath(); ctx.moveTo(x,PAD.t); ctx.lineTo(x,PAD.t+ch); ctx.stroke();
+  });
+
+  // Dots
+  VIDEOS.forEach(v=>{
+    if(v.privacy!=="public") return;
+    const t = new Date(v.publish_date).getTime();
+    const x = PAD.l + ((t-minD)/rangeD)*cw;
+    const y = PAD.t + ch - (v[chartY]/maxY)*ch;
+    const col = fmtOf(v).color;
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, Math.PI*2);
+    ctx.fillStyle = col + "CC";
+    ctx.fill();
+    ctx.strokeStyle = col;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  });
+
+  // Label top outliers
+  const sorted = [...pub].sort((a,b)=>b[chartY]-a[chartY]).slice(0,4);
+  ctx.font = "bold 10px system-ui"; ctx.lineWidth = 1;
+  sorted.forEach(v=>{
+    const t = new Date(v.publish_date).getTime();
+    const x = PAD.l + ((t-minD)/rangeD)*cw;
+    const y = PAD.t + ch - (v[chartY]/maxY)*ch;
+    const label = v.title.slice(0,28)+(v.title.length>28?"…":"");
+    const lx = Math.min(x+8, W-PAD.r-ctx.measureText(label).width);
+    ctx.fillStyle = dark?"#E4E0D8":"#1C1814";
+    ctx.textAlign = "left";
+    ctx.fillText(label, lx, y-7);
+  });
+}
+
+// ── Table ──
+let sortKey = "views", sortAsc = false;
+function setSort(k){
+  if(sortKey===k) sortAsc=!sortAsc; else{sortKey=k; sortAsc=k==="date"||k==="title";}
+  document.querySelectorAll(".sort-btn").forEach(b=>b.classList.remove("active"));
+  const sb = document.getElementById("s-"+k); if(sb) sb.classList.add("active");
+  document.querySelectorAll("thead th[id]").forEach(th=>th.classList.remove("sorted"));
+  const th = document.getElementById("th-"+k); if(th) th.classList.add("sorted");
+  renderTable();
+}
+
+function renderTable(){
+  const maxV = Math.max(...VIDEOS.filter(v=>v.privacy==="public").map(v=>v.views),1);
+  const sorted = [...VIDEOS].sort((a,b)=>{
+    const ka = sortKey==="date"?"publish_date":sortKey;
+    let av=a[ka],bv=b[ka];
+    if(typeof av==="string") return sortAsc?av.localeCompare(bv):bv.localeCompare(av);
+    return sortAsc?av-bv:bv-av;
+  });
+  document.getElementById("tbody").innerHTML = sorted.map(v=>{
+    const f = fmtOf(v);
+    const isPub = v.privacy==="public";
+    const isPri = v.privacy==="private";
+    const pct = isPub ? Math.round((v.views/maxV)*100) : 0;
+    const link = isPri
+      ? `<span class="vid-title" style="color:var(--text3)">${v.title}</span>`
+      : `<span class="vid-title"><a href="${YT}${v.id}" target="_blank">${v.title}</a></span>`;
+    return `<tr class="${!isPub&&!isPri?'dim':''}${isPri?' dim':''}">
+      <td><div class="vid-date">${v.publish_date.slice(5)}</div></td>
+      <td><span class="badge ${f.cls}">${f.label}</span></td>
+      <td>${link}</td>
+      <td class="r bold">${isPri?'—':v.views.toLocaleString()}</td>
+      <td class="r">${isPri?'—':v.vpd}</td>
+      <td class="r">${isPri?'—':(v.likes||'—')}</td>
+      <td class="bar-cell"><div class="bt"><div class="bf" style="width:${pct}%;background:${f.color}"></div></div></td>
+    </tr>`;
+  }).join("");
+}
+
+// ── Format breakdown ──
+function renderBreakdown(){
+  const grps = {
+    "Motivational Short": {formats:["short-motivation"], color:"var(--c-short)"},
+    "Classic Parable":    {formats:["parable","parable-classic"], color:"var(--c-parable)"},
+    "Animal Parable":     {formats:["parable-animal"], color:"var(--c-animal)"},
+    "Other":              {formats:["legacy","long-monologue"], color:"var(--c-legacy)"},
+  };
+  document.getElementById("fmtgrid").innerHTML = Object.entries(grps).map(([name,g])=>{
+    const vids = VIDEOS.filter(v=>g.formats.includes(v.format)&&v.privacy==="public");
+    const total = vids.reduce((s,v)=>s+v.views,0);
+    const avgVpd = vids.length ? (vids.reduce((s,v)=>s+v.vpd,0)/vids.length).toFixed(1) : "—";
+    return `<div class="fmtcard" style="--fc:${g.color}">
+      <div class="fmtcard-name">${name}</div>
+      <div class="fmtstats">
+        <div><div class="fs-lbl">Videos</div><div class="fs-val">${vids.length}</div></div>
+        <div><div class="fs-lbl">Total</div><div class="fs-val">${total.toLocaleString()}</div></div>
+        <div><div class="fs-lbl">Avg V/D</div><div class="fs-val">${avgVpd}</div></div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function toggleTheme(){
+  const r=document.documentElement, cur=r.getAttribute("data-theme");
+  const next=cur==="dark"?"light":cur==="light"?"dark":(window.matchMedia("(prefers-color-scheme:dark)").matches?"light":"dark");
+  r.setAttribute("data-theme",next);
+  drawChart();
+}
+
+window.addEventListener("resize", ()=>{ drawChart(); });
+
+renderKPIs();
+renderTable();
+renderBreakdown();
+requestAnimationFrame(drawChart);
+</script>

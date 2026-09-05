@@ -1,0 +1,67 @@
+[
+  {
+    "name": "clip_s01_intro",
+    "task_id": "578bab2a-f5d5-438e-a3be-3b67d0400ec0",
+    "prompt": "wide shot, owl and pigeon sitting still on same branch, facing forward, dense forest background, overcast light, no movement, photorealistic"
+  },
+  {
+    "name": "clip_s02_book",
+    "task_id": "03bbf96d-d6b6-4199-a123-5f4a16e3395f",
+    "prompt": "close-up, owl looking down at open book resting on branch, perched still, forest background, soft light, photorealistic"
+  },
+  {
+    "name": "clip_s03_pullscroll",
+    "task_id": "bfdb464f-f1f2-40e1-bc41-2ee8d06a7c90",
+    "prompt": "medium shot, owl pulling small rolled paper from under wing, perched still on branch, forest background, cinematic"
+  },
+  {
+    "name": "clip_s04_scrollflat",
+    "task_id": "dc7cf1f4-92c7-4da9-aa8d-b24f22c60303",
+    "prompt": "close-up, paper scroll pinned flat against tree bark with handwritten text, static shot, soft light, photorealistic"
+  },
+  {
+    "name": "clip_s05_pigeonfly",
+    "task_id": "e23e68e7-0ba9-41c6-956a-3aac8f204389",
+    "prompt": "medium shot, pigeon flying left to right across open meadow, clear sky, motion blur wings, photorealistic"
+  },
+  {
+    "name": "clip_s06_twobirds",
+    "task_id": "c4a2bad7-2381-476f-a63d-62ce5490535d",
+    "prompt": "medium shot, two small birds facing each other on ground in meadow, both still, grass background, photorealistic"
+  },
+  {
+    "name": "clip_s07_owlglide",
+    "task_id": "d6091e11-b514-4843-a6fc-0c65adb500e5",
+    "prompt": "wide shot, owl gliding low between trees toward clearing, wings spread, forest, cinematic"
+  },
+  {
+    "name": "clip_s08_owlscroll",
+    "task_id": "f69c82f8-e0de-43d9-b5b0-33248bd55e53",
+    "prompt": "medium shot, owl holding open scroll against tree trunk, perched still, beak near scroll, forest, photorealistic"
+  },
+  {
+    "name": "clip_s09_pigeontalk",
+    "task_id": "3e42fa1f-d01d-4d50-9bde-6bc850d9dc7d",
+    "prompt": "close-up, pigeon head facing camera directly, perched on branch, still, soft light, photorealistic"
+  },
+  {
+    "name": "clip_s10_groupbirds",
+    "task_id": "61530135-5132-43bd-894d-a7935d35c54e",
+    "prompt": "wide shot, five small birds perched on branches in forest glade, morning light, all still, photorealistic"
+  },
+  {
+    "name": "clip_s11_owlalone",
+    "task_id": "378bf266-c58b-4c68-86be-0f0cab34ef80",
+    "prompt": "medium shot, owl sitting alone on branch at edge of clearing, looking away, evening golden light, still, photorealistic"
+  },
+  {
+    "name": "clip_s12_tuckscroll",
+    "task_id": "39cc93d0-4747-45ee-b034-c27f16faf4cc",
+    "prompt": "close-up, owl tucking small rolled paper under wing, perched on branch, still, forest background, photorealistic"
+  },
+  {
+    "name": "clip_s13_owlstep",
+    "task_id": "bf3d543f-750a-4769-a09d-d43076191942",
+    "prompt": "medium shot, owl stepping off branch wings just beginning to open, soft forest morning light, cinematic"
+  }
+]

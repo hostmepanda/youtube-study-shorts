@@ -64,14 +64,34 @@ Historical note: the original `parable_001–005` (legacy IDs, pre-restructure) 
 
 New entries (append after each generated classic parable):
 
-<!-- e.g.: - classic_001 (T05): "What do you do when progress just... stops?" -->
+- classic_023: "The woman had already gone." / "The student had needed to hear it from the world."
+- classic_024: "Three words and a willing face is more than three hundred words and a closed one."
+- classic_025: "He was a stranger. Strangers are kinder mirrors than teachers."
+- classic_026: "She had been running from something the other person didn't mind carrying."
+- classic_027: "By today you were doing it yourself."
+- classic_028: "You spent two years filling a jar. You had not learned to pour from it."
+- classic_029: "The teacher's mistakes had been the real lesson."
+- classic_030: "It was a moment. That was enough."
+- classic_031: "The young man was still thinking about whether it was too late for him."
+- classic_032: "That is a very quiet place to live in another language."
+- classic_033: "He had been somewhere and we had only been thinking."
+- classic_034: "The view from inside was nothing like the view from the window."
+- classic_035: "He understood what she didn't say."
+- classic_036: "The language had been waiting. The way all things wait that were once truly learned."
+- classic_037: "The silence had held them both. Neither of them had fallen."
+- classic_038: "She had not noticed until now that expertise can make you quiet."
+- classic_039: "He was only one sentence behind. The year after that he stopped counting."
+- classic_040: "She had finally understood what she had been studying."
 
 ## Voice selection
 
-| Voice | Gender | Best for |
-|-------|--------|----------|
-| diana | female | female protagonist, gentle/introspective/emotional tone |
-| oliver | male | male protagonist, classic/timeless/wise tone |
-| thomas | male | male protagonist, warm/playful/absurdist tone |
+Rotate across all four voices — don't use the same one twice in a row.
 
-Default: diana. Override in `config/settings.yaml` → `premiss.voice` or via `--voice` flag.
+| Voice | Character | Best for |
+|-------|-----------|----------|
+| `elder` | Contemplative, measured | Wisdom parables, slow reveals, introspective tone |
+| `abbot` | Authoritative, gravelly | Tension, corporate pressure, confrontation scenes |
+| `thomas` | Measured, neutral | Tender moments, female protagonists, quiet endings |
+| `oliver` | Warm, classic | Timeless archetypes, gentle humor, human connection |
+
+Override per render: `PREMISS_VOICE=abbot python3 main.py`

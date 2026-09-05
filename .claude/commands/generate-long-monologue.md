@@ -73,7 +73,7 @@ Example: `"He was in prison." / "He chose to learn" / "their language."`
 Save script as the `text:` value inside `steps[0]` (premiss-audio step). ID format: `longmono_YYYYMMDD_HHMMSS`.
 
 Key render settings:
-- `voice: diana`, `speed: 0.95`, `phraseGap: 0.85`
+- `voice: linda`, `speed: 0.95`, `phraseGap: 0.85`
 - `width: 1920`, `height: 1080` (landscape)
 - `hideText: true` (no on-screen captions — voice only)
 - `musicVolume: 0.10`

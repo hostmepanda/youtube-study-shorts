@@ -33,8 +33,9 @@ New entries go above this line, oldest first. Legacy IDs (parable_05x) predate t
 
 | Voice | Gender | Best for |
 |-------|--------|----------|
-| diana | female | female lead, gentle or introspective tone, emotional endings |
+| linda | female | female lead, gentle or introspective tone, emotional endings |
+| arina | female | female lead, alternative warm female |
 | oliver | male | male lead, classic/timeless tone, wise or calm narrator feel |
 | thomas | male | male lead, warmer or slightly playful tone, absurdist stories |
 
-Default when unsure: diana.
+Default when unsure: linda.
