@@ -82,6 +82,12 @@ New entries (append after each generated classic parable):
 - classic_038: "She had not noticed until now that expertise can make you quiet."
 - classic_039: "He was only one sentence behind. The year after that he stopped counting."
 - classic_040: "She had finally understood what she had been studying."
+- classic_041: "The next morning she spoke slower. Let a little of the old sound back in."
+- classic_042: "\"Long enough,\" he said. And left it at that."
+- classic_043: "He never expected two languages. Only one reason to start."
+- classic_044: "Not to replace the years she lost. Just to keep going from here."
+- classic_045: "\"Now I have something worth being wrong about.\""
+- classic_046: "It was the closest she'd come to complete. She still didn't know which one was home."
 
 ## Voice selection
 

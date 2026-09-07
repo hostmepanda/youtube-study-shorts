@@ -118,6 +118,23 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-09-13 | 16:30 | 23:30 | animal parable | How much preparation is actually procrastination? | [link](https://youtube.com/watch?v=omWomREMIho) | [yaml](formats/parable-animal/configs/archive/animal_20260902_120210.yaml) |
 | 2026-09-14 | 16:30 | 23:30 | animal parable | Is perfect pronunciation the same as being ready? | [link](https://youtube.com/watch?v=fDZT73CdasA) | [yaml](formats/parable-animal/configs/archive/animal_20260902_120326.yaml) |
 | 2026-09-15 | 16:30 | 23:30 | animal parable | Does writing it perfectly mean saying it? | [link](https://youtube.com/watch?v=D_0rbjMH9uQ) | [yaml](formats/parable-animal/configs/archive/animal_20260902_120527.yaml) |
+| 2026-09-12 | 09:00 | 16:00 | motivational short | What would you say if you weren't afraid | [link](https://youtube.com/shorts/Alql-Qw650s) | [yaml](formats/short-motivation/configs/archive/short_20260907_072441.yaml) |
+| 2026-09-13 | 09:00 | 16:00 | motivational short | You feel like you're not improving | [link](https://youtube.com/shorts/m4nMtiBQypg) | [yaml](formats/short-motivation/configs/archive/short_20260907_072506.yaml) |
+| 2026-09-14 | 09:00 | 16:00 | motivational short | Every language learner has a plateau | [link](https://youtube.com/shorts/6igJ8aNbwUY) | [yaml](formats/short-motivation/configs/archive/short_20260907_072528.yaml) |
+| 2026-09-15 | 09:00 | 16:00 | motivational short | A year ago you didn't know a word | [link](https://youtube.com/shorts/bDHtsUOSbZ8) | [yaml](formats/short-motivation/configs/archive/short_20260907_072548.yaml) |
+| 2026-09-16 | 09:00 | 16:00 | motivational short | Tourists point at things | [link](https://youtube.com/shorts/r-r68yhGkts) | [yaml](formats/short-motivation/configs/archive/short_20260907_072609.yaml) |
+| 2026-09-17 | 09:00 | 16:00 | motivational short | You think fluency means no accent | [link](https://youtube.com/shorts/ylews3p2tDw) | [yaml](formats/short-motivation/configs/archive/short_20260907_072632.yaml) |
+| 2026-09-18 | 09:00 | 16:00 | motivational short | Getting corrected feels bad | [link](https://youtube.com/shorts/vRXNIsL4QzU) | [yaml](formats/short-motivation/configs/archive/short_20260907_072653.yaml) |
+| 2026-09-19 | 09:00 | 16:00 | motivational short | You've been learning Japanese for a year | [link](https://youtube.com/shorts/EWg8J1td7H0) | [yaml](formats/short-motivation/configs/archive/short_20260907_072711.yaml) |
+| 2026-09-20 | 09:00 | 16:00 | motivational short | She was terrified of her accent | [link](https://youtube.com/shorts/hog9nqecMCA) | [yaml](formats/short-motivation/configs/archive/short_20260907_072732.yaml) |
+| 2026-09-21 | 09:00 | 16:00 | motivational short | Forgot the word | [link](https://youtube.com/shorts/YsekNbO0zkk) | [yaml](formats/short-motivation/configs/archive/short_20260907_072852.yaml) |
+| 2026-09-16 | 16:30 | 23:30 | classic parable | A monk lived in a foreign village for thirty years. | [link](https://youtube.com/watch?v=TtNMc7OaGfY) | [yaml](formats/parable-classic/configs/archive/classic_20260907_074553.yaml) |
+| 2026-09-17 | 16:30 | 23:30 | classic parable | What do you lose when accents disappear? | [link](https://youtube.com/watch?v=IKx7B4R2YMs) | [yaml](formats/parable-classic/configs/archive/classic_20260907_073732.yaml) |
+| 2026-09-18 | 16:30 | 23:30 | classic parable | When do you stop calling yourself a beginner? | [link](https://youtube.com/watch?v=eg5vdUNL2ww) | [yaml](formats/parable-classic/configs/archive/classic_20260907_073840.yaml) |
+| 2026-09-19 | 16:30 | 23:30 | classic parable | Why learn an entire language for one person? | [link](https://youtube.com/watch?v=ZnEJXhZIfwo) | [yaml](formats/parable-classic/configs/archive/classic_20260907_074014.yaml) |
+| 2026-09-20 | 16:30 | 23:30 | classic parable | What happens when you return after years away? | [link](https://youtube.com/watch?v=ZarPYBZ3QCc) | [yaml](formats/parable-classic/configs/archive/classic_20260907_074202.yaml) |
+| 2026-09-21 | 16:30 | 23:30 | classic parable | What does a year of silence actually mean? | [link](https://youtube.com/watch?v=3xQBDPtfiOg) | [yaml](formats/parable-classic/configs/archive/classic_20260907_074332.yaml) |
+| 2026-09-22 | 16:30 | 23:30 | classic parable | Five languages. No language felt like home. | [link](https://youtube.com/watch?v=HcBmYke7qDE) | [yaml](formats/parable-classic/configs/archive/classic_20260907_074453.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
