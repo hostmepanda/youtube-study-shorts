@@ -25,7 +25,7 @@ The first monk looked at him and said:
 
 - Concrete situation — visual, specific, immediately clear
 - Dialogue carries the meaning, not the narrator
-- A twist or paradox at the end
+- **Two turns, not one**: a mid-story reversal partway through (something the viewer expected doesn't happen — see "Mid-story turn" below) *plus* the closing twist. Retention data shows parables that save 100% of the surprise for the last line lose viewers long before they get there; a short-motivation script that flips the viewer's expectation at the 2/3 mark holds attention far better, and the same beat works inside a parable.
 - The last line IS the lesson — no explanation after it
 - Short and complete — no emotional journey, just the moment and the punch
 
@@ -43,12 +43,16 @@ The first monk looked at him and said:
   These pool keywords expand automatically in the fetcher — use them as starting points:
   `monastery`, `monk`, `river`, `bridge`, `market`, `candle`, `fog`, `temple`, `mountain`, `road`, `rain`, `jar`, `silence`, `book`, `well`
 
-## Screen structure
+## Screen structure — 7–9 screens, shorter than before
 
-- 1–3: set the scene — who, where, what's happening
-- 4–7: the situation unfolds — action and dialogue
-- 8–11: tension or contradiction builds
+**Retention data: parables average ~22% audience retention vs ~48% for short-motivation, and the gap tracks length, not topic quality.** A 10–13 screen parable asks for 60–100+ seconds of trust before it pays off. Cut it down:
+
+- 1–2: set the scene — who, where, what's happening
+- 3–5: the situation unfolds — action and dialogue
+- **Mid-story turn (screen ~5–6, roughly the 2/3 point): something the viewer expects to happen doesn't.** Not the final lesson yet — a smaller, earlier surprise that re-hooks attention before the ending. Concrete pattern to copy: the character braces for one outcome (rejection, failure, correction) and gets the opposite ("The waiter understood." / "They won't."). This is a distinct beat from the closing reversal — don't let it collapse into the ending.
 - Last 1–2 screens: the reversal — one line that reframes everything
+
+Total: 7–9 screens (down from the old 10–13). If a draft runs past 9, cut a scene-setting screen rather than the mid-story turn or the ending.
 
 ## Topic pool & dedup
 
@@ -60,7 +64,7 @@ Pick 5 topics from the pool — one from each of 5 different categories. Record 
 
 Write 5 parables yourself — do not call any API or external script.
 
-Each parable: 10–13 screens. Each screen: 1–2 lines.
+Each parable: 7–9 screens (see Screen structure above — shortened from the old 10–13 to raise completion rate). Each screen: 1–2 lines.
 
 **ID assignment:** Read `formats/parable-classic/used.json` and all existing `formats/parable-classic/drafts/parables_*.json` files. Find the highest `classic_XXX` number already used. Start the new batch from `highest + 1`. If none exist, start from `classic_001`.
 
@@ -81,7 +85,7 @@ Format:
       {"screen": 0, "text": "Hook line"},
       {"screen": 1, "text": "Line 1\nLine 2"},
       ...
-      {"screen": 12, "text": "The last line."}
+      {"screen": 8, "text": "The last line."}
     ]
   }
 ]
@@ -165,6 +169,12 @@ For each parable, check screen by screen:
 Example of a logic gap to catch:
 > Screen 3 says students "speak slowly, rarely" — but Screen 8 says they "say nothing."
 > These contradict. Fix one or the other before saving.
+
+### Pass 1.5 — Mid-story turn check
+For each parable:
+- Is there a clear reversal around screen 5–6, distinct from the ending?
+- Does it work by setting up an expectation (in the 1–2 screens just before it) and then breaking it — not just introducing new information?
+- If the mid-story turn and the ending feel like the same beat repeated, add a real setup-and-break moment earlier and keep the ending separate.
 
 ### Pass 2 — Punch check
 For each parable, ask:

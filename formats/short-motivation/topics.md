@@ -2,6 +2,16 @@
 
 Scope: plain motivational texts (5–7 lines, no characters/story), `text_NNN` IDs.
 
+## Retention-proven pattern (from analytics, Sep 2026)
+
+Short-motivation already retains ~2x better than parables (~48% vs ~22% avg audience retention), and within short-motivation the highest performers (50–70%+ retention on real view counts, not just tiny samples) share three traits. Bake these into every text, regardless of which structure below is picked:
+
+1. **The hook mirrors the viewer's exact thought, in their voice** — `"You feel no progress"`, `"You think the French will judge your accent"` — not a generic statement about language learning. This is what stops the scroll and creates the open loop that drives completion.
+2. **A concrete number or timeline grounds the story** — `"at forty"`, `"three years ago"`, `"First week: pointed at everything / Second week: said one sentence / Third month: had an argument"`. Specific details read as true; vague ones read as generic advice and get skipped.
+3. **A mid-script reversal of the viewer's expectation**, ideally on line 3 or 4 of 5–7 — the setup implies one outcome (judgment, failure, rejection) and the next line delivers the opposite: `"They won't"`, `"The waiter understood"`. This is a distinct beat from the closing line — don't let the payoff arrive only at the very end.
+
+Structures **2, 4, and 8** below map most directly onto this pattern and have the strongest track record — lean on them a little more than an even 1-in-10 rotation, without dropping the others entirely (variety still matters for the feed).
+
 ## Structures — rotate across a batch, don't repeat within one batch of 10
 
 **1. Problem → Root cause → Fix**

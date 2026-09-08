@@ -61,19 +61,19 @@ See `formats/parable-animal/topics.md` — pick 1–2 absurd-element ideas, and 
       {"screen": 0, "text": "Hook — max 8 words, centered, silent"},
       {"screen": 1, "text": "Line 1\nLine 2"},
       ...
-      {"screen": 12, "text": "The last line."}
+      {"screen": 8, "text": "The last line."}
     ]
   }
 ]
 ```
 
-### Screen structure
+### Screen structure (8–9 screens total)
 
 - **screen 0**: hook — max 8 words, question or provocative claim, specific to the parable's tension. This screen is **silent** (not voiced) and shown centered for 3 seconds.
-- screens 1–3: set the scene — who, where, what animal, what absurd detail
-- screens 4–7: situation unfolds — dialogue, absurd action, language learning tension
-- screens 8–11: contradiction or reversal builds
-- last 1–2 screens: the punch — one line that reframes everything
+- screens 1–2: set the scene — who, where, what animal, what absurd detail
+- screens 3–4: situation unfolds — dialogue, absurd action, language learning tension
+- **screen ~5 (mid-story turn): something the viewer expects doesn't happen.** Retention data shows viewers drop off long before the final line if the story saves 100% of its surprise for the end — a smaller, earlier reversal re-hooks them. Pattern: the animal braces for one outcome (correction, rejection, ridicule) and gets the opposite ("The sparrow didn't laugh." / "Nobody noticed the wrong word."). Keep this distinct from the ending — don't let it become the same beat.
+- last 2–3 screens: the punch — one line that reframes everything (the character who does LESS gets the SAME result)
 
 ### video_queries rules
 
@@ -102,13 +102,18 @@ Examples of good animal/absurd hooks:
 
 ---
 
-## Logic review (Pass 1 + Pass 2)
+## Logic review (Pass 1 + Pass 1.5 + Pass 2)
 
 ### Pass 1 — consistency
 - Does each screen follow from the previous one?
 - Are there contradictions between what the narrator shows and what a character claims?
 - Does the final line follow from what actually happened?
 - Redundant screens?
+
+### Pass 1.5 — mid-story turn check
+- Is there a clear reversal around screen 5, distinct from the ending?
+- Does it break an expectation set up in the 1–2 screens just before it — not just add new information?
+- If it feels identical to the ending beat, add a real setup-and-break moment earlier.
 
 ### Pass 2 — punch check
 - Does the last line land warm and clear?
