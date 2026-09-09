@@ -135,6 +135,17 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-09-20 | 16:30 | 23:30 | classic parable | What happens when you return after years away? | [link](https://youtube.com/watch?v=ZarPYBZ3QCc) | [yaml](formats/parable-classic/configs/archive/classic_20260907_074202.yaml) |
 | 2026-09-21 | 16:30 | 23:30 | classic parable | What does a year of silence actually mean? | [link](https://youtube.com/watch?v=3xQBDPtfiOg) | [yaml](formats/parable-classic/configs/archive/classic_20260907_074332.yaml) |
 | 2026-09-22 | 16:30 | 23:30 | classic parable | Five languages. No language felt like home. | [link](https://youtube.com/watch?v=HcBmYke7qDE) | [yaml](formats/parable-classic/configs/archive/classic_20260907_074453.yaml) |
+| 2026-09-22 | 08:30 | 15:30 | motivational short | Why do you keep putting it off | [link](https://youtube.com/shorts/BoJj10heD0M) | [yaml](formats/short-motivation/configs/archive/short_20260908_222407.yaml) |
+| 2026-09-22 | 14:30 | 21:30 | motivational short | You know more Spanish than you think | [link](https://youtube.com/shorts/cZSVlNc9PNc) | [yaml](formats/short-motivation/configs/archive/short_20260908_222508.yaml) |
+| 2026-09-23 | 08:30 | 15:30 | motivational short | Everyone wants to sound like a native | [link](https://youtube.com/shorts/BdlOu29FX6g) | [yaml](formats/short-motivation/configs/archive/short_20260908_222527.yaml) |
+| 2026-09-23 | 14:30 | 21:30 | motivational short | Monday you reviewed vocabulary | [link](https://youtube.com/shorts/81DMaruLDLo) | [yaml](formats/short-motivation/configs/archive/short_20260908_222644.yaml) |
+| 2026-09-24 | 08:30 | 15:30 | motivational short | They said learning a language takes ten years | [link](https://youtube.com/shorts/Bz3tHclOxzQ) | [yaml](formats/short-motivation/configs/archive/short_20260908_222706.yaml) |
+| 2026-09-24 | 14:30 | 21:30 | motivational short | You think you need the right moment | [link](https://youtube.com/shorts/GJc1lHzTZ4E) | [yaml](formats/short-motivation/configs/archive/short_20260908_222728.yaml) |
+| 2026-09-25 | 08:30 | 15:30 | motivational short | One conversation is uncomfortable | [link](https://youtube.com/shorts/hd0Z600xOFA) | [yaml](formats/short-motivation/configs/archive/short_20260908_222747.yaml) |
+| 2026-09-25 | 14:30 | 21:30 | motivational short | You've been quiet long enough | [link](https://youtube.com/shorts/0oDIVjmU0vI) | [yaml](formats/short-motivation/configs/archive/short_20260908_222809.yaml) |
+| 2026-09-26 | 08:30 | 15:30 | motivational short | He texted his French pen pal every week for a year | [link](https://youtube.com/shorts/jzqKj5inenI) | [yaml](formats/short-motivation/configs/archive/short_20260908_222831.yaml) |
+| 2026-09-26 | 14:30 | 21:30 | motivational short | Bad sentence | [link](https://youtube.com/shorts/oiMD5p8dVEU) | [yaml](formats/short-motivation/configs/archive/short_20260908_222854.yaml) |
+| 2026-09-23 | 12:00 | 19:00 | classic parable | Are you a different person in another language? | [link](https://youtube.com/watch?v=rGM2TkXrYvE) | [yaml](formats/parable-classic/configs/archive/classic_20260908_224324.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

@@ -88,6 +88,11 @@ New entries (append after each generated classic parable):
 - classic_044: "Not to replace the years she lost. Just to keep going from here."
 - classic_045: "\"Now I have something worth being wrong about.\""
 - classic_046: "It was the closest she'd come to complete. She still didn't know which one was home."
+- classic_047: "The next class, she spoke Spanish. A little bolder than yesterday's Spanish, too."
+- classic_048: "The next morning, he wanted to."
+- classic_049: "Her grandmother never once mentioned the mistakes."
+- classic_050: "He hadn't watched it grow. He had just kept watering."
+- classic_051: "The student realized the laugh had lasted seconds. He was the one who'd kept it alive for two weeks."
 
 ## Voice selection
 

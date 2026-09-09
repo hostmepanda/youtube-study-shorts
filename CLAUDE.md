@@ -12,7 +12,21 @@ All YouTube uploads (shorts and parables) must be scheduled relative to **US Eas
 
 - `pipeline/youtube_uploader.py` already implements this: `PUBLISH_TZ = ZoneInfo("America/New_York")`, which automatically handles EST/EDT (daylight saving) transitions.
 - If scheduling manually (ad-hoc `publishAt` for a custom time request), always convert the requested wall-clock time from US Eastern to UTC before sending it to the YouTube API — do not pass Eastern-time numbers directly as if they were UTC.
-- Default schedule: shorts at 09:00 ET, long-monologue at 12:00 ET, parables at 16:30 ET, one per day starting today, queued in upload order.
+- Default schedule (see "Minimum daily output" below for the full picture): short #1 at 08:30 ET, classic parable at 12:00 ET, short #2 at 14:30 ET, animal parable at 18:00 ET, long-monologue at 10:00 ET. One video per slot per day, queued in upload order.
+
+## Minimum daily output — STRICT, always maintain
+
+**The queue must never drop below 4 scheduled videos per day: 2 motivational shorts + 1 classic parable + 1 animal parable.** This is a hard floor, not a target — check it any time content is being queued (after `/publish`, after a generation batch, or when asked about schedule status) and top up whichever bucket is running low before finishing the task.
+
+Fixed daily slots (all US Eastern Time):
+- **08:30 ET** — short #1
+- **12:00 ET** — classic parable
+- **14:30 ET** — short #2
+- **18:00 ET** — animal parable
+
+These are implemented as `SHORTS_HOUR/MINUTE`, `SHORTS_HOUR2/MINUTE2`, `PARABLES_HOUR/MINUTE`, `ANIMAL_HOUR/MINUTE` in `pipeline/youtube_uploader.py` — classic and animal parables now each get their own daily slot (they used to share one slot and alternate by batch, which produced only one parable/day total; don't reintroduce that). Any ad-hoc upload script for a custom schedule must keep classic and animal on separate days-of-week-independent daily slots too, not lump them into one "parables" bucket.
+
+When checking coverage, look at the tail of `schedule.md` (or `analytics.html`/archived yamls) **per format** and count days of runway in each of the 4 buckets separately — a format with 8 days of parable coverage total (4 classic + 4 animal on alternating days) is NOT the same as 8 days of each running daily.
 
 ## Render/publish lifecycle
 

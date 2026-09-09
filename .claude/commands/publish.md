@@ -41,12 +41,15 @@ If the user gives a custom time (e.g. "publish at 7pm today" or "today and tomor
    ```bash
    python3 pipeline/youtube_uploader.py
    ```
-   This uploads everything sitting in any `formats/*/configs/waiting_upload/`, using this schedule:
-   - `short-motivation` → **09:00 ET**
-   - `parable-classic`, `parable-animal`, `legacy` → **16:30 ET**
-   - `long-monologue` → **12:00 ET**
+   This uploads everything sitting in any `formats/*/configs/waiting_upload/`, using this schedule (see CLAUDE.md "Minimum daily output" — this is the strict 4/day floor: 2 shorts + 1 classic parable + 1 animal parable, every day):
+   - `short-motivation` → **08:30 ET** (slot 1), **14:30 ET** (slot 2)
+   - `parable-classic`, `legacy` → **12:00 ET**
+   - `parable-animal` → **18:00 ET**
+   - `long-monologue` → **10:00 ET**
 
-   One video per day in queue order, starting today. On success, each yaml is moved from `waiting_upload/` to `archive/` — the mp4 is untouched.
+   Classic and animal parables each get their own daily slot now — they used to share one slot and alternate by batch, which only produced one parable/day total. One video per slot per day in queue order, starting today. On success, each yaml is moved from `waiting_upload/` to `archive/` — the mp4 is untouched.
+
+   **Before running, sanity-check the 4/day floor**: count queued items per bucket (`ls formats/short-motivation/configs/waiting_upload/ | wc -l`, same for `parable-classic`, `parable-animal`) against days of runway needed. If any bucket is short, generate + render more for it first (`/generate-texts`, `/generate-parables`, `/generate-animal-parable`) rather than uploading a queue that will under-deliver on some days.
 
 4. **Custom schedule requested** — when the user specifies particular times/dates (e.g. "2 today 3 hours apart, 3 tomorrow at 12/15/18"), write a one-off script that:
    - Authenticates via `from pipeline.youtube_uploader import authenticate, load_meta`

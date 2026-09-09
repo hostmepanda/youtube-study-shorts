@@ -40,12 +40,17 @@ SCOPES = [
 # not UTC. ZoneInfo handles EST/EDT (daylight saving) transitions automatically.
 PUBLISH_TZ = ZoneInfo("America/New_York")
 
-SHORTS_HOUR = 9       # 09:00 America/New_York — slot 1
-SHORTS_MINUTE = 0
-SHORTS_HOUR2 = 19     # 19:00 America/New_York — slot 2 (when queue has >1/day)
-PARABLES_HOUR = 16    # 16:30 America/New_York
-PARABLES_MINUTE = 30
-LONG_HOUR = 12        # 12:00 America/New_York
+# Minimum daily output floor (see CLAUDE.md "Minimum daily output"): 2 shorts +
+# 1 classic parable + 1 animal parable, every day, at these fixed ET slots.
+SHORTS_HOUR = 8        # 08:30 America/New_York — slot 1
+SHORTS_MINUTE = 30
+SHORTS_HOUR2 = 14      # 14:30 America/New_York — slot 2
+SHORTS_MINUTE2 = 30
+PARABLES_HOUR = 12     # 12:00 America/New_York — classic parable
+PARABLES_MINUTE = 0
+ANIMAL_HOUR = 18       # 18:00 America/New_York — animal parable
+ANIMAL_MINUTE = 0
+LONG_HOUR = 10         # 10:00 America/New_York — long-monologue (frozen format; kept clear of the other slots)
 LONG_MINUTE = 0
 
 
@@ -236,25 +241,32 @@ def main():
         print("Nothing in formats/*/configs/waiting_upload/ — nothing to upload.")
         return
 
-    # Route by format name to the correct publish slot
-    shorts   = [p for p in queued if p.parent.parent.parent.name == "short-motivation"]
-    longs    = [p for p in queued if p.parent.parent.parent.name == "long-monologue"]
-    parables = [p for p in queued if p.parent.parent.parent.name not in ("short-motivation", "long-monologue")]
+    # Route by format name to the correct publish slot.
+    # NOTE: parable-classic and parable-animal get their OWN daily slots (12:00 / 18:00 ET) —
+    # they used to be lumped into one "parables" bucket sharing a single slot, which meant only
+    # one parable/day total instead of one of each. That violated the 4/day floor. Don't re-merge them.
+    shorts           = [p for p in queued if p.parent.parent.parent.name == "short-motivation"]
+    longs            = [p for p in queued if p.parent.parent.parent.name == "long-monologue"]
+    parables_classic = [p for p in queued if p.parent.parent.parent.name in ("parable-classic", "legacy")]
+    parables_animal  = [p for p in queued if p.parent.parent.parent.name == "parable-animal"]
 
     youtube = build("youtube", "v3", credentials=creds)
-    print(f"Found {len(queued)} video(s) queued ({len(shorts)} shorts, {len(parables)} parables, {len(longs)} long).\n")
+    print(f"Found {len(queued)} video(s) queued "
+          f"({len(shorts)} shorts, {len(parables_classic)} classic, {len(parables_animal)} animal, {len(longs)} long).\n")
 
     start_date = datetime.now(PUBLISH_TZ)
 
-    # Shorts: 2 per day — slot 1 = 09:00 ET, slot 2 = 19:00 ET
+    # Shorts: 2 per day — slot 1 = 08:30 ET, slot 2 = 14:30 ET
     shorts_schedule = [
-        (p, publish_time(start_date, i // 2, SHORTS_HOUR if i % 2 == 0 else SHORTS_HOUR2, SHORTS_MINUTE))
+        (p, publish_time(start_date, i // 2, SHORTS_HOUR, SHORTS_MINUTE) if i % 2 == 0
+            else publish_time(start_date, i // 2, SHORTS_HOUR2, SHORTS_MINUTE2))
         for i, p in enumerate(shorts)
     ]
 
     schedule = (
         shorts_schedule +
-        [(p, publish_time(start_date, i, PARABLES_HOUR, PARABLES_MINUTE)) for i, p in enumerate(parables)] +
+        [(p, publish_time(start_date, i, PARABLES_HOUR, PARABLES_MINUTE)) for i, p in enumerate(parables_classic)] +
+        [(p, publish_time(start_date, i, ANIMAL_HOUR,   ANIMAL_MINUTE))   for i, p in enumerate(parables_animal)] +
         [(p, publish_time(start_date, i, LONG_HOUR,     LONG_MINUTE))     for i, p in enumerate(longs)]
     )
 
