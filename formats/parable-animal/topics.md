@@ -27,6 +27,13 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 
 | animal_012 | donkey, sparrow | umbrella opened before each sentence | waiting for the perfect sentence instead of just speaking |
 | animal_013 | rabbit, goat | counts silently to ten before each reply | overthinking the moment until the moment is gone |
+| animal_052 | bear, sparrow | stopwatch timing his own pauses | an invisible metric nobody else is measuring |
+| animal_053 | donkey, duck | repeats every sentence to himself before saying it aloud | double-checking words vs. just speaking them |
+| animal_054 | cat, frog | tiny umbrella against "mistakes falling" | shielding yourself from embarrassment that was never coming |
+| animal_055 | horse, goat | announces the phrasebook page his greeting came from | formality impressing no one who's already moved on |
+| animal_056 | hedgehog, duck | rolls into a ball to wait out a mistake | waiting out a mistake everyone else already forgot |
+| animal_057 | owl, sparrow | pocket dictionary consulted mid-sentence | correctness arriving after the conversation has moved on |
+| animal_058 | rabbit, wolf | tiny gavel tapped before each sentence | ceremony carrying less weight than just talking |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

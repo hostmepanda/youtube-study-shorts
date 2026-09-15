@@ -47,6 +47,14 @@ For `parable-classic` and `parable-animal` formats, use one of the mature male v
 
 Both `elder` and `abbot` have server-side defaults: `speed: 0.8`, `phrase_gap: 1.5`. Do not override unless the script specifically calls for it. Set in `config/settings.yaml` → `premiss.voice`.
 
+## Insights journal
+
+`INSIGHTS.md` (repo root) is a running, dated log of data-driven findings — analytics investigations, their conclusions, and the concrete skill/pipeline changes made in response. It exists so a finding and the decision it caused stay linked: six months from now, "why does `generate-parables.md` require a mid-story turn?" should be answerable by reading one entry, not by re-deriving it from git blame.
+
+- **Add an entry any time you** run an analytics investigation with a real conclusion (not just "here are the numbers"), change a skill/pipeline default because of data, or find something worth remembering even if no change followed (e.g. "this metric looked interesting but the sample was too small to act on — noted so we don't re-investigate from scratch").
+- Use the template at the bottom of the file: **Finding** (what the data showed, with method/sample size) → **Conclusion** (what it means, and what it explicitly does NOT mean) → **Decision / how to apply** (what changed, or why nothing did).
+- This is a supplement to memory, not a replacement: still save a matching feedback/project memory for anything that should surface unprompted in a future session (see the auto-memory system) — `INSIGHTS.md` is the durable, browsable history; memory is the "surface this even before I think to look" layer. Cross-link them (memory entries reference the `INSIGHTS.md` date; the `INSIGHTS.md` entry can note the memory file name).
+
 ## Analytics dashboard
 
 `analytics.html` (repo root) is the views/likes/comments dashboard for the channel — open it directly in a browser, no server needed. It's a static file with the data baked into one `const VIDEOS = [...]` array; there's no live API call in the page itself.

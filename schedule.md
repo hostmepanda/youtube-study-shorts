@@ -146,6 +146,17 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-09-26 | 08:30 | 15:30 | motivational short | He texted his French pen pal every week for a year | [link](https://youtube.com/shorts/jzqKj5inenI) | [yaml](formats/short-motivation/configs/archive/short_20260908_222831.yaml) |
 | 2026-09-26 | 14:30 | 21:30 | motivational short | Bad sentence | [link](https://youtube.com/shorts/oiMD5p8dVEU) | [yaml](formats/short-motivation/configs/archive/short_20260908_222854.yaml) |
 | 2026-09-23 | 12:00 | 19:00 | classic parable | Are you a different person in another language? | [link](https://youtube.com/watch?v=rGM2TkXrYvE) | [yaml](formats/parable-classic/configs/archive/classic_20260908_224324.yaml) |
+| 2026-09-24 | 12:00 | 19:00 | classic parable | What do you do the day motivation disappears? | [link](https://youtube.com/watch?v=fE-hU0WQ3-k) | [yaml](formats/parable-classic/configs/archive/classic_20260908_224413.yaml) |
+| 2026-09-25 | 12:00 | 19:00 | classic parable | What happens the first time you're finally understood? | [link](https://youtube.com/watch?v=bx1-YnMJTqk) | [yaml](formats/parable-classic/configs/archive/classic_20260908_224529.yaml) |
+| 2026-09-26 | 12:00 | 19:00 | classic parable | How do you keep going with no results in sight? | [link](https://youtube.com/watch?v=OYwRGLS5i6k) | [yaml](formats/parable-classic/configs/archive/classic_20260908_224647.yaml) |
+| 2026-09-27 | 12:00 | 19:00 | classic parable | Why does one laugh feel like the end? | [link](https://youtube.com/watch?v=NjluPeMODUs) | [yaml](formats/parable-classic/configs/archive/classic_20260908_224810.yaml) |
+| 2026-09-16 | 18:00 | 01:00+1 | animal parable | Why time the length of your own pause? | [link](https://youtube.com/watch?v=vTwKaSuOawU) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011021.yaml) |
+| 2026-09-17 | 18:00 | 01:00+1 | animal parable | What if you heard your own words before saying them? | [link](https://youtube.com/watch?v=6nohJ72_pnU) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011205.yaml) |
+| 2026-09-18 | 18:00 | 01:00+1 | animal parable | Can you shield yourself from your own mistakes? | [link](https://youtube.com/watch?v=FLvWT4_pBjI) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011314.yaml) |
+| 2026-09-19 | 18:00 | 01:00+1 | animal parable | Do you announce which page you memorized from? | [link](https://youtube.com/watch?v=SRohQXLXvHY) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011419.yaml) |
+| 2026-09-20 | 18:00 | 01:00+1 | animal parable | Can you wait out your own mistake? | [link](https://youtube.com/watch?v=13xgExOEU6I) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011613.yaml) |
+| 2026-09-21 | 18:00 | 01:00+1 | animal parable | Why check the dictionary mid-sentence? | [link](https://youtube.com/watch?v=S5HW1zPBpwM) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011709.yaml) |
+| 2026-09-22 | 18:00 | 01:00+1 | animal parable | Do you call your own sentences to order? | [link](https://youtube.com/watch?v=uXYgk-7TQJQ) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011815.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
