@@ -34,6 +34,13 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_056 | hedgehog, duck | rolls into a ball to wait out a mistake | waiting out a mistake everyone else already forgot |
 | animal_057 | owl, sparrow | pocket dictionary consulted mid-sentence | correctness arriving after the conversation has moved on |
 | animal_058 | rabbit, wolf | tiny gavel tapped before each sentence | ceremony carrying less weight than just talking |
+| animal_059 | fox, crow | abacus counting a self-imposed daily word limit | an arbitrary limit vs. someone who never counts |
+| animal_060 | turtle, duck | reciting the alphabet as a "warm-up" before speaking | ritual preparation producing zero actual difference |
+| animal_061 | sparrow, goat | wears a badge that says LEARNER for extra patience | earning patience nobody was withholding in the first place |
+| animal_062 | parrot, rabbit | bows three times before every conversation | ceremony arriving after the group has moved on |
+| animal_063 | bear, cat | writes and reads every sentence off a scrap of paper | polish that sounds exactly like reading off a page |
+| animal_064 | wolf, sheep | translates idioms literally in his head first | precision arriving after everyone already acted on the plain version |
+| animal_065 | pigeon, horse | asks permission before using any new word | permission nobody was ever going to withhold |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

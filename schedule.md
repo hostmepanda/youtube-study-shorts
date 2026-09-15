@@ -157,6 +157,29 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-09-20 | 18:00 | 01:00+1 | animal parable | Can you wait out your own mistake? | [link](https://youtube.com/watch?v=13xgExOEU6I) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011613.yaml) |
 | 2026-09-21 | 18:00 | 01:00+1 | animal parable | Why check the dictionary mid-sentence? | [link](https://youtube.com/watch?v=S5HW1zPBpwM) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011709.yaml) |
 | 2026-09-22 | 18:00 | 01:00+1 | animal parable | Do you call your own sentences to order? | [link](https://youtube.com/watch?v=uXYgk-7TQJQ) | [yaml](formats/parable-animal/configs/archive/animal_20260912_011815.yaml) |
+| 2026-09-27 | 08:30 | 15:30 | motivational short | What would happen if you just spoke | [link](https://youtube.com/shorts/mnp-JhttXRk) | [yaml](formats/short-motivation/configs/archive/short_20260908_222923.yaml) |
+| 2026-09-23 | 18:00 | 01:00+1 | animal parable | What if you had a daily word limit? | [link](https://youtube.com/watch?v=zqcOESfMjyM) | [yaml](formats/parable-animal/configs/archive/animal_20260915_072507.yaml) |
+| 2026-09-24 | 18:00 | 01:00+1 | animal parable | Do you warm up before every sentence? | [link](https://youtube.com/watch?v=YsLFz8rf9Kk) | [yaml](formats/parable-animal/configs/archive/animal_20260915_072621.yaml) |
+| 2026-09-25 | 18:00 | 01:00+1 | animal parable | Would a badge make your mistakes easier to forgive? | [link](https://youtube.com/watch?v=A8TkRkn16tE) | [yaml](formats/parable-animal/configs/archive/animal_20260915_072913.yaml) |
+| 2026-09-26 | 18:00 | 01:00+1 | animal parable | Does a ritual make your words count more? | [link](https://youtube.com/watch?v=_ecYtcG4gtI) | [yaml](formats/parable-animal/configs/archive/animal_20260915_073040.yaml) |
+| 2026-09-27 | 18:00 | 01:00+1 | animal parable | Do you read your sentences off a page? | [link](https://youtube.com/watch?v=fPChm9HbrnQ) | [yaml](formats/parable-animal/configs/archive/animal_20260915_073147.yaml) |
+| 2026-09-28 | 18:00 | 01:00+1 | animal parable | Do you translate every idiom before saying it? | [link](https://youtube.com/watch?v=EY9yBKhDObU) | [yaml](formats/parable-animal/configs/archive/animal_20260915_073259.yaml) |
+| 2026-09-29 | 18:00 | 01:00+1 | animal parable | Do you ask permission to use a new word? | [link](https://youtube.com/watch?v=xIfElv313Pg) | [yaml](formats/parable-animal/configs/archive/animal_20260915_073407.yaml) |
+| 2026-09-28 | 08:30 | 15:30 | motivational short | Toddlers mangle every sentence for two years | [link](https://youtube.com/shorts/RCLgl-UY5Uo) | [yaml](formats/short-motivation/configs/archive/short_20260915_150225.yaml) |
+| 2026-09-28 | 14:30 | 21:30 | motivational short | She ordered wrong for a full year | [link](https://youtube.com/shorts/csJnKLDt9q4) | [yaml](formats/short-motivation/configs/archive/short_20260915_150258.yaml) |
+| 2026-09-29 | 08:30 | 15:30 | motivational short | You think fluent means no mistakes | [link](https://youtube.com/shorts/9b9z6rQxtTU) | [yaml](formats/short-motivation/configs/archive/short_20260915_150321.yaml) |
+| 2026-09-29 | 14:30 | 21:30 | motivational short | Native speakers learned with zero grammar books | [link](https://youtube.com/shorts/Rar0nZGcrWs) | [yaml](formats/short-motivation/configs/archive/short_20260915_150342.yaml) |
+| 2026-09-30 | 08:30 | 15:30 | motivational short | He avoided the phone call for three months | [link](https://youtube.com/shorts/4o5ehr3SfSs) | [yaml](formats/short-motivation/configs/archive/short_20260915_150405.yaml) |
+| 2026-09-30 | 14:30 | 21:30 | motivational short | Day one you downloaded the app | [link](https://youtube.com/shorts/BMc9TZMpwLM) | [yaml](formats/short-motivation/configs/archive/short_20260915_150428.yaml) |
+| 2026-10-01 | 08:30 | 15:30 | motivational short | You practice alone every night | [link](https://youtube.com/shorts/cUiMzo1XEYI) | [yaml](formats/short-motivation/configs/archive/short_20260915_150449.yaml) |
+| 2026-10-01 | 14:30 | 21:30 | motivational short | Babies fail at every word for a year | [link](https://youtube.com/shorts/qMQx8y5zGdY) | [yaml](formats/short-motivation/configs/archive/short_20260915_150511.yaml) |
+| 2026-10-02 | 08:30 | 15:30 | motivational short | She rehearsed the sentence for two weeks | [link](https://youtube.com/shorts/n_DEYqA5r4w) | [yaml](formats/short-motivation/configs/archive/short_20260915_150552.yaml) |
+| 2026-10-02 | 14:30 | 21:30 | motivational short | Speaking badly feels like the risk | [link](https://youtube.com/shorts/3nWLWeZInTI) | [yaml](formats/short-motivation/configs/archive/short_20260915_150617.yaml) |
+| 2026-09-28 | 12:00 | 19:00 | classic parable | What does it mean the night you dream in it? | [link](https://youtube.com/watch?v=Xy3031vuqmA) | [yaml](formats/parable-classic/configs/archive/classic_20260915_150647.yaml) |
+| 2026-09-29 | 12:00 | 19:00 | classic parable | What do you do when you're too exhausted to continue? | [link](https://youtube.com/watch?v=AtUsh2hyf88) | [yaml](formats/parable-classic/configs/archive/classic_20260915_150743.yaml) |
+| 2026-09-30 | 12:00 | 19:00 | classic parable | What happens when your first language starts to slip? | [link](https://youtube.com/watch?v=bvuioAH88iw) | [yaml](formats/parable-classic/configs/archive/classic_20260915_150835.yaml) |
+| 2026-10-01 | 12:00 | 19:00 | classic parable | Is there a right age to start? | [link](https://youtube.com/watch?v=E3kBLXLPihE) | [yaml](formats/parable-classic/configs/archive/classic_20260915_150935.yaml) |
+| 2026-10-02 | 12:00 | 19:00 | classic parable | Do you need permission to stop learning something? | [link](https://youtube.com/watch?v=qUw767FssT4) | [yaml](formats/parable-classic/configs/archive/classic_20260915_151031.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

@@ -93,6 +93,11 @@ New entries (append after each generated classic parable):
 - classic_049: "Her grandmother never once mentioned the mistakes."
 - classic_050: "He hadn't watched it grow. He had just kept watering."
 - classic_051: "The student realized the laugh had lasted seconds. He was the one who'd kept it alive for two weeks."
+- classic_052: "She made coffee and didn't mention it to anyone all day."
+- classic_053: "She didn't quit that week. She just stopped pretending she wasn't tired."
+- classic_054: "He sat with the phone in his hand long after she'd hung up."
+- classic_055: "Neither of them ever found it. She never stopped either."
+- classic_056: "He closed the app that night and picked up a language he'd wanted for no reason at all."
 
 ## Voice selection
 
