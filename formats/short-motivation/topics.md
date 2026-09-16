@@ -1,6 +1,12 @@
 # Short Motivation — Topics & Structures
 
-Scope: plain motivational texts (5–7 lines, no characters/story), `text_NNN` IDs.
+Scope: plain motivational texts (5 lines is the retention sweet spot — see below; no characters/story), `text_NNN` IDs.
+
+## Length and mood (from analytics, Sep 16 2026, n=78 videos with ≥15 views)
+
+- **5 lines outperforms 4 or 6, which outperform 7.** Retention by line count: 5 lines → 53.2% (n=33), 4 lines → 45.2% (n=10), 6 lines → 45.1% (n=31), 7 lines → 33.4% (n=3, small sample but consistent with the trend). Default to 5 lines; only go to 4 or 6 when the structure genuinely needs it.
+- **`uplifting` and `motivational` mood outperform `calm`.** Retention by mood: uplifting → 50.1% (n=22), motivational → 48.8% (n=39), calm → 43.9% (n=17). Weight new batches toward uplifting/motivational; keep calm for structures that genuinely call for a quieter register (e.g. #6 below) rather than reaching for it as a default.
+- **Voice is untested as a lever** — every short so far has rendered with the `elder` Premiss voice (global default in `settings.yaml`, inherited from the parable-classic setting) at speed 1.0, so there's no variance yet to correlate against retention. Worth an explicit experiment: render a batch with a more energetic voice and compare.
 
 ## Retention-proven pattern (from analytics, Sep 2026)
 

@@ -6,6 +6,19 @@ Purpose: separate a *finding* (what the data showed) from the *decision* (what w
 
 ---
 
+## 2026-09-16 — Line count and mood affect short-motivation retention; voice is an untested lever
+
+**Finding:** Joined short-motivation drafts (lines/mood) to YouTube Analytics retention data for 78 videos with ≥15 views. Line count: 5 lines → 53.2% avg retention (n=33), 4 lines → 45.2% (n=10), 6 lines → 45.1% (n=31), 7 lines → 33.4% (n=3, small). Mood: uplifting → 50.1% (n=22), motivational → 48.8% (n=39), calm → 43.9% (n=17). Separately checked voice: every short rendered so far uses the `elder` Premiss voice at speed 1.0 (inherited from the global `settings.yaml` default meant for parable-classic) — including both the best- and worst-performing shorts — so there's zero variance to test voice as a factor yet.
+
+**Conclusion:** 5 lines is a real sweet spot, not just "shorter is better" (7 lines underperforms, but so does 4). Uplifting/motivational mood modestly outperforms calm. Sample sizes here (10–39 per bucket) are smaller than the ~200-video retention-structure analysis from Sep 8, so treat these as real but softer signals, not settled facts to over-index on. Voice couldn't be evaluated at all — the whole catalog has been a single, untested choice that was never deliberately selected for this format's tone (contemplative parable voice vs. a punchier motivational tone).
+
+**Decision / how to apply:**
+- `generate-texts.md`: made 5 lines the explicit default (was "5–7"); weight `mood` toward uplifting/motivational over calm.
+- `formats/short-motivation/topics.md`: added a "Length and mood" section with the numbers above, plus a note flagging voice as untested.
+- Not yet done: an actual voice experiment (render a batch with a non-`elder` voice and compare retention after it accumulates data). Flagged in both files — pick this up next time a short batch is queued and there's appetite for an experiment.
+
+---
+
 ## 2026-09-15 — Viral outlier is algorithm variance, not a repeatable content formula
 
 **Finding:** "Quiet pond. A hedgehog, a duck." (parable-animal, animal_0xx era) hit 827 views — ~3x the next-highest video — with only middling 40.9% retention. Investigated with the YouTube Analytics API:

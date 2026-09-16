@@ -5,7 +5,7 @@ Generate a batch of 10 motivational texts for YouTube Shorts on language learnin
 ## Style rules
 
 - English only
-- 5–7 lines per text — each line appears on its own screen
+- **5 lines per text is the target — this is a retention sweet spot, not just a range.** Analytics (Sep 2026, n=78 videos with reliable views) showed 5-line texts average 53.2% retention vs ~45% for 4 or 6 lines and 33.4% for 7 lines. Only deviate to 4 or 6 when the specific structure genuinely needs it — don't pad to 6 or trim to 4 by default.
 - Tone: direct, honest, no aggression, a drop of warmth and belief in the person
 - NOT: fluffy, corporate, preachy, philosophical, childish
 - Each line must be short — max 8 words
@@ -29,8 +29,8 @@ Retention data shows these three traits separate the 50–70%+ retention texts f
 ## What to generate
 
 Write 10 unique texts. For each, assign:
-- `mood`: one of `motivational`, `calm`, `uplifting`
-- `keywords`: 2–3 words for finding a relevant background photo (concrete nouns/scenes, e.g. "conversation", "open road", "morning light")
+- `mood`: one of `motivational`, `calm`, `uplifting` — **weight toward `uplifting`** (analytics: 50.1% avg retention, n=22) **and `motivational`** (48.8%, n=39) over `calm` (43.9%, n=17). Don't drop `calm` entirely — some structures (e.g. #6 Small→Bigger→Biggest truth) genuinely read calmer — just don't reach for it by default.
+- `keywords`: 2–3 words for finding a relevant background photo (concrete nouns/scenes, e.g. "conversation", "open road", "morning light") — pick specific, varied phrasing rather than reusing very generic pairs like "conversation" + "morning light" across many texts in a row. Pexels' unused-photo pool for the most common generic pairs runs out and causes render failures (seen repeatedly) — favor slightly more specific combinations (e.g. "confident woman walking", "busy sidewalk") over bare single-word pairs.
 
 ## Output format
 
