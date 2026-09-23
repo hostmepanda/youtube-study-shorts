@@ -180,6 +180,23 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-09-30 | 12:00 | 19:00 | classic parable | What happens when your first language starts to slip? | [link](https://youtube.com/watch?v=bvuioAH88iw) | [yaml](formats/parable-classic/configs/archive/classic_20260915_150835.yaml) |
 | 2026-10-01 | 12:00 | 19:00 | classic parable | Is there a right age to start? | [link](https://youtube.com/watch?v=E3kBLXLPihE) | [yaml](formats/parable-classic/configs/archive/classic_20260915_150935.yaml) |
 | 2026-10-02 | 12:00 | 19:00 | classic parable | Do you need permission to stop learning something? | [link](https://youtube.com/watch?v=qUw767FssT4) | [yaml](formats/parable-classic/configs/archive/classic_20260915_151031.yaml) |
+| 2026-09-30 | 18:00 | 01:00+1 | animal parable | Do you check your mouth shape before speaking? | [link](https://youtube.com/watch?v=8cgwLYOACug) | [yaml](formats/parable-animal/configs/archive/animal_20260921_145020.yaml) |
+| 2026-10-01 | 18:00 | 01:00+1 | animal parable | Do you raise a flag to check your grammar mid-sentence? | [link](https://youtube.com/watch?v=tNRGj2FXJj0) | [yaml](formats/parable-animal/configs/archive/animal_20260921_145126.yaml) |
+| 2026-10-02 | 18:00 | 01:00+1 | animal parable | Do you weigh your sentences before saying them? | [link](https://youtube.com/watch?v=zLcJiA2e1X8) | [yaml](formats/parable-animal/configs/archive/animal_20260921_145229.yaml) |
+| 2026-10-03 | 18:00 | 01:00+1 | animal parable | Do you count syllables on your fingers first? | [link](https://youtube.com/watch?v=DVjGmWzh9mk) | [yaml](formats/parable-animal/configs/archive/animal_20260921_145329.yaml) |
+| 2026-10-04 | 18:00 | 01:00+1 | animal parable | Would you wear earmuffs to avoid hearing your own accen… | [link](https://youtube.com/watch?v=VYlBzQi2KTA) | [yaml](formats/parable-animal/configs/archive/animal_20260921_145429.yaml) |
+| 2026-10-05 | 18:00 | 01:00+1 | animal parable | Do you approve your own sentences before saying them? | [link](https://youtube.com/watch?v=QwSKB5i9Awg) | [yaml](formats/parable-animal/configs/archive/animal_20260921_145607.yaml) |
+| 2026-10-06 | 18:00 | 01:00+1 | animal parable | Do you repeat everything back before continuing? | [link](https://youtube.com/watch?v=w654JnHccCo) | [yaml](formats/parable-animal/configs/archive/animal_20260921_145723.yaml) |
+| 2026-10-03 | 08:30 | 15:30 | motivational short | Toddlers get away with zero grammar | [link](https://youtube.com/shorts/K-5PEevBSr4) | [yaml](formats/short-motivation/configs/archive/short_20260923_065711.yaml) |
+| 2026-10-03 | 14:30 | 21:30 | motivational short | He mispronounced the city's name for a year | [link](https://youtube.com/shorts/8_b-g8PqT9Y) | [yaml](formats/short-motivation/configs/archive/short_20260923_065734.yaml) |
+| 2026-10-04 | 08:30 | 15:30 | motivational short | You think you need a bigger vocabulary | [link](https://youtube.com/shorts/0qw3nhC9NxA) | [yaml](formats/short-motivation/configs/archive/short_20260923_065757.yaml) |
+| 2026-10-04 | 14:30 | 21:30 | motivational short | Native speakers slur half their words | [link](https://youtube.com/shorts/U7BMKkZGr2Q) | [yaml](formats/short-motivation/configs/archive/short_20260923_065818.yaml) |
+| 2026-10-05 | 08:30 | 15:30 | motivational short | She sent one voice message in Japanese | [link](https://youtube.com/shorts/1lJNTJ4eJtg) | [yaml](formats/short-motivation/configs/archive/short_20260923_065840.yaml) |
+| 2026-10-05 | 14:30 | 21:30 | motivational short | You think silence protects you from mistakes | [link](https://youtube.com/shorts/jFlaql2jutA) | [yaml](formats/short-motivation/configs/archive/short_20260923_065901.yaml) |
+| 2026-10-06 | 08:30 | 15:30 | motivational short | A one-year-old can't order coffee in any language | [link](https://youtube.com/shorts/U0cVog9v1aE) | [yaml](formats/short-motivation/configs/archive/short_20260923_065924.yaml) |
+| 2026-10-06 | 14:30 | 21:30 | motivational short | He read the news in French every morning | [link](https://youtube.com/shorts/E5hmzhGSYas) | [yaml](formats/short-motivation/configs/archive/short_20260923_065949.yaml) |
+| 2026-10-07 | 08:30 | 15:30 | motivational short | You think fluent people never freeze up | [link](https://youtube.com/shorts/PZyLWhg64bo) | [yaml](formats/short-motivation/configs/archive/short_20260923_070011.yaml) |
+| 2026-10-07 | 14:30 | 21:30 | motivational short | Dogs respond to tone before they know any words | [link](https://youtube.com/shorts/37Q2XQhquSk) | [yaml](formats/short-motivation/configs/archive/short_20260923_070035.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

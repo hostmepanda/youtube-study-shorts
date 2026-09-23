@@ -6,6 +6,24 @@ Purpose: separate a *finding* (what the data showed) from the *decision* (what w
 
 ---
 
+## 2026-09-23 — Zero comments across the entire channel; low like rate; 8 subscribers at 13k+ views
+
+**Finding:** Pulled channel-level stats (`channels().list`) and aggregated likes/comments/views from `analytics.html` across 254 public videos: **0 comments, on any video, ever.** Total 45 likes on 13,173 views (0.34% like rate overall). By format: parable-animal has the best like rate (0.63%, n=43), then legacy parable (0.63%, n=31), short-motivation the weakest (0.21%, n=132) despite carrying the most views. Channel sits at 8 subscribers with 261 public videos and 13,362 total channel views.
+
+**Conclusion:** Retention (what we've been optimizing) and *engagement* (likes/comments/subs) are separate problems — a video can retain viewers fine and still generate zero interaction. Zero comments across 254 videos strongly suggests the current outro CTA ("Didn't motivate? Drop a message in comments / Subscribe to stay on track / @StudyGoTogether") isn't actually prompting anyone to act — it's generic and not tied to the specific video's content, so there's no concrete thing to reply to. The animal-parable like-rate edge (0.63% vs 0.21% for shorts) hints that humor/absurdity may drive "like" reactions even when it doesn't drive completion — a different lever than the retention structure work.
+
+**Decision / how to apply:** Not yet implemented — flagging for follow-up. Ideas worth testing (see conversation 2026-09-23 for full discussion):
+1. Replace the generic outro CTA with a content-specific question (e.g. "What's your version of [the parable's specific mistake]? Say it below") so there's something concrete to reply to.
+2. Seed the first comment on new uploads via the API with a genuine question, since a comment section starting at zero rarely self-starts.
+3. Lean into the animal-parable humor angle more deliberately (already the best-liked format) as a distinct axis from the retention-structure work — these may need different tuning, not the same playbook.
+4. Treat subscriber growth as a separate metric to watch once engagement moves — 8 subs at 13k+ views is expected at this stage and not itself concerning without an engagement funnel already producing comments/likes to convert.
+
+**Update (same day):** implemented idea #1 for animal parables specifically (user's suggestion): `generate-animal-parable.md` now requires a final **voiced comment-question** screen, specific to that parable's animal/device (e.g. "Why do you think the crow couldn't say it?"), which becomes the actual last screen (inherits the big centered treatment, gets read by the TTS since it's a normal screen entry — no pipeline change needed for that part). `config_builder.py`'s `build_parable_config` now gives animal parables a shorter outro ("Answer below" + subscribe) instead of the old generic "Drop a message in comments" line, so the two don't say the same thing back to back. Classic parables are untouched — this is scoped to animal only, as an experiment, per the user's framing ("для животных"). Not yet applied retroactively to already-rendered animal parables (animal_001–072) — only new batches from here get it.
+
+Still open: ideas #2 (seed first comments via API), #3 (lean further into humor for likes), and #4 (subscriber funnel) from above — plus revisiting this once a batch of comment-question videos accumulates data to see if it actually moved the needle.
+
+---
+
 ## 2026-09-16 — Line count and mood affect short-motivation retention; voice is an untested lever
 
 **Finding:** Joined short-motivation drafts (lines/mood) to YouTube Analytics retention data for 78 videos with ≥15 views. Line count: 5 lines → 53.2% avg retention (n=33), 4 lines → 45.2% (n=10), 6 lines → 45.1% (n=31), 7 lines → 33.4% (n=3, small). Mood: uplifting → 50.1% (n=22), motivational → 48.8% (n=39), calm → 43.9% (n=17). Separately checked voice: every short rendered so far uses the `elder` Premiss voice at speed 1.0 (inherited from the global `settings.yaml` default meant for parable-classic) — including both the best- and worst-performing shorts — so there's zero variance to test voice as a factor yet.

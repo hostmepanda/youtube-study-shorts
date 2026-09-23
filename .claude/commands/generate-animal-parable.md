@@ -12,7 +12,7 @@ Generate one surreal animal parable and render it as a YouTube Short with the cu
 
 ## What the parable must be
 
-A SHORT, VIVID, PROVOCATIVE animal parable — 8–9 screens maximum. Simple enough to understand in one watch. Memorable enough to repost.
+A SHORT, VIVID, PROVOCATIVE animal parable — 8–9 story screens maximum, plus one final voiced comment-question (see "Comment-question screen" below). Simple enough to understand in one watch. Memorable enough to repost.
 
 ### What makes animal parables work
 
@@ -35,6 +35,21 @@ A SHORT, VIVID, PROVOCATIVE animal parable — 8–9 screens maximum. Simple eno
 - **Never name the lesson.** The discomfort IS the lesson.
 - **Keywords: 3–4, Pexels-friendly** — concrete animals/scenes. No abstractions.
 - **video_queries**: one per 2 screens, matching what literally happens. Real animals only.
+
+### Comment-question screen (new, 2026-09-23 — engagement experiment)
+
+**Add one extra screen after the punch line: a voiced question, addressed to the viewer, specific to this parable's animal and situation.** This is a deliberate engagement experiment — analytics showed 0 comments across 254 videos on the channel, and the generic silent outro CTA ("Drop a message in comments") clearly isn't prompting anyone. A specific, voiced question about *this* story is the test for whether that changes.
+
+- It becomes the actual last entry in `screens` — so it inherits the big, centered "last screen" treatment and gets voiced by the TTS along with everything else (no separate pipeline step needed).
+- Ask about the animal's specific choice or the specific absurd device, not a generic "what did you learn" — e.g. `"Why do you think the crow couldn't say it?"`, `"Would you have kept tapping the gavel?"`, `"What's your version of the stopwatch?"`
+- Keep it under 10 words, genuinely curious in tone — not rhetorical, not leading to an obvious one-word answer.
+- The silent text-only outro screen after this (handled automatically by the pipeline) now just says "Answer below" + the subscribe line — don't duplicate the question there.
+
+Example:
+```
+{"screen": 7, "text": "Sheep put the stamp away mid-air, unused, for the rest of the day."},
+{"screen": 8, "text": "Would you have kept stamping?"}
+```
 
 ### Absurd element ideas & animal pool
 
@@ -61,19 +76,21 @@ See `formats/parable-animal/topics.md` — pick 1–2 absurd-element ideas, and 
       {"screen": 0, "text": "Hook — max 8 words, centered, silent"},
       {"screen": 1, "text": "Line 1\nLine 2"},
       ...
-      {"screen": 8, "text": "The last line."}
+      {"screen": 8, "text": "The punch line."},
+      {"screen": 9, "text": "Voiced comment-question — see below"}
     ]
   }
 ]
 ```
 
-### Screen structure (8–9 screens total)
+### Screen structure (8–9 story screens + hook + comment-question)
 
 - **screen 0**: hook — max 8 words, question or provocative claim, specific to the parable's tension. This screen is **silent** (not voiced) and shown centered for 3 seconds.
 - screens 1–2: set the scene — who, where, what animal, what absurd detail
 - screens 3–4: situation unfolds — dialogue, absurd action, language learning tension
 - **screen ~5 (mid-story turn): something the viewer expects doesn't happen.** Retention data shows viewers drop off long before the final line if the story saves 100% of its surprise for the end — a smaller, earlier reversal re-hooks them. Pattern: the animal braces for one outcome (correction, rejection, ridicule) and gets the opposite ("The sparrow didn't laugh." / "Nobody noticed the wrong word."). Keep this distinct from the ending — don't let it become the same beat.
-- last 2–3 screens: the punch — one line that reframes everything (the character who does LESS gets the SAME result)
+- next 2–3 screens: the punch — one line that reframes everything (the character who does LESS gets the SAME result)
+- **final screen: the voiced comment-question** (see "Comment-question screen" above) — this is now the true last screen and gets the big centered treatment
 
 ### video_queries rules
 
@@ -116,11 +133,16 @@ Examples of good animal/absurd hooks:
 - If it feels identical to the ending beat, add a real setup-and-break moment earlier.
 
 ### Pass 2 — punch check
-- Does the last line land warm and clear?
+- Does the punch line (second-to-last screen) land warm and clear?
 - Is the lesson implicit (in the action) — not stated?
 - Would someone want to share this?
 
-Only proceed after both passes pass.
+### Pass 3 — comment-question check
+- Is the question specific to this animal/device, not generic ("What did you learn?")?
+- Under 10 words?
+- Does it invite a real, personal answer rather than yes/no?
+
+Only proceed after all three passes pass.
 
 ---
 
@@ -161,8 +183,8 @@ python3 main.py
 - Voice: chosen from linda / arina / oliver / thomas based on parable tone
 - Hook: silent, centered, 3 seconds, font 180
 - Story text: bottom of screen, font 113
-- Last screen: centered, font 180
-- Outro (one screen): "Didn't motivate? / Drop a message in comments / [subscribe phrase] / @StudyGoTogether"
+- Last screen (the comment-question): centered, font 180, voiced
+- Outro (one silent screen, automatic): "Answer below / [subscribe phrase] / @StudyGoTogether"
 - Background: video footage from Pexels (from video_queries)
 - Music: calm mood
 

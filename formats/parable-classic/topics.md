@@ -98,6 +98,11 @@ New entries (append after each generated classic parable):
 - classic_054: "He sat with the phone in his hand long after she'd hung up."
 - classic_055: "Neither of them ever found it. She never stopped either."
 - classic_056: "He closed the app that night and picked up a language he'd wanted for no reason at all."
+- classic_057: "He never once seemed confused. Only she had been."
+- classic_058: "She kept coming to class anyway, mistakes and all, with no date in mind."
+- classic_059: "Eventually she started using it too, still not fully sure what it meant."
+- classic_060: "It was the first time the question had ever felt like a compliment."
+- classic_061: "They agreed it had probably been all four, at different points, and left it there."
 
 ## Voice selection
 

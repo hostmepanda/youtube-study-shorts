@@ -309,7 +309,11 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path, vo
                 "textOutlineColor": "#000000",
                 "textFadeDuration": 0.5,
                 "introDelay": 3.5,
-                "outroText": f"Didn't motivate?\nDrop a message in comments\n\n{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}",
+                "outroText": (
+                    f"Answer below\n\n{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}"
+                    if parable["id"].startswith("animal_")
+                    else f"Didn't motivate?\nDrop a message in comments\n\n{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}"
+                ),
                 "outroDuration": 5.0,
                 "outroFontSize": 100,
                 "music": str(music.resolve()),

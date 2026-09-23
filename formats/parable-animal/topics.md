@@ -41,6 +41,13 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_063 | bear, cat | writes and reads every sentence off a scrap of paper | polish that sounds exactly like reading off a page |
 | animal_064 | wolf, sheep | translates idioms literally in his head first | precision arriving after everyone already acted on the plain version |
 | animal_065 | pigeon, horse | asks permission before using any new word | permission nobody was ever going to withhold |
+| animal_066 | duck, goat | checks mouth shape in a pocket mirror before every word | precision nobody else could hear a difference in |
+| animal_067 | cat, crow | raises a GRAMMAR CHECK flag mid-sentence | the pause preventing nothing it was meant to prevent |
+| animal_068 | horse, hedgehog | weighs sentences on a scale for "seriousness" | filtering weight nobody else was measuring |
+| animal_069 | rabbit, turtle | counts syllables on her paws before speaking | correctness landing identically to not bothering |
+| animal_070 | owl, fox | wears earmuffs to avoid hearing his own accent | avoidance changing nothing about how he actually sounds |
+| animal_071 | sheep, parrot | stamps the air APPROVED before speaking | self-approval nobody was ever going to withhold |
+| animal_072 | donkey, bear | repeats the listener's response back word for word | thoroughness that still misunderstands anyway |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection
