@@ -197,6 +197,11 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-10-06 | 14:30 | 21:30 | motivational short | He read the news in French every morning | [link](https://youtube.com/shorts/E5hmzhGSYas) | [yaml](formats/short-motivation/configs/archive/short_20260923_065949.yaml) |
 | 2026-10-07 | 08:30 | 15:30 | motivational short | You think fluent people never freeze up | [link](https://youtube.com/shorts/PZyLWhg64bo) | [yaml](formats/short-motivation/configs/archive/short_20260923_070011.yaml) |
 | 2026-10-07 | 14:30 | 21:30 | motivational short | Dogs respond to tone before they know any words | [link](https://youtube.com/shorts/37Q2XQhquSk) | [yaml](formats/short-motivation/configs/archive/short_20260923_070035.yaml) |
+| 2026-10-03 | 12:00 | 19:00 | classic parable | Is switching between two languages actually switching y… | [link](https://youtube.com/watch?v=CZistmp-yJI) | [yaml](formats/parable-classic/configs/archive/classic_20260923_070106.yaml) |
+| 2026-10-04 | 12:00 | 19:00 | classic parable | What do you do when progress just stops? | [link](https://youtube.com/watch?v=NOrw2m4DHIg) | [yaml](formats/parable-classic/configs/archive/classic_20260923_070206.yaml) |
+| 2026-10-05 | 12:00 | 19:00 | classic parable | What does a word with no translation reveal? | [link](https://youtube.com/watch?v=P3nVaVvxyrY) | [yaml](formats/parable-classic/configs/archive/classic_20260923_070317.yaml) |
+| 2026-10-06 | 12:00 | 19:00 | classic parable | Why does an accent feel like something to hide? | [link](https://youtube.com/watch?v=By3Un9llX3A) | [yaml](formats/parable-classic/configs/archive/classic_20260923_070453.yaml) |
+| 2026-10-07 | 12:00 | 19:00 | classic parable | Do you remember which language a memory happened in? | [link](https://youtube.com/watch?v=80r3boKLTt4) | [yaml](formats/parable-classic/configs/archive/classic_20260923_070552.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
