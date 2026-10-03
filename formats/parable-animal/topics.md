@@ -48,6 +48,13 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_070 | owl, fox | wears earmuffs to avoid hearing his own accent | avoidance changing nothing about how he actually sounds |
 | animal_071 | sheep, parrot | stamps the air APPROVED before speaking | self-approval nobody was ever going to withhold |
 | animal_072 | donkey, bear | repeats the listener's response back word for word | thoroughness that still misunderstands anyway |
+| animal_073 | goat, crow | checks a thermometer for the room's "temperature" before joining | timing precision nobody else was measuring |
+| animal_074 | cat, duck | tests sentences in a hollow log for the echo first | rehearsal producing an identical result to skipping it |
+| animal_075 | horse, owl | translates through an imaginary "neutral" middle language | an extra step catching nothing the direct route wouldn't also catch |
+| animal_076 | turtle, fox | checks a list of "acceptable topics" before speaking | a safety list the conversation ignores anyway |
+| animal_077 | hedgehog, parrot | waits for a specific bird-call signal before speaking | a signal nobody else was tracking |
+| animal_078 | wolf, rabbit | warms up on a tongue-twister before real sentences | a warm-up producing an identical result to skipping it |
+| animal_079 | donkey, sheep | logs the date and time before every sentence | accountability nobody, including himself, ever checks |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

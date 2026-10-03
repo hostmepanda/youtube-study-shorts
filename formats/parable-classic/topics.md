@@ -103,6 +103,16 @@ New entries (append after each generated classic parable):
 - classic_059: "Eventually she started using it too, still not fully sure what it meant."
 - classic_060: "It was the first time the question had ever felt like a compliment."
 - classic_061: "They agreed it had probably been all four, at different points, and left it there."
+- classic_062: "The next morning he let a small, familiar mispronunciation slip back in, on purpose."
+- classic_063: "Three weeks later he was still coming, still not sure why."
+- classic_064: "Nobody remembered it as a mistake anymore. Only she still could, and even that faded."
+- classic_065: "The client nodded like that made more sense than any compliment would have."
+- classic_066: "She picked up a language the next week for absolutely no practical reason at all."
+- classic_067: "It was a shopping list. He read it twice."
+- classic_068: "He finished the fifth line before noon."
+- classic_069: "Nobody spoke for a full breath. Then the grandmother asked for the salt."
+- classic_070: "It said she hoped he was eating well."
+- classic_071: "She told it in the second language, and her mother laughed without understanding it."
 
 ## Voice selection
 
