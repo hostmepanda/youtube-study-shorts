@@ -6,6 +6,16 @@ Purpose: separate a *finding* (what the data showed) from the *decision* (what w
 
 ---
 
+## 2026-10-06 — Shortened parables retain much better; reach still flat; a second one-day burst
+
+**Finding:** (1) Weighted-average retention for videos published since Sep 22 (the first batches built with the Sep 8 changes): short-motivation 49.8% (25 videos, ~1.2k views) — unchanged from the ~48% baseline; parable-classic 36.5% (12 videos) vs ~22% before; parable-animal 37.4% (12 videos) vs ~26% before. (2) Shorts' views in their first 7 days, by publish week: ~30-77 every week since August, no upward trend (rising "views/day" for the newest weeks is just young-video bias). (3) animal parable "Would a badge make your mistakes easier to forgive?" has 298 views, of which 297 came on its publish day and ~0 since; 289/298 from the Shorts feed — same shape as the Aug 25 "Quiet pond" burst. (4) Channel still 8 subscribers, 0 comments on any video, 48 likes on 308 public videos.
+
+**Conclusion:** The 7-9 screen + mid-story-turn change for parables looks like it worked (+11 to +15 pp), and shorts staying flat makes a pure age/measurement artifact less likely, though the new parable samples are small (12 each, ~340-530 views) and not all post-Sep-22 classics used the new structure (classic_046 predates it). Reach did not move: better retention has not (yet) produced more first-week views. Both test-push bursts so far (2 of 2) were animal parables — suggestive that animal parables get Shorts-feed trial pushes more often, but n=2 is not evidence.
+
+**Decision / how to apply:** No skill changes. Keep the current parable structure. Re-check retention once the first batches with the voiced comment-question go live (first one publishes Oct 7 18:00 ET) — compare comment counts and retention for those against the animal parables before them. Do not read the rising views/day of the newest weeks as growth.
+
+---
+
 ## 2026-09-23 — Zero comments across the entire channel; low like rate; 8 subscribers at 13k+ views
 
 **Finding:** Pulled channel-level stats (`channels().list`) and aggregated likes/comments/views from `analytics.html` across 254 public videos: **0 comments, on any video, ever.** Total 45 likes on 13,173 views (0.34% like rate overall). By format: parable-animal has the best like rate (0.63%, n=43), then legacy parable (0.63%, n=31), short-motivation the weakest (0.21%, n=132) despite carrying the most views. Channel sits at 8 subscribers with 261 public videos and 13,362 total channel views.

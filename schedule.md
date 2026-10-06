@@ -229,6 +229,16 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-10-14 | 08:30 | 15:30 | motivational short | Kids mix up words for years | [link](https://youtube.com/shorts/o0xycLv2r_g) | [yaml](formats/short-motivation/configs/archive/short_20261003_002228.yaml) |
 | 2026-10-14 | 14:30 | 21:30 | motivational short | You think you need more time | [link](https://youtube.com/shorts/QSNLbO0brfM) | [yaml](formats/short-motivation/configs/archive/short_20261003_002249.yaml) |
 | 2026-10-15 | 08:30 | 15:30 | motivational short | She answered the door in Portuguese | [link](https://youtube.com/shorts/5aUH2Wl7ySg) | [yaml](formats/short-motivation/configs/archive/short_20261003_002311.yaml) |
+| 2026-10-15 | 14:30 | 21:30 | motivational short | Musicians play wrong notes on stage | [link](https://youtube.com/shorts/uan3CFA6Lbg) | [yaml](formats/short-motivation/configs/archive/short_20261003_002332.yaml) |
+| 2026-10-16 | 08:30 | 15:30 | motivational short | You think speaking up means being perfect | [link](https://youtube.com/shorts/VPkFoUgq-Gw) | [yaml](formats/short-motivation/configs/archive/short_20261003_002352.yaml) |
+| 2026-10-16 | 14:30 | 21:30 | motivational short | He learned forty words before his trip | [link](https://youtube.com/shorts/61c3I7qzcmM) | [yaml](formats/short-motivation/configs/archive/short_20261003_002413.yaml) |
+| 2026-10-17 | 08:30 | 15:30 | motivational short | A baby doesn't wait for a full vocabulary | [link](https://youtube.com/shorts/xJOK2Lrda94) | [yaml](formats/short-motivation/configs/archive/short_20261003_002433.yaml) |
+| 2026-10-17 | 14:30 | 21:30 | motivational short | What would you say right now | [link](https://youtube.com/shorts/SXSxaus1U60) | [yaml](formats/short-motivation/configs/archive/short_20261003_002453.yaml) |
+| 2026-10-13 | 12:00 | 19:00 | classic parable | Can you learn a language for someone who's gone? | [link](https://youtube.com/watch?v=NROQeZGxfP4) | [yaml](formats/parable-classic/configs/archive/classic_20261003_002517.yaml) |
+| 2026-10-14 | 12:00 | 19:00 | classic parable | How long can you work without seeing a result? | [link](https://youtube.com/watch?v=G9J5yu7iamg) | [yaml](formats/parable-classic/configs/archive/classic_20261003_002613.yaml) |
+| 2026-10-15 | 12:00 | 19:00 | classic parable | What is a year of silence made of? | [link](https://youtube.com/watch?v=LmG-yO46jI4) | [yaml](formats/parable-classic/configs/archive/classic_20261003_002703.yaml) |
+| 2026-10-16 | 12:00 | 19:00 | classic parable | How late is too late to read a letter? | [link](https://youtube.com/watch?v=YZ6Zt5urm2c) | [yaml](formats/parable-classic/configs/archive/classic_20261003_002805.yaml) |
+| 2026-10-17 | 12:00 | 19:00 | classic parable | Who are you in the language you're still learning? | [link](https://youtube.com/watch?v=Y5TA12QUI2U) | [yaml](formats/parable-classic/configs/archive/classic_20261003_002903.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
