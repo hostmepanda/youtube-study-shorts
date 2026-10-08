@@ -55,6 +55,13 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_077 | hedgehog, parrot | waits for a specific bird-call signal before speaking | a signal nobody else was tracking |
 | animal_078 | wolf, rabbit | warms up on a tongue-twister before real sentences | a warm-up producing an identical result to skipping it |
 | animal_079 | donkey, sheep | logs the date and time before every sentence | accountability nobody, including himself, ever checks |
+| animal_080 | fox, sheep | three pebbles consulted for approval | approval nobody was ever part of |
+| animal_081 | owl, goat | scans every face for a frown first | frowns that weren't about the sentence |
+| animal_082 | crow, hedgehog | practices only in thunderstorms | perfect sentences nobody has heard |
+| animal_083 | pigeon, wolf | whispers into a seashell first | a shell that only ever says nothing |
+| animal_084 | goat, turtle | rings a bell to apologize in advance | the apology being remembered more than the mistake |
+| animal_085 | horse, parrot | practices only with a scarecrow | practice partner who never says anything back |
+| animal_086 | cat, wolf | uses a word only after ten perfect tests | a long list of almost |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

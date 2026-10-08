@@ -239,6 +239,13 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-10-15 | 12:00 | 19:00 | classic parable | What is a year of silence made of? | [link](https://youtube.com/watch?v=LmG-yO46jI4) | [yaml](formats/parable-classic/configs/archive/classic_20261003_002703.yaml) |
 | 2026-10-16 | 12:00 | 19:00 | classic parable | How late is too late to read a letter? | [link](https://youtube.com/watch?v=YZ6Zt5urm2c) | [yaml](formats/parable-classic/configs/archive/classic_20261003_002805.yaml) |
 | 2026-10-17 | 12:00 | 19:00 | classic parable | Who are you in the language you're still learning? | [link](https://youtube.com/watch?v=Y5TA12QUI2U) | [yaml](formats/parable-classic/configs/archive/classic_20261003_002903.yaml) |
+| 2026-10-14 | 18:00 | 01:00+1 | animal parable | Who do you ask before you speak? | [link](https://youtube.com/watch?v=RvUo5QyQ-5E) | [yaml](formats/parable-animal/configs/archive/animal_20261005_134441.yaml) |
+| 2026-10-15 | 18:00 | 01:00+1 | animal parable | Do you scan every face before you speak? | [link](https://youtube.com/watch?v=ENXiyCxNrRw) | [yaml](formats/parable-animal/configs/archive/animal_20261005_134551.yaml) |
+| 2026-10-16 | 18:00 | 01:00+1 | animal parable | Do you only practice when nobody can hear? | [link](https://youtube.com/watch?v=ufyZ0eyjsvA) | [yaml](formats/parable-animal/configs/archive/animal_20261005_134647.yaml) |
+| 2026-10-17 | 18:00 | 01:00+1 | animal parable | Do you let a seashell say it first? | [link](https://youtube.com/watch?v=mXsjHAHlm9g) | [yaml](formats/parable-animal/configs/archive/animal_20261005_134733.yaml) |
+| 2026-10-18 | 18:00 | 01:00+1 | animal parable | Do you apologize before you speak? | [link](https://youtube.com/watch?v=02DxUf3W3mA) | [yaml](formats/parable-animal/configs/archive/animal_20261005_134817.yaml) |
+| 2026-10-19 | 18:00 | 01:00+1 | animal parable | Who do you practice speaking with? | [link](https://youtube.com/watch?v=3TwlFS0w7N0) | [yaml](formats/parable-animal/configs/archive/animal_20261005_134917.yaml) |
+| 2026-10-20 | 18:00 | 01:00+1 | animal parable | How many times must you get it right before you use it? | [link](https://youtube.com/watch?v=sU3jU4o7zB4) | [yaml](formats/parable-animal/configs/archive/animal_20261005_135016.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

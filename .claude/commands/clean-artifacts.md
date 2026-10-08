@@ -2,7 +2,7 @@
 
 Remove leftover render scratch/cache that piles up across both repos. Safe to run periodically.
 
-**Policy change:** `output/videos/*.mp4` is now the permanent home for every rendered video — it is never deleted by this skill (or by anything else). Only the yaml lifecycle file moves between `new/` → `waiting_upload/` → `archive/`; the video itself stays put forever. This skill no longer touches `.mp4` files anywhere, local or iCloud.
+**Policy:** this skill never deletes `output/videos/*.mp4`. (The user may clear that folder manually on request once videos are uploaded and backed up in iCloud — see CLAUDE.md.) Only the yaml lifecycle file moves between `new/` → `waiting_upload/` → `archive/`; the video itself stays put forever. This skill no longer touches `.mp4` files anywhere, local or iCloud.
 
 Most of what this skill used to clean by hand now happens automatically: `main.py` deletes the wooden-roll scratch dir and downloaded images/footage right after every successful render (see `cleanup_render_scratch()` in `main.py`). This skill is now a safety net for **leftovers from interrupted or failed runs**, plus pre-existing orphaned debris from before the yaml-lifecycle restructure.
 
