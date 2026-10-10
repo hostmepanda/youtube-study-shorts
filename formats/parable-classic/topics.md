@@ -113,6 +113,11 @@ New entries (append after each generated classic parable):
 - classic_069: "Nobody spoke for a full breath. Then the grandmother asked for the salt."
 - classic_070: "It said she hoped he was eating well."
 - classic_071: "She told it in the second language, and her mother laughed without understanding it."
+- classic_072: "By spring, the friend was saying it whenever the first rain came."
+- classic_073: "The shore had never moved. Her arms had."
+- classic_074: "He bought a new notebook that night and kept the old one on top of it."
+- classic_075: "She bought fish there every week after that."
+- classic_076: "He rode three more stops, listening to a stranger's dinner plans."
 
 ## Voice selection
 

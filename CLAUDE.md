@@ -28,6 +28,10 @@ These are implemented as `SHORTS_HOUR/MINUTE`, `SHORTS_HOUR2/MINUTE2`, `PARABLES
 
 When checking coverage, look at the tail of `schedule.md` (or `analytics.html`/archived yamls) **per format** and count days of runway in each of the 4 buckets separately — a format with 8 days of parable coverage total (4 classic + 4 animal on alternating days) is NOT the same as 8 days of each running daily.
 
+## Test format on top of the floor: Hoot & Pip series
+
+`formats/series-hoot-pip/` is a recurring-character daily serial (IDs `ep_NNN`, slot **20:30 ET**, skill `/generate-series`, cast bible and episode log in its `topics.md`). It is an **experiment added on top of the 4/day floor — it never counts toward the floor and never replaces a floor slot.** Goal: subscriber growth (baseline 0.5 subs per 1000 views); review around Oct 26 using the Analytics API `subscribersGained` per video. The narrator is always `thomas` (the pipeline defaults to it for `ep_` IDs). Upload with `python3 upload_queue.py series-hoot-pip <first-date>`; the first upload creates a public "Hoot & Pip — Season 1" playlist (id cached in `formats/series-hoot-pip/playlist.json`) and adds each episode to it. Generic `upload_queue.py <format> <date> [slot_index]` works for every format and is preferred over writing one-off scripts.
+
 ## Render/publish lifecycle
 
 - `output/videos/<id>.mp4` is where a render lands and must stay until the video is uploaded (the uploader reads it from the yaml's `video_path`). Once uploaded, the local file is disposable: every render is also copied to iCloud by `main.py`, so on 2026-10-08 the user cleared all 154 local files after checking each against its iCloud copy by size. Nothing in the codebase deletes videos automatically (not `/clean-artifacts`, not the uploader) — only do it on the user's explicit request, and verify the iCloud copy first. To re-upload an old video, copy it back from iCloud into `output/videos/` first.

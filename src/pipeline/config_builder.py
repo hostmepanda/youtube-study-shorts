@@ -54,6 +54,7 @@ _FORMAT_DIR_NAMES = {
     "short": "short-motivation",
     "classic": "parable-classic",
     "animal": "parable-animal",
+    "series": "series-hoot-pip",
     "parable": "legacy",  # pre-restructure ids, mixed classic+animal
 }
 
@@ -124,6 +125,8 @@ def _render_prefix(item_id: str) -> str:
         return "animal"
     if item_id.startswith("classic_"):
         return "classic"
+    if item_id.startswith("ep_"):
+        return "series"
     if item_id.startswith("text_"):
         return "short"
     return "parable"  # legacy parable_NNN ids (pre-restructure, mixed classic+animal)
@@ -255,6 +258,10 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path, vo
     voice_profile = random.choice(list(VOICE_PROFILES.values())).copy()
     voice_profile["speed"] = round(voice_profile["speed"] * 0.92, 2)
 
+    is_series = parable["id"].startswith("ep_")
+    if is_series and not voice and not os.environ.get("PREMISS_VOICE"):
+        voice = "thomas"  # one fixed narrator so the recurring characters sound consistent
+
     premiss = _premiss_config(voice)
     if premiss:
         audio_step = {
@@ -310,7 +317,9 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path, vo
                 "textFadeDuration": 0.5,
                 "introDelay": 3.5,
                 "outroText": (
-                    f"Answer below\n\n{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}"
+                    f"Hoot & Pip\nNew episode every day\n\nSubscribe to follow them\n{CHANNEL}"
+                    if is_series
+                    else f"Answer below\n\n{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}"
                     if parable["id"].startswith("animal_")
                     else f"Didn't motivate?\nDrop a message in comments\n\n{random.choice(SUBSCRIBE_CTAS)}\n{CHANNEL}"
                 ),
@@ -325,10 +334,14 @@ def build_parable_config(parable_file: Path, images: list[Path], music: Path, vo
     }
 
     first_screen_first_line = parable["screens"][0]["text"].split("\n")[0]
+    if is_series:
+        title = f"{first_screen_first_line} | Hoot & Pip Ep. {parable['episode']} #languagelearning #HootAndPip"
+    else:
+        title = f"{first_screen_first_line} #languagelearning #parable"
     metadata = {
-        "title": f"{first_screen_first_line} #languagelearning #parable",
+        "title": title,
         "description": " ".join(s["text"].replace("\n", " ") for s in parable["screens"]),
-        "tags": ["languagelearning", "parable", "motivation", "shorts", "studytips"],
+        "tags": ["languagelearning", "parable", "motivation", "shorts", "studytips"] + (["hootandpip", "series"] if is_series else []),
         "category_id": "27",
         "short_id": short_id,
         "video_path": str(output_video.resolve()),

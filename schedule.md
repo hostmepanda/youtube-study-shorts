@@ -246,6 +246,18 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-10-18 | 18:00 | 01:00+1 | animal parable | Do you apologize before you speak? | [link](https://youtube.com/watch?v=02DxUf3W3mA) | [yaml](formats/parable-animal/configs/archive/animal_20261005_134817.yaml) |
 | 2026-10-19 | 18:00 | 01:00+1 | animal parable | Who do you practice speaking with? | [link](https://youtube.com/watch?v=3TwlFS0w7N0) | [yaml](formats/parable-animal/configs/archive/animal_20261005_134917.yaml) |
 | 2026-10-20 | 18:00 | 01:00+1 | animal parable | How many times must you get it right before you use it? | [link](https://youtube.com/watch?v=sU3jU4o7zB4) | [yaml](formats/parable-animal/configs/archive/animal_20261005_135016.yaml) |
+| 2026-10-18 | 08:30 | 15:30 | motivational short | You think you need a native friend first | [link](https://youtube.com/shorts/gA_wGMktBKY) | [yaml](formats/short-motivation/configs/archive/short_20261008_072811.yaml) |
+| 2026-10-18 | 14:30 | 21:30 | motivational short | He practiced a toast for three weeks | [link](https://youtube.com/shorts/SXZ8Ei1eSzc) | [yaml](formats/short-motivation/configs/archive/short_20261008_072835.yaml) |
+| 2026-10-19 | 08:30 | 15:30 | motivational short | Toddlers say 'me do it' and nobody blinks | [link](https://youtube.com/shorts/uA-NY_zwZkI) | [yaml](formats/short-motivation/configs/archive/short_20261008_072857.yaml) |
+| 2026-10-19 | 14:30 | 21:30 | motivational short | You think a mistake ends the conversation | [link](https://youtube.com/shorts/jYOfF-dVVVs) | [yaml](formats/short-motivation/configs/archive/short_20261008_072919.yaml) |
+| 2026-10-20 | 08:30 | 15:30 | motivational short | She mixed up 'excited' and 'embarrassed' for a year | [link](https://youtube.com/shorts/nfk1S6OiHck) | [yaml](formats/short-motivation/configs/archive/short_20261008_072942.yaml) |
+| 2026-10-20 | 14:30 | 21:30 | motivational short | Athletes miss shots in every game | [link](https://youtube.com/shorts/hZJPfojuQPY) | [yaml](formats/short-motivation/configs/archive/short_20261008_073005.yaml) |
+| 2026-10-21 | 08:30 | 15:30 | motivational short | You think listening is the easy part | [link](https://youtube.com/shorts/xemzwzx5ZEI) | [yaml](formats/short-motivation/configs/archive/short_20261008_073026.yaml) |
+| 2026-10-21 | 14:30 | 21:30 | motivational short | He joined a conversation club in week two | [link](https://youtube.com/shorts/SlriE6be6kc) | [yaml](formats/short-motivation/configs/archive/short_20261008_073048.yaml) |
+| 2026-10-22 | 08:30 | 15:30 | motivational short | A parrot copies sounds with no fear | [link](https://youtube.com/shorts/zq093lKoRg8) | [yaml](formats/short-motivation/configs/archive/short_20261008_073120.yaml) |
+| 2026-10-22 | 14:30 | 21:30 | motivational short | What's the one sentence you keep avoiding | [link](https://youtube.com/shorts/YFGS5gO7pd0) | [yaml](formats/short-motivation/configs/archive/short_20261008_073152.yaml) |
+| 2026-10-18 | 12:00 | 19:00 | classic parable | Whose word is it when nobody else has it? | [link](https://youtube.com/watch?v=F-pIHLzmPhk) | [yaml](formats/parable-classic/configs/archive/classic_20261008_073218.yaml) |
+| 2026-10-19 | 12:00 | 19:00 | classic parable | Why does effort sometimes feel like standing still? | [link](https://youtube.com/watch?v=x8aetoIK0AA) | [yaml](formats/parable-classic/configs/archive/classic_20261008_073327.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

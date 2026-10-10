@@ -181,6 +181,7 @@ const FMT = {
   "parable":          {label:"Parable",  cls:"b-parable", color:"#3870A8"},
   "parable-classic":  {label:"Parable",  cls:"b-parable", color:"#3870A8"},
   "parable-animal":   {label:"Animal",   cls:"b-animal",  color:"#38905A"},
+  "series-hoot-pip":  {label:"Series",   cls:"b-animal",  color:"#7A5BC4"},
   "legacy":           {label:"Other",    cls:"b-legacy",  color:"#808080"},
   "long-monologue":   {label:"Other",    cls:"b-legacy",  color:"#808080"},
 };
@@ -339,6 +340,7 @@ function renderBreakdown(){
     "Motivational Short": {formats:["short-motivation"], color:"var(--c-short)"},
     "Classic Parable":    {formats:["parable","parable-classic"], color:"var(--c-parable)"},
     "Animal Parable":     {formats:["parable-animal"], color:"var(--c-animal)"},
+    "Hoot & Pip (test)":  {formats:["series-hoot-pip"], color:"#7A5BC4"},
     "Other":              {formats:["legacy","long-monologue"], color:"var(--c-legacy)"},
   };
   document.getElementById("fmtgrid").innerHTML = Object.entries(grps).map(([name,g])=>{

@@ -6,6 +6,16 @@ Purpose: separate a *finding* (what the data showed) from the *decision* (what w
 
 ---
 
+## 2026-10-08 — Subscribers: 8 total, half from one video; trying a recurring-character series
+
+**Finding:** 8 subscribers on 15,660 views (0.5 per 1000). Per-video `subscribersGained`: 4 from the animal parable "Can you shield yourself from your own mistakes?" (258 views, ~15 per 1000), 1 each from three fear/accent shorts. YouTube autocomplete for our niche shows steady demand for "I understand Spanish but can't speak it", "stop translating in your head", fear of speaking; Studio's research tab (Trends) was only partly readable (topic pages errored).
+
+**Conclusion:** Every video is standalone, so a viewer from the Shorts feed has no reason to follow the channel. 4 subs is far too few to call the animal-parable result a pattern.
+
+**Decision / how to apply:** Added a test format, Hoot & Pip (owl who studies, pigeon who does, turtle beginner): daily episode at 20:30 ET on top of the 4/day floor, numbered, voiced "Next time" teaser, fixed narrator, public playlist. 7 episodes written (Ep. 1–7). Success = clearly more than 0.5 subs per 1000 views for this format after ~14 episodes (review ~Oct 26); if not, drop it rather than extend it. Known weakness: stock footage can't show the same characters twice, continuity is carried by names, text and voice. See `formats/series-hoot-pip/topics.md`; memory: project_series_hoot_pip.
+
+---
+
 ## 2026-10-06 — Shortened parables retain much better; reach still flat; a second one-day burst
 
 **Finding:** (1) Weighted-average retention for videos published since Sep 22 (the first batches built with the Sep 8 changes): short-motivation 49.8% (25 videos, ~1.2k views) — unchanged from the ~48% baseline; parable-classic 36.5% (12 videos) vs ~22% before; parable-animal 37.4% (12 videos) vs ~26% before. (2) Shorts' views in their first 7 days, by publish week: ~30-77 every week since August, no upward trend (rising "views/day" for the newest weeks is just young-video bias). (3) animal parable "Would a badge make your mistakes easier to forgive?" has 298 views, of which 297 came on its publish day and ~0 since; 289/298 from the Shorts feed — same shape as the Aug 25 "Quiet pond" burst. (4) Channel still 8 subscribers, 0 comments on any video, 48 likes on 308 public videos.

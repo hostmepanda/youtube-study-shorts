@@ -50,6 +50,8 @@ PARABLES_HOUR = 12     # 12:00 America/New_York — classic parable
 PARABLES_MINUTE = 0
 ANIMAL_HOUR = 18       # 18:00 America/New_York — animal parable
 ANIMAL_MINUTE = 0
+SERIES_HOUR = 20       # 20:30 America/New_York — Hoot & Pip series (test format, on top of the 4/day floor)
+SERIES_MINUTE = 30
 LONG_HOUR = 10         # 10:00 America/New_York — long-monologue (frozen format; kept clear of the other slots)
 LONG_MINUTE = 0
 
@@ -138,6 +140,7 @@ FORMAT_TYPE = {
     "long-monologue":   "long monologue",
     "parable-classic":  "classic parable",
     "parable-animal":   "animal parable",
+    "series-hoot-pip":  "series episode",
     "legacy":           "classic parable",
 }
 
@@ -249,6 +252,7 @@ def main():
     longs            = [p for p in queued if p.parent.parent.parent.name == "long-monologue"]
     parables_classic = [p for p in queued if p.parent.parent.parent.name in ("parable-classic", "legacy")]
     parables_animal  = [p for p in queued if p.parent.parent.parent.name == "parable-animal"]
+    series           = [p for p in queued if p.parent.parent.parent.name == "series-hoot-pip"]
 
     youtube = build("youtube", "v3", credentials=creds)
     print(f"Found {len(queued)} video(s) queued "
@@ -267,6 +271,7 @@ def main():
         shorts_schedule +
         [(p, publish_time(start_date, i, PARABLES_HOUR, PARABLES_MINUTE)) for i, p in enumerate(parables_classic)] +
         [(p, publish_time(start_date, i, ANIMAL_HOUR,   ANIMAL_MINUTE))   for i, p in enumerate(parables_animal)] +
+        [(p, publish_time(start_date, i, SERIES_HOUR,   SERIES_MINUTE))   for i, p in enumerate(series)] +
         [(p, publish_time(start_date, i, LONG_HOUR,     LONG_MINUTE))     for i, p in enumerate(longs)]
     )
 
@@ -275,7 +280,7 @@ def main():
         print(f"▶ Uploading {config_path.name} ({fmt_name})")
         try:
             video_id = upload_video(youtube, config_path, publish_at)
-            is_short = fmt_name in ("short-motivation", "parable-classic", "parable-animal", "legacy")
+            is_short = fmt_name in ("short-motivation", "parable-classic", "parable-animal", "series-hoot-pip", "legacy")
             url = f"https://youtube.com/shorts/{video_id}" if is_short else f"https://youtube.com/watch?v={video_id}"
             print(f"  ✓ Uploaded: {url}\n")
 
