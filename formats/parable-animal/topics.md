@@ -62,6 +62,13 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_084 | goat, turtle | rings a bell to apologize in advance | the apology being remembered more than the mistake |
 | animal_085 | horse, parrot | practices only with a scarecrow | practice partner who never says anything back |
 | animal_086 | cat, wolf | uses a word only after ten perfect tests | a long list of almost |
+| animal_087 | sparrow, wolf | tally counter clicked for every mistake | announcing a score nobody else was keeping |
+| animal_088 | hedgehog, cat | exercise wheel, a hundred laps per sentence | rehearsal that leaves you too out of breath to speak |
+| animal_089 | turtle, pigeon | sundial for the right hour to speak | waiting for an hour nobody else was keeping |
+| animal_090 | donkey, crow | jar of berries as a fine for mistakes | a penalty that costs the conversation, not the mistake |
+| animal_091 | owl, sheep | report card, a grade after every sentence | grades nobody else ever saw |
+| animal_092 | bear, crow | flowchart carved into a tree | a plan the conversation walks right past |
+| animal_093 | duck, rabbit | an interpreter beetle who knows only what she knows | a go-between adding nothing but a second sentence |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

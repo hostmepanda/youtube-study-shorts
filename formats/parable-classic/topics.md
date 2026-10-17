@@ -118,6 +118,11 @@ New entries (append after each generated classic parable):
 - classic_074: "He bought a new notebook that night and kept the old one on top of it."
 - classic_075: "She bought fish there every week after that."
 - classic_076: "He rode three more stops, listening to a stranger's dinner plans."
+- classic_077: "The silence had been full the whole time."
+- classic_078: "It took both hands to make a sound."
+- classic_079: "Wanting had never been the one holding the broom."
+- classic_080: ""Italian doesn't know who I used to be," the woman said."
+- classic_081: "He had not planned it. The language had."
 
 ## Voice selection
 
