@@ -123,6 +123,10 @@ New entries (append after each generated classic parable):
 - classic_079: "Wanting had never been the one holding the broom."
 - classic_080: ""Italian doesn't know who I used to be," the woman said."
 - classic_081: "He had not planned it. The language had."
+- classic_082: "Neither of them hung up until the kettle boiled."
+- classic_083: "That Sunday, one language was enough for the whole table."
+- classic_084: "The line was out the door by Friday."
+- classic_085: "In spring the shoot passed the fence, and he knew why."
 
 ## Voice selection
 

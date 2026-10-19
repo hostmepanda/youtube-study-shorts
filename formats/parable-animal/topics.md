@@ -69,6 +69,10 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_091 | owl, sheep | report card, a grade after every sentence | grades nobody else ever saw |
 | animal_092 | bear, crow | flowchart carved into a tree | a plan the conversation walks right past |
 | animal_093 | duck, rabbit | an interpreter beetle who knows only what she knows | a go-between adding nothing but a second sentence |
+| animal_094 | turtle, rabbit | suitcase of sure words, never leaves the station | a perfect suitcase vs. a misspelled postcard from somewhere |
+| animal_095 | goat, hedgehog | stump to be heard from above | standing above the conversation so nobody comes close |
+| animal_096 | cat, parrot | mails every sentence as a postcard | a perfect sentence arriving after lunch |
+| animal_097 | owl, rabbit | brass compass to find the correct word | a correct heading in an empty field |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

@@ -283,6 +283,21 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-10-26 | 14:30 | 20:30 | motivational short | She hid in the bathroom at every language meetup | [link](https://youtube.com/shorts/1G-nAP0LbnE) | [yaml](formats/short-motivation/configs/archive/short_20261016_070718.yaml) |
 | 2026-10-27 | 08:30 | 14:30 | motivational short | Why do you understand more than you can say? | [link](https://youtube.com/shorts/mdb_blWsW3M) | [yaml](formats/short-motivation/configs/archive/short_20261016_070741.yaml) |
 | 2026-10-27 | 14:30 | 20:30 | motivational short | At sixty-two, Helen started Portuguese | [link](https://youtube.com/shorts/uA0KcvuTiDo) | [yaml](formats/short-motivation/configs/archive/short_20261016_070802.yaml) |
+| 2026-10-28 | 12:00 | 18:00 | classic parable | What if your own words start to leave? | [link](https://youtube.com/watch?v=rsDdeDxXi0Q) | [yaml](formats/parable-classic/configs/archive/classic_20261018_064946.yaml) |
+| 2026-10-29 | 12:00 | 18:00 | classic parable | What if you're allowed to stop? | [link](https://youtube.com/watch?v=gYDTwCwMcOQ) | [yaml](formats/parable-classic/configs/archive/classic_20261018_065055.yaml) |
+| 2026-10-30 | 12:00 | 18:00 | classic parable | Your accent was never the problem. | [link](https://youtube.com/watch?v=iX8ric3J_m8) | [yaml](formats/parable-classic/configs/archive/classic_20261018_065142.yaml) |
+| 2026-10-31 | 12:00 | 18:00 | classic parable | What is happening while nothing is happening? | [link](https://youtube.com/watch?v=FBNJvvJ0q7M) | [yaml](formats/parable-classic/configs/archive/classic_20261018_065240.yaml) |
+| 2026-10-28 | 18:00 | 00:00+1 | animal parable | Who are you packing your words for? | [link](https://youtube.com/watch?v=BN6MMGdXgBw) | [yaml](formats/parable-animal/configs/archive/animal_20261018_065335.yaml) |
+| 2026-10-29 | 18:00 | 00:00+1 | animal parable | Can they hear you from up there? | [link](https://youtube.com/watch?v=vF00Yo9k_sM) | [yaml](formats/parable-animal/configs/archive/animal_20261018_065425.yaml) |
+| 2026-10-30 | 18:00 | 00:00+1 | animal parable | How long does a perfect sentence take to arrive? | [link](https://youtube.com/watch?v=RdmF9xdO5Bc) | [yaml](formats/parable-animal/configs/archive/animal_20261018_065546.yaml) |
+| 2026-10-31 | 18:00 | 00:00+1 | animal parable | The compass was right. The market was elsewhere. | [link](https://youtube.com/watch?v=e1JSwge1W_4) | [yaml](formats/parable-animal/configs/archive/animal_20261018_065646.yaml) |
+| 2026-10-28 | 08:30 | 14:30 | motivational short | You think shows in Spanish don't count | [link](https://youtube.com/shorts/pKrUd8AUQFw) | [yaml](formats/short-motivation/configs/archive/short_20261019_064444.yaml) |
+| 2026-10-28 | 14:30 | 20:30 | motivational short | Your textbook says one thing | [link](https://youtube.com/shorts/VqQfhqOSp0I) | [yaml](formats/short-motivation/configs/archive/short_20261019_064520.yaml) |
+| 2026-10-29 | 08:30 | 14:30 | motivational short | Ten minutes a day sounds like nothing | [link](https://youtube.com/shorts/Yi2iW1C6zUQ) | [yaml](formats/short-motivation/configs/archive/short_20261019_064541.yaml) |
+| 2026-10-29 | 14:30 | 20:30 | motivational short | She asked how you were and you froze | [link](https://youtube.com/shorts/HI7CRsWFpC4) | [yaml](formats/short-motivation/configs/archive/short_20261019_064602.yaml) |
+| 2026-10-30 | 08:30 | 14:30 | motivational short | Dev learned French for a job in Montreal | [link](https://youtube.com/shorts/g4MFz1l08lM) | [yaml](formats/short-motivation/configs/archive/short_20261019_064622.yaml) |
+| 2026-10-30 | 14:30 | 20:30 | motivational short | You think you need a big vocabulary | [link](https://youtube.com/shorts/PnIpOlLfnHA) | [yaml](formats/short-motivation/configs/archive/short_20261019_064643.yaml) |
+| 2026-10-31 | 08:30 | 14:30 | motivational short | You saved forty phrases for your trip | [link](https://youtube.com/shorts/MLR2m8lJn0k) | [yaml](formats/short-motivation/configs/archive/short_20261019_064705.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
