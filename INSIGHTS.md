@@ -6,6 +6,16 @@ Purpose: separate a *finding* (what the data showed) from the *decision* (what w
 
 ---
 
+## 2026-10-21 — Consistent characters for Hoot & Pip via Premiss image-edit + image-to-video
+
+**Finding:** Pilot on Premiss (prod, RTX 4090). (1) Wan2.2-TI2V-5B alone keeps a character recognisable inside one clip but the start frame fixes the whole scene — prompts cannot change light/background, so one reference per character can't give different places. (2) Premiss got an `image-edit` step (Qwen-Image-Edit-2511 GGUF, 1–3 reference files by multipart, `image_edit_url`, chainable into `text-to-video` via `depends_on`). Owl/pigeon/sparrow from Pexels photos placed into cafe/platform/lake scenes: 40–100 s per 704x1280 image, species and markings recognisable, two-character scenes work. (3) Strong motion breaks it: "owl leans down to the cup" turned the owl into a lump with fused wings and a drifting plumage pattern in the last second. Calm prompts ("slowly blinks and tilts its head... nothing else moves, static camera") kept identity and anatomy for the full 4 s. (4) Remaining weak points: owl plumage colour varies between frames (brown vs grey) because each image is a fresh edit; a prompt without "no people" put a human barista into the sparrow shot; ~11 min per 4 s clip.
+
+**Conclusion:** Consistent characters across scenes are now feasible: image-edit for scene frames + calm i2v for 2 of ~8 shots + Ken-Burns zoom for the rest. A full episode costs roughly 8 x 50 s + 2 x 11 min ~= 30 min of GPU instead of the ~2 h estimated for all-i2v. This does NOT show that viewers prefer it to the stock-footage version — retention/subscribers per 1000 views are untested; the Oct 26 review of the stock version is still the decision point.
+
+**Decision / how to apply:** Test render of Ep. 1 built in `~/qwen-edit-lab/ep1/` (outside the repo). Nothing in the pipeline changed yet. If we adopt it: per-episode shot list (character refs + scene prompt), only calm i2v prompts, add "No people" when a human is not wanted, sync clips to the screen timeline instead of equal splits, keep text off the characters' faces. Premiss API: multipart needs `.png/.jpg` filenames for every file part. Memory: project_series_hoot_pip.
+
+---
+
 ## 2026-10-08 — Subscribers: 8 total, half from one video; trying a recurring-character series
 
 **Finding:** 8 subscribers on 15,660 views (0.5 per 1000). Per-video `subscribersGained`: 4 from the animal parable "Can you shield yourself from your own mistakes?" (258 views, ~15 per 1000), 1 each from three fear/accent shorts. YouTube autocomplete for our niche shows steady demand for "I understand Spanish but can't speak it", "stop translating in your head", fear of speaking; Studio's research tab (Trends) was only partly readable (topic pages errored).

@@ -1,42 +1,59 @@
-# Hoot & Pip — recurring-character series (test format)
+# Hoot & Pip — dialogue comedy series (test format)
 
-Scope: a daily serial with three permanent characters, `ep_NNN` IDs, one episode per day at 20:30 ET — a **test format on top of the 4/day floor** (see CLAUDE.md "Minimum daily output").
+Scope: a daily serial, `ep_NNN` IDs, slot 20:30 ET — a **test format on top of the 4/day floor** (see CLAUDE.md "Minimum daily output"). It never counts toward the floor.
+
+**Redesigned 2026-10-25.** The first version (narrator + stock footage + Moss the turtle, Ep. 1–7, still in `configs/waiting_upload/`) is obsolete: it was "animal parables with constant animals". The new version is a **dialogue comedy**: two consistent characters, one foreign-language situation per episode, a joke the viewer gets without knowing the language. Old episodes are not uploaded; the experiment clock restarts from the first new upload (no review date set yet).
 
 ## Why this exists
 
-Analytics (Oct 2026): 8 subscribers on ~15.7k views (0.5 per 1000 views); every video is standalone, so a viewer from the Shorts feed has no reason to come back. The one video that converted well (4 of 8 subs, 258 views) was an animal parable with an absurd, relatable metaphor. Hypothesis: a named cast + episode numbers + a "next time" teaser gives people something to follow. **Success metric: subscribers gained per 1000 views for this format vs the 0.5 channel baseline** (pull with the Analytics API `subscribersGained` by video). Review after ~14 episodes (around Oct 26).
+Analytics (Oct 2026): 8 subscribers on ~15.7k views (0.5 per 1000 views); every video is standalone, so nothing gives a viewer a reason to come back. Hypothesis: two named, visually identical characters + a recognizable episode shape ("they land in a new language") + a joke people share gives something to follow. **Success metric: subscribers gained per 1000 views vs the 0.5 channel baseline** (Analytics API `subscribersGained` by video).
 
-## Cast (do not change without a reason — continuity is the point)
+## The hook of the series (the "изюминка")
 
-- **Hoot** (owl) — the Studier. Keeps "the Notebook" (page numbers are a running gag: "page twelve: Train Vocabulary"). Speaks only in sentences he has checked. Warm, anxious, loyal. Catchphrase: "Let me check the notebook."
-- **Pip** (pigeon) — the Doer. Knows three words and uses all of them. Never apologizes for a mistake, laughs and tries again. Shares everything (coffee, tickets). Catchphrase: "Close enough!"
-- **Moss** (turtle) — the beginner, arrives in Ep. 3. One new word at a time, very slow, very brave. The viewer's stand-in.
-- Side characters (use freely, don't build arcs): the sparrow barista at the Meadow Café, the market owl, the baker, the train conductor.
-- Setting: the Meadow — Meadow Café, Meadow Market, the train to the lake. They learn "the Other Language" (never named, so any learner relates; keep concrete props: coffee, plum, train tickets, bread).
+Hoot and Pip travel through the world's languages. Every episode: a real place, a real native speaker, one real foreign phrase, one misunderstanding — and at the end a **"Say it right" card** with the correct phrase (a mini language lesson hidden inside a joke, so it fits a channel for people learning languages). The channel is not tied to one language: Spanish, French, Italian, German, Japanese, Portuguese, Korean… rotate, never two in a row.
 
-## The balance rule
+## Cast (do not change without a reason)
 
-Pip is not "right" and Hoot is not "wrong". Early episodes lean toward doing beating studying; the arc must move both ways: Hoot learns to speak before checking (Ep. 5), Pip learns to write one thing down (Ep. 6), and sometimes Hoot's notebook is exactly what saves the day. Don't let it become one joke repeated.
+- **Hoot** (owl) — the Studier. Knows rules, textbook phrases, grammar. Anxious, precise, good-hearted. Over-translates literally. Catchphrase: "Let me check the notebook." (use sparingly, not every episode)
+- **Pip** (pigeon) — the Doer. Knows three words and uses all of them with total confidence. Never apologizes. Wins by confidence, loses by not understanding what he said. Catchphrase: "Close enough!" (sparingly)
+- **Natives** — one new local character per episode (sparrow waiter, baker, station clerk, grandma on a bench…). Always a bird, no humans. Speaks real local language in a local voice, plus the English line that carries the joke.
+- No permanent third character. No arcs between episodes; **no "next time" teaser required**. Episodes are standalone, so any one can be a viewer's first.
 
-## Episode shape (same as the animal parable skill, plus continuity)
+## The clarity rule (most important)
 
-- screen 0: silent hook, ≤8 words, names a character or the situation ("Hoot left the notebook at home.")
-- 6–8 story screens, mid-story turn around screen 4–5 (someone expects X, gets Y)
-- warm concrete ending image — characters are friends, nobody is humiliated
-- **final voiced screen: the teaser**, "Next time: …" (under 10 words), which must be answered by the next episode
-- JSON carries `"episode": N` (used in the title: "<hook> | Hoot & Pip Ep. N")
-- Narrator is always the `thomas` voice (the pipeline defaults to it for `ep_` IDs).
+Every foreign word must be understood by a non-speaker **inside the dialogue**, never only from the card. Either a character translates it ("embarazado means pregnant"), or the situation makes it obvious (the baker grabs Hoot's leg). No in-jokes, no references to "page 12", no unexplained words. Test: read the script as someone with zero knowledge of the language — if any line is a puzzle, rewrite it. The last two lines of an episode are the punch and the warm landing; both must be instantly clear.
 
-## Season 1 outline (first seven are written)
+## Humor engines (rotate; don't repeat one twice in a row)
 
-1 coffee order · 2 the wrong word (plum/drum) · 3 Moss arrives · 4 the train · 5 Hoot leaves the notebook home · 6 Pip opens a notebook · 7 Moss's sentence at the lake · next: Moss orders for the table, Hoot gets a page wrong in public and survives it, Pip's streak of mistakes ends and he misses it, a visitor who speaks the language natively and is bad at explaining it, etc.
+1. **Pip wins by confidence** — he says the wrong thing with total certainty and the mistake is rewarded (Spain: "Estoy embarazado" → free cake).
+2. **Hoot errs by literal translation** — he translates an English idiom word for word ("You're pulling my leg" → "Je tire ta jambe"). The native acts it out.
+3. **Both err in opposite ways and combine** — postponed: needs tonal languages (Mandarin) and our TTS can't do tones yet.
+4. **Textbook vs real life** — Hoot's slow textbook sentence meets fast native speech (Italian station). He catches one word out of twenty.
+5. **Role reversal (rare)** — Hoot is the one who improvises and wins, Pip is the one who checked. Max one in six episodes.
 
-## Episode log (hook → teaser, to keep continuity)
+## Episode shape (≈25 s)
 
-- Ep. 1: "Hoot studied a year. Pip studied a day." → Next time: Hoot tries three words.
-- Ep. 2: "Pip said the wrong word. Twice." → Next time: Hoot says one sentence without checking.
-- Ep. 3: "A turtle arrived with one word." → Next time: Moss learns word number two.
-- Ep. 4: "Hoot checked the notebook. The train left." → Next time: Hoot leaves the notebook at home.
-- Ep. 5: "Hoot left the notebook at home." → Next time: Pip opens a notebook.
-- Ep. 6: "Pip opened a notebook for the first time." → Next time: the whole meadow goes to the lake.
-- Ep. 7: "Moss said a whole sentence at the lake." → Next time: Moss orders for the whole table.
+- Hook text on screen (≤8 words, names the situation): "Pip told the waiter a secret."
+- 6 shots, one per beat, **S1 setup → S2 reaction → S3 correction/explanation → S4 payoff → S5 landing → S6 "Say it right" card**.
+- 4–6 spoken lines, each ≤ ~15 words. Hoot and Pip speak English with foreign words inserted; natives speak the foreign language and, where needed, English.
+- Ending: warm, nobody humiliated, the last line is the punch. Then the outro card: "Hoot & Pip / New episode every day / Subscribe to follow them / @StudyGoTogether".
+- Title format: "<hook> | Hoot & Pip (<Language>)".
+
+## Season 1 plan
+
+| Ep | Language | Engine | Situation | Status |
+|----|----------|--------|-----------|--------|
+| 1 | Spanish | 1 Pip wins | Café: Pip says "embarazado" (pregnant) instead of "avergonzado" (embarrassed); waiter brings a free cake | uploaded 2026-10-26 (`ep_001`, `hTpBxpBjWCQ`) |
+| 2 | French | 2 Hoot literal | Bakery stall: "Vous tirez ma jambe" (you pull my leg); native = Gallic rooster, Eiffel Tower backdrop | uploaded 2026-10-29 (`ep_002`, `RPNB4va7S_s`), long format 50 s |
+| 3 | Italian | 4 textbook vs real | Train station: slow textbook question, answer at 200 wpm | script in `scripts/` |
+| 4 | German | 1 or 5 | long compound word / "Ich bin voll" (restaurant) | idea |
+| 5 | Portuguese | 2 | "saudade" explained literally | idea |
+| 6 | Japanese | 4 | polite vs casual, vending machine / bow | idea |
+
+## Production guide (what to prompt and what to watch)
+
+Full technical notes live in `formats/series-hoot-pip/production.md`.
+
+## Legacy (narrator-format) episode log — obsolete, kept for reference
+
+Ep. 1 coffee order · 2 the wrong word (plum/drum) · 3 Moss arrives · 4 the train · 5 Hoot leaves the notebook home · 6 Pip opens a notebook · 7 Moss's sentence at the lake. Seven rendered mp4s with yamls in `configs/waiting_upload/`; superseded by this bible, do not upload unless the user asks.

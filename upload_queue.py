@@ -47,7 +47,7 @@ def series_playlist_id() -> str:
         return json.loads(PLAYLIST_FILE.read_text())["id"]
     pl = yt.playlists().insert(part="snippet,status", body={
         "snippet": {"title": "Hoot & Pip — Season 1",
-                    "description": "A daily story about an owl who studies, a pigeon who just speaks, and a turtle who is brave one word at a time."},
+                    "description": "Hoot the owl studies the rules, Pip the pigeon just speaks. Every episode they land in a new language and make the mistakes so you don't have to."},
         "status": {"privacyStatus": "public"},
     }).execute()
     PLAYLIST_FILE.write_text(json.dumps({"id": pl["id"]}))

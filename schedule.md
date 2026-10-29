@@ -298,6 +298,9 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-10-30 | 08:30 | 14:30 | motivational short | Dev learned French for a job in Montreal | [link](https://youtube.com/shorts/g4MFz1l08lM) | [yaml](formats/short-motivation/configs/archive/short_20261019_064622.yaml) |
 | 2026-10-30 | 14:30 | 20:30 | motivational short | You think you need a big vocabulary | [link](https://youtube.com/shorts/PnIpOlLfnHA) | [yaml](formats/short-motivation/configs/archive/short_20261019_064643.yaml) |
 | 2026-10-31 | 08:30 | 14:30 | motivational short | You saved forty phrases for your trip | [link](https://youtube.com/shorts/MLR2m8lJn0k) | [yaml](formats/short-motivation/configs/archive/short_20261019_064705.yaml) |
+| 2026-10-31 | 14:30 | 20:30 | motivational short | What does a first real conversation feel like? | [link](https://youtube.com/shorts/VO7CZ_bZlrA) | [yaml](formats/short-motivation/configs/archive/short_20261019_064728.yaml) |
+| 2026-10-26 | 20:30 | 02:30+1 | series episode | Embarazado does NOT mean embarrassed | Hoot & Pip (Span… | [link](https://youtube.com/watch?v=hTpBxpBjWCQ) | [yaml](formats/series-hoot-pip/configs/archive/ep_001.yaml) |
+| 2026-10-29 | 20:30 | 02:30+1 | series episode | Don't say "Vous tirez ma jambe" | Hoot & Pip (French) | [link](https://youtube.com/watch?v=RPNB4va7S_s) | [yaml](formats/series-hoot-pip/configs/archive/ep_002.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

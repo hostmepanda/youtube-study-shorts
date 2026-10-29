@@ -39,6 +39,10 @@ When checking coverage, look at the tail of `schedule.md` (or `analytics.html`/a
 - `main.py` auto-deletes render scratch (wooden-roll's per-render audio/video cache, downloaded Pexels images) immediately after every successful render. Don't add a separate manual cleanup step for this — it already happens.
 - New content IDs use per-format prefixes: `text_` (short-motivation), `classic_` (parable-classic), `animal_` (parable-animal), `longmono_` (long-monologue). Pre-restructure content kept its original `parable_NNN`/`short_NNN` ids and lives under `formats/legacy/` for lifecycle purposes — don't try to renumber or move it.
 
+## ffmpeg must have libass
+
+Rendering goes through wooden-roll, which burns subtitles in with ffmpeg's `ass` filter. The plain Homebrew `ffmpeg` formula 9.0.2_1 shipped **without libass** (auto-upgraded on 2026-10-22) and every `main.py` render failed with `Unknown filter 'ass'`. The fix is `brew install ffmpeg-full` + `brew unlink ffmpeg && brew link --force ffmpeg-full` (done 2026-10-25). Quick check: `ffmpeg -filters | grep -w ass`. If a later `brew upgrade` re-links the plain `ffmpeg` and renders fail with the same error, repeat the link command. See also the note in wooden-roll's `README.md`.
+
 ## Premiss voices for parables
 
 For `parable-classic` and `parable-animal` formats, use one of the mature male voices:
