@@ -194,5 +194,5 @@ After the video is rendered:
 - Append the animal/device combo + topic to `formats/parable-animal/topics.md` under "Used animals + absurd devices"
 - Print parable ID and topic
 - Hook text
-- Video path (local + iCloud)
+- Video path
 - First line of screen 1

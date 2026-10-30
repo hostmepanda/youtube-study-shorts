@@ -2,7 +2,7 @@
 
 Remove leftover render scratch/cache that piles up across both repos. Safe to run periodically.
 
-**Policy:** this skill never deletes `output/videos/*.mp4`. (The user may clear that folder manually on request once videos are uploaded and backed up in iCloud — see CLAUDE.md.) Only the yaml lifecycle file moves between `new/` → `waiting_upload/` → `archive/`; the video itself stays put forever. This skill no longer touches `.mp4` files anywhere, local or iCloud.
+**Policy:** this skill never deletes `output/videos/*.mp4`. (The user may clear that folder manually on request once videos are uploaded — see CLAUDE.md.) Only the yaml lifecycle file moves between `new/` → `waiting_upload/` → `archive/`; the video itself stays put forever. This skill no longer touches `.mp4` files anywhere.
 
 Most of what this skill used to clean by hand now happens automatically: `main.py` deletes the wooden-roll scratch dir and downloaded images/footage right after every successful render (see `cleanup_render_scratch()` in `main.py`). This skill is now a safety net for **leftovers from interrupted or failed runs**, plus pre-existing orphaned debris from before the yaml-lifecycle restructure.
 
@@ -18,7 +18,6 @@ Most of what this skill used to clean by hand now happens automatically: `main.p
 ## What never gets touched
 
 - Any `.mp4` in `output/videos/` — permanent, by design, regardless of publish status
-- Any `.mp4` in iCloud (`~/Library/Mobile Documents/com~apple~CloudDocs/Experiments/Youtube-shorts/output/`) — also left alone now; only the policy on local video deletion changed today, but to keep this simple, iCloud copies aren't touched by this skill either
 - `output/texts/*.json`, `formats/*/drafts/*.json` — source content
 - `formats/*/configs/{new,waiting_upload,archive}/*.yaml` — the lifecycle files themselves, and `formats/*/used.json`, `formats/*/topics.md`
 - `wooden-roll/output/audio/<id>/` dirs that DO have a matching `output/videos/<id>.mp4` — if a video exists, don't assume the scratch dir is safe to remove without checking it isn't from an in-progress run

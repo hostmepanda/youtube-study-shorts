@@ -9,21 +9,6 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-ICLOUD_OUTPUT = Path("/Users/panda/Library/Mobile Documents/com~apple~CloudDocs/Experiments/Youtube-shorts/output")
-
-
-def copy_to_icloud(video_path: str):
-    src = Path(video_path)
-    if not src.exists():
-        return
-    ICLOUD_OUTPUT.mkdir(parents=True, exist_ok=True)
-    dst = ICLOUD_OUTPUT / src.name
-    shutil.copy2(src, dst)
-    print("\n⚠️  WARNING: video exists in TWO places:")
-    print(f"   LOCAL : {src}")
-    print(f"   iCLOUD: {dst}")
-
-
 def cleanup_render_scratch(short_id: str):
     """Delete the wooden-roll scratch dir (TTS audio, bg_clips, subtitles) for a finished render."""
     scratch_dir = WOODEN_ROLL / "output" / "audio" / short_id
@@ -61,14 +46,6 @@ def main():
             cwd=str(WOODEN_ROLL),
         )
         if result.returncode == 0:
-            import yaml
-            cfg = yaml.safe_load(Path(config_path).read_text())
-            video_path = next(
-                (s.get("output") for s in cfg.get("steps", []) if s.get("type") == "video"),
-                None,
-            )
-            if video_path:
-                copy_to_icloud(video_path)
             cleanup_render_scratch(Path(config_path).stem)
         sys.exit(result.returncode)
 
@@ -187,7 +164,6 @@ def main():
     for img_path in image_paths.split(","):
         Path(img_path.strip()).unlink(missing_ok=True)
 
-    copy_to_icloud(video_path)
     cleanup_render_scratch(Path(config_path).stem)
 
     print("\n" + "=" * 50)

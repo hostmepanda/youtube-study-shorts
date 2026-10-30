@@ -8,20 +8,8 @@ load_dotenv()
 
 ROOT = Path(__file__).parent
 WOODEN_ROLL = ROOT.parent / "wooden-roll"
-ICLOUD_OUTPUT = Path("/Users/panda/Library/Mobile Documents/com~apple~CloudDocs/Experiments/Youtube-shorts/output")
 
 TARGET_IDS = ["animal_037", "animal_038", "animal_039", "animal_040", "animal_041"]
-
-def copy_to_icloud(video_path: str):
-    src = Path(video_path)
-    if not src.exists():
-        return
-    ICLOUD_OUTPUT.mkdir(parents=True, exist_ok=True)
-    dst = ICLOUD_OUTPUT / src.name
-    shutil.copy2(src, dst)
-    print(f"\n⚠️  WARNING: video exists in TWO places:")
-    print(f"   LOCAL : {src}")
-    print(f"   iCLOUD: {dst}")
 
 def cleanup_render_scratch(short_id: str):
     scratch_dir = WOODEN_ROLL / "output" / "audio" / short_id
@@ -117,6 +105,5 @@ for target_id in TARGET_IDS:
         Path(img_path.strip()).unlink(missing_ok=True)
 
     if video_path:
-        copy_to_icloud(video_path)
         cleanup_render_scratch(Path(config_path).stem)
         print(f"\n  Done! {video_path}")

@@ -114,16 +114,6 @@ Pass the config path to skip everything except audio + video rendering:
 python3 main.py formats/short-motivation/configs/new/text_YYYYMMDD_HHMMSS.yaml
 ```
 
-### iCloud copy
-
-After every render, `main.py` automatically copies the video to:
-
-```
-/Users/panda/Library/Mobile Documents/com~apple~CloudDocs/Experiments/Youtube-shorts/output/
-```
-
-A warning is printed reminding you that the file exists in **two places** — local `output/videos/` and iCloud.
-
 ### Publish lifecycle
 
 Every render produces one yaml file at `formats/<format>/configs/new/<id>.yaml`, carrying its own `youtube:` metadata block (title/description/tags/category_id/video_path) — no separate meta.json. The rendered `.mp4` lives permanently in `output/videos/` and is never moved; only the yaml travels:
