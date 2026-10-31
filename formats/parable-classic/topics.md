@@ -127,6 +127,8 @@ New entries (append after each generated classic parable):
 - classic_083: "That Sunday, one language was enough for the whole table."
 - classic_084: "The line was out the door by Friday."
 - classic_085: "In spring the shoot passed the fence, and he knew why."
+- classic_086: "\"Understand slowly,\" he said. \"Sit.\"" (T10)
+- classic_087: "The seller laughed again. This time, so did she." (T18)
 
 ## Voice selection
 

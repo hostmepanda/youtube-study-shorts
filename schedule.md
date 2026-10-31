@@ -301,6 +301,14 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-10-31 | 14:30 | 20:30 | motivational short | What does a first real conversation feel like? | [link](https://youtube.com/shorts/VO7CZ_bZlrA) | [yaml](formats/short-motivation/configs/archive/short_20261019_064728.yaml) |
 | 2026-10-26 | 20:30 | 02:30+1 | series episode | Embarazado does NOT mean embarrassed | Hoot & Pip (Span… | [link](https://youtube.com/watch?v=hTpBxpBjWCQ) | [yaml](formats/series-hoot-pip/configs/archive/ep_001.yaml) |
 | 2026-10-29 | 20:30 | 02:30+1 | series episode | Don't say "Vous tirez ma jambe" | Hoot & Pip (French) | [link](https://youtube.com/watch?v=RPNB4va7S_s) | [yaml](formats/series-hoot-pip/configs/archive/ep_002.yaml) |
+| 2026-11-01 | 08:30 | 15:30 | motivational short | You think your accent is embarrassing | [link](https://youtube.com/shorts/cttqhrw_UFM) | [yaml](formats/short-motivation/configs/archive/short_20261030_235836.yaml) |
+| 2026-11-01 | 14:30 | 21:30 | motivational short | You think you need a year first | [link](https://youtube.com/shorts/kZcZst5jSBU) | [yaml](formats/short-motivation/configs/archive/short_20261030_235959.yaml) |
+| 2026-11-01 | 12:00 | 19:00 | classic parable | He waited sixty years to be answered. | [link](https://youtube.com/watch?v=UwK5UzTyhfM) | [yaml](formats/parable-classic/configs/archive/classic_20261031_000115.yaml) |
+| 2026-11-01 | 18:00 | 01:00+1 | animal parable | She waited for the perfect moment. It left. | [link](https://youtube.com/watch?v=8datLOOOJ20) | [yaml](formats/parable-animal/configs/archive/animal_20261031_000348.yaml) |
+| 2026-11-02 | 08:30 | 15:30 | motivational short | You think a plateau means you stopped | [link](https://youtube.com/shorts/z-2z38k-ybE) | [yaml](formats/short-motivation/configs/archive/short_20261031_000024.yaml) |
+| 2026-11-02 | 14:30 | 21:30 | motivational short | You think you're too old to start | [link](https://youtube.com/shorts/zc7p3gDeJb0) | [yaml](formats/short-motivation/configs/archive/short_20261031_000046.yaml) |
+| 2026-11-02 | 12:00 | 19:00 | classic parable | Someone laughed at her mistake. | [link](https://youtube.com/watch?v=jukrakCswjk) | [yaml](formats/parable-classic/configs/archive/classic_20261031_000247.yaml) |
+| 2026-11-02 | 18:00 | 01:00+1 | animal parable | He labeled every word. Nobody had spoken yet. | [link](https://youtube.com/watch?v=VUZsz6oYUJ4) | [yaml](formats/parable-animal/configs/archive/animal_20261031_000735.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

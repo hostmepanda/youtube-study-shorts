@@ -73,6 +73,8 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_095 | goat, hedgehog | stump to be heard from above | standing above the conversation so nobody comes close |
 | animal_096 | cat, parrot | mails every sentence as a postcard | a perfect sentence arriving after lunch |
 | animal_097 | owl, rabbit | brass compass to find the correct word | a correct heading in an empty field |
+| animal_098 | heron, frog | stands on one leg waiting for the perfect moment | a pond full of talk that never included her |
+| animal_099 | mole, swan | pins a paper flag to every word before using it | a forest of flags and no sentence |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

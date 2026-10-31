@@ -10,7 +10,7 @@ ROOT = Path(__file__).parent
 WOODEN_ROLL = ROOT.parent / "wooden-roll"
 
 # IDs to render — edit as needed
-TARGET_IDS = [
+TARGET_IDS = sys.argv[1:] or [
     "text_072",
     "classic_028", "classic_029", "classic_030",
     "animal_042", "animal_043",
