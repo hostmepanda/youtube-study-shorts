@@ -309,6 +309,18 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-02 | 14:30 | 21:30 | motivational short | You think you're too old to start | [link](https://youtube.com/shorts/zc7p3gDeJb0) | [yaml](formats/short-motivation/configs/archive/short_20261031_000046.yaml) |
 | 2026-11-02 | 12:00 | 19:00 | classic parable | Someone laughed at her mistake. | [link](https://youtube.com/watch?v=jukrakCswjk) | [yaml](formats/parable-classic/configs/archive/classic_20261031_000247.yaml) |
 | 2026-11-02 | 18:00 | 01:00+1 | animal parable | He labeled every word. Nobody had spoken yet. | [link](https://youtube.com/watch?v=VUZsz6oYUJ4) | [yaml](formats/parable-animal/configs/archive/animal_20261031_000735.yaml) |
+| 2026-11-03 | 08:30 | 15:30 | motivational short | You think listening is the easy part | [link](https://youtube.com/shorts/WD-LtGtF2vI) | [yaml](formats/short-motivation/configs/archive/short_20261031_072201.yaml) |
+| 2026-11-03 | 14:30 | 21:30 | motivational short | You think one wrong word ends it | [link](https://youtube.com/shorts/AXsco1G-a84) | [yaml](formats/short-motivation/configs/archive/short_20261031_072224.yaml) |
+| 2026-11-03 | 12:00 | 19:00 | classic parable | Ten years in, she still said "beginner." | [link](https://youtube.com/watch?v=Vbf_Fx_pMZ4) | [yaml](formats/parable-classic/configs/archive/classic_20261031_072424.yaml) |
+| 2026-11-03 | 18:00 | 01:00+1 | animal parable | He lit a lantern at noon to speak. | [link](https://youtube.com/watch?v=5zjIgEkjcoo) | [yaml](formats/parable-animal/configs/archive/animal_20261031_072535.yaml) |
+| 2026-11-04 | 08:30 | 15:30 | motivational short | You think everyone else is further ahead | [link](https://youtube.com/shorts/re535HAkRAo) | [yaml](formats/short-motivation/configs/archive/short_20261031_072305.yaml) |
+| 2026-11-04 | 14:30 | 21:30 | motivational short | You think recording yourself is cringe | [link](https://youtube.com/shorts/QvIAcwDu10s) | [yaml](formats/short-motivation/configs/archive/short_20261031_072401.yaml) |
+| 2026-11-04 | 12:00 | 19:00 | classic parable | She said nothing for a whole year. | [link](https://youtube.com/watch?v=zUTI-f4JXrg) | [yaml](formats/parable-classic/configs/archive/classic_20261102_070003.yaml) |
+| 2026-11-04 | 18:00 | 01:00+1 | animal parable | He wore snowshoes in July to speak. | [link](https://youtube.com/watch?v=u9jcVszMgFM) | [yaml](formats/parable-animal/configs/archive/animal_20261102_070108.yaml) |
+| 2026-11-05 | 08:30 | 15:30 | motivational short | You think native speakers are impatient | [link](https://youtube.com/shorts/nuo3r6pIeAg) | [yaml](formats/short-motivation/configs/archive/short_20261102_070209.yaml) |
+| 2026-11-05 | 14:30 | 21:30 | motivational short | You think nothing is changing | [link](https://youtube.com/shorts/N7qEugTQ2vM) | [yaml](formats/short-motivation/configs/archive/short_20261102_070229.yaml) |
+| 2026-11-05 | 12:00 | 19:00 | classic parable | He learned it for one person only. | [link](https://youtube.com/watch?v=1YzcU6CI0sc) | [yaml](formats/parable-classic/configs/archive/classic_20261102_070403.yaml) |
+| 2026-11-05 | 18:00 | 01:00+1 | animal parable | He washed the word until it was gone. | [link](https://youtube.com/watch?v=VzkTRnAvzFg) | [yaml](formats/parable-animal/configs/archive/animal_20261102_070516.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

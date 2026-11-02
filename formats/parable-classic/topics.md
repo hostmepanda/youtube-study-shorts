@@ -129,6 +129,10 @@ New entries (append after each generated classic parable):
 - classic_085: "In spring the shoot passed the fence, and he knew why."
 - classic_086: "\"Understand slowly,\" he said. \"Sit.\"" (T10)
 - classic_087: "The seller laughed again. This time, so did she." (T18)
+- classic_088: "Then come out past the harbor," he said. (T06)
+- classic_089: "She said it. The whole street heard her, and nobody was surprised." (T17)
+- classic_090: "They were still in the doorway when the lamps came on." (T11)
+- classic_091: "She stood and took the next step. It was the only one she needed." (T08)
 
 ## Voice selection
 

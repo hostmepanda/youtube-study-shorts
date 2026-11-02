@@ -75,6 +75,10 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_097 | owl, rabbit | brass compass to find the correct word | a correct heading in an empty field |
 | animal_098 | heron, frog | stands on one leg waiting for the perfect moment | a pond full of talk that never included her |
 | animal_099 | mole, swan | pins a paper flag to every word before using it | a forest of flags and no sentence |
+| animal_100 | badger, magpie | carries a lantern at noon to see each word | a light on in a meadow already bright |
+| animal_101 | moose, wren | wears snowshoes in July so no sentence slips | careful steps across dry, flat grass |
+| animal_102 | raccoon, ducks | washes every word in the stream before saying it | washing a word until nothing is left |
+| animal_103 | beaver, otter | dam of checked notes across the river | a strong dam and a very quiet river |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection
