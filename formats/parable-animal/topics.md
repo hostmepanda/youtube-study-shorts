@@ -79,6 +79,10 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_101 | moose, wren | wears snowshoes in July so no sentence slips | careful steps across dry, flat grass |
 | animal_102 | raccoon, ducks | washes every word in the stream before saying it | washing a word until nothing is left |
 | animal_103 | beaver, otter | dam of checked notes across the river | a strong dam and a very quiet river |
+| animal_104 | goat, hare | red ribbon starting line moved back each week | a line she kept leaving that was never in her way |
+| animal_105 | bat, hen | practices hanging upside down so a sentence settles | a sentence that only falls out of your head |
+| animal_106 | squirrel, deer | buries each learned word under an oak for winter | stored words nobody can find again |
+| animal_107 | peacock, rabbit | tail of grammar cards, too heavy to turn around | a rule for directions on card forty |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

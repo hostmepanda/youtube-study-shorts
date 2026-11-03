@@ -133,6 +133,10 @@ New entries (append after each generated classic parable):
 - classic_089: "She said it. The whole street heard her, and nobody was surprised." (T17)
 - classic_090: "They were still in the doorway when the lamps came on." (T11)
 - classic_091: "She stood and took the next step. It was the only one she needed." (T08)
+- classic_092: "She opened to the page where she had stopped, and turned it." (T15)
+- classic_093: "She left the page blank and kept the afternoon." (T09)
+- classic_094: "She did not know yet which voice would answer the door." (T02)
+- classic_095: "He had five new words ready for her tomorrow." (T14)
 
 ## Voice selection
 

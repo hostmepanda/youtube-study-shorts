@@ -321,6 +321,16 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-05 | 14:30 | 21:30 | motivational short | You think nothing is changing | [link](https://youtube.com/shorts/N7qEugTQ2vM) | [yaml](formats/short-motivation/configs/archive/short_20261102_070229.yaml) |
 | 2026-11-05 | 12:00 | 19:00 | classic parable | He learned it for one person only. | [link](https://youtube.com/watch?v=1YzcU6CI0sc) | [yaml](formats/parable-classic/configs/archive/classic_20261102_070403.yaml) |
 | 2026-11-05 | 18:00 | 01:00+1 | animal parable | He washed the word until it was gone. | [link](https://youtube.com/watch?v=VzkTRnAvzFg) | [yaml](formats/parable-animal/configs/archive/animal_20261102_070516.yaml) |
+| 2026-11-06 | 08:30 | 15:30 | motivational short | You think work leaves no time | [link](https://youtube.com/shorts/PcgdMLcag6U) | [yaml](formats/short-motivation/configs/archive/short_20261102_070250.yaml) |
+| 2026-11-06 | 14:30 | 21:30 | motivational short | You think a teacher will fix it | [link](https://youtube.com/shorts/n22AuJ2RD_4) | [yaml](formats/short-motivation/configs/archive/short_20261102_070309.yaml) |
+| 2026-11-06 | 12:00 | 19:00 | classic parable | She wanted to quit. She was too far in. | [link](https://youtube.com/watch?v=FfrnBJDssKA) | [yaml](formats/parable-classic/configs/archive/classic_20261102_070627.yaml) |
+| 2026-11-06 | 18:00 | 01:00+1 | animal parable | He built a dam against the conversation. | [link](https://youtube.com/watch?v=CsO0DPRFpmY) | [yaml](formats/parable-animal/configs/archive/animal_20261102_070748.yaml) |
+| 2026-11-07 | 08:30 | 15:30 | motivational short | You think you've forgotten everything | [link](https://youtube.com/shorts/0uGUEjmmPAA) | [yaml](formats/short-motivation/configs/archive/short_20261102_225438.yaml) |
+| 2026-11-07 | 14:30 | 21:30 | motivational short | You think you speak too slowly | [link](https://youtube.com/shorts/lve5lHisbbA) | [yaml](formats/short-motivation/configs/archive/short_20261102_225501.yaml) |
+| 2026-11-07 | 12:00 | 19:00 | classic parable | She came back after five years. | [link](https://youtube.com/watch?v=bJz2d0TetzU) | [yaml](formats/parable-classic/configs/archive/classic_20261102_225806.yaml) |
+| 2026-11-07 | 18:00 | 01:00+1 | animal parable | She kept moving the starting line. | [link](https://youtube.com/watch?v=UUmtmJ9MHI0) | [yaml](formats/parable-animal/configs/archive/animal_20261102_230239.yaml) |
+| 2026-11-08 | 08:30 | 15:30 | motivational short | You think grammar must come first | [link](https://youtube.com/shorts/yfHaU1qSRdw) | [yaml](formats/short-motivation/configs/archive/short_20261102_225522.yaml) |
+| 2026-11-08 | 14:30 | 21:30 | motivational short | You think confident people feel confident | [link](https://youtube.com/shorts/eG2MQHeCjMM) | [yaml](formats/short-motivation/configs/archive/short_20261102_225604.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
