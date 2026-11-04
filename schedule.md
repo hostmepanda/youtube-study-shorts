@@ -331,6 +331,16 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-07 | 18:00 | 01:00+1 | animal parable | She kept moving the starting line. | [link](https://youtube.com/watch?v=UUmtmJ9MHI0) | [yaml](formats/parable-animal/configs/archive/animal_20261102_230239.yaml) |
 | 2026-11-08 | 08:30 | 15:30 | motivational short | You think grammar must come first | [link](https://youtube.com/shorts/yfHaU1qSRdw) | [yaml](formats/short-motivation/configs/archive/short_20261102_225522.yaml) |
 | 2026-11-08 | 14:30 | 21:30 | motivational short | You think confident people feel confident | [link](https://youtube.com/shorts/eG2MQHeCjMM) | [yaml](formats/short-motivation/configs/archive/short_20261102_225604.yaml) |
+| 2026-11-08 | 12:00 | 19:00 | classic parable | One word needed a whole afternoon. | [link](https://youtube.com/watch?v=H91xjRzuhuk) | [yaml](formats/parable-classic/configs/archive/classic_20261102_225907.yaml) |
+| 2026-11-08 | 18:00 | 01:00+1 | animal parable | He practiced upside down to hear it right. | [link](https://youtube.com/watch?v=EWXD59ku1M4) | [yaml](formats/parable-animal/configs/archive/animal_20261102_230348.yaml) |
+| 2026-11-09 | 12:00 | 19:00 | classic parable | She sounded like no one now. | [link](https://youtube.com/watch?v=-FMt_XQe-io) | [yaml](formats/parable-classic/configs/archive/classic_20261102_230006.yaml) |
+| 2026-11-09 | 18:00 | 01:00+1 | animal parable | She buried every word for later. | [link](https://youtube.com/watch?v=La6qwTSQJMQ) | [yaml](formats/parable-animal/configs/archive/animal_20261102_230457.yaml) |
+| 2026-11-09 | 08:30 | 15:30 | motivational short | You think flashcards are enough | [link](https://youtube.com/shorts/P7p5KKtWIfw) | [yaml](formats/short-motivation/configs/archive/short_20261102_225625.yaml) |
+| 2026-11-09 | 14:30 | 21:30 | motivational short | You think you're annoying them | [link](https://youtube.com/shorts/NPT9UIlPueI) | [yaml](formats/short-motivation/configs/archive/short_20261102_225647.yaml) |
+| 2026-11-10 | 12:00 | 19:00 | classic parable | At seventy, he bought his first dictionary. | [link](https://youtube.com/watch?v=nLfE3zzijJQ) | [yaml](formats/parable-classic/configs/archive/classic_20261102_230109.yaml) |
+| 2026-11-10 | 18:00 | 01:00+1 | animal parable | His tail was full of rules. | [link](https://youtube.com/watch?v=nwCqX_2pWGE) | [yaml](formats/parable-animal/configs/archive/animal_20261102_230555.yaml) |
+| 2026-11-10 | 08:30 | 15:30 | motivational short | You think fluent people never get lost | [link](https://youtube.com/shorts/Bzib54gd55A) | [yaml](formats/short-motivation/configs/archive/short_20261102_225721.yaml) |
+| 2026-11-10 | 14:30 | 21:30 | motivational short | You think a break ruins everything | [link](https://youtube.com/shorts/4b5aKCKJ9iA) | [yaml](formats/short-motivation/configs/archive/short_20261102_225742.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
