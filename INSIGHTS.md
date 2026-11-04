@@ -102,6 +102,26 @@ Still open: ideas #2 (seed first comments via API), #3 (lean further into humor 
 
 ---
 
+## 2026-11-04 — Views falling since mid-October: feed distribution dropped, retention did not
+
+**Finding:** Per-video mean views fell in all three floor formats (shorts ~48 → 18, classics ~43 → 5, animals ~61 → 5–9 by week, Sep 21 → Oct 26; medians show the same direction, shorts 38–63 → 13–25). Animals/classics dropped from the week of Oct 12, shorts a week later. YouTube Analytics API, channel level, by week (`views`, `averageViewPercentage`, `insightTrafficSourceType`): total weekly views 1535 (Sep 14) → 378 (Oct 26) while uploads per week doubled (14 → 28, from 2 to 4/day on Sep 22). Retention stayed in the 34–66% band with no downward trend. ~92% of views come from the Shorts feed; the feed series fell 1465 → 347. Search is flat (20–40/week); subscriber, playlist and external traffic is ~0. Naming a language in the title does not explain it (shorts with a language name fell 79 → 25 median, generic 44 → 13). The Hoot & Pip test is not the cause (first new episode went out Oct 26, after the drop began). Channel has 8 subscribers.
+
+**Conclusion:** Viewers who are shown the videos still watch as long as before, so the content did not get worse per view. What fell is how many people the Shorts feed shows them to. The API has no impressions or viewed-vs-swiped-away data, so the cause (volume dilution at 4/day, repetitive-content suppression, a platform-wide change) is NOT established.
+
+**Decision / how to apply:** No pipeline change yet. Next data step: YouTube Studio → Analytics → Reach (impressions, "viewed vs swiped away") for Sep–Nov, sent by the user. If impressions fell but the swipe-away share held, test 2 videos/day for a week against the 4/day floor (needs the user's explicit OK since it breaks the floor). If swipe-away rose, rework the first 2 seconds of the hooks. Do not judge by raw means: one 443-view short in the week of Oct 12 skews them ([[project_viral_outlier_algorithm_variance]]).
+
+---
+
+## 2026-11-04 — Upload limit: ~10 videos per rolling day, channel not phone-verified
+
+**Finding:** `videos.insert` returns `uploadLimitExceeded` ("The user has exceeded the number of videos they may upload") after about 10 uploads within roughly 24 hours (hit three times, Oct 31–Nov 4). It is an account limit, not API quota (`quotaExceeded`). `channels.list` shows `longUploadsStatus: eligible`, i.e. the channel is not phone-verified (https://www.youtube.com/verify).
+
+**Conclusion:** Real throughput is ~10 uploads/day, so at the 4/day floor the runway can only grow by ~6 slots/day. Whether verification raises the limit is expected but unconfirmed.
+
+**Decision / how to apply:** Upload day by day (all 4 formats of one day before the next day) so a limit hit leaves whole days covered; yamls stay in `waiting_upload/` and the script is safe to re-run. Verify the channel and re-test.
+
+---
+
 ## Template for new entries
 
 ```

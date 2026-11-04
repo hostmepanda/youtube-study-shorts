@@ -83,6 +83,9 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_105 | bat, hen | practices hanging upside down so a sentence settles | a sentence that only falls out of your head |
 | animal_106 | squirrel, deer | buries each learned word under an oak for winter | stored words nobody can find again |
 | animal_107 | peacock, rabbit | tail of grammar cards, too heavy to turn around | a rule for directions on card forty |
+| animal_108 | lizard, goose | speaks only inside a moving patch of sunlight | following the sun instead of answering in the shade |
+| animal_109 | crab, gull | approaches every sentence sideways | a perfect angle that never arrives |
+| animal_110 | seal, penguin | balances a red ball on her nose to speak | restarting a sentence eleven times |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

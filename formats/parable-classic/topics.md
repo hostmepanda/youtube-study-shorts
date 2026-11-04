@@ -137,6 +137,9 @@ New entries (append after each generated classic parable):
 - classic_093: "She left the page blank and kept the afternoon." (T09)
 - classic_094: "She did not know yet which voice would answer the door." (T02)
 - classic_095: "He had five new words ready for her tomorrow." (T14)
+- classic_096: "He rowed until the light went, and the shore stayed where it was." (T05)
+- classic_097: "He held the cup in both hands and tried to think what to call it." (T20)
+- classic_098: "She set the table, and the spoon lay beside the plate, unnamed." (T12)
 
 ## Voice selection
 
