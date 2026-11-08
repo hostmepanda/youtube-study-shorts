@@ -40,3 +40,4 @@ token.json
 logs/
 .DS_Storemusic/long/*.mp3
 *.mp4
+output/used_photos.json

@@ -341,6 +341,18 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-10 | 18:00 | 01:00+1 | animal parable | His tail was full of rules. | [link](https://youtube.com/watch?v=nwCqX_2pWGE) | [yaml](formats/parable-animal/configs/archive/animal_20261102_230555.yaml) |
 | 2026-11-10 | 08:30 | 15:30 | motivational short | You think fluent people never get lost | [link](https://youtube.com/shorts/Bzib54gd55A) | [yaml](formats/short-motivation/configs/archive/short_20261102_225721.yaml) |
 | 2026-11-10 | 14:30 | 21:30 | motivational short | You think a break ruins everything | [link](https://youtube.com/shorts/4b5aKCKJ9iA) | [yaml](formats/short-motivation/configs/archive/short_20261102_225742.yaml) |
+| 2026-11-11 | 08:30 | 15:30 | motivational short | You think subtitles are cheating | [link](https://youtube.com/shorts/RKXhI4Qf-FY) | [yaml](formats/short-motivation/configs/archive/short_20261104_080038.yaml) |
+| 2026-11-11 | 14:30 | 21:30 | motivational short | You think small talk doesn't count | [link](https://youtube.com/shorts/e0iXs_a37Y8) | [yaml](formats/short-motivation/configs/archive/short_20261104_080101.yaml) |
+| 2026-11-11 | 12:00 | 19:00 | classic parable | Nothing moved for nine months. | [link](https://youtube.com/watch?v=IK6abDWVt8g) | [yaml](formats/parable-classic/configs/archive/classic_20261104_080257.yaml) |
+| 2026-11-11 | 18:00 | 01:00+1 | animal parable | She only spoke inside the sun. | [link](https://youtube.com/watch?v=qe_Wzp243c8) | [yaml](formats/parable-animal/configs/archive/animal_20261104_080544.yaml) |
+| 2026-11-12 | 08:30 | 15:30 | motivational short | You think you're behind your classmates | [link](https://youtube.com/shorts/eNIBs4_JKXQ) | [yaml](formats/short-motivation/configs/archive/short_20261104_080122.yaml) |
+| 2026-11-12 | 14:30 | 21:30 | motivational short | You think you can't hear the difference | [link](https://youtube.com/shorts/T3QNZSsGNrQ) | [yaml](formats/short-motivation/configs/archive/short_20261104_080144.yaml) |
+| 2026-11-12 | 12:00 | 19:00 | classic parable | Five languages. No front door. | [link](https://youtube.com/watch?v=afwrOBhi9E4) | [yaml](formats/parable-classic/configs/archive/classic_20261104_080359.yaml) |
+| 2026-11-12 | 18:00 | 01:00+1 | animal parable | He approached every sentence sideways. | [link](https://youtube.com/watch?v=xWz3NfVvSCs) | [yaml](formats/parable-animal/configs/archive/animal_20261104_080646.yaml) |
+| 2026-11-13 | 08:30 | 15:30 | motivational short | You think they're grading your grammar | [link](https://youtube.com/shorts/BAx1Nr7jAxI) | [yaml](formats/short-motivation/configs/archive/short_20261104_080208.yaml) |
+| 2026-11-13 | 14:30 | 21:30 | motivational short | You think you must live there first | [link](https://youtube.com/shorts/Z2cEP-x53oE) | [yaml](formats/short-motivation/configs/archive/short_20261104_080230.yaml) |
+| 2026-11-13 | 12:00 | 19:00 | classic parable | The word for spoon was gone. | [link](https://youtube.com/watch?v=QUk1G86YWzM) | [yaml](formats/parable-classic/configs/archive/classic_20261104_080454.yaml) |
+| 2026-11-13 | 18:00 | 01:00+1 | animal parable | She balanced a ball to find her words. | [link](https://youtube.com/watch?v=YwhOq9kZpq0) | [yaml](formats/parable-animal/configs/archive/animal_20261104_080754.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
