@@ -263,3 +263,7 @@ Append the closing line of each generated text here, so future batches don't rep
 - text_209: "Ask for one more repeat"
 - text_210: "Tell them about your weekend"
 - text_211: "Start from where you are"
+- text_212: "Practice where people are"
+- text_213: "Let them be kind"
+- text_214: "Small enough to keep"
+- text_215: "Speak first, polish later"

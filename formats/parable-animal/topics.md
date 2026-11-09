@@ -86,6 +86,8 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_108 | lizard, goose | speaks only inside a moving patch of sunlight | following the sun instead of answering in the shade |
 | animal_109 | crab, gull | approaches every sentence sideways | a perfect angle that never arrives |
 | animal_110 | seal, penguin | balances a red ball on her nose to speak | restarting a sentence eleven times |
+| animal_111 | fox, lamb | carries a folding ladder to climb for the high word | the plain word lying by his feet |
+| animal_112 | camel, goat | hump filled with words every night, speaks only while full | the eleven words that were still there in the morning |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

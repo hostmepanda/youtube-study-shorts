@@ -140,6 +140,8 @@ New entries (append after each generated classic parable):
 - classic_096: "He rowed until the light went, and the shore stayed where it was." (T05)
 - classic_097: "He held the cup in both hands and tried to think what to call it." (T20)
 - classic_098: "She set the table, and the spoon lay beside the plate, unnamed." (T12)
+- classic_099: "The dream had only gotten there first." (T03)
+- classic_100: "He greeted his neighbor, and the list was light enough to carry." (T19)
 
 ## Voice selection
 

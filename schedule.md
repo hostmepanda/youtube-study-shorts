@@ -353,6 +353,14 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-13 | 14:30 | 21:30 | motivational short | You think you must live there first | [link](https://youtube.com/shorts/Z2cEP-x53oE) | [yaml](formats/short-motivation/configs/archive/short_20261104_080230.yaml) |
 | 2026-11-13 | 12:00 | 19:00 | classic parable | The word for spoon was gone. | [link](https://youtube.com/watch?v=QUk1G86YWzM) | [yaml](formats/parable-classic/configs/archive/classic_20261104_080454.yaml) |
 | 2026-11-13 | 18:00 | 01:00+1 | animal parable | She balanced a ball to find her words. | [link](https://youtube.com/watch?v=YwhOq9kZpq0) | [yaml](formats/parable-animal/configs/archive/animal_20261104_080754.yaml) |
+| 2026-11-14 | 08:30 | 15:30 | motivational short | You think you need a quiet room | [link](https://youtube.com/shorts/AiDO2PPVWjQ) | [yaml](formats/short-motivation/configs/archive/short_20261108_082950.yaml) |
+| 2026-11-14 | 14:30 | 21:30 | motivational short | You think natives get impatient | [link](https://youtube.com/shorts/IeZr6OEQQiw) | [yaml](formats/short-motivation/configs/archive/short_20261108_083017.yaml) |
+| 2026-11-14 | 12:00 | 19:00 | classic parable | The night it stopped feeling foreign. | [link](https://youtube.com/watch?v=FFXI5FmPUEw) | [yaml](formats/parable-classic/configs/archive/classic_20261108_083125.yaml) |
+| 2026-11-14 | 18:00 | 01:00+1 | animal parable | He climbed for a word on the ground. | [link](https://youtube.com/watch?v=PdwnVZRaBiM) | [yaml](formats/parable-animal/configs/archive/animal_20261108_083332.yaml) |
+| 2026-11-15 | 08:30 | 15:30 | motivational short | You think ten minutes is too little | [link](https://youtube.com/shorts/SaHyYnLNej0) | [yaml](formats/short-motivation/configs/archive/short_20261108_083040.yaml) |
+| 2026-11-15 | 14:30 | 21:30 | motivational short | You think you sound rude in German | [link](https://youtube.com/shorts/hcrOoyE0-aY) | [yaml](formats/short-motivation/configs/archive/short_20261108_083100.yaml) |
+| 2026-11-15 | 12:00 | 19:00 | classic parable | Not every language has to be yours. | [link](https://youtube.com/watch?v=Ke5CIqXR-rI) | [yaml](formats/parable-classic/configs/archive/classic_20261108_083229.yaml) |
+| 2026-11-15 | 18:00 | 01:00+1 | animal parable | Her hump ran dry before noon. | [link](https://youtube.com/watch?v=sN_zfz0L5XA) | [yaml](formats/parable-animal/configs/archive/animal_20261108_083536.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
