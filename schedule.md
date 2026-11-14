@@ -361,6 +361,28 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-15 | 14:30 | 21:30 | motivational short | You think you sound rude in German | [link](https://youtube.com/shorts/hcrOoyE0-aY) | [yaml](formats/short-motivation/configs/archive/short_20261108_083100.yaml) |
 | 2026-11-15 | 12:00 | 19:00 | classic parable | Not every language has to be yours. | [link](https://youtube.com/watch?v=Ke5CIqXR-rI) | [yaml](formats/parable-classic/configs/archive/classic_20261108_083229.yaml) |
 | 2026-11-15 | 18:00 | 01:00+1 | animal parable | Her hump ran dry before noon. | [link](https://youtube.com/watch?v=sN_zfz0L5XA) | [yaml](formats/parable-animal/configs/archive/animal_20261108_083536.yaml) |
+| 2026-11-11 | 20:30 | 03:30+1 | series episode | Embarazado does NOT mean embarrassed | Hoot & Pip (Span… | [link](https://youtube.com/watch?v=3JDJdQksIVk) | [yaml](formats/series-hoot-pip/configs/archive/ep_001_repost.yaml) |
+| 2026-11-12 | 20:30 | 03:30+1 | series episode | Don't say "Vous tirez ma jambe" | Hoot & Pip (French) | [link](https://youtube.com/watch?v=emVQ0dFeM-8) | [yaml](formats/series-hoot-pip/configs/archive/ep_002_repost.yaml) |
+| 2026-11-16 | 08:30 | 15:30 | motivational short | You think flashcards are enough | [link](https://youtube.com/shorts/eseGhimhFso) | [yaml](formats/short-motivation/configs/archive/short_20261112_231924.yaml) |
+| 2026-11-16 | 14:30 | 21:30 | motivational short | You think your accent will embarrass you | [link](https://youtube.com/shorts/bXzaBUb4udM) | [yaml](formats/short-motivation/configs/archive/short_20261112_231947.yaml) |
+| 2026-11-16 | 12:00 | 19:00 | classic parable | Your accent is not a mistake. | [link](https://youtube.com/watch?v=xLuPejG7rdQ) | [yaml](formats/parable-classic/configs/archive/classic_20261112_232452.yaml) |
+| 2026-11-16 | 18:00 | 01:00+1 | animal parable | He built a bridge over a puddle. | [link](https://youtube.com/watch?v=PeagFhkdk34) | [yaml](formats/parable-animal/configs/archive/animal_20261112_233124.yaml) |
+| 2026-11-17 | 08:30 | 15:30 | motivational short | You think you've forgotten it all | [link](https://youtube.com/shorts/rpMU-vsGW3c) | [yaml](formats/short-motivation/configs/archive/short_20261112_232009.yaml) |
+| 2026-11-17 | 14:30 | 21:30 | motivational short | You think you need a perfect teacher | [link](https://youtube.com/shorts/bMehfAw68ew) | [yaml](formats/short-motivation/configs/archive/short_20261112_232040.yaml) |
+| 2026-11-17 | 12:00 | 19:00 | classic parable | Nothing showed for three years. | [link](https://youtube.com/watch?v=9OPyBjRVaus) | [yaml](formats/parable-classic/configs/archive/classic_20261112_232553.yaml) |
+| 2026-11-17 | 18:00 | 01:00+1 | animal parable | She laughed first so nobody else could. | [link](https://youtube.com/watch?v=ypWn8SKEMiE) | [yaml](formats/parable-animal/configs/archive/animal_20261112_233228.yaml) |
+| 2026-11-18 | 08:30 | 15:30 | motivational short | You think reading isn't speaking practice | [link](https://youtube.com/shorts/-wfroYEwo1A) | [yaml](formats/short-motivation/configs/archive/short_20261112_232101.yaml) |
+| 2026-11-18 | 14:30 | 21:30 | motivational short | You think you're too shy for this | [link](https://youtube.com/shorts/6Q4ly8jkWOM) | [yaml](formats/short-motivation/configs/archive/short_20261112_232123.yaml) |
+| 2026-11-18 | 12:00 | 19:00 | classic parable | He was funnier in Spanish. | [link](https://youtube.com/watch?v=B5EiJlSlbkQ) | [yaml](formats/parable-classic/configs/archive/classic_20261112_232646.yaml) |
+| 2026-11-18 | 18:00 | 01:00+1 | animal parable | Her pouch was full of almost-said words. | [link](https://youtube.com/watch?v=s05n3LQktlU) | [yaml](formats/parable-animal/configs/archive/animal_20261112_233337.yaml) |
+| 2026-11-19 | 08:30 | 15:30 | motivational short | You think no progress means no growth | [link](https://youtube.com/shorts/H-ptm2qPuBo) | [yaml](formats/short-motivation/configs/archive/short_20261112_232143.yaml) |
+| 2026-11-19 | 14:30 | 21:30 | motivational short | You think two weeks isn't enough | [link](https://youtube.com/shorts/bL-5ERHFF5E) | [yaml](formats/short-motivation/configs/archive/short_20261112_232205.yaml) |
+| 2026-11-19 | 12:00 | 19:00 | classic parable | The morning the wanting stopped. | [link](https://youtube.com/watch?v=FkljAMmGby8) | [yaml](formats/parable-classic/configs/archive/classic_20261112_232735.yaml) |
+| 2026-11-19 | 18:00 | 01:00+1 | animal parable | He only spoke in the dark. | [link](https://youtube.com/watch?v=0JzPuG2guIw) | [yaml](formats/parable-animal/configs/archive/animal_20261112_233444.yaml) |
+| 2026-11-20 | 08:30 | 15:30 | motivational short | You think nobody wants to talk to you | [link](https://youtube.com/shorts/p78phpn5aak) | [yaml](formats/short-motivation/configs/archive/short_20261112_232229.yaml) |
+| 2026-11-20 | 14:30 | 21:30 | motivational short | You think background listening is wasted | [link](https://youtube.com/shorts/YhWERMFpVt4) | [yaml](formats/short-motivation/configs/archive/short_20261112_232250.yaml) |
+| 2026-11-20 | 12:00 | 19:00 | classic parable | She learned it for one person. | [link](https://youtube.com/watch?v=eTiOFuhsnEk) | [yaml](formats/parable-classic/configs/archive/classic_20261112_232826.yaml) |
+| 2026-11-20 | 18:00 | 01:00+1 | animal parable | He refused to speak in grey. | [link](https://youtube.com/watch?v=B5qvc7oYyEs) | [yaml](formats/parable-animal/configs/archive/animal_20261112_233553.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

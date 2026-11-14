@@ -142,6 +142,13 @@ New entries (append after each generated classic parable):
 - classic_098: "She set the table, and the spoon lay beside the plate, unnamed." (T12)
 - classic_099: "The dream had only gotten there first." (T03)
 - classic_100: "He greeted his neighbor, and the list was light enough to carry." (T19)
+- classic_101: "She filled her bucket and said thank you in her own voice." (T16)
+- classic_102: "Growing the whole time, said the old man. Just underneath." (T13)
+- classic_103: "There you are, she said." (T01)
+- classic_104: "Somewhere along it, he stopped checking whether he wanted to." (T07)
+- classic_105: "She had learned it for one person. It fit the whole island." (T11)
+- classic_106: "At school she answered in English and hummed in Polish, and nobody asked her to choose." (T04)
+- classic_107: "By midnight he could say it, and still could not write it down." (T09)
 
 ## Voice selection
 

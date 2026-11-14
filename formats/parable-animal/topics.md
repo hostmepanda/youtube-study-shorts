@@ -88,6 +88,13 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_110 | seal, penguin | balances a red ball on her nose to speak | restarting a sentence eleven times |
 | animal_111 | fox, lamb | carries a folding ladder to climb for the high word | the plain word lying by his feet |
 | animal_112 | camel, goat | hump filled with words every night, speaks only while full | the eleven words that were still there in the morning |
+| animal_113 | ox, finch | lays a plank bridge over a one-hoof-deep stream | preparing to cross something that is one step |
+| animal_114 | hyena, stork | laughs at her own mistakes first | the laugh that slams a door vs. waiting one breath |
+| animal_115 | llama, mouse | pouch of almost-said words | an old good morning is still good morning |
+| animal_116 | mole, firefly | speaks only after dark | faces lit and already smiling |
+| animal_117 | zebra, hen | speaks only in perfect black or silent white | grey as a legitimate answer: "noon-ish" |
+| animal_118 | snail, stag | polishes one greeting on her shell for a year | a slow hello worth sitting down for |
+| animal_119 | rooster, duck | crows his practice from the roof every dawn | talking at the valley vs. listening to one duck |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection
