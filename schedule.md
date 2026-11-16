@@ -383,6 +383,15 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-20 | 14:30 | 21:30 | motivational short | You think background listening is wasted | [link](https://youtube.com/shorts/YhWERMFpVt4) | [yaml](formats/short-motivation/configs/archive/short_20261112_232250.yaml) |
 | 2026-11-20 | 12:00 | 19:00 | classic parable | She learned it for one person. | [link](https://youtube.com/watch?v=eTiOFuhsnEk) | [yaml](formats/parable-classic/configs/archive/classic_20261112_232826.yaml) |
 | 2026-11-20 | 18:00 | 01:00+1 | animal parable | He refused to speak in grey. | [link](https://youtube.com/watch?v=B5qvc7oYyEs) | [yaml](formats/parable-animal/configs/archive/animal_20261112_233553.yaml) |
+| 2026-11-17 | 20:30 | 03:30+1 | series-cup | Actuellement does NOT mean actually | The Cup Hears (Fr… | [link](https://youtube.com/watch?v=H2UNGrExhuI) | [yaml](formats/series-cup/configs/archive/cup_001.yaml) |
+| 2026-11-21 | 08:30 | 15:30 | motivational short | You think you can't help anyone yet | [link](https://youtube.com/shorts/tD4lPNVkqqM) | [yaml](formats/short-motivation/configs/archive/short_20261112_232312.yaml) |
+| 2026-11-21 | 14:30 | 21:30 | motivational short | You think the streak is the point | [link](https://youtube.com/shorts/_LQ5PgXJb5I) | [yaml](formats/short-motivation/configs/archive/short_20261112_232334.yaml) |
+| 2026-11-21 | 12:00 | 19:00 | classic parable | She had two names for everything. | [link](https://youtube.com/watch?v=wfrWz0IeTug) | [yaml](formats/parable-classic/configs/archive/classic_20261112_232931.yaml) |
+| 2026-11-21 | 18:00 | 01:00+1 | animal parable | She took a year to say hello. | [link](https://youtube.com/watch?v=c2YuR6sUk7M) | [yaml](formats/parable-animal/configs/archive/animal_20261112_233655.yaml) |
+| 2026-11-22 | 08:30 | 15:30 | motivational short | You think you need a perfect schedule | [link](https://youtube.com/shorts/juaAdVKoS_0) | [yaml](formats/short-motivation/configs/archive/short_20261112_232357.yaml) |
+| 2026-11-22 | 14:30 | 21:30 | motivational short | You think they'll switch to English | [link](https://youtube.com/shorts/Z9CEG_kqi_Y) | [yaml](formats/short-motivation/configs/archive/short_20261112_232428.yaml) |
+| 2026-11-22 | 12:00 | 19:00 | classic parable | There was no word for it. | [link](https://youtube.com/watch?v=hyLx8Zppo4M) | [yaml](formats/parable-classic/configs/archive/classic_20261112_233025.yaml) |
+| 2026-11-22 | 18:00 | 01:00+1 | animal parable | He spoke to everyone and heard no one. | [link](https://youtube.com/watch?v=ePmENmVyWto) | [yaml](formats/parable-animal/configs/archive/animal_20261112_233804.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

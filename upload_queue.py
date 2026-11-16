@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Upload everything in formats/<format>/configs/waiting_upload/ into the fixed daily ET slots.
 
-Usage: python3 upload_queue.py <short-motivation|parable-classic|parable-animal|series-hoot-pip> <YYYY-MM-DD> [slot_index]
+Usage: python3 upload_queue.py <short-motivation|parable-classic|parable-animal|series-hoot-pip|series-cup> <YYYY-MM-DD> [slot_index]
 Start day and slot (0-based, default 0) of the first queued video; videos go in sorted-filename order.
 Safe to re-run after a quota error: uploaded yamls move to archive/, the rest stay queued,
 so pass the day/slot of the first still-queued video.
@@ -22,6 +22,7 @@ SLOTS = {
     "parable-classic": [(12, 0)],
     "parable-animal": [(18, 0)],
     "series-hoot-pip": [(20, 30)],
+    "series-cup": [(20, 30)],
 }
 
 if len(sys.argv) not in (3, 4) or sys.argv[1] not in SLOTS:
