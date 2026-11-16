@@ -122,6 +122,16 @@ Still open: ideas #2 (seed first comments via API), #3 (lean further into humor 
 
 ---
 
+## 2026-11-16 — Subscribers stuck at 8: no format converts, 0.5 per 1000 views holds everywhere
+
+**Finding:** YouTube Analytics API (`youtubeAnalytics` v2, per-video `subscribersGained`, 2026-05-01..2026-11-22, top 200 videos by gains). Channel total: 18,313 views, +9 gained, −1 lost. Only 5 of 199 videos gained anyone: one animal parable (`FLvWT4_pBjI`, 258 views) gave 4; four shorts gave 1 each. Per format: parable-animal 4 per 2,692 views (1.49/1k), short-motivation 4 per 4,206 (0.95/1k), parable-classic 0 per 1,585, long-monologue 0 per 9. Hoot & Pip: only the re-uploaded copy remained (2 views, 0 gained). Audience (Studio, all time): 25-34 = 47% of views, 35-44 = 42%, 65+ = 10% of views but 59% of watch time (likely a few long watchers), gender 50/50.
+
+**Conclusion:** Conversion is ~0.5 subs per 1000 views for every format; the format gaps (1.49 vs 0.95 per 1k) rest on 4 subs each and are noise. The 4 subs on one parable show subscribing is possible but not why. It does NOT show that classic parables are worse in kind (0 of 1,585 views is a small sample) nor that the audience is wrong. The 65+ watch-time share is not a segment to target.
+
+**Decision / how to apply:** No format change from this alone. "The Cup Hears" pilot (`cup_001`, 2026-11-17 20:30 ET, no playlist) and Hoot & Pip are the subscriber experiments; compare subs per 1k views after ~7-10 days against the 0.5 baseline. Next: read the text/outro of `FLvWT4_pBjI` for what differed, replace the generic outro ("Subscribe to follow") in the series with a concrete promise, and consider shifting classic-parable slots to the series (breaks the 4/day floor; needs the user's explicit OK).
+
+---
+
 ## Template for new entries
 
 ```
