@@ -95,6 +95,12 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_117 | zebra, hen | speaks only in perfect black or silent white | grey as a legitimate answer: "noon-ish" |
 | animal_118 | snail, stag | polishes one greeting on her shell for a year | a slow hello worth sitting down for |
 | animal_119 | rooster, duck | crows his practice from the roof every dawn | talking at the valley vs. listening to one duck |
+| animal_120 | giraffe, ant | rehearses her hello at treetop height | the conversation happening at ground level |
+| animal_121 | kangaroo, mouse | boxing gloves for a greeting | preparing for a fight that was a handshake |
+| animal_122 | koala, magpie | tape under the pillow to learn in his sleep | the tape speaks, you listen: not the same |
+| animal_123 | elephant, bee | wheelbarrow diary of every mistake | a very large book for a very small audience |
+| animal_124 | wombat, cricket | digs a tunnel to say hello | the path was three days sooner |
+| animal_125 | lynx, hare | watches conversations from a branch | rhythm is down in the grass, up there it's only a view |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection

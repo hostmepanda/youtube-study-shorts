@@ -149,6 +149,12 @@ New entries (append after each generated classic parable):
 - classic_105: "She had learned it for one person. It fit the whole island." (T11)
 - classic_106: "At school she answered in English and hummed in Polish, and nobody asked her to choose." (T04)
 - classic_107: "By midnight he could say it, and still could not write it down." (T09)
+- classic_108: "That evening she took the sign down and used its board as a tray." (T06)
+- classic_109: "\"Good,\" she said, in the one word of his language she had kept for him all these years." (T10)
+- classic_110: "He laughed with them, one beat late and entirely right." (T14)
+- classic_111: "Halfway across the river, the young man began telling him about the fish." (T17)
+- classic_112: "Neither of them said anything in any language. She took it." (T20)
+- classic_113: "She picked up the shuttle and wove one more row." (T08)
 
 ## Voice selection
 

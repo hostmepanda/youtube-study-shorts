@@ -392,6 +392,16 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-22 | 14:30 | 21:30 | motivational short | You think they'll switch to English | [link](https://youtube.com/shorts/Z9CEG_kqi_Y) | [yaml](formats/short-motivation/configs/archive/short_20261112_232428.yaml) |
 | 2026-11-22 | 12:00 | 19:00 | classic parable | There was no word for it. | [link](https://youtube.com/watch?v=hyLx8Zppo4M) | [yaml](formats/parable-classic/configs/archive/classic_20261112_233025.yaml) |
 | 2026-11-22 | 18:00 | 01:00+1 | animal parable | He spoke to everyone and heard no one. | [link](https://youtube.com/watch?v=ePmENmVyWto) | [yaml](formats/parable-animal/configs/archive/animal_20261112_233804.yaml) |
+| 2026-11-23 | 08:30 | 15:30 | motivational short | You think you need a tutor first | [link](https://youtube.com/shorts/gKsv2hiYlko) | [yaml](formats/short-motivation/configs/archive/short_20261120_065019.yaml) |
+| 2026-11-23 | 14:30 | 21:30 | motivational short | You think the app knows your level | [link](https://youtube.com/shorts/alqzlG_dmfQ) | [yaml](formats/short-motivation/configs/archive/short_20261120_065045.yaml) |
+| 2026-11-23 | 12:00 | 19:00 | classic parable | Ten years in. Still a beginner? | [link](https://youtube.com/watch?v=aWXuomJ7pCY) | [yaml](formats/parable-classic/configs/archive/classic_20261120_065022.yaml) |
+| 2026-11-23 | 18:00 | 01:00+1 | animal parable | She practiced her hello at treetop height. | [link](https://youtube.com/watch?v=Eyd6hd_axV4) | [yaml](formats/parable-animal/configs/archive/animal_20261120_065021.yaml) |
+| 2026-11-24 | 08:30 | 15:30 | motivational short | You think you're too old for this | [link](https://youtube.com/shorts/gGEFR84Ytok) | [yaml](formats/short-motivation/configs/archive/short_20261120_065122.yaml) |
+| 2026-11-24 | 14:30 | 21:30 | motivational short | You think your diary is enough | [link](https://youtube.com/shorts/aOqNeuPX_64) | [yaml](formats/short-motivation/configs/archive/short_20261120_065202.yaml) |
+| 2026-11-24 | 12:00 | 19:00 | classic parable | What do you say to a grandmother? | [link](https://youtube.com/watch?v=RBFvTh5ElcQ) | [yaml](formats/parable-classic/configs/archive/classic_20261120_065225.yaml) |
+| 2026-11-24 | 18:00 | 01:00+1 | animal parable | He wore boxing gloves to say hello. | [link](https://youtube.com/watch?v=MNfLtjRbeSk) | [yaml](formats/parable-animal/configs/archive/animal_20261120_065220.yaml) |
+| 2026-11-25 | 08:30 | 15:30 | motivational short | You think your mistakes bother people | [link](https://youtube.com/shorts/9aLFPG_5wkI) | [yaml](formats/short-motivation/configs/archive/short_20261120_065224.yaml) |
+| 2026-11-25 | 14:30 | 21:30 | motivational short | You think a vacation is too short | [link](https://youtube.com/shorts/p6vmYCXw7SY) | [yaml](formats/short-motivation/configs/archive/short_20261120_065246.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
