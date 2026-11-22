@@ -402,6 +402,17 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-24 | 18:00 | 01:00+1 | animal parable | He wore boxing gloves to say hello. | [link](https://youtube.com/watch?v=MNfLtjRbeSk) | [yaml](formats/parable-animal/configs/archive/animal_20261120_065220.yaml) |
 | 2026-11-25 | 08:30 | 15:30 | motivational short | You think your mistakes bother people | [link](https://youtube.com/shorts/9aLFPG_5wkI) | [yaml](formats/short-motivation/configs/archive/short_20261120_065224.yaml) |
 | 2026-11-25 | 14:30 | 21:30 | motivational short | You think a vacation is too short | [link](https://youtube.com/shorts/p6vmYCXw7SY) | [yaml](formats/short-motivation/configs/archive/short_20261120_065246.yaml) |
+| 2026-11-25 | 12:00 | 19:00 | classic parable | Seventy, and he wanted to understand one joke. | [link](https://youtube.com/watch?v=pMWRTJgBmeI) | [yaml](formats/parable-classic/configs/archive/classic_20261120_065444.yaml) |
+| 2026-11-25 | 18:00 | 01:00+1 | animal parable | He tried to learn it in his sleep. | [link](https://youtube.com/watch?v=S9oyVhGYIB8) | [yaml](formats/parable-animal/configs/archive/animal_20261120_065442.yaml) |
+| 2026-11-26 | 08:30 | 15:30 | motivational short | You think you need free hours | [link](https://youtube.com/shorts/8VyVLf1DpYw) | [yaml](formats/short-motivation/configs/archive/short_20261120_065325.yaml) |
+| 2026-11-26 | 14:30 | 21:30 | motivational short | You think rolling your R is genetic | [link](https://youtube.com/shorts/2XQvXvgzkFQ) | [yaml](formats/short-motivation/configs/archive/short_20261120_065406.yaml) |
+| 2026-11-26 | 12:00 | 19:00 | classic parable | He understood everything. He said nothing. | [link](https://youtube.com/watch?v=3jnXycNk0jk) | [yaml](formats/parable-classic/configs/archive/classic_20261120_065720.yaml) |
+| 2026-11-26 | 18:00 | 01:00+1 | animal parable | He never forgets. That was the problem. | [link](https://youtube.com/watch?v=GF7Y12acm0c) | [yaml](formats/parable-animal/configs/archive/animal_20261120_065729.yaml) |
+| 2026-11-27 | 08:30 | 15:30 | motivational short | You think nobody notices your effort | [link](https://youtube.com/shorts/EQfaEEN8ov8) | [yaml](formats/short-motivation/configs/archive/short_20261120_065435.yaml) |
+| 2026-11-27 | 14:30 | 21:30 | motivational short | You think a plateau means you're stuck | [link](https://youtube.com/shorts/K4d3-J3iCyk) | [yaml](formats/short-motivation/configs/archive/short_20261120_065456.yaml) |
+| 2026-11-27 | 12:00 | 19:00 | classic parable | She could greet anyone, in nine languages. | [link](https://youtube.com/watch?v=K3Mjh1LOPXc) | [yaml](formats/parable-classic/configs/archive/classic_20261120_065937.yaml) |
+| 2026-11-27 | 18:00 | 01:00+1 | animal parable | He took the tunnel to say hello. | [link](https://youtube.com/watch?v=NDL635RmZQM) | [yaml](formats/parable-animal/configs/archive/animal_20261120_065933.yaml) |
+| 2026-11-23 | 20:30 | 03:30+1 | series-cup | Sono caldo does NOT mean I'm hot | The Cup Hears (Itali… | [link](https://youtube.com/watch?v=_2PdyhAhHqg) | [yaml](formats/series-cup/configs/archive/cup_002.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload
