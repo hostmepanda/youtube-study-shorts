@@ -155,6 +155,10 @@ New entries (append after each generated classic parable):
 - classic_111: "Halfway across the river, the young man began telling him about the fish." (T17)
 - classic_112: "Neither of them said anything in any language. She took it." (T20)
 - classic_113: "She picked up the shuttle and wove one more row." (T08)
+- classic_114: "By autumn the whole market sold angry melons, and his stall was the busiest." (T18)
+- classic_115: "The cook set down a bowl, as though it were an ordinary morning, and it was." (T03)
+- classic_116: "She put the plants on the windowsill, and read one more page." (T15)
+- classic_117: "He took the oar again, and watched the reeds slide by." (T05)
 
 ## Voice selection
 

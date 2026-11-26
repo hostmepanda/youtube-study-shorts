@@ -413,6 +413,26 @@ All times: **ET** = US Eastern, **HEL** = Helsinki (EEST, UTC+3 in summer / EET,
 | 2026-11-27 | 12:00 | 19:00 | classic parable | She could greet anyone, in nine languages. | [link](https://youtube.com/watch?v=K3Mjh1LOPXc) | [yaml](formats/parable-classic/configs/archive/classic_20261120_065937.yaml) |
 | 2026-11-27 | 18:00 | 01:00+1 | animal parable | He took the tunnel to say hello. | [link](https://youtube.com/watch?v=NDL635RmZQM) | [yaml](formats/parable-animal/configs/archive/animal_20261120_065933.yaml) |
 | 2026-11-23 | 20:30 | 03:30+1 | series-cup | Sono caldo does NOT mean I'm hot | The Cup Hears (Itali… | [link](https://youtube.com/watch?v=_2PdyhAhHqg) | [yaml](formats/series-cup/configs/archive/cup_002.yaml) |
+| 2026-11-28 | 08:30 | 15:30 | motivational short | You think a perfect tutor changes everything | [link](https://youtube.com/shorts/ybaswKQj94w) | [yaml](formats/short-motivation/configs/archive/short_20261120_065525.yaml) |
+| 2026-11-28 | 14:30 | 21:30 | motivational short | You think English keeps getting in the way | [link](https://youtube.com/shorts/UBoKxc7QOuU) | [yaml](formats/short-motivation/configs/archive/short_20261120_065619.yaml) |
+| 2026-11-28 | 12:00 | 19:00 | classic parable | Too tired to quit. Too far to stop. | [link](https://youtube.com/watch?v=UjE5Ij_I4FY) | [yaml](formats/parable-classic/configs/archive/classic_20261120_070203.yaml) |
+| 2026-11-28 | 18:00 | 01:00+1 | animal parable | She watched every conversation from a branch. | [link](https://youtube.com/watch?v=7jcnijWpjU0) | [yaml](formats/parable-animal/configs/archive/animal_20261120_070206.yaml) |
+| 2026-11-29 | 08:30 | 15:30 | motivational short | You think kids' shows are for kids | [link](https://youtube.com/shorts/Q1eo3yrsmD8) | [yaml](formats/short-motivation/configs/archive/short_20261122_174132.yaml) |
+| 2026-11-29 | 14:30 | 21:30 | motivational short | You think karaoke is a distraction | [link](https://youtube.com/shorts/JgLcVC630sE) | [yaml](formats/short-motivation/configs/archive/short_20261122_174212.yaml) |
+| 2026-11-29 | 12:00 | 19:00 | classic parable | Someone laughed. What did it mean? | [link](https://youtube.com/watch?v=khMyYnOmGLs) | [yaml](formats/parable-classic/configs/archive/classic_20261122_174142.yaml) |
+| 2026-11-29 | 18:00 | 01:00+1 | animal parable | Dinner waited while he sorted the grammar. | [link](https://youtube.com/watch?v=Ql8O44hS84E) | [yaml](formats/parable-animal/configs/archive/animal_20261122_174143.yaml) |
+| 2026-11-30 | 08:30 | 15:30 | motivational short | You think you must read the menu perfectly | [link](https://youtube.com/shorts/CtTmEY3b25w) | [yaml](formats/short-motivation/configs/archive/short_20261122_174249.yaml) |
+| 2026-11-30 | 14:30 | 21:30 | motivational short | You think switching your phone is silly | [link](https://youtube.com/shorts/-DrpK8yJ0CY) | [yaml](formats/short-motivation/configs/archive/short_20261122_174323.yaml) |
+| 2026-11-30 | 12:00 | 19:00 | classic parable | The night it stopped feeling foreign. | [link](https://youtube.com/watch?v=Uf7Du6rpFSo) | [yaml](formats/parable-classic/configs/archive/classic_20261122_174353.yaml) |
+| 2026-11-30 | 18:00 | 01:00+1 | animal parable | She would speak when perfectly balanced. | [link](https://youtube.com/watch?v=dWKVO1n10nY) | [yaml](formats/parable-animal/configs/archive/animal_20261122_174357.yaml) |
+| 2026-12-01 | 08:30 | 15:30 | motivational short | You think you need a big vocabulary | [link](https://youtube.com/shorts/2-G7JJf1vxY) | [yaml](formats/short-motivation/configs/archive/short_20261122_174348.yaml) |
+| 2026-12-01 | 14:30 | 21:30 | motivational short | You think a recipe is a boring lesson | [link](https://youtube.com/shorts/MPXY429a5Dk) | [yaml](formats/short-motivation/configs/archive/short_20261122_174410.yaml) |
+| 2026-12-01 | 12:00 | 19:00 | classic parable | She quit for five years. Then what? | [link](https://youtube.com/watch?v=w6x6DuhAauk) | [yaml](formats/parable-classic/configs/archive/classic_20261122_174556.yaml) |
+| 2026-12-01 | 18:00 | 01:00+1 | animal parable | Every morning, the tide erased his hello. | [link](https://youtube.com/watch?v=B9AzrjiUt18) | [yaml](formats/parable-animal/configs/archive/animal_20261122_174550.yaml) |
+| 2026-12-02 | 08:30 | 15:30 | motivational short | You think they're in a hurry | [link](https://youtube.com/shorts/BjmK8EOXvhk) | [yaml](formats/short-motivation/configs/archive/short_20261122_174445.yaml) |
+| 2026-12-02 | 14:30 | 21:30 | motivational short | You think thank you is too small | [link](https://youtube.com/shorts/3nErproUERY) | [yaml](formats/short-motivation/configs/archive/short_20261122_174521.yaml) |
+| 2026-12-02 | 12:00 | 19:00 | classic parable | What if progress just... stopped? | [link](https://youtube.com/watch?v=jAD6ebsX7rE) | [yaml](formats/parable-classic/configs/archive/classic_20261122_174729.yaml) |
+| 2026-12-02 | 18:00 | 01:00+1 | animal parable | He only spoke when someone whispered first. | [link](https://youtube.com/watch?v=Uwl6bTM9Wuo) | [yaml](formats/parable-animal/configs/archive/animal_20261122_174727.yaml) |
 ## Notes
 
 - Jun 30 videos published immediately — scheduled time was in the past at upload

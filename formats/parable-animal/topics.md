@@ -101,6 +101,10 @@ bear, horse, fox, crow, turtle, owl, pigeon, cat, goat, hedgehog, rabbit, duck, 
 | animal_123 | elephant, bee | wheelbarrow diary of every mistake | a very large book for a very small audience |
 | animal_124 | wombat, cricket | digs a tunnel to say hello | the path was three days sooner |
 | animal_125 | lynx, hare | watches conversations from a branch | rhythm is down in the grass, up there it's only a view |
+| animal_126 | panda, crane | sorts bamboo into piles by verb tense | organizing grammar while dinner waits |
+| animal_127 | flamingo, toad | waits until perfectly balanced on one leg | speaking crooked beats waiting to be still |
+| animal_128 | walrus, gull | writes his hello in the sand, the tide erases it | rehearsing in writing vs. saying it out loud |
+| animal_129 | hippo, gecko | a gecko on his ear whispers each next word | prompted speech vs. the word you already had |
 New entries go above this line, oldest first. Legacy IDs (parable_05x) predate this restructure and live in `output/texts/` — listed here for dedup context only, not moved.
 
 ## Voice selection
